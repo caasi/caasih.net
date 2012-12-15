@@ -10,13 +10,20 @@
       images: [
         { id: "far_buildings", url: "./img/far_buildings.png" },
         { id: "buildings", url: "./img/buildings.png" },
-        { id: "villain", url: "./img/villain.png" }
+        { id: "villain", url: "./img/villain.png" },
+        { id: "detective", url: "./img/detective.png" }
       ]
     },
     level: {
+      score: "0000",
+      best_distance: 20,
       villain: {
+        x: 30,
+        y: 42
+      },
+      detective: {
         x: 60,
-        y: 40
+        y: 42
       }
     }
   };
@@ -64,9 +71,18 @@
       right: false,
       down: false
     };
-    /* Actors */
+    /* Background */
     var far_buildings = new CAAT.Actor().setBackgroundImage("far_buildings");
     var buildings = new CAAT.Actor().setBackgroundImage("buildings");
+    /* UI */
+    var scoreboard = new CAAT.TextActor().
+      setText(config.level.score).
+      setTextAlign("center").
+      setFont("10px monospace").
+      cacheAsBitmap();
+    scoreboard.setLocation(config.video.width / 2, 1);
+    scoreboard.score = 0;
+    /* Characters */
     var villain = new CAAT.Actor().
       setBackgroundImage("villain").
       setLocation(config.level.villain.x, config.level.villain.y);
@@ -75,6 +91,10 @@
     villain.vY = 0;
     villain.aX = 0;
     villain.aY = .5;
+    var detective = new CAAT.Actor().
+      setBackgroundImage("detective").
+      setLocation(config.level.detective.x, config.level.detective.y);
+    detective.angle = 0;
 
     var initLevel = function() {
       far_buildings.setLocation(config.video.width - far_buildings.width, 0);
@@ -87,7 +107,9 @@
 
     scene.addChild(far_buildings);
     scene.addChild(buildings);
+    scene.addChild(scoreboard);
     scene.addChild(villain);
+    scene.addChild(detective);
 
     CAAT.registerKeyListener(function(e) {
       if (e.keyCode < 37 || e.keyCode > 40) return;
@@ -95,7 +117,8 @@
     });
 
     director.onRenderStart = function() {
-      var dampingX = .1;
+      var new_score;
+      var dampingX = .2;
 
       // update world
       if (buildings.x < 0) {
@@ -103,7 +126,10 @@
         buildings.x += 1;
       }
 
-      // update character
+      /* update detective */
+      detective.x = config.level.detective.x + 5 * Math.cos(detective.angle * Math.PI / 180);
+      detective.angle++;
+      /* update villain */
       if (control.left) villain.vX = -1;
       if (control.right) villain.vX = 1;
       if (!control.prev.up && control.up && !villain.jumping) {
@@ -137,6 +163,24 @@
             villain.vX -= dampingX;
           }
         }
+      }
+
+      if (buildings.x < 0) {
+        new_score = Math.abs((detective.x - villain.x) - config.level.best_distance);
+        if (new_score > 20) {
+          new_score = 0;
+        } else if (new_score > 10) {
+          new_score = .1;
+        } else if (new_score > 5) {
+          new_score = 15;
+        }
+        scoreboard.score += new_score;
+        new_score = scoreboard.score;
+        new_score = (~~new_score).toString();
+        while (new_score.length < config.level.score.length) {
+          new_score = "0" + new_score;
+        }
+        scoreboard.setText(new_score).cacheAsBitmap();
       }
 
       control.prev.left = control.left;
