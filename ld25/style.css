@@ -1,0 +1,20 @@
+body {
+  background: #101010;
+}
+
+#wrap {
+  width: 640px;
+  margin: 0 auto;
+}
+
+#game {
+  /*
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast;
+  -ms-interpolation-mode: nearest-neighbor;
+  width: 640px;
+  height: 480px;
+  */
+}
