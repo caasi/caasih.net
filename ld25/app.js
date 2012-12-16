@@ -18,9 +18,12 @@
     level: {
       score: "0000",
       best_distance: 20,
+      g: .05,
       villain: {
         x: 30,
-        y: 42
+        y: 42,
+        jump: 1.1,
+        dash: .5
       },
       detective: {
         x: 60,
@@ -61,12 +64,6 @@
       40: "down"
     };
     var control = {
-      prev: {
-        left: false,
-        up: false,
-        right: false,
-        down: false
-      },
       left: false,
       up: false,
       right: false,
@@ -93,18 +90,15 @@
     scoreboard.score = 0;
     /* Characters */
     var villain = (function init_villain() {
-      var dampingX = .2;
-
       /* init character with CAAT's Actor */
       var character = new CAAT.Actor().
         setBackgroundImage(
           new CAAT.SpriteImage().
-            initialize(director.getImage("villain"), 2, 4)
+            initialize(director.getImage("villain"), 2, 6)
         ).
-        addAnimation("still", [0], 133.3).
-        addAnimation("walk", [0, 1, 2], 133.3).
-        addAnimation("float", [3, 4], 133.3).
-        addAnimation("jump", [5], 133.3).
+        addAnimation("walk", [0, 1, 2, 3, 4, 5], 33.3).
+        addAnimation("float", [6, 7], 133.3).
+        addAnimation("jump", [8], 133.3).
         playAnimation("walk").
         setLocation(config.level.villain.x, config.level.villain.y);
 
@@ -116,18 +110,21 @@
       character.update = function(control) {
         var f, v;
 
-        this.forces.push({x: 0, y: .25});
+        /* gravity */
+        this.forces.push({x: 0, y: config.level.g});
+        /* support form the ground */
+        if (this.y >= config.level.villain.y) this.forces.push({x: 0, y: config.level.villain.y - this.y - config.level.g - this.vY});
+        /* drag force */
         this.forces.push({x: Math.abs(this.vX) < .01 ? -this.vX : -this.vX / 2, y: 0});
 
         if (control.left) {
-          this.forces.push({x: -.5, y: 0});
+          this.forces.push({x: -config.level.villain.dash, y: 0});
         }
         if (control.right) {
-          this.forces.push({x: .5, y: 0});
+          this.forces.push({x: config.level.villain.dash, y: 0});
         };
         if (control.up && this.y === config.level.villain.y) {
-          this.forces.push({x: 0, y: -3});
-          this.jumping = true;
+          this.forces.push({x: 0, y: -config.level.villain.jump});
         }
 
         v = this.vY;
@@ -139,17 +136,30 @@
         }
 
         if (v * this.vY <= 0) {
-          this.playAnimation(this.vY < 0 ? "jump" : "float");
+          if (this.vY < 0) {
+            this.playAnimation("jump");
+          }
+          if (this.vY > 0) {
+            this.playAnimation("float");
+          }
+          if (this.vY === 0) {
+            this.playAnimation("walk");
+          }
         }
 
         this.x += this.vX;
         this.y += this.vY;
 
+        /*
         if (this.y > config.level.villain.y) {
           this.y = config.level.villain.y;
           this.vY = 0;
-          this.playAnimation("walk");
+          if (this.jumping === true) {
+            this.playAnimation("walk");
+            this.jumping = false;
+          }
         }
+        */
       };
 
       return character;
@@ -217,10 +227,6 @@
         scoreboard.setText(new_score).cacheAsBitmap();
       }
 
-      control.prev.left = control.left;
-      control.prev.up = control.up;
-      control.prev.right = control.right;
-      control.prev.down = control.down;
       control.leftPressed = false;
       control.upPressed = false;
       control.rightPressed = false;
