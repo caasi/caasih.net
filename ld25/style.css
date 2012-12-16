@@ -7,6 +7,11 @@ body {
   margin: 0 auto;
 }
 
+#wrap h1, #wrap p {
+  color: white;
+  text-align: center;
+}
+
 #game {
   image-rendering: optimizeSpeed;
   image-rendering: -moz-crisp-edges;
