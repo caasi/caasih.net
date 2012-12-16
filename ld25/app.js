@@ -1,6 +1,7 @@
 (function() {
   var config = {
     video: {
+      scaleCanvas: false,
       width: 80,
       height: 60,
       scale: 8,
@@ -29,8 +30,8 @@
   };
 
   var director = new CAAT.Director().initialize(
-    config.video.width * config.video.scale,
-    config.video.height * config.video.scale,
+    config.video.scaleCanvas ? config.video.width : config.video.width * config.video.scale,
+    config.video.scaleCanvas ? config.video.height : config.video.height * config.video.scale,
     document.getElementById("game")
   );
 
@@ -69,7 +70,15 @@
       left: false,
       up: false,
       right: false,
-      down: false
+      down: false,
+      leftPressed: false,
+      upPressed: false,
+      rightPressed: false,
+      downPressed: false,
+      leftReleased: false,
+      upReleased: false,
+      rightReleased: false,
+      downReleased: false
     };
     /* Background */
     var far_buildings = new CAAT.Actor().setBackgroundImage("far_buildings");
@@ -83,14 +92,68 @@
     scoreboard.setLocation(config.video.width / 2, 1);
     scoreboard.score = 0;
     /* Characters */
-    var villain = new CAAT.Actor().
-      setBackgroundImage("villain").
-      setLocation(config.level.villain.x, config.level.villain.y);
-    villain.jumping = false;
-    villain.vX = 0;
-    villain.vY = 0;
-    villain.aX = 0;
-    villain.aY = .5;
+    var villain = (function init_villain() {
+      var dampingX = .2;
+
+      /* init character with CAAT's Actor */
+      var character = new CAAT.Actor().
+        setBackgroundImage(
+          new CAAT.SpriteImage().
+            initialize(director.getImage("villain"), 2, 4)
+        ).
+        addAnimation("still", [0], 133.3).
+        addAnimation("walk", [0, 1, 2], 133.3).
+        addAnimation("float", [3, 4], 133.3).
+        addAnimation("jump", [5], 133.3).
+        playAnimation("walk").
+        setLocation(config.level.villain.x, config.level.villain.y);
+
+      /* customize */
+      character.forces = [];
+      character.jumping = false;
+      character.vX = 0;
+      character.vY = 0;
+      character.update = function(control) {
+        var f, v;
+
+        this.forces.push({x: 0, y: .25});
+        this.forces.push({x: Math.abs(this.vX) < .01 ? -this.vX : -this.vX / 2, y: 0});
+
+        if (control.left) {
+          this.forces.push({x: -.5, y: 0});
+        }
+        if (control.right) {
+          this.forces.push({x: .5, y: 0});
+        };
+        if (control.up && this.y === config.level.villain.y) {
+          this.forces.push({x: 0, y: -3});
+          this.jumping = true;
+        }
+
+        v = this.vY;
+
+        while (this.forces.length !== 0) {
+          f = this.forces.pop();
+          this.vX += f.x;
+          this.vY += f.y;
+        }
+
+        if (v * this.vY <= 0) {
+          this.playAnimation(this.vY < 0 ? "jump" : "float");
+        }
+
+        this.x += this.vX;
+        this.y += this.vY;
+
+        if (this.y > config.level.villain.y) {
+          this.y = config.level.villain.y;
+          this.vY = 0;
+          this.playAnimation("walk");
+        }
+      };
+
+      return character;
+    }());
     var detective = new CAAT.Actor().
       setBackgroundImage("detective").
       setLocation(config.level.detective.x, config.level.detective.y);
@@ -102,7 +165,11 @@
     };
 
     var scene = director.createScene().
-      setScaleAnchored(config.video.scale, config.video.scale, 0, 0).
+      setScaleAnchored(
+        config.video.scaleCanvas ? 1 : config.video.scale,
+        config.video.scaleCanvas ? 1 : config.video.scale,
+        0, 0
+      ).
       setFillStyle("#101010");
 
     scene.addChild(far_buildings);
@@ -114,11 +181,12 @@
     CAAT.registerKeyListener(function(e) {
       if (e.keyCode < 37 || e.keyCode > 40) return;
       control[keyName[e.keyCode]] = e.action === "down";
+      control[keyName[e.keyCode] + "Pressed"] = e.action === "down";
+      control[keyName[e.keyCode] + "Released"] = e.action === "up";
     });
 
-    director.onRenderStart = function() {
+    director.onRenderStart = function(time) {
       var new_score;
-      var dampingX = .2;
 
       // update world
       if (buildings.x < 0) {
@@ -129,41 +197,7 @@
       /* update detective */
       detective.x = config.level.detective.x + 5 * Math.cos(detective.angle * Math.PI / 180);
       detective.angle++;
-      /* update villain */
-      if (control.left) villain.vX = -1;
-      if (control.right) villain.vX = 1;
-      if (!control.prev.up && control.up && !villain.jumping) {
-        villain.vY = -4;
-        villain.jumping = true;
-      }
-
-      villain.x += villain.vX;
-      villain.y += villain.vY;
-      villain.vX += villain.aX;
-      villain.vY += villain.aY;
-
-      if (villain.y > config.level.villain.y) {
-        villain.y = config.level.villain.y;
-        villain.vY = 0;
-        villain.jumping = false;
-      }
-
-      if (villain.vX !== 0) {
-        if (villain.vX < 0) {
-          if (villain.vX * (villain.vX + dampingX) < 0) {
-            villain.vX = 0;
-          } else {
-            villain.vX += dampingX;
-          }
-        }
-        if (villain.vX > 0) {
-          if (villain.vX * (villain.vX - dampingX) < 0) {
-            villain.vX = 0;
-          } else {
-            villain.vX -= dampingX;
-          }
-        }
-      }
+      villain.update(control);
 
       if (buildings.x < 0) {
         new_score = Math.abs((detective.x - villain.x) - config.level.best_distance);
@@ -187,6 +221,14 @@
       control.prev.up = control.up;
       control.prev.right = control.right;
       control.prev.down = control.down;
+      control.leftPressed = false;
+      control.upPressed = false;
+      control.rightPressed = false;
+      control.downPressed = false;
+      control.leftReleased = false;
+      control.upReleased = false;
+      control.rightReleased = false;
+      control.downReleased = false;
     };
 
     initLevel();

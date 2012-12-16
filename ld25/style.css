@@ -8,7 +8,6 @@ body {
 }
 
 #game {
-  /*
   image-rendering: optimizeSpeed;
   image-rendering: -moz-crisp-edges;
   image-rendering: -webkit-optimize-contrast;
@@ -16,5 +15,4 @@ body {
   -ms-interpolation-mode: nearest-neighbor;
   width: 640px;
   height: 480px;
-  */
 }
