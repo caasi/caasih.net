@@ -9,6 +9,7 @@
     },
     resources: {
       images: [
+        { id: "sky", url: "./img/sky.png" },
         { id: "far_buildings", url: "./img/far_buildings.png" },
         { id: "buildings", url: "./img/buildings.png" },
         { id: "villain", url: "./img/villain.png" },
@@ -98,6 +99,7 @@
     var background = (function init_background() {
       var bg = {};
 
+      bg.sky = new CAAT.Actor().setBackgroundImage("sky");
       bg.far_buildings = new CAAT.Actor().
         setBackgroundImage("far_buildings");
       bg.far_buildings.setLocation(config.video.width - bg.far_buildings.width, 0);
@@ -175,7 +177,7 @@
         addAnimation("float", [6, 7], 133.3).
         addAnimation("jump", [8]).
         playAnimation("walk").
-        setLocation(config.level.villain.x + 30, config.level.villain.y - 30);
+        setLocation(config.level.villain.x + 30, config.level.villain.y - 40);
 
       /* customize */
       character.forces = [];
@@ -330,6 +332,7 @@
       ).
       setFillStyle("#101010");
 
+    scene.addChild(background.sky);
     scene.addChild(background.far_buildings);
     scene.addChild(background.buildings);
     scene.addChild(scoreboard);
