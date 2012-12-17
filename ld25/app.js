@@ -90,6 +90,7 @@
       this.downReleased = false;
     }
     CAAT.registerKeyListener(function(e) {
+      if (e.keyCode == 82 && e.action === "up") state = "reset";
       if (e.keyCode < 37 || e.keyCode > 40) return;
       control[keyName[e.keyCode]] = e.action === "down";
       control[keyName[e.keyCode] + "Pressed"] = e.action === "down";
@@ -107,6 +108,10 @@
         setBackgroundImage("buildings");
       bg.buildings.setLocation(config.video.width - bg.buildings.width, 0);
       bg.update = function() {
+        if (state === "reset") {
+          this.far_buildings.setLocation(config.video.width - bg.far_buildings.width, 0);
+          this.buildings.setLocation(config.video.width - bg.buildings.width, 0);
+        }
         if (state === "playing") {
           this.far_buildings.x += .5;
           this.buildings.x += 1;
@@ -134,6 +139,10 @@
         var new_score = 0;
         var distance = d.x - v.x;
 
+        if (state === "reset") {
+          this.setText(config.level.score).cacheAsBitmap();
+          this.score = 0;
+        }
         if (state === "playing") {
           if (distance < 5) {
             state = "touch";
@@ -194,6 +203,11 @@
         /* drag force */
         this.forces.push({x: Math.abs(this.vX) < .01 ? -this.vX : -this.vX / 2, y: 0});
 
+        if (state === "reset") {
+          this.
+            playAnimation("walk").
+            setLocation(config.level.villain.x + 30, config.level.villain.y - 40);
+        }
         if (state === "intro") {
           this.forces.push({x: -.2, y: 0});
           if (this.x < config.level.villain.x) {
@@ -277,6 +291,11 @@
         /* drag force */
         this.forces.push({x: Math.abs(this.vX) < .01 ? -this.vX : -this.vX / 2, y: 0});
 
+        if (state === "reset") {
+          this.
+            playAnimation("walk").
+            setLocation(config.level.detective.x + 15, config.level.detective.y);
+        }
         if (state === "intro") {
           this.forces.push({x: -.2, y: 0});
         }
@@ -349,6 +368,10 @@
       villain.update(state === "playing" ? control : undefined);
       scoreboard.update(villain, detective);
       control.update();
+
+      if (state === "reset") {
+        state = "intro";
+      }
     };
 
     initLevel();
