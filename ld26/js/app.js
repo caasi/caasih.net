@@ -1,5 +1,6 @@
 (function(jaws) {
-  var player;
+  var player,
+      sprite;
   var gameState = {
     setup: function() {
       var i, j, w, h;
@@ -27,7 +28,8 @@
       player.sprite.hurt = anim.slice(20, 30);
       player.sprite.level = anim.slice(30, 40);
       player.sprite.goal = anim.slice(40, 50);
-      player.sprite.setImage(player.sprite.stand.currentFrame());
+      sprite = player.sprite.stand;
+      player.sprite.setImage(sprite.currentFrame());
 
       w = map[0][0].length;
       h = map[0].length;
@@ -54,8 +56,16 @@
         y: player.y,
         z: player.z
       };
-      var shouldMove = false,
-          img = player.sprite.stand.next();
+      var shouldMove = false;
+
+      player.sprite.setImage(sprite.next());
+
+      if (sprite !== player.sprite.stand) {
+        if (sprite.atLastFrame()) {
+          sprite = player.sprite.stand;
+        }
+        return;
+      }
 
       if (jaws.pressed("up")) pos.y -= 1;
       if (jaws.pressed("down")) pos.y += 1;
@@ -66,34 +76,34 @@
         switch(map[pos.z][pos.y][pos.x]) {
           case " ":
             shouldMove = true;
-            img = player.sprite.walk.next();
+            sprite = player.sprite.walk;
             break;
           case "#":
-            img = player.sprite.wall.next();
+            sprite = player.sprite.wall;
             break;
           case "U":
             shouldMove = true;
             pos.z -= 1;
-            img = player.sprite.level.next();
+            sprite = player.sprite.level;
             break;
           case "D":
             shouldMove = true;
             pos.z += 1;
-            img = player.sprite.level.next();
+            sprite = player.sprite.level;
             break;
           case "T":
             shouldMove = true;
             player.hp = player.hp === 0 ? player.hp : player.hp - 1;
-            img = player.sprite.hurt.next();
+            sprite = player.sprite.hurt;
             break;
           case "H":
             shouldMove = true;
-            player.hp = player.hp === 10 ? player.hp : player.hp + 1;
-            img = player.sprite.heal.next();
+            player.hp = player.hp === player.maxHp ? player.hp : player.hp + 1;
+            sprite = player.sprite.heal;
             break;
           case "E":
             shouldMove = true;
-            img = player.sprite.goal.next();
+            sprite = player.sprite.goal;
             break;
         }
       }
@@ -103,10 +113,10 @@
         player.y = pos.y;
         player.z = pos.z;
       }
-
-      player.sprite.setImage(img);
     },
     draw: function() {
+      jaws.context.fillStyle = "#FF0000";
+      jaws.context.fillRect(0, 0, 300 * player.hp / 10, 20);
       player.sprite.draw();
     }
   };
