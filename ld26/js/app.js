@@ -4,7 +4,7 @@
 
   var gameState = {
     setup: function() {
-      var i, j, w, h, anim;
+      var i, j, w, h, anim, ending;
 
       anim = jaws.Animation({
         sprite_sheet: "s.gif",
@@ -14,11 +14,22 @@
         scale_image: 300
       });
 
+      ending = jaws.Animation({
+        sprite_sheet: "ending.gif",
+        frame_size: [10, 10],
+        frame_duration: 33.33,
+        orientation: "right",
+        scale_image: 30
+      });
+
       player = {
+        initX: 0,
+        initY: 0,
         x: 0,
         y: 0,
         z: 0,
         hp: 5,
+        initHp: 5,
         maxHp: 10,
         sprite: new jaws.Sprite({})
       };
@@ -30,6 +41,8 @@
       player.sprite.hurt = anim.slice(20, 30);
       player.sprite.level = anim.slice(30, 39);
       player.sprite.goal = anim.slice(40, 50);
+      player.sprite.good_ending = ending.slice(0, 1);
+      player.sprite.bad_ending = ending.slice(1, 2);
       sprite = player.sprite.stand;
       player.sprite.setImage(sprite.currentFrame());
 
@@ -38,8 +51,8 @@
       for (j = 0; j < h; ++j) {
         for (i = 0; i < w; ++i) {
           if (map[0][j][i] === "S") {
-            player.x = i;
-            player.y = j;
+            player.initX = player.x = i;
+            player.initY = player.y = j;
           }
         }
       }
@@ -49,7 +62,8 @@
         "up",
         "down",
         "left",
-        "right"
+        "right",
+        "space"
       ]);
     },
     update: function() {
@@ -103,9 +117,29 @@
 
       player.sprite.setImage(sprite.next());
 
+      if (
+        sprite === player.sprite.good_ending ||
+        sprite === player.sprite.bad_ending
+      ) {
+        if (jaws.pressed("space")) {
+          player.x = player.initX;
+          player.y = player.initY;
+          player.z = 0;
+          player.hp = player.initHp;
+          sprite = player.sprite.stand;
+        }
+        return;
+      }
+      
       if (sprite !== player.sprite.stand) {
         if (sprite.atLastFrame()) {
-          sprite = player.sprite.stand;
+          if (sprite === player.sprite.goal) {
+            sprite = player.sprite.good_ending;
+          } else if (player.hp === 0) {
+            sprite = player.sprite.bad_ending;
+          } else {
+            sprite = player.sprite.stand;
+          }
         }
         return;
       }
@@ -123,10 +157,6 @@
       if (player.hp > player.maxHp) {
         player.hp = player.maxHp;
       }
-
-      if (player.hp === 0) {
-        console.log("dead");
-      }
     },
     draw: function() {
       jaws.context.clearRect(0, 0, jaws.width, jaws.height);
@@ -138,6 +168,7 @@
 
   jaws.onload = function() {
     jaws.assets.add("s.gif");
+    jaws.assets.add("ending.gif");
     jaws.start(gameState);
   }
 }(jaws));
