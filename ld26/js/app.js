@@ -1,10 +1,12 @@
 (function(jaws) {
   var player,
       sprite;
+
   var gameState = {
     setup: function() {
-      var i, j, w, h;
-      var anim = jaws.Animation({
+      var i, j, w, h, anim;
+
+      anim = jaws.Animation({
         sprite_sheet: "s.gif",
         frame_size: [1, 1],
         frame_duration: 33.33,
@@ -16,7 +18,7 @@
         x: 0,
         y: 0,
         z: 0,
-        hp: 10,
+        hp: 5,
         maxHp: 10,
         sprite: new jaws.Sprite({})
       };
@@ -26,7 +28,7 @@
       player.sprite.walk = anim.slice(0, 10);
       player.sprite.heal = anim.slice(10, 20);
       player.sprite.hurt = anim.slice(20, 30);
-      player.sprite.level = anim.slice(30, 40);
+      player.sprite.level = anim.slice(30, 39);
       player.sprite.goal = anim.slice(40, 50);
       sprite = player.sprite.stand;
       player.sprite.setImage(sprite.currentFrame());
@@ -51,12 +53,53 @@
       ]);
     },
     update: function() {
-      var pos = {
+      var pos, updatePosition, actions, action;
+
+      pos = {
         x: player.x,
         y: player.y,
         z: player.z
       };
-      var shouldMove = false;
+
+      updatePosition = function(player, pos) {
+        player.x = pos.x;
+        player.y = pos.y;
+        player.z = pos.z;
+      };
+
+      actions = {
+        " ": function(player, pos) {
+          updatePosition(player, pos);
+          return player.sprite.walk;
+        },
+        "#": function(player, pos) {
+          return player.sprite.wall;
+        },
+        "U": function(player, pos) {
+          pos.z -= 1;
+          updatePosition(player, pos);
+          return player.sprite.level;
+        },
+        "D": function(player, pos) {
+          pos.z += 1;
+          updatePosition(player, pos);
+          return player.sprite.level;
+        },
+        "T": function(player, pos) {
+          player.hp -= 1;
+          updatePosition(player, pos);
+          return player.sprite.hurt;
+        },
+        "H": function(player, pos) {
+          player.hp += 1;
+          updatePosition(player, pos);
+          return player.sprite.heal;
+        },
+        "E": function(player, pos) {
+          updatePosition(player, pos);
+          return player.sprite.goal;
+        }
+      };
 
       player.sprite.setImage(sprite.next());
 
@@ -66,55 +109,27 @@
         }
         return;
       }
-
+      
       if (jaws.pressed("up")) pos.y -= 1;
       if (jaws.pressed("down")) pos.y += 1;
       if (jaws.pressed("left")) pos.x -= 1;
       if (jaws.pressed("right")) pos.x += 1;
 
       if (pos.x !== player.x || pos.y !== player.y) {
-        switch(map[pos.z][pos.y][pos.x]) {
-          case " ":
-            shouldMove = true;
-            sprite = player.sprite.walk;
-            break;
-          case "#":
-            sprite = player.sprite.wall;
-            break;
-          case "U":
-            shouldMove = true;
-            pos.z -= 1;
-            sprite = player.sprite.level;
-            break;
-          case "D":
-            shouldMove = true;
-            pos.z += 1;
-            sprite = player.sprite.level;
-            break;
-          case "T":
-            shouldMove = true;
-            player.hp = player.hp === 0 ? player.hp : player.hp - 1;
-            sprite = player.sprite.hurt;
-            break;
-          case "H":
-            shouldMove = true;
-            player.hp = player.hp === player.maxHp ? player.hp : player.hp + 1;
-            sprite = player.sprite.heal;
-            break;
-          case "E":
-            shouldMove = true;
-            sprite = player.sprite.goal;
-            break;
-        }
+        action = actions[map[pos.z][pos.y][pos.x]];
+        if (action) sprite = action(player, pos);
       }
 
-      if (shouldMove) {
-        player.x = pos.x;
-        player.y = pos.y;
-        player.z = pos.z;
+      if (player.hp > player.maxHp) {
+        player.hp = player.maxHp;
+      }
+
+      if (player.hp === 0) {
+        console.log("dead");
       }
     },
     draw: function() {
+      jaws.context.clearRect(0, 0, jaws.width, jaws.height);
       jaws.context.fillStyle = "#FF0000";
       jaws.context.fillRect(0, 0, 300 * player.hp / 10, 20);
       player.sprite.draw();
