@@ -1,0 +1,43 @@
+---
+layout: post
+title: Commonplace Book
+---
+
+<blockquote cite="Mark Twain">Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.</blockquote>
+
+遊戲
+----
+
+*   平衡世界的神
+*   舉起世界的神
+*   帶領同類逃離令人窒息的城市
+*   隕石回收者
+*   「修行」
+*   摩登薛西弗斯的一生
+*   可以自焚的生前告別式（互動遊戲）
+*   人形安眠藥膠囊，去陪女友睡覺
+*   被肥胖公主詛咒，要在肥胖、體力、靈活度間找平衡的遊戲。
+*   求真樓，沈下去。
+*   可以 git push 角色 js 到 server 讓他自己冒險的 [roguelike](http://en.wikipedia.org/wiki/Roguelike) 遊戲。
+*   尋找自由工具城市的孤獨旅程，重點是 NPC 生態。
+*   尋找是為了告別。
+*   使用低強度加密通訊的虛擬世界。
+*   分析一維視覺資料的機器人戰鬥。
+*   兩個遊戲，一個高科技對抗低科技，一個相反。但不管哪邊，人民有工作才會提昇國力。半即時對抗。
+
+g0v
+---
+
+*   zh-stroke-data editor, codename "raam"
+    *   outline edit
+    *   track edit
+    *   hint background
+
+其他
+----
+
+*   在超大型都市集合中，各都市司其職，管理好自己。並服從最高什麼會的命令。  
+    這樣的都市存在很多個，在宇宙中跑來跑去...。  
+    但事實上並沒有什麼最高單位，各都市不過是都市集合的身體，都市集合有自己的意識。
+*   像 Heavy Metal II 或是裝甲騎兵那樣的遊戲。
+*   VR 多人 YouTube 劇院？支援 YouTube 的 3D 在 HMD 裡運作？可能嗎？
