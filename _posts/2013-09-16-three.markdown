@@ -1,0 +1,14 @@
+---
+layout: post
+title: play with three.js
+---
+
+<div id="three"></div>
+
+I want to build a small GUI framework in 3D.  
+So it's time to play some three.js!
+
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script src="{{ site.url }}/js/lib/raf.min.js"></script>
+<script src="{{ site.url }}/js/lib/three.js"></script>
+<script src="{{ site.url }}/js/three-hello.js"></script>
