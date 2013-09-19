@@ -63,7 +63,7 @@ var GUI3D = (function() {
         value: new THREE.Mesh(
           new THREE.PlaneGeometry(width, height),
           new THREE.MeshLambertMaterial({
-            color: Math.random() * 0xffffff,
+            color: Math.random() * 0x00ffff,
             opacity: 0.5,
             transparent: true
           })
