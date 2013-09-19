@@ -19,11 +19,7 @@ function init() {
   plane.addEventListener("mousedown", function(e) {
     var tmpHex = 0xff0000;
 
-    if (e.initialTarget === this) {
-      console.log("self!");
-    } else {
-      console.log("child!");
-
+    if (e.initialTarget !== this) {
       if (this.object.prevHex !== undefined) {
         tmpHex = this.object.prevHex
       }
@@ -32,14 +28,24 @@ function init() {
     }
   });
 
-  var subplane = new GUI3D.Plane(50, 50);
-  subplane.addEventListener("mousedown", function(e) {
+  var button_plane = new GUI3D.Plane(50, 50);
+  button_plane.addEventListener("mousedown", function(e) {
     console.log("x: " + e.clientX + ", y: " + e.clientY);
   });
-  subplane.object.position.x = 60;
-  subplane.object.position.y = 30;
-  subplane.object.position.z = 50;
-  plane.add(subplane);
+  button_plane.object.position.x = 20;
+  button_plane.object.position.y = 30;
+  button_plane.object.position.z = 50;
+  plane.add(button_plane);
+
+  var useless_plane = new GUI3D.Plane(20, 20);
+  useless_plane.addEventListener("mousedown", function(e) {
+    e.stopPropagation();
+    console.log("x: " + e.clientX + ", y: " + e.clientY);
+  });
+  useless_plane.object.position.x = -20;
+  useless_plane.object.position.y = 30;
+  useless_plane.object.position.z = 50;
+  plane.add(useless_plane);
 
   scene = new THREE.Scene();
   scene.add(plane.object);

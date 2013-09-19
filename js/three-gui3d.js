@@ -89,10 +89,6 @@ var GUI3D = (function() {
 
     this.parent = null;
     this.children = [];
-
-    this.addEventListener("mousedown", function(e) {
-      if (this.parent) this.parent.dispatchEvent(e);
-    });
   };
 
   Plane.prototype = Object.create(THREE.EventDispatcher.prototype);
@@ -108,6 +104,7 @@ var GUI3D = (function() {
   Plane.prototype.hit = function() {
     var current,
         point,
+        event,
         result = false;
 
     this.children.forEach(function(plane) {
@@ -116,16 +113,26 @@ var GUI3D = (function() {
 
     if (!result) {
       if (point = mouseIntersectWithPlane(this)) {
-        this.dispatchEvent({
+        event = {
           type: "mousedown",
           /**
            * THREE.EventDispatcher.dispatch() will overwrite event.target,
            * so use initialTarget as target in DOM event
            */
           initialTarget: this,
+          propagation: true,
+          stopPropagation: function() {
+            this.propagation = false;
+          },
           clientX: point.x,
           clientY: point.y
-        });
+        };
+
+        current = this;
+        while (event.propagation && current) {
+          current.dispatchEvent(event);
+          current = current.parent;
+        }
 
         result = true;
       }
