@@ -15,11 +15,11 @@ function init() {
   camera = new THREE.PerspectiveCamera(75, $three.width() / $three.height(), 1, 10000);
   camera.position.set(0, 200, 200);
 
-  var plane = GUI3D.plane(200, 150);
-  plane.onMouseDown = function(e) {
+  var plane = new GUI3D.Plane(200, 150);
+  plane.addEventListener("mousedown", function(e) {
     var tmpHex = 0xff0000;
 
-    if (e.target === this) {
+    if (e.initialTarget === this) {
       console.log("self!");
     } else {
       console.log("child!");
@@ -30,12 +30,12 @@ function init() {
       this.object.prevHex = this.object.material.emissive.getHex();
       this.object.material.emissive.setHex(tmpHex);
     }
-  };
+  });
 
-  var subplane = GUI3D.plane(50, 50);
-  subplane.onMouseDown = function(e) {
+  var subplane = new GUI3D.Plane(50, 50);
+  subplane.addEventListener("mousedown", function(e) {
     console.log("x: " + e.clientX + ", y: " + e.clientY);
-  };
+  });
   subplane.object.position.x = 60;
   subplane.object.position.y = 30;
   subplane.object.position.z = 50;

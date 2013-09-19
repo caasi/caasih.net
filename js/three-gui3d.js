@@ -55,67 +55,87 @@ var GUI3D = (function() {
     });
   };
 
+  var Plane = function(width, height) {
+    Object.defineProperty(
+      this,
+      "object",
+      {
+        value: new THREE.Mesh(
+          new THREE.PlaneGeometry(width, height),
+          new THREE.MeshLambertMaterial({
+            color: Math.random() * 0xffffff,
+            opacity: 0.5,
+            transparent: true
+          })
+        )
+      }
+    );
+
+    Object.defineProperty(
+      this,
+      "width",
+      {
+        get: function() { return width; }
+      }
+    );
+
+    Object.defineProperty(
+      this,
+      "height",
+      {
+        get: function() { return height; }
+      }
+    );
+
+    this.parent = null;
+    this.children = [];
+
+    this.addEventListener("mousedown", function(e) {
+      if (this.parent) this.parent.dispatchEvent(e);
+    });
+  };
+
+  Plane.prototype = Object.create(THREE.EventDispatcher.prototype);
+
+  Plane.prototype.add = function(plane) {
+    this.children.push(plane);
+    plane.parent = this;
+    this.object.add(plane.object);
+
+    return this;
+  };
+
+  Plane.prototype.hit = function() {
+    var current,
+        point,
+        result = false;
+
+    this.children.forEach(function(plane) {
+      result = result || plane.hit();
+    });
+
+    if (!result) {
+      if (point = mouseIntersectWithPlane(this)) {
+        this.dispatchEvent({
+          type: "mousedown",
+          /**
+           * THREE.EventDispatcher.dispatch() will overwrite event.target,
+           * so use initialTarget as target in DOM event
+           */
+          initialTarget: this,
+          clientX: point.x,
+          clientY: point.y
+        });
+
+        result = true;
+      }
+    }
+
+    return result;
+  };
+
   return {
-    plane: function(w, h) {
-      obj = new THREE.Mesh(
-        new THREE.PlaneGeometry(w, h),
-        new THREE.MeshLambertMaterial({
-        color: Math.random() * 0xffffff,
-        opacity: 0.5,
-        transparent: true
-        })
-      );
-
-      return {
-        object: obj,
-        width: w,
-        height: h,
-        parent: null,
-        children: [],
-        add: function(plane) {
-          this.children.push(plane);
-          plane.parent = this;
-          this.object.add(plane.object);
-
-          return this;
-        },
-        hit: function() {
-          var e,
-              current,
-              p,
-              result = false;
-
-          this.children.forEach(function(plane) {
-            result = result || plane.hit();
-          });
-
-          if (!result) {
-            p = mouseIntersectWithPlane(this);
-            if (p) {
-              e = {
-                target: this,
-                clientX: p.x,
-                clientY: p.y
-              };
-
-              current = this;
-              while (current) {
-                if (current.onMouseDown) {
-                  current.onMouseDown(e);
-                }
-                current = current.parent;
-              }
-
-              result = true;
-            }
-          }
-
-          return result;
-        },
-        onMouseMove: null,
-        onMouseDown: null
-      };
-    },
+    Plane: Plane,
     init: function(domElement, cam) {
       $(domElement).
         mousemove(mouseMove).
