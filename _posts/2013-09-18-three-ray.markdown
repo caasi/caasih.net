@@ -1,0 +1,11 @@
+---
+layout: post
+title: interaction with raycaster
+---
+
+<div id="three"></div>
+
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script src="{{ site.url }}/js/lib/raf.min.js"></script>
+<script src="{{ site.url }}/js/lib/three.js"></script>
+<script src="{{ site.url }}/js/three-ray.js"></script>
