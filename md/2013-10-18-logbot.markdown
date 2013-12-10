@@ -1,0 +1,26 @@
+---
+layout: post
+title: oEmbed and Logbot
+---
+
+<a href="https://twitter.com/undead__king/status/391179738602930176" class="embed">twitter</a>
+
+<a class="embed" href="http://logbot.g0v.tw/channel/g0v.tw/2013-10-18/213">msg</a>
+
+<a class="embed" href="http://localhost:15000/channel/830033/2013-10-18/3">msg</a>
+
+Try to use oEmbed to embed message from Logbot.
+
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script src="{{ site.url }}/js/lib/jquery.oembed.js"></script>
+<script>
+$(function(){
+  $(".embed").oembed(null, {
+    includeHandle: false,
+    embedMethod: "fill",
+    beforeEmbed: function(data) {
+      console.log(data.code);
+    }
+  });
+});
+</script>
