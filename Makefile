@@ -1,2 +1,2 @@
 run ::
-	jade < ./src/index.jade > ./index.html
+	python -m SimpleHTTPServer 8888 | jade -wo ./ ./src/*.jade

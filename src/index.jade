@@ -1,8 +1,10 @@
 doctype 5
 html.han-la(lang="zh-tw")
   head
-    title= "caasigd.org | another wasteland"
+    title= "about | caasigd.org"
+    meta(content="text/html;charset=utf-8" http-equiv="Content-Type")
     link(rel="stylesheet" media="all" href="./lib/han/han.css")
+    link(rel="stylesheet" media="all" href="./lib/fa/css/font-awesome.css")
     link(rel="stylesheet" media="all" href="./css/main.css")
     script(src="./lib/jquery-2.0.3.min.js")
     script(src="./lib/han/han.js")
@@ -17,17 +19,34 @@ html.han-la(lang="zh-tw")
           3D graphics programming for the future of
           web.
         ul
-          li.location Taichung, Taiwan
-          li.current nobody@g0v.tw
+          li.location
+            i.fa.fa-home
+            = "Taichung, Taiwan"
+          li.current
+            i.fa.fa-briefcase
+            = "nobody at g0v.tw"
       article#zh-tw
         h1 黃冠霖
         p 畢業於台不上不下教育大學數位內容科技學系，寫網頁維生。對JavaScript又愛又恨，曾經成功地從國民小學、國民中學、公立高中畢業。曾有機會取得「我也沒拿到大學學位」成就，但後來想不開。
         ul
-          li.location 台中市
-          li.current 前端工程師，十方一瞬設計工作室
-      #twitter
-      #gplus
-      #facebook
-      #linkedin
-      #github
-      #blogs
+          li.location
+            i.fa.fa-home
+            = "台中市"
+          li.current
+            i.fa.fa-briefcase
+            = "前端工程師，十方一瞬設計工作室"
+      ul#sns
+        li: a(title="twitter" href="https://twitter.com/caasih")
+          i.fa.fa-2x.fa-twitter-square
+        li: a(title="Google+" href="https://plus.google.com/+caasiHuang/")
+          i.fa.fa-2x.fa-google-plus-square
+        li: a(title="facebook" href="https://www.facebook.com/kuanling.huang")
+          i.fa.fa-2x.fa-facebook-square
+        li: a(title="LinkedIn" href="http://www.linkedin.com/in/caasih")
+          i.fa.fa-2x.fa-linkedin-square
+        li: a(title="github" href="https://github.com/caasi/")
+          i.fa.fa-2x.fa-github-square
+        li: a(title="Logdown" href="http://caasih.logdown.com/")
+          i.fa.fa-2x.fa-pencil-square
+        li: a(title="tumblr" href="http://murmur.caasigd.org/")
+          i.fa.fa-2x.fa-tumblr-square
