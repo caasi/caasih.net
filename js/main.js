@@ -55,7 +55,7 @@
     stage.addChild(moe);
     sky.mask = moe;
     gameLoop = function(){
-      sky.rotation += 10 * Math.PI / 360;
+      sky.rotation += Math.PI / 360;
       renderer.render(stage);
       return requestAnimationFrame(gameLoop);
     };
