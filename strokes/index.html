@@ -15,6 +15,20 @@
       right: 0;
       bottom: 0;
     }
+    .cover div img.height {
+      width: auto;
+      height: 100%;
+    }
+    .cover div h2 {
+      color: #fff;
+    }
+    .cover p.note {
+      position: absolute;
+      color: #fff;
+      font-size: 75%;
+      right: 5%;
+      bottom: 0;
+    }
   </style>
 </head>
 <body class="list">
@@ -24,75 +38,54 @@
   </header>
   <section class="slide cover" id="Cover"><div>
     <h2>卡東卡西卡筆劃</h2>
-    <p><a href="../">caasi</a></p>
     <img src="pictures/jam_4.jpg" alt="">
-    <!--
-      To apply styles to the certain slides
-      set slide ID to get needed elements
-      -->
-    <style>
-      #Cover h2 {
-        margin-top: 300px;
-        margin-bottom:30px;
-        color:#FFF;
-        text-align:center;
-        font-size:70px;
-        }
-      #Cover p {
-        margin:10px 0 0;
-        text-align:center;
-        color:#FFF;
-        font-style:italic;
-        font-size:20px;
-        }
-      #Cover p a {
-        color:#FFF;
-      }
     </style>
   </div></section>
   <section class="slide cover" id="Begining"><div>
-    <h2>At the Begining</h2>
+    <h2>筆劃</h2>
     <img src="pictures/begining.png"/>
-    <style>
-      #Begining h2 {
-        color: #fff;
-      }
-    </style>
   </div></section>
   <section class="slide cover"><div>
-    <img src="pictures/jam_0.jpg">
+    <img src="pictures/jam_0.jpg" class="height">
   </div></section>
   <section class="slide"><div>
-    <h2>g0v</h2>
-    <p>raephal demo here</p>
-    <ul>
+    <h2>五月</h2>
+    <ul style="width:60%;float:left;">
       <li>c9s++</li>
     </ul>
+    <img src="pictures/c9s.png" style="width:40%;float:right;"/>
   </div></section>
   <section class="slide"><div>
-    <h2>canvas stroker</h2>
+    <h2>八月</h2>
     <ul>
       <li class="next">Data 跟 View 混在一起。</li>
+      <li class="next">混用 promise 和 callback 。</li>
       <li class="next">Options 給了以後就不能改。</li>
+      <li class="next">只能一直畫下去。</li>
     </ul>
   </div></section>
   <section class="slide cover"><div>
-    <img src="pictures/jam_1.jpg" style="height:100%;width:auto;"/>
+    <img src="pictures/jam_1.jpg" class="height"/>
   </div></section>
   <section class="slide cover"><div>
-    <img src="pictures/fsm.jpg" style="height:100%;width:auto;"/>
+    <img src="pictures/fsm.jpg" class="height"/>
   </div></section>
   <section class="slide"><div>
-    <h2>2.0</h2>
-    <ul>
+    <h2>十二月</h2>
+    <ul style="width:30%;float:left;">
       <li>au++</li>
       <li>ethantw++</li>
       <li>kcwu++</li>
     </ul>
-    <p>2.0 demo here</p>
+    <canvas id="mark-two" width="430" height="430" style="float:left;"></canvas>
+  </div></section>
+  <section class="slide cover"><div>
+    <h2>組字</h2>
+    <img src="pictures/onedollar.jpg"/>
+    <p class="note">CC BY-NC-ND <a href="http://www.flickr.com/photos/56101102@N00/8317150447/">一元搥搥</a></p>
   </div></section>
   <section class="slide"><div>
-    <h2>組字</h2>
+    <h2>八月</h2>
     <ul style="width:50%;float:left;">
       <li>au++</li>
       <li>buganini++</li>
@@ -102,30 +95,32 @@
     <img src="pictures/20130811.png" style="width:50%;float:right;"/>
   </div></section>
   <section class="slide cover"><div>
-    <img src="pictures/jam_2.jpg" style="height:100%;width:auto;"/>
+    <img src="pictures/jam_2.jpg" class="height"/>
   </div></section>
   <section class="slide cover"><div>
     <img src="pictures/minimal-dr-manhattan.jpg"/>
   </div></section>
   <section class="slide"><div>
-    <h2>再組字</h2>
+    <h2>十月</h2>
     <ul style="width:20%;float:left;">
       <li>au++</li>
       <li>mindos++</li>
     </ul>
     <img src="pictures/server side.png" style="width:80%;float:right;"/>
   </div></section>
-  <section class="slide"><div>
+  <section class="slide cover"><div>
     <h2>3D</h2>
+    <img src="pictures/yahoo.jpg"/>
+    <p class="note">CC BY-NC-SA <a href="http://www.flickr.com/photos/natekoechley/2423022696/">natekoechley</a></p>
   </div></section>
   <section class="slide cover"><div>
-    <img src="pictures/jam_3.jpg" style="height:100%;width:auto;"/>
+    <img src="pictures/jam_3.jpg" class="height"/>
   </div></section>
   <section class="slide cover"><div>
-    <img src="pictures/Super_Best_Friends_HD.png" style="height:100%;width:auto;"/>
+    <img src="pictures/Super_Best_Friends_HD.png" class="height"/>
   </div></section>
   <section class="slide"><div>
-    <h2>三角形化</h2>
+    <h2>十一月</h2>
     <ul>
       <li>au++</li>
       <li>mindos++</li>
@@ -140,7 +135,13 @@
     just remove “progress” element.
     -->
   <div class="progress"><div></div></div>
+  <script src="/lib/jquery-2.0.3.min.js"></script>
+  <script src="/lib/q.min.js"></script>
+  <script src="/lib/sax.js"></script>
+  <script src="/lib/zh-stroke-data/loaders.js"></script>
+  <script src="/lib/zh-stroke-data/sprite.js"></script>
   <script src="shower/shower.min.js"></script>
+  <script src="main.js"></script>
   <!-- Copyright © 2013 Yours Truly, Famous Inc. -->
   <!-- Photos by John Carey, fiftyfootshadows.net -->
 </body>
