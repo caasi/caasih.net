@@ -1,0 +1,22 @@
+body {
+  background-color: #16161d;
+  color: #fff;
+}
+
+#wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 400px;
+}
+
+h1 {
+  font-size: 160%;
+  border-bottom: 1px solid #fff;
+}
+
+a {
+  color: #f90;
+}
+
