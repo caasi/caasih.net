@@ -205,5 +205,3 @@
 * **語言學科普**
 
 最近一直聽 [袁腾飞](https://www.youtube.com/channel/UCUn293NuJechDvYbt5KgsAA) 老師講歷史故事，喜歡跟社會經濟制度相關的部份。
-
-就像這樣。
