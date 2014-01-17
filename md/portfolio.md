@@ -25,7 +25,7 @@
 * 中文（母語）
 * 英文
 
-我會在聽這些頻道加強聽力：
+會看這些頻道來加強聽力：
 
 * [NewCircle Training](https://www.youtube.com/channel/UCkQX1tChV7Z7l1LFF4L9j_g)
 * [CGP Grey](https://www.youtube.com/channel/UC2C_jShtL725hvbm1arSV9w)
@@ -34,7 +34,7 @@
 * [Wolfire Games](https://www.youtube.com/channel/UCGFhIp3VXy90--3PfAqtSaA)
 * [NodeUp](http://nodeup.com/)
 
-但是我缺乏這些能力：
+但是缺乏這些能力：
 
 * 閩南語
 * 英文字彙
@@ -42,7 +42,7 @@
 
 # 生涯規劃
 
-我的年紀不小，已經<span id="age"></span>歲，可是短時間內還沒有成家的打算。
+年紀不小，已經<span id="age"></span>歲，可是短時間內還沒有成家的打算。
 
 ## 我尊敬...
 
@@ -97,13 +97,13 @@
 
 ### ActionScript
 
-本來就因課程關係，接觸過ActionScript 2.0。曾於一數位教材公司打工，被迫接觸到以ActionScript 1.0寫的老程式，同時自己又在自學ActionScript 3.0，並試著幫該公司轉換到ActionScript 2.0。
+本來就因課程關係，接觸過ActionScript 2.0。曾於一數位教材公司打工，被迫接觸到以ActionScript 1.0寫的老程式，同時自己又在自學ActionScript 3.0，並試著幫該公司轉換到ActionScript 2.0未果。
 
 配著 [ActionScript 3设计模式](http://www.amazon.cn/ActionScript-3%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E6%B4%9B%E7%89%B9/dp/B0016ASSFM) 的範例，ActionScript讓我對OOP還有interface有著新的認識。
 
 ### JavaScript
 
-當兵時，礙於軍中沒有開發環境，學習JavaScript，以爆笑國家。接觸到 [JavaScript：優良部分](http://www.oreilly.com.tw/product2_web.php?id=a238) 才瞭解到它的精華，剛好node.js崛起，從此以JavaScript為工作用的主要語言。嘗試 [讀取Fallout的動畫檔](https://github.com/caasi/frm.js) 時使用過typed array，製作 [筆劃動畫](https://github.com/caasi/zh-stroke-data) 不斷接觸canvas。
+當兵時，礙於軍中沒有開發環境，學習JavaScript，以爆笑國家。接觸到 [JavaScript：優良部分](http://www.oreilly.com.tw/product2_web.php?id=a238) 才瞭解到它的精華，剛好node.js崛起，從此以JavaScript為工作用的主要語言。嘗試 [讀取Fallout的動畫檔](https://github.com/caasi/frm.js) 時使用過typed array，製作 [筆劃動畫](https://github.com/caasi/zh-stroke-data) 時不斷接觸canvas。
 
 #### 使用方言
 
@@ -157,7 +157,7 @@
 * **風の谷のナウシカ**  
   史詩冒險、內外都很堅強的女主角，加上共存的預言與實現。漫畫與電影都很棒！
 * **おもひでぽろぽろ**  
-  有幸看過《兒時的點點滴滴》的 LD ，對演出方式印象深刻。後來才知道這也是吉卜力工作室當時訓練人才的作品。有機會希望能重看幾遍。
+  有幸看過《兒時的點點滴滴》的LD，對演出方式印象深刻。後來才知道這也是吉卜力工作室當時訓練人才的作品。有機會希望能重看幾遍。
 * **海がきこえる**
 * **Chobits**  
   一定要是強 AI 嗎？還是說只要夠像就是真的？話說回來，創作不就是作者那時刻心血的結晶、靈魂的碎片？
@@ -173,16 +173,13 @@
 * **ハチミツとクローバー**  
   重考與大學時期很愛《蜂蜜幸運草》，完全不看真人版。
 * **3月のライオン**  
-  每次複習《三月的獅子》，總覺得愧對於天地 XD
+  每次複習《三月的獅子》，總覺得愧對於天地XD
 * **コードギアス 反逆のルルーシュ**
 * **機動戦士ガンダム00**
 * **Watchmen**  
-  `In the end'? Nothing ends, Adrian. Nothing ever ends.`
 * **魔法少女まどか☆マギカ**
 * **Looper**
 * **Sherlock**
-
-可以看得出來我會受到科幻、時間、自由意識這類題材吸引。
 
 也玩遊戲：
 
@@ -191,12 +188,10 @@
 * **エアー**
 * **Ever17**
 * **天使のいない12月**  
-  不是凡事都有happy ending
+  不是凡事都有happy ending。
 * **Freespace 2**
 
-高中時參與軍事社團，對小口徑武器非常有興趣，但礙於當兵時非陸軍也沒有受過預官訓，沒有實際運用的經驗。
-
-喜歡讀故事，尤其是：
+高中時參與軍事社團，對小口徑武器非常有興趣。喜歡讀故事，尤其是：
 
 * **歐戰史**
 * **計算機科學史**
