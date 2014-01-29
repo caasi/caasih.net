@@ -4,14 +4,16 @@
   converter = new Showdown.converter({
     extensions: ['github']
   });
-  $.get("md/portfolio.md", function(it){
+  $.get("md/" + $('body').attr('id') + ".md", function(it){
     var html, $article, age;
     html = converter.makeHtml(it);
     $article = $('article#zh-tw').append(html);
-    age = Date.now() - new Date(1984, 12, 14, 10).getTime();
-    age /= 10 * 86400 * 365;
-    console.log(age);
-    $('#age').text(~~age / 100);
+    if ($('#age').length !== 0) {
+      age = Date.now() - new Date(1984, 12, 14, 10).getTime();
+      age /= 10 * 86400 * 365;
+      console.log(age);
+      $('#age').text(~~age / 100);
+    }
     return $article.hanInit();
   });
 }).call(this);

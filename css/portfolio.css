@@ -13,7 +13,12 @@ body {
 
 h1 {
   font-size: 160%;
+  margin-bottom: 5px;
   border-bottom: 1px solid #fff;
+}
+
+h2 {
+  font-size: 120%;
 }
 
 a {
