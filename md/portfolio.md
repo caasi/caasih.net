@@ -73,6 +73,10 @@
   * hackath6n
   * 2014新年松
 
+## 辦過...
+
+* [Global Game Jam 2014 台中場](http://caasi-0ad330.kktix.cc/events/ggj2014-taichung)
+
 之所以希望能到北部工作，便是為了更積極參與社群活動。不然一個人走在路上，「這黑夜就顯得太長」。
 
 ## 技能
