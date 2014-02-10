@@ -97,7 +97,7 @@
 
 ### Java
 
-在台中教育大學時選修資訊系的課，曾經寫過 [Ching-Chaung](https://code.google.com/p/chingchuang/) 這個射擊小遊戲。該遊戲的特點是可以錄製下玩家遊玩的過程，且在開發的過程中瞭解到Java在2D繪圖上要是牽扯到transformation會非常慢，只好以取巧的方式繞過。
+在台中教育大學時選修資訊系的課，曾經寫過 [Ching-Chaung](https://github.com/caasi/chingchuang) 這個射擊小遊戲。該遊戲的特點是可以錄製下玩家遊玩的過程，且在開發的過程中瞭解到Java在2D繪圖上要是牽扯到transformation會非常慢，只好以取巧的方式繞過。
 
 ### ActionScript
 
