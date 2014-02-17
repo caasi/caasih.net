@@ -4,4 +4,11 @@ html(ng-app="caasi")
     meta(charset="utf-8")
     title Angular Law Diff
   body
+    div(ng-repeat="amendment in amendments")
+      div(ly-diff)
+        h1 {{amendment.originalArticle}}
+        p.left {{amendment.baseContent}}
+        p.right {{amendment.content}}
+        p.comment {{amendment.comment}}
     script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js")
+    script(src="/js/diff.js")
