@@ -6,4 +6,10 @@
   top: 0;
   right: 0;
   list-style: none;
+}
+.spy-menu .highlight {
+  background-color: red;
+}
+.spy-menu .highlight a {
+  color: white;
 }</style></head><body ng-controller="SpyCtrl"><div scroll-spy><div ng-repeat="article in articles" class="article"><h1 spy>{{article.heading}}</h1><p>{{article.content}}</p></div></div><script src="//code.jquery.com/jquery-2.1.0.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script><script src="/js/angular/spy/services.js"></script><script src="/js/angular/spy/directives.js"></script><script src="/js/angular/spy/main.js"></script></body></html>

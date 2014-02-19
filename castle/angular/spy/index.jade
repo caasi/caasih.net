@@ -13,6 +13,12 @@ html(ng-app="caasi")
         right: 0;
         list-style: none;
       }
+      .spy-menu .highlight {
+        background-color: red;
+      }
+      .spy-menu .highlight a {
+        color: white;
+      }
   body(ng-controller="SpyCtrl")
     div(scroll-spy)
       .article(ng-repeat="article in articles")
