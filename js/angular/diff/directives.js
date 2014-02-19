@@ -5,7 +5,7 @@
     return {
       restrict: 'A',
       scope: true,
-      templateUrl: './diff.html'
+      templateUrl: './tpl.html'
     };
   });
 }).call(this);
