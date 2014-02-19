@@ -2,9 +2,6 @@
 (function(){
   var mod;
   mod = angular.module('caasi', ['caasi.services']).directive('lyDiff', function(model){
-    model.get('bills/970L19045/data').success(function(data, status, headers, config){
-      return console.log(data, status, headers, config);
-    });
     return {
       restrict: 'A',
       scope: true,

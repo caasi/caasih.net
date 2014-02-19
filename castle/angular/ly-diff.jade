@@ -3,7 +3,9 @@ html(ng-app="caasi")
   head
     meta(charset="utf-8")
     title Angular Law Diff
-  body
+  body(ng-controller="BillsCtrl")
+    #buttons(ng-repeat="bill in bills")
+      button(ng-click="get(bill)") {{bill}}
     div(ng-repeat="amendment in amendments")
       div(ly-diff)
         h1 {{amendment.originalArticle}}
@@ -11,5 +13,8 @@ html(ng-app="caasi")
         p.right {{amendment.content}}
         p.comment {{amendment.comment}}
     script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js")
+    script(src="/lib/require/require.js")
+    script(src="/lib/zhutil/zhutil.js")
     script(src="/js/angular/diff/services.js")
     script(src="/js/angular/diff/directives.js")
+    script(src="/js/angular/diff/main.js")
