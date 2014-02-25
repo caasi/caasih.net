@@ -1,4 +1,4 @@
-renderer = PIXI.autoDetectRenderer 600 600
+renderer = new PIXI.WebGLRenderer 600 600
 document.getElementById(\moe).appendChild renderer.view
 
 stage = new PIXI.Stage 0x16161d
