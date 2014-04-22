@@ -12,3 +12,6 @@ html.han-la(lang="zh-tw")
     #wrap
       article#zh-tw
         block content
+    if scripts
+      for script in scripts
+        script(src="#{script}")
