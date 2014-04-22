@@ -1,2 +1,2 @@
 run ::
-	python -m SimpleHTTPServer 8888 | jade -w . | lsc -cw ./js
+	python -m SimpleHTTPServer 8888 | jade -w ./*.jade | lsc -cw ./js
