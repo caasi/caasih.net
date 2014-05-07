@@ -1,0 +1,24 @@
+{
+  "name": "caasigd.org",
+  "version": "0.0.1",
+  "homepage": "https://github.com/caasi/caasi.github.io",
+  "authors": [
+    "caasi Huang <caasi.igd@gmail.com>"
+  ],
+  "main": "./",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  },
+  "overrides": {
+  }
+}
