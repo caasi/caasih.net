@@ -22,7 +22,7 @@
   sky.pivot = sky.position = center;
   stage.addChild(sky);
   main = function(it){
-    var moe, i$, len$, stroke, j$, ref$, len1$, cmd, x$, gameLoop;
+    var moe, i$, len$, stroke, j$, ref$, len1$, cmd, x$, gameLoop, checker;
     moe = new PIXI.Graphics;
     moe.beginFill(0x000000);
     for (i$ = 0, len$ = it.length; i$ < len$; ++i$) {
@@ -58,7 +58,12 @@
       renderer.render(stage);
       return requestAnimationFrame(gameLoop);
     };
-    return requestAnimationFrame(gameLoop);
+    requestAnimationFrame(gameLoop);
+    checker = new ModifiedChecker;
+    return checker.run(function(){
+      console.log('page updated');
+      return window.location.reload(true);
+    });
   };
   zhStrokeData.loaders.JSON('./json/840c.json').then(main);
 }).call(this);

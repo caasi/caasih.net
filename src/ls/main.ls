@@ -52,4 +52,9 @@ main = ->
     requestAnimationFrame game-loop
   requestAnimationFrame game-loop
 
+  checker = new ModifiedChecker
+  checker.run ->
+    console.log 'page updated'
+    window.location.reload true
+
 zh-stroke-data.loaders.JSON('./json/840c.json').then main

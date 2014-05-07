@@ -65,7 +65,7 @@ gulp.task \html ->
 gulp.task \build <[vendor js:app css:app html]>
 
 gulp.task \server (next) ->
-  server = new node-static.Server path.build
+  server = new node-static.Server path.build, cache: 0
   port = 8888
   require \http .createServer (req, res) !->
     req.addListener(\end -> server.serve req, res)resume!
