@@ -18,7 +18,7 @@
     "tests"
   ],
   "dependencies": {
+    "pixi.js": "~1.5.3"
   },
-  "overrides": {
-  }
+  "overrides": {}
 }
