@@ -1,0 +1,44 @@
+{
+  "name": "Kuanling Huang",
+  "aliases": [
+    "spacekids",
+    "wanderer",
+    "deathclaw",
+    "SHR",
+    "caasi"
+  ],
+  "version": 29,
+  "description": "A naive programmer who is looking for more chances to write tools for GUI or games.",
+  "homepage": "http://caasigd.org",
+  "contributors": [
+    "Alice Yang",
+    "Niko Huang"
+  ],
+  "languages": {
+    "Chinese": "native",
+    "English": "limited working proficiency"
+  },
+  "education": {
+    "National Cheng Kung University": "Unfinished B.S., Computer Science and Information Engineering",
+    "National Taichung University": "B.S., Digital Content and Technology"
+  },
+  "skills": [
+    "javascript",
+    "livescript",
+    "html",
+    "css",
+    "actionscript",
+    "c"
+  ],
+  "dependencies": [
+    "Jedi",
+    "lunadance",
+    "jserv",
+    "godfat",
+    "ETBlue",
+    "poga",
+    "g0vers"
+  ],
+  "os": [ "linux", "darwin", "win" ],
+  "private": true
+}
