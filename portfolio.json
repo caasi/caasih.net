@@ -1,15 +1,17 @@
 {
-  "name": "Kuanling Huang",
+  "name": "Isaac Huang",
   "aliases": [
     "spacekids",
     "wanderer",
     "deathclaw",
     "SHR",
-    "caasi"
+    "caasi",
+    "caasih",
+    "caasiHuang"
   ],
   "version": 29,
-  "description": "A naive programmer who is looking for more chances to write tools for GUI or games.",
-  "homepage": "http://caasigd.org",
+  "description": "A naive programmer who is looking for more chances to write tools for GUI and games.",
+  "homepage": "http://caasih.net",
   "contributors": [
     "Alice Yang",
     "Niko Huang"
@@ -40,5 +42,6 @@
     "g0vers"
   ],
   "os": [ "linux", "darwin", "win" ],
-  "private": true
+  "private": true,
+  "prev": "/index.json"
 }
