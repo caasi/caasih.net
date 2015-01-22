@@ -43,8 +43,10 @@
 				<section>
 					<h1>Composable React Components</h1>
           <h3>寫出方便重用的 React Components</h3>
-					<p>
-						<small><a href="http://http://twitter.com/caasih">@caasih</a> a.k.a. 卡西</small>
+          <p>
+            <small><a href="http://caasih.net/reusable/">http://caasih.net/reusable/</a></small>
+            <br />
+            <small><a href="http://http://twitter.com/caasih">@caasih</a> a.k.a. 卡西</small>
 					</p>
 				</section>
 
@@ -106,7 +108,7 @@ render: function() {
 
         <section>
           <section>
-            <h2>render a single view</h2>
+            <h2>render a single cue</h2>
             <p>&lt;Cue&gt;</p>
             <pre><code>
 render: function() {
@@ -143,9 +145,11 @@ return (
         <section>
           <section>
             <h2>use this.props.children</h2>
+            <p>&lt;Cue&gt;</p>
             <pre><code>
 return &lt;div&gt;{ this.props.children }: { progress }%&lt;/div&gt;;
             </code></pre>
+            <p>&lt;Parent&gt;</p>
             <pre><code>
 return &lt;Cue data={ cue } currentTime={ that.props.currentTime }&gt;
   { cue.text }
