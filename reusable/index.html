@@ -322,6 +322,18 @@ shouldComponentUpdate: (nprops, nstate) -> false # not very React
         </section>
 
         <section>
+          <h2>notify top component w/o event system</h2>
+          <p>the mixin in LiveScript</p>
+          <pre><code>
+NotifyMixin =
+  notify: ->
+    owner = this
+    while owner._owner => owner = owner._owner
+    owner?props?onNotify ...
+          </code></pre>
+        </section>
+
+        <section>
           <q cite="http://hpmor.com/chapter/51">"That was what it meant to be used by a friend, that they would want the use to make you stronger instead of weaker." - Chapter 51: Title Redacted, Pt 1, HPMOR</q>
         </section>
 
