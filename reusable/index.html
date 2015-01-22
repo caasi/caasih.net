@@ -100,7 +100,7 @@ render: function() {
             </code></pre>
           </section>
           <section>
-            <p>http://jsfiddle.net/caasi/h7LLy0sc/</p>
+            <a href="http://jsfiddle.net/caasi/h7LLy0sc/">http://jsfiddle.net/caasi/h7LLy0sc/</a>
           </section>
         </section>
 
@@ -134,23 +134,34 @@ return (
 );
             </code></pre>
           </section>
+
+          <section>
+            <a href="http://jsfiddle.net/caasi/h7LLy0sc/1/">http://jsfiddle.net/caasi/h7LLy0sc/1/</a>
+          </section>
         </section>
 
         <section>
-          <h2>use this.props.children</h2>
-          <pre><code>
+          <section>
+            <h2>use this.props.children</h2>
+            <pre><code>
 return &lt;div&gt;{ this.props.children }: { progress }%&lt;/div&gt;;
-          </code></pre>
-          <pre><code>
+            </code></pre>
+            <pre><code>
 return &lt;Cue data={ cue } currentTime={ that.props.currentTime }&gt;
   { cue.text }
 &lt;/Cue&gt;;
-          </code></pre>
+            </code></pre>
+          </section>
+
+          <section>
+            <a href="http://jsfiddle.net/caasi/h7LLy0sc/2/">http://jsfiddle.net/caasi/h7LLy0sc/2/</a>
+          </section>
         </section>
 
         <section>
-          <h2>duplicate children with different styles</h2>
-          <pre><code>
+          <section>
+            <h2>duplicate children with different styles</h2>
+            <pre><code>
 return (
   &lt;div&gt;
     &lt;div&gt;{ this.props.children }: { progress }%&lt;/div&gt;
@@ -159,7 +170,12 @@ return (
     &lt;/div&gt;
   &lt;/div&gt;
 );
-          </code></pre>
+            </code></pre>
+          </section>
+
+          <section>
+            <a href="http://jsfiddle.net/caasi/h7LLy0sc/3/">http://jsfiddle.net/caasi/h7LLy0sc/3/</a>
+          </section>
         </section>
 
         <section>
@@ -227,6 +243,10 @@ return (
 }
             </code></pre>
           </section>
+
+          <section>
+            <a href="http://jsfiddle.net/caasi/h7LLy0sc/4/">http://jsfiddle.net/caasi/h7LLy0sc/4/</a>
+          </section>
         </section>
 
         <section>
@@ -290,6 +310,7 @@ injectClipPath: ->
 componentDidMount:  -> @injectClipPath ...
 componentDidUpdate: -> @injectClipPath ...
           </code></pre>
+          <a href="https://github.com/g0v/react-zh-stroker/blob/gh-pages/src/lib/Stroke.ls#L19">g0v/react-zh-stroker</a>
         </section>
 
         <section>
@@ -297,6 +318,7 @@ componentDidUpdate: -> @injectClipPath ...
           <pre><code>
 shouldComponentUpdate: (nprops, nstate) -> false # not very React
           </code></pre>
+          <a href="https://github.com/caasi/react-colorpicker/blob/gh-pages/src/lib/ColorPicker.ls#L81">caasi/react-colorpicker</a>
         </section>
 
         <section>
