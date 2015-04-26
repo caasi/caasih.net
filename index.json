@@ -3,16 +3,16 @@
     "en": {
       "name": "Isaac Huang",
       "aliases": ["caasih", "caasi", "caasiHuang"],
-      "description": "A naive web developer focused on prototyping in JavaScript, learning structure and interpretation of computer programs, modern 3D graphics programming for the future of web.",
-      "location": "Taichung, Taiwan",
-      "title": "Junior NEET"
+      "description": "A naive web developer who is learning to create tools to argument himself and explore the web.",
+      "location": "Taiwan",
+      "title": null
     },
     "zh-TW": {
       "name": "黃冠霖",
       "aliases": ["小雞", "阿認"],
-      "description": "畢業於台不上不下教育大學數位內容科技學系，寫網頁維生。對JavaScript又愛又恨，曾經成功地從國民小學、國民中學、公立高中畢業。曾有機會取得「我也沒拿到大學學位」成就，但後來想不開。",
-      "location": "台中市",
-      "title": "初階自宅警備員"
+      "description": "畢業於台不上不下教育大學數位內容科技學系，寫網頁維生。對JavaScript又愛又恨，成功地從國民小學、國民中學、公立高中、讀起來像高中的大學畢業",
+      "location": "台灣",
+      "title": null
     }
   },
   "SNS": {
@@ -23,5 +23,6 @@
     "github": "https://github.com/caasi/",
     "Logdown": "http://caasih.logdown.com/"
   },
-  "portfolio": "/portfolio.json"
+  "portfolio": "./portfolio.json",
+  "tweets": "./tweets.json"
 }
