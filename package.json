@@ -26,5 +26,8 @@
     "nib": "^1.0.2",
     "node-static": "^0.7.3",
     "tiny-lr": "0.0.5"
+  },
+  "dependencies": {
+    "marked": "^0.3.5"
   }
 }
