@@ -6,7 +6,8 @@
   "scripts": {
     "start": "npm run build:jade && cross-env NODE_ENV=development babel-node devServer.js",
     "clean": "rimraf ./bundle.js ./index.html",
-    "build:jade": "jade < ./src/index.jade > ./index.html",
+    "build:jade": "pug --out ./ ./src/index.jade",
+    "build:will": "pug --out ./ ./src/continuity.jade",
     "build:webpack": "webpack --config ./build.webpack.config.babel.js",
     "build": "npm run clean && npm run build:jade && cross-env NODE_ENV=production npm run build:webpack"
   },
@@ -27,10 +28,11 @@
     "css-loader": "^0.23.1",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.14.0",
-    "jade": "^1.11.0",
     "json-loader": "^0.5.4",
+    "jstransformer-markdown-it": "^2.0.0",
     "postcss": "^5.1.2",
     "postcss-loader": "^0.10.1",
+    "pug-cli": "^1.0.0-alpha6",
     "rimraf": "^2.5.4",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
