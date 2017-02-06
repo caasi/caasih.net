@@ -45,11 +45,13 @@
     "classnames": "^2.2.5",
     "eslint": "^3.14.1",
     "eslint-plugin-react": "^6.9.0",
+    "material-ui": "^0.16.7",
     "normalize.css": "^4.2.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-json-tree": "^0.10.0",
     "react-redux": "^4.4.5",
+    "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0"
   }
