@@ -1,6 +1,7 @@
 import webpack from 'webpack'
 import devConfig from './webpack.config.babel'
-let { entry: [,, entry], output, resolve, module, postcss } = devConfig
+import autoprefixer from 'autoprefixer'
+let { entry: [,,, entry], output, resolve, module } = devConfig
 let { loaders: [babelLoader, cssLoader, jsonLoader] } = module
 
 export default {
@@ -12,18 +13,20 @@ export default {
         'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
       }
     }),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      options: {
+        postcss: [autoprefixer],
+      },
+    })
   ],
   resolve,
   module: {
-    loaders: [{
-      ...babelLoader,
-      query: {
-        cacheDirectory: true,
-        presets: ['es2015', 'react']
-      }
-    }, cssLoader, jsonLoader]
+    loaders: [
+      babelLoader,
+      cssLoader,
+      jsonLoader
+    ]
   },
-  postcss
 }
