@@ -35,17 +35,14 @@ export default {
     extensions: ['.js', '.jsx']
   },
   module: {
-    loaders: [{
+    rules: [{
       test: /\.jsx?$/,
-      loader: 'babel-loader',
+      use: 'babel-loader',
       exclude: /node_modules/,
     }, {
       test: /\.css$/,
-      loaders: ['style-loader', 'css-loader?modules', 'postcss-loader'],
+      use: ['style-loader', 'css-loader?modules', 'postcss-loader'],
       include: __dirname,
-    }, {
-      test: /\.json$/,
-      loader: 'json-loader',
     }]
   },
   devServer: {

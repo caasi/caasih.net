@@ -2,7 +2,6 @@ import webpack from 'webpack'
 import devConfig from './webpack.config.babel'
 import autoprefixer from 'autoprefixer'
 let { entry: [,,, entry], output, resolve, module } = devConfig
-let { loaders: [babelLoader, cssLoader, jsonLoader] } = module
 
 export default {
   entry,
@@ -22,11 +21,5 @@ export default {
     })
   ],
   resolve,
-  module: {
-    loaders: [
-      babelLoader,
-      cssLoader,
-      jsonLoader
-    ]
-  },
+  module,
 }
