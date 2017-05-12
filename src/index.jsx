@@ -1,22 +1,32 @@
 import { AppContainer } from 'react-hot-loader'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
-
-import injectTapEventPlugin from 'react-tap-event-plugin'
-injectTapEventPlugin()
+import { createStore } from 'redux'
+import store from './store'
+import Root from './Root'
 
 import 'normalize.css/normalize.css'
 import './index.css'
 
+
+
+const s = store()
 const rootEl = document.getElementById('app')
 const render = Comp =>
   ReactDOM.render(
     <AppContainer>
-      <Comp />
+      <Comp store={s} />
     </AppContainer>,
     rootEl
   )
+render(Root)
 
-render(App)
-if (module.hot) module.hot.accept('./App', () => render(App))
+if (module.hot)
+  module.hot.accept(
+    './Root',
+    () => {
+      const newRoot = require('./Root').default
+      render(newRoot)
+    }
+  )
+

@@ -6,6 +6,7 @@ import autoprefixer from 'autoprefixer'
 import precss from 'precss'
 import syntax from 'postcss-scss'
 import vendor from './vendor.babel'
+import { createAliases } from './utils.babel'
 import { srcPath, dstPath } from './config.babel'
 
 
@@ -49,7 +50,11 @@ export default {
     new webpack.NoEmitOnErrorsPlugin(),
   ],
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    alias: createAliases(
+      srcPath,
+      ['actions', 'components', 'pages', 'types', 'reducers']
+    )
   },
   module: {
     rules: [{

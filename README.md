@@ -4,11 +4,11 @@ This is my site. There are many like it, but this one is mine.
 
 ## TODO
 
-  * [ ] remove `material-ui`
+  * [x] remove `material-ui`
 
-  * [ ] use my own `thunk`
+  * [x] use my own `thunk`
 
-  * [ ] use `react-router`
+  * [x] use `react-router`
 
   * [ ] move my web logs here
 
