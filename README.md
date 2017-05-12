@@ -12,5 +12,7 @@ This is my site. There are many like it, but this one is mine.
 
   * [ ] move my web logs here
 
+  * [ ] move static files to `gh-pages` branch
+
   * [ ] use `sw-precache` to cache script files
 

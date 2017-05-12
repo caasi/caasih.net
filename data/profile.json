@@ -1,0 +1,10 @@
+{
+  "@context": "http://schema.org",
+  "@type": "person",
+  "email": "mailto:caasi@caasih.net",
+  "name": "Isaac Huang",
+  "gender": "male",
+  "nationality": "Taiwanese",
+  "url": "http://caasih.net",
+  "sameAs": [ "https://github.com/caasi/" ]
+}

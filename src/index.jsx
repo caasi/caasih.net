@@ -6,7 +6,6 @@ import store from './store'
 import Root from './Root'
 
 import 'normalize.css/normalize.css'
-import './index.css'
 
 
 
