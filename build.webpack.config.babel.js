@@ -1,25 +1,8 @@
-import webpack from 'webpack'
-import devConfig from './webpack.config.babel'
-import autoprefixer from 'autoprefixer'
-let { entry: [,,, entry], output, resolve, module } = devConfig
+import merge from 'webpack-merge'
+import base from './config/base.babel'
+import production from './config/production.babel'
 
-export default {
-  entry,
-  output,
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin(),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
-      options: {
-        postcss: [autoprefixer],
-      },
-    })
-  ],
-  resolve,
-  module,
-}
+
+
+export default merge(production, base)
+

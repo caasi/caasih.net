@@ -1,54 +1,8 @@
-import path from 'path'
-import webpack from 'webpack'
-import autoprefixer from 'autoprefixer'
+import merge from 'webpack-merge'
+import base from './config/base.babel'
+import development from './config/development.babel'
 
-Error.stackTraceLimit = Infinity
 
-const srcPath = path.resolve(__dirname, 'src')
-const dstPath = path.resolve(__dirname)
 
-export default {
-  devtool: 'inline-source-map',
-  entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server',
-    path.join(srcPath, 'index')
-  ],
-  output: {
-    path: dstPath,
-    filename: 'bundle.js',
-    publicPath: '/'
-  },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-      }
-    }),
-    new webpack.LoaderOptionsPlugin({ options: { postcss: [autoprefixer] } }),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
-  ],
-  resolve: {
-    extensions: ['.js', '.jsx']
-  },
-  module: {
-    rules: [{
-      test: /\.jsx?$/,
-      use: 'babel-loader',
-      exclude: /node_modules/,
-    }, {
-      test: /\.css$/,
-      use: ['style-loader', 'css-loader?modules', 'postcss-loader'],
-      include: __dirname,
-    }]
-  },
-  devServer: {
-    host: 'localhost',
-    port: 3000,
-    historyApiFallback: true,
-    hot: true,
-  },
-}
+export default merge(development, base)
+
