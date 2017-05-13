@@ -6,14 +6,12 @@ import { withRouter, Link, Route } from 'react-router-dom'
 import * as actions from 'actions'
 import * as func from 'types/func'
 import Post from '../Post'
-import { map, addIndex } from 'ramda'
+import { map } from 'ramda'
 import moment from 'moment'
 
 import styles from './index.css'
 
 
-
-const idxMap = addIndex(map)
 
 class PostIndex extends PureComponent {
   static propTypes = {
@@ -38,9 +36,9 @@ class PostIndex extends PureComponent {
     return (
       <div id={id} className={classes}>
         <ol>{
-          idxMap(
-            (p, i) =>
-              <li key={i}>
+          map(
+            p =>
+              <li key={p.url}>
                 <Link to={`${match.url}/${p.url}`}>{ p.headline }</Link>
                 { moment(p.datePublished).format('YYYY-MM-DD HH:mm') }
               </li>,
