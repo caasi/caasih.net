@@ -35,6 +35,9 @@ class PostIndex extends PureComponent {
 
     return (
       <div id={id} className={classes}>
+        <div>
+          <Route path={`${match.url}/:pid`} component={Post} />
+        </div>
         <ol>{
           map(
             p =>
@@ -45,9 +48,6 @@ class PostIndex extends PureComponent {
             post_index
           )
         }</ol>
-        <div>
-          <Route path={`${match.url}/:pid`} component={Post} />
-        </div>
       </div>
     )
   }
