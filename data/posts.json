@@ -1,6 +1,87 @@
 [{
   "@context": "http://schema.org",
   "@type": "BlogPosting",
+  "headline": "Is 4-5 years the “Midlife Crisis” for a programming career?",
+  "author": 0,
+  "datePublished": "2010-05-15",
+  "dateCreated": "2010-05-15",
+  "dateModified": "2010-05-15",
+  "url": "2010-05-15-midlife-crisis.md"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "A delightful mix of laziness and incompetence. An anecdo...",
+  "author": 0,
+  "datePublished": "2010-04-30",
+  "dateCreated": "2010-04-30",
+  "dateModified": "2010-04-30",
+  "url": "2010-04-30-laziness-and-incompetence.md"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "研究：螳螂蝦具第四種視覺系統",
+  "author": 0,
+  "datePublished": "2010-04-26",
+  "dateCreated": "2010-04-26",
+  "dateModified": "2010-04-26",
+  "url": "2010-04-26-mantis-shrimp.md"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "巴叩的",
+  "author": 0,
+  "datePublished": "2010-04-26",
+  "dateCreated": "2010-04-26",
+  "dateModified": "2010-04-26",
+  "url": "2010-04-26-barcode.md"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "不存在的顏色",
+  "author": 0,
+  "datePublished": "2010-04-26",
+  "dateCreated": "2010-04-26",
+  "dateModified": "2017-05-17",
+  "url": "2010-04-26-nonexistent-color.md"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Digital Magazine",
+  "author": 0,
+  "datePublished": "2010-04-23",
+  "dateCreated": "2010-04-23",
+  "dateModified": "2010-04-23",
+  "url": "2010-04-23-digital-magazine.md"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Are there any famous one-man-army programmers?",
+  "author": 0,
+  "datePublished": "2010-04-20",
+  "dateCreated": "2010-04-20",
+  "dateModified": "2010-04-20",
+  "url": "2010-04-20-lone-wolf.md"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "jserv",
+  "author": 0,
+  "datePublished": "2010-04-19",
+  "dateCreated": "2010-04-19",
+  "dateModified": "2010-04-19",
+  "url": "2010-04-19-jserv.md"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "zxing",
+  "author": 0,
+  "datePublished": "2010-04-13",
+  "dateCreated": "2010-04-13",
+  "dateModified": "2010-04-13",
+  "url": "2010-04-13-zxing.md"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
   "headline": "Green Threads",
   "author": 0,
   "datePublished": "2010-04-09",
