@@ -6,7 +6,16 @@
   "datePublished": "2011-01-15",
   "dateCreated": "2011-01-15",
   "dateModified": "2011-01-15",
-  "url": "2011-01-15-brownfield.md"
+  "url": "2011-01-15-brownfield"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "《軟體構築美學》譯者對書的介紹",
+  "author": 0,
+  "datePublished": "2011-01-15",
+  "dateCreated": "2011-01-15",
+  "dateModified": "2011-01-15",
+  "url": "2011-01-15-brownfield"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -15,7 +24,7 @@
   "datePublished": "2010-10-09",
   "dateCreated": "2010-10-09",
   "dateModified": "2010-10-09",
-  "url": "2010-10-09-enterprise.md"
+  "url": "2010-10-09-enterprise"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -24,7 +33,7 @@
   "datePublished": "2010-10-09",
   "dateCreated": "2010-10-09",
   "dateModified": "2010-10-09",
-  "url": "2010-10-09-alu.md"
+  "url": "2010-10-09-alu"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -33,7 +42,7 @@
   "datePublished": "2010-07-16",
   "dateCreated": "2010-07-16",
   "dateModified": "2010-07-16",
-  "url": "2010-07-16-dorothy.md"
+  "url": "2010-07-16-dorothy"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -42,7 +51,7 @@
   "datePublished": "2010-05-20",
   "dateCreated": "2010-05-20",
   "dateModified": "2010-05-20",
-  "url": "2010-05-20-dealers-of-lightning.md"
+  "url": "2010-05-20-dealers-of-lightning"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -51,7 +60,7 @@
   "datePublished": "2010-05-18",
   "dateCreated": "2010-05-18",
   "dateModified": "2010-05-18",
-  "url": "2010-05-18-samsharehome.md"
+  "url": "2010-05-18-samsharehome"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -60,7 +69,7 @@
   "datePublished": "2010-05-18",
   "dateCreated": "2010-05-18",
   "dateModified": "2010-05-18",
-  "url": "2010-05-18-knowledge-representation.md"
+  "url": "2010-05-18-knowledge-representation"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -69,7 +78,7 @@
   "datePublished": "2010-05-15",
   "dateCreated": "2010-05-15",
   "dateModified": "2010-05-15",
-  "url": "2010-05-15-midlife-crisis.md"
+  "url": "2010-05-15-midlife-crisis"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -78,7 +87,7 @@
   "datePublished": "2010-04-30",
   "dateCreated": "2010-04-30",
   "dateModified": "2010-04-30",
-  "url": "2010-04-30-laziness-and-incompetence.md"
+  "url": "2010-04-30-laziness-and-incompetence"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -87,7 +96,7 @@
   "datePublished": "2010-04-26",
   "dateCreated": "2010-04-26",
   "dateModified": "2010-04-26",
-  "url": "2010-04-26-mantis-shrimp.md"
+  "url": "2010-04-26-mantis-shrimp"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -96,7 +105,7 @@
   "datePublished": "2010-04-26",
   "dateCreated": "2010-04-26",
   "dateModified": "2010-04-26",
-  "url": "2010-04-26-barcode.md"
+  "url": "2010-04-26-barcode"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -105,7 +114,7 @@
   "datePublished": "2010-04-26",
   "dateCreated": "2010-04-26",
   "dateModified": "2017-05-17",
-  "url": "2010-04-26-nonexistent-color.md"
+  "url": "2010-04-26-nonexistent-color"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -114,7 +123,7 @@
   "datePublished": "2010-04-23",
   "dateCreated": "2010-04-23",
   "dateModified": "2010-04-23",
-  "url": "2010-04-23-digital-magazine.md"
+  "url": "2010-04-23-digital-magazine"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -123,7 +132,7 @@
   "datePublished": "2010-04-20",
   "dateCreated": "2010-04-20",
   "dateModified": "2010-04-20",
-  "url": "2010-04-20-lone-wolf.md"
+  "url": "2010-04-20-lone-wolf"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -132,7 +141,7 @@
   "datePublished": "2010-04-19",
   "dateCreated": "2010-04-19",
   "dateModified": "2010-04-19",
-  "url": "2010-04-19-jserv.md"
+  "url": "2010-04-19-jserv"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -141,7 +150,7 @@
   "datePublished": "2010-04-13",
   "dateCreated": "2010-04-13",
   "dateModified": "2010-04-13",
-  "url": "2010-04-13-zxing.md"
+  "url": "2010-04-13-zxing"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -150,7 +159,7 @@
   "datePublished": "2010-04-09",
   "dateCreated": "2010-04-09",
   "dateModified": "2010-04-09",
-  "url": "2010-04-09-green-threads.md"
+  "url": "2010-04-09-green-threads"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -159,7 +168,7 @@
   "datePublished": "2010-04-06",
   "dateCreated": "2010-04-06",
   "dateModified": "2010-04-06",
-  "url": "2010-04-06-adobe-facepalm.md"
+  "url": "2010-04-06-adobe-facepalm"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -168,7 +177,7 @@
   "datePublished": "2010-04-02",
   "dateCreated": "2010-04-02",
   "dateModified": "2010-04-02",
-  "url": "2010-04-02-all-the-flowers-are-dying.md"
+  "url": "2010-04-02-all-the-flowers-are-dying"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -177,7 +186,7 @@
   "datePublished": "2010-03-28",
   "dateCreated": "2010-03-28",
   "dateModified": "2010-03-28",
-  "url": "2010-03-28-cloudwu.md"
+  "url": "2010-03-28-cloudwu"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -186,7 +195,7 @@
   "datePublished": "2010-03-27",
   "dateCreated": "2010-03-27",
   "dateModified": "2010-03-27",
-  "url": "2010-03-27-url-loader.md"
+  "url": "2010-03-27-url-loader"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -195,7 +204,7 @@
   "datePublished": "2010-03-17",
   "dateCreated": "2010-03-17",
   "dateModified": "2010-03-17",
-  "url": "2010-03-17-calculator.md"
+  "url": "2010-03-17-calculator"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -204,7 +213,7 @@
   "datePublished": "2010-03-10",
   "dateCreated": "2010-03-10",
   "dateModified": "2010-03-10",
-  "url": "2010-03-10-java-makefile.md"
+  "url": "2010-03-10-java-makefile"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -213,7 +222,7 @@
   "datePublished": "2010-03-04",
   "dateCreated": "2010-03-04",
   "dateModified": "2010-03-04",
-  "url": "2010-03-04-as3-buttons.md"
+  "url": "2010-03-04-as3-buttons"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -222,7 +231,7 @@
   "datePublished": "2010-02-27",
   "dateCreated": "2010-02-27",
   "dateModified": "2010-02-27",
-  "url": "2010-02-27-pictures.md"
+  "url": "2010-02-27-pictures"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -231,7 +240,7 @@
   "datePublished": "2010-02-09",
   "dateCreated": "2010-02-09",
   "dateModified": "2010-02-09",
-  "url": "2010-02-09-maximum-segment-sum.md"
+  "url": "2010-02-09-maximum-segment-sum"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -240,7 +249,7 @@
   "datePublished": "2010-02-09",
   "dateCreated": "2010-02-09",
   "dateModified": "2010-02-09",
-  "url": "2010-02-09-testing.md"
+  "url": "2010-02-09-testing"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -249,7 +258,7 @@
   "datePublished": "2010-02-06",
   "dateCreated": "2010-02-06",
   "dateModified": "2010-02-06",
-  "url": "2010-02-06-integer-sequence.md"
+  "url": "2010-02-06-integer-sequence"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -258,7 +267,7 @@
   "datePublished": "2010-01-27",
   "dateCreated": "2010-01-27",
   "dateModified": "2010-01-27",
-  "url": "2010-01-27-menu.md"
+  "url": "2010-01-27-menu"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -267,7 +276,7 @@
   "datePublished": "2010-01-26",
   "dateCreated": "2010-01-26",
   "dateModified": "2010-01-26",
-  "url": "2010-01-26-dexter.md"
+  "url": "2010-01-26-dexter"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -276,7 +285,7 @@
   "datePublished": "2010-01-25",
   "dateCreated": "2010-01-25",
   "dateModified": "2010-01-25",
-  "url": "2010-01-25-anything.md"
+  "url": "2010-01-25-anything"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -285,7 +294,7 @@
   "datePublished": "2010-01-25",
   "dateCreated": "2010-01-25",
   "dateModified": "2010-01-25",
-  "url": "2010-01-25-flashback.md"
+  "url": "2010-01-25-flashback"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -294,7 +303,7 @@
   "datePublished": "2010-01-21",
   "dateCreated": "2010-01-21",
   "dateModified": "2010-01-21",
-  "url": "2010-01-21-rocketbirds-revolution.md"
+  "url": "2010-01-21-rocketbirds-revolution"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -303,7 +312,7 @@
   "datePublished": "2010-01-20",
   "dateCreated": "2010-01-20",
   "dateModified": "2010-01-20",
-  "url": "2010-01-20-seo.md"
+  "url": "2010-01-20-seo"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -312,7 +321,7 @@
   "datePublished": "2010-01-20",
   "dateCreated": "2010-01-20",
   "dateModified": "2010-01-20",
-  "url": "2010-01-20-reset-css.md"
+  "url": "2010-01-20-reset-css"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -321,7 +330,7 @@
   "datePublished": "2010-01-17",
   "dateCreated": "2010-01-17",
   "dateModified": "2010-01-17",
-  "url": "2010-01-17-sending-eof.md"
+  "url": "2010-01-17-sending-eof"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -330,7 +339,7 @@
   "datePublished": "2010-01-17",
   "dateCreated": "2010-01-17",
   "dateModified": "2010-01-17",
-  "url": "2010-01-17-geogebra.md"
+  "url": "2010-01-17-geogebra"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -339,7 +348,7 @@
   "datePublished": "2010-01-15",
   "dateCreated": "2010-01-15",
   "dateModified": "2010-01-15",
-  "url": "2010-01-15.md"
+  "url": "2010-01-15"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -348,7 +357,7 @@
   "datePublished": "2010-01-13",
   "dateCreated": "2010-01-13",
   "dateModified": "2010-01-13",
-  "url": "2010-01-13.md"
+  "url": "2010-01-13"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -357,7 +366,7 @@
   "datePublished": "2010-01-12",
   "dateCreated": "2010-01-12",
   "dateModified": "2010-01-12",
-  "url": "2010-01-12.md"
+  "url": "2010-01-12"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -366,7 +375,7 @@
   "datePublished": "2010-01-10",
   "dateCreated": "2010-01-10",
   "dateModified": "2017-05-13",
-  "url": "2010-01-10-2.md"
+  "url": "2010-01-10-2"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -375,7 +384,7 @@
   "datePublished": "2010-01-10",
   "dateCreated": "2010-01-10",
   "dateModified": "2010-01-10",
-  "url": "2010-01-10-1.md"
+  "url": "2010-01-10-1"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -384,7 +393,7 @@
   "datePublished": "2010-01-10",
   "dateCreated": "2010-01-10",
   "dateModified": "2010-01-10",
-  "url": "2010-01-10-0.md"
+  "url": "2010-01-10-0"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -393,7 +402,7 @@
   "datePublished": "2010-01-09",
   "dateCreated": "2010-01-09",
   "dateModified": "2010-01-09",
-  "url": "2010-01-09-4.md"
+  "url": "2010-01-09-4"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -402,7 +411,7 @@
   "datePublished": "2010-01-09",
   "dateCreated": "2010-01-09",
   "dateModified": "2010-01-09",
-  "url": "2010-01-09-3.md"
+  "url": "2010-01-09-3"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -411,7 +420,7 @@
   "datePublished": "2010-01-09",
   "dateCreated": "2010-01-09",
   "dateModified": "2010-01-09",
-  "url": "2010-01-09-2.md"
+  "url": "2010-01-09-2"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -420,7 +429,7 @@
   "datePublished": "2010-01-09",
   "dateCreated": "2010-01-09",
   "dateModified": "2010-01-09",
-  "url": "2010-01-09-1.md"
+  "url": "2010-01-09-1"
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -429,6 +438,6 @@
   "datePublished": "2010-01-09",
   "dateCreated": "2010-01-09",
   "dateModified": "2010-01-09",
-  "url": "2010-01-09-0.md"
+  "url": "2010-01-09-0"
 }]
 

@@ -46,7 +46,7 @@ export const post = store => async (url) => {
   const { dispatch } = store
 
   if (pPost[url] === undefined) {
-    pPost[url] = axios.get(`/data/posts/${url}`).then(r => r.data)
+    pPost[url] = axios.get(`/data/posts/${url}.md`).then(r => r.data)
   }
 
   const result = await pPost[url]
