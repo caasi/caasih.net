@@ -8,5 +8,5 @@
 >
 > 'That&#8230; My code is gone!' said the younger programmer. 'But you have it in version control somewhere, right?' asked the elder. 'N&#8230;. no.' was the reply. 'Well then,' said the older, 'now you've learned two lessons.'
 
--- Dan Udey
+&#8212;Dan Udey
 

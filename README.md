@@ -10,9 +10,9 @@ This is my site. There are many like it, but this one is mine.
 
   * [x] use `react-router`
 
-  * [-] move my web logs here
+  * [ ] move my web logs here
 
-    * [-] 2010
+    * [x] 2010
 
     * [ ] 2011
 

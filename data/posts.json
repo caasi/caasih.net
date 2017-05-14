@@ -1,6 +1,69 @@
 [{
   "@context": "http://schema.org",
   "@type": "BlogPosting",
+  "headline": "《軟體構築美學》譯者對書的介紹",
+  "author": 0,
+  "datePublished": "2011-01-15",
+  "dateCreated": "2011-01-15",
+  "dateModified": "2011-01-15",
+  "url": "2011-01-15-brownfield.md"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "等比例的企業號骨架，偉哉",
+  "author": 0,
+  "datePublished": "2010-10-09",
+  "dateCreated": "2010-10-09",
+  "dateModified": "2010-10-09",
+  "url": "2010-10-09-enterprise.md"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "16-bit ALU",
+  "author": 0,
+  "datePublished": "2010-10-09",
+  "dateCreated": "2010-10-09",
+  "dateModified": "2010-10-09",
+  "url": "2010-10-09-alu.md"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "What do you mean \"impossible\"?",
+  "author": 0,
+  "datePublished": "2010-07-16",
+  "dateCreated": "2010-07-16",
+  "dateModified": "2010-07-16",
+  "url": "2010-07-16-dorothy.md"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Dealers of Lightning",
+  "author": 0,
+  "datePublished": "2010-05-20",
+  "dateCreated": "2010-05-20",
+  "dateModified": "2010-05-20",
+  "url": "2010-05-20-dealers-of-lightning.md"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "samsharehome 的 iPhone 開發技巧",
+  "author": 0,
+  "datePublished": "2010-05-18",
+  "dateCreated": "2010-05-18",
+  "dateModified": "2010-05-18",
+  "url": "2010-05-18-samsharehome.md"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Software is Knowledge Representation",
+  "author": 0,
+  "datePublished": "2010-05-18",
+  "dateCreated": "2010-05-18",
+  "dateModified": "2010-05-18",
+  "url": "2010-05-18-knowledge-representation.md"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
   "headline": "Is 4-5 years the “Midlife Crisis” for a programming career?",
   "author": 0,
   "datePublished": "2010-05-15",
