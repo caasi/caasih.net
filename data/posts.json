@@ -1,6 +1,78 @@
 [{
   "@context": "http://schema.org",
   "@type": "BlogPosting",
+  "headline": "Things a Computer Scientist Rarely Talks About",
+  "author": 0,
+  "datePublished": "2011-06-22",
+  "dateCreated": "2011-06-22",
+  "dateModified": "2011-06-22",
+  "url": "2011-06-22-things-a-computer-scientist-rarely-talks-about"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "雖然...",
+  "author": 0,
+  "datePublished": "2011-05-23",
+  "dateCreated": "2011-05-23",
+  "dateModified": "2011-05-23",
+  "url": "2011-05-23-although"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "zonble: 奮鬥吧！系統工程師SE　兩週內即可上手？SE入門 1 這是怎樣的書啊（歪頭） (via 博客來書...",
+  "author": 0,
+  "datePublished": "2011-05-22",
+  "dateCreated": "2011-05-22",
+  "dateModified": "2011-05-22",
+  "url": "2011-05-22-zonble-se"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "DIVE INTO HTML5",
+  "author": 0,
+  "datePublished": "2011-05-22",
+  "dateCreated": "2011-05-22",
+  "dateModified": "2011-05-22",
+  "url": "2011-05-22-dive-into-html5"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Eddy紫 试玩版v0.60",
+  "author": 0,
+  "datePublished": "2011-05-22",
+  "dateCreated": "2011-05-22",
+  "dateModified": "2011-05-22",
+  "url": "2011-05-22-eddy"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "ROME - \"3 DREAMS OF BLACK\"",
+  "author": 0,
+  "datePublished": "2011-05-22",
+  "dateCreated": "2011-05-22",
+  "dateModified": "2011-05-22",
+  "url": "2011-05-22-rome"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Cloud9 IDE",
+  "author": 0,
+  "datePublished": "2011-05-19",
+  "dateCreated": "2011-05-19",
+  "dateModified": "2011-05-19",
+  "url": "2011-05-19-cloud9"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Prototype JavaScript framework",
+  "author": 0,
+  "datePublished": "2011-05-06",
+  "dateCreated": "2011-05-06",
+  "dateModified": "2011-05-06",
+  "url": "2011-05-06-prototype"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
   "headline": "陳星漢",
   "author": 0,
   "datePublished": "2011-04-19",
