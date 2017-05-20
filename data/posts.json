@@ -1,6 +1,78 @@
 [{
   "@context": "http://schema.org",
   "@type": "BlogPosting",
+  "headline": "獨立遊戲競賽贊助",
+  "author": 0,
+  "datePublished": "2011-11-28",
+  "dateCreated": "2011-11-28",
+  "dateModified": "2011-11-28",
+  "url": "2011-11-28-contest-sponsor"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "人生",
+  "author": 0,
+  "datePublished": "2011-11-28",
+  "dateCreated": "2011-11-28",
+  "dateModified": "2011-11-28",
+  "url": "2011-11-28-life"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Node",
+  "author": 0,
+  "datePublished": "2011-10-30",
+  "dateCreated": "2011-10-30",
+  "dateModified": "2011-10-30",
+  "url": "2011-10-30-node"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "如何在 Windows 作業系統安裝 Node.js 執行環境 (Cygwin)",
+  "author": 0,
+  "datePublished": "2011-10-27",
+  "dateCreated": "2011-10-27",
+  "dateModified": "2011-10-27",
+  "url": "2011-10-27-node-cygwin"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Hong Kong Indie Game Development Blog",
+  "author": 0,
+  "datePublished": "2011-10-19",
+  "dateCreated": "2011-10-19",
+  "dateModified": "2011-10-19",
+  "url": "2011-10-19-hk-indie-game"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Vampire Katana 歐美 MMO 情報誌",
+  "author": 0,
+  "datePublished": "2011-10-17",
+  "dateCreated": "2011-10-17",
+  "dateModified": "2011-10-17",
+  "url": "2011-10-17-vampire-katana"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Linux UVC driver and tools",
+  "author": 0,
+  "datePublished": "2011-10-14",
+  "dateCreated": "2011-10-14",
+  "dateModified": "2011-10-14",
+  "url": "2011-10-14-uvc-driver"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Linux UVC driver and tools",
+  "author": 0,
+  "datePublished": "2011-10-14",
+  "dateCreated": "2011-10-14",
+  "dateModified": "2011-10-14",
+  "url": "2011-10-14-uvc-driver"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
   "headline": "Things a Computer Scientist Rarely Talks About",
   "author": 0,
   "datePublished": "2011-06-22",
