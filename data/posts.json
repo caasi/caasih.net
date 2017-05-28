@@ -1,6 +1,114 @@
 [{
   "@context": "http://schema.org",
   "@type": "BlogPosting",
+  "headline": "Fun with JavaScript Singleton",
+  "author": 0,
+  "datePublished": "2012-02-26",
+  "dateCreated": "2012-02-26",
+  "dateModified": "2012-02-26",
+  "url": "2012-02-26-js-singleton"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "imagination",
+  "author": 0,
+  "datePublished": "2012-02-26",
+  "dateCreated": "2012-02-26",
+  "dateModified": "2012-02-26",
+  "url": "2012-02-26-imagination"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "viewDidLoad",
+  "author": 0,
+  "datePublished": "2012-02-22",
+  "dateCreated": "2012-02-22",
+  "dateModified": "2012-02-22",
+  "url": "2012-02-22-view-did-load"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Cocoa Design Patterns Errata",
+  "author": 0,
+  "datePublished": "2012-02-19",
+  "dateCreated": "2012-02-19",
+  "dateModified": "2012-02-19",
+  "url": "2012-02-19-dp-errata"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "prototype 的聯想",
+  "author": 0,
+  "datePublished": "2012-02-16",
+  "dateCreated": "2012-02-16",
+  "dateModified": "2012-02-16",
+  "url": "2012-02-16-prototype"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "From NeXTSTEP to Cocoa",
+  "author": 0,
+  "datePublished": "2012-01-29",
+  "dateCreated": "2012-01-29",
+  "dateModified": "2012-01-29",
+  "url": "2012-01-29-nextstep-cocoa"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Android Design",
+  "author": 0,
+  "datePublished": "2012-01-13",
+  "dateCreated": "2012-01-13",
+  "dateModified": "2012-01-13",
+  "url": "2012-01-13-android-design"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Notch",
+  "author": 0,
+  "datePublished": "2012-01-13",
+  "dateCreated": "2012-01-13",
+  "dateModified": "2012-01-13",
+  "url": "2012-01-13-notch"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "p01",
+  "author": 0,
+  "datePublished": "2012-01-07",
+  "dateCreated": "2012-01-07",
+  "dateModified": "2012-01-07",
+  "url": "2012-01-07-p01"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "ECMA-262",
+  "author": 0,
+  "datePublished": "2012-01-04",
+  "dateCreated": "2012-01-04",
+  "dateModified": "2012-01-04",
+  "url": "2012-01-04-ecma-262"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Dmitry A. Soshnikov",
+  "author": 0,
+  "datePublished": "2012-01-04",
+  "dateCreated": "2012-01-04",
+  "dateModified": "2012-01-04",
+  "url": "2012-01-04-js-mentors"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Charles Babbage",
+  "author": 0,
+  "datePublished": "2012-01-04",
+  "dateCreated": "2012-01-04",
+  "dateModified": "2012-01-04",
+  "url": "2012-01-04-babbage"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
   "headline": "獨立遊戲競賽贊助",
   "author": 0,
   "datePublished": "2011-11-28",
