@@ -1,6 +1,51 @@
 [{
   "@context": "http://schema.org",
   "@type": "BlogPosting",
+  "headline": "Learn You a Haskell for Great Good!",
+  "author": 0,
+  "datePublished": "2013-04-20",
+  "dateCreated": "2013-04-20",
+  "dateModified": "2013-04-20",
+  "url": "2013-04-20-lyah"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "emscripten",
+  "author": 0,
+  "datePublished": "2013-04-20",
+  "dateCreated": "2013-04-20",
+  "dateModified": "2013-04-20",
+  "url": "2013-04-20-emscripten"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "[Steam] Implement GLSL 1.30 (for older chipsets than SandyBridge)",
+  "author": 0,
+  "datePublished": "2013-02-25",
+  "dateCreated": "2013-02-25",
+  "dateModified": "2013-02-25",
+  "url": "2013-02-25-intel-glsl"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "A Parametric Texture Model Based on Joint Statistics of Complex Wavelet Coefficients",
+  "author": 0,
+  "datePublished": "2013-02-11",
+  "dateCreated": "2013-02-11",
+  "dateModified": "2013-02-11",
+  "url": "2013-02-11-parametric-texture"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "契丹文",
+  "author": 0,
+  "datePublished": "2013-02-11",
+  "dateCreated": "2013-02-11",
+  "dateModified": "2013-02-11",
+  "url": "2013-02-11-khitan"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
   "headline": "Badass JavaScript",
   "author": 0,
   "datePublished": "2012-08-05",
