@@ -1,6 +1,69 @@
 [{
   "@context": "http://schema.org",
   "@type": "BlogPosting",
+  "headline": "Badass JavaScript",
+  "author": 0,
+  "datePublished": "2012-08-05",
+  "dateCreated": "2012-08-05",
+  "dateModified": "2012-08-05",
+  "url": "2012-08-05-badass-js"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "繼續讀黑客列傳…",
+  "author": 0,
+  "datePublished": "2012-08-03",
+  "dateCreated": "2012-08-03",
+  "dateModified": "2012-08-03",
+  "url": "2012-08-03-hackers"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "404 Blog Not Found",
+  "author": 0,
+  "datePublished": "2012-07-17",
+  "dateCreated": "2012-07-17",
+  "dateModified": "2012-07-17",
+  "url": "2012-07-17-dankogai"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Remember, no return.",
+  "author": 0,
+  "datePublished": "2012-06-28",
+  "dateCreated": "2012-06-28",
+  "dateModified": "2012-06-28",
+  "url": "2012-06-28-game-dev"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Embedded Gists",
+  "author": 0,
+  "datePublished": "2012-06-16",
+  "dateCreated": "2012-06-16",
+  "dateModified": "2012-06-16",
+  "url": "2012-06-16-gists"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Scumbag UITableView",
+  "author": 0,
+  "datePublished": "2012-03-14",
+  "dateCreated": "2012-03-14",
+  "dateModified": "2012-03-14",
+  "url": "2012-03-14-uitableview"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": ".screenrc",
+  "author": 0,
+  "datePublished": "2012-03-04",
+  "dateCreated": "2012-03-04",
+  "dateModified": "2012-03-04",
+  "url": "2012-03-04-screenrc"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
   "headline": "Fun with JavaScript Singleton",
   "author": 0,
   "datePublished": "2012-02-26",

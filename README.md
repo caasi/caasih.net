@@ -10,13 +10,13 @@ This is my site. There are many like it, but this one is mine.
 
   * [x] use `react-router`
 
-  * [ ] move my web logs here
+  * [ ] move my web logs
 
     * [x] 2010
 
-    * [ ] 2011
+    * [x] 2011
 
-    * [ ] 2012
+    * [x] 2012
 
     * [ ] 2013
 
@@ -28,7 +28,7 @@ This is my site. There are many like it, but this one is mine.
 
     * [ ] 2017
 
-  * [ ] move static files to `gh-pages` branch
+  * [ ] move static files to the `gh-pages` branch
 
   * [ ] use `sw-precache` to cache script files
 
