@@ -1,6 +1,87 @@
 [{
   "@context": "http://schema.org",
   "@type": "BlogPosting",
+  "headline": "YouCompleteMe",
+  "author": 0,
+  "datePublished": "2013-05-26",
+  "dateCreated": "2013-05-26",
+  "dateModified": "2013-05-26",
+  "url": "2013-05-26-youcompleteme"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "HTML5 for ActionScript 3.0 developers – Session video | TypedArray.org",
+  "author": 0,
+  "datePublished": "2013-05-08",
+  "dateCreated": "2013-05-08",
+  "dateModified": "2013-05-08",
+  "url": "2013-05-08-html5-as3"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "msxml - How to make Microsoft XmlHttpRequest honor cache control directive - Stack Overflow",
+  "author": 0,
+  "datePublished": "2013-05-08",
+  "dateCreated": "2013-05-08",
+  "dateModified": "2013-05-08",
+  "url": "2013-05-08-xhr"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "[討論] 易用與安全 - Soft_Job板 - Disp BBS",
+  "author": 0,
+  "datePublished": "2013-05-06",
+  "dateCreated": "2013-05-06",
+  "dateModified": "2013-05-06",
+  "url": "2013-05-06-disp-bbs"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Entropy , Compression, and Information Content",
+  "author": 0,
+  "datePublished": "2013-05-05",
+  "dateCreated": "2013-05-05",
+  "dateModified": "2013-05-05",
+  "url": "2013-05-05-entropy-compression-content"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Pioneering Images",
+  "author": 0,
+  "datePublished": "2013-05-05",
+  "dateCreated": "2013-05-05",
+  "dateModified": "2013-05-05",
+  "url": "2013-05-05-pioneering-images"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The Western Computer and the Chinese Character: Recent Debates on Chinese Writing Reform",
+  "author": 0,
+  "datePublished": "2013-05-05",
+  "dateCreated": "2013-05-05",
+  "dateModified": "2013-05-05",
+  "url": "2013-05-05-chinese-writing-reform"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Intersections of a Set of Segments",
+  "author": 0,
+  "datePublished": "2013-05-04",
+  "dateCreated": "2013-05-04",
+  "dateModified": "2013-05-04",
+  "url": "2013-05-04-intersections"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "現代行動藝術",
+  "author": 0,
+  "datePublished": "2013-04-20",
+  "dateCreated": "2013-04-20",
+  "dateModified": "2013-04-20",
+  "url": "2013-04-20-llvm-ir"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
   "headline": "Learn You a Haskell for Great Good!",
   "author": 0,
   "datePublished": "2013-04-20",
