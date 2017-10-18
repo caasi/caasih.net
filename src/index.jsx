@@ -20,12 +20,10 @@ const render = Comp =>
   )
 render(Root)
 
-if (module.hot)
+if (module.hot) {
   module.hot.accept(
     './Root',
-    () => {
-      const newRoot = require('./Root').default
-      render(newRoot)
-    }
+    () => render(Root)
   )
+}
 

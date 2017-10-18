@@ -8,9 +8,7 @@ export default {
   devtool: 'source-map',
   entry: {
     bundle: [
-      'react-hot-loader/patch',
-      `webpack-dev-server/client?http://${host}:${port}`,
-      'webpack/hot/only-dev-server',
+      'react-hot-loader/patch'
     ],
   },
   output: {
