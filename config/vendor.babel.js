@@ -8,7 +8,6 @@ export default [
   'ramda',
   'react',
   'react-dom',
-  'react-json-tree',
   'react-markdown',
   'react-redux',
   'react-router-dom',
