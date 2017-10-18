@@ -361,15 +361,6 @@
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
-  "headline": "Linux UVC driver and tools",
-  "author": 0,
-  "datePublished": "2011-10-14",
-  "dateCreated": "2011-10-14",
-  "dateModified": "2011-10-14",
-  "url": "2011-10-14-uvc-driver"
-}, {
-  "@context": "http://schema.org",
-  "@type": "BlogPosting",
   "headline": "Things a Computer Scientist Rarely Talks About",
   "author": 0,
   "datePublished": "2011-06-22",
