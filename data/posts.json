@@ -1,6 +1,141 @@
 [{
   "@context": "http://schema.org",
   "@type": "BlogPosting",
+  "headline": "近況與 React",
+  "author": 0,
+  "datePublished": "2015-04-25T00:29",
+  "dateCreated": "2015-04-25T00:29",
+  "dateModified": "2015-04-25T00:29",
+  "url": "2015-04-25-status-report-and-react"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Re: 工程師的缺德行為：叫朋友去學C/C++",
+  "author": 0,
+  "datePublished": "2015-04-02T22:39",
+  "dateCreated": "2015-04-02T22:39",
+  "dateModified": "2015-04-02T22:39",
+  "url": "2015-04-02-re-bad-suggestions-about-learning-c"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "loner",
+  "author": 0,
+  "datePublished": "2015-03-17T00:30",
+  "dateCreated": "2015-03-17T00:30",
+  "dateModified": "2015-03-17T00:30",
+  "url": "2015-03-17-loner"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "CSP",
+  "author": 0,
+  "datePublished": "2015-02-28T07:02",
+  "dateCreated": "2015-02-28T07:02",
+  "dateModified": "2015-02-28T07:02",
+  "url": "2015-02-28-csp"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "用 ES6 寫 React Component",
+  "author": 0,
+  "datePublished": "2015-02-24T14:41",
+  "dateCreated": "2015-02-24T14:41",
+  "dateModified": "2015-02-24T14:41",
+  "url": "2015-02-24-react-component-in-es6"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "MINORI",
+  "author": 0,
+  "datePublished": "2015-02-21T00:52",
+  "dateCreated": "2015-02-21T00:52",
+  "dateModified": "2015-02-21T00:52",
+  "url": "2015-02-21-minori"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "再讀一點 Promise",
+  "author": 0,
+  "datePublished": "2015-02-10T21:59",
+  "dateCreated": "2015-02-10T21:59",
+  "dateModified": "2015-02-10T21:59",
+  "url": "2015-02-10-old-promise-system"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "liftPromiseN",
+  "author": 0,
+  "datePublished": "2015-01-18T04:20",
+  "dateCreated": "2015-01-18T04:20",
+  "dateModified": "2015-01-18T04:20",
+  "url": "2015-01-18-lift-promise-n"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "2015年1月14日 上午2:25",
+  "author": 0,
+  "datePublished": "2015-01-14T02:25",
+  "dateCreated": "2015-01-14T02:25",
+  "dateModified": "2015-01-14T02:25",
+  "url": "2015-01-14-0225"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "狀態好像泡泡",
+  "author": 0,
+  "datePublished": "2014-12-03T22:00",
+  "dateCreated": "2014-12-03T22:00",
+  "dateModified": "2014-12-03T22:00",
+  "url": "2014-12-03-states-are-like-bubbles"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "近況、溝通還有電子書",
+  "author": 0,
+  "datePublished": "2014-10-30T02:20",
+  "dateCreated": "2014-10-30T02:20",
+  "dateModified": "2014-10-30T02:20",
+  "url": "2014-10-30-societies-and-epub"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Spell My Name with an S",
+  "author": 0,
+  "datePublished": "2014-09-09T18:30",
+  "dateCreated": "2014-09-09T18:30",
+  "dateModified": "2014-09-09T18:30",
+  "url": "2014-09-09-caasi"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "排列之城",
+  "author": 0,
+  "datePublished": "2014-07-05T01:52",
+  "dateCreated": "2014-07-05T01:52",
+  "dateModified": "2014-07-05T01:52",
+  "url": "2014-07-05-permutation-city"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "用 nan 寫 node native extension",
+  "author": 0,
+  "datePublished": "2014-06-23T03:50",
+  "dateCreated": "2014-06-23T03:50",
+  "dateModified": "2014-06-23T03:50",
+  "url": "2014-06-23-write-a-native-extension"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "萌典考",
+  "author": 0,
+  "datePublished": "2014-04-30T16:25",
+  "dateCreated": "2014-04-30T16:25",
+  "dateModified": "2014-04-30T16:25",
+  "url": "2014-04-30-moedict-history"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
   "headline": "Jade, Stylus, LiveScript",
   "author": 0,
   "datePublished": "2014-04-21T04:35",
