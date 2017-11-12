@@ -1,6 +1,132 @@
 [{
   "@context": "http://schema.org",
   "@type": "BlogPosting",
+  "headline": "vim 8",
+  "author": 0,
+  "datePublished": "2016-04-27T19:30",
+  "dateCreated": "2016-04-27T19:30",
+  "dateModified": "2016-04-27T19:30",
+  "url": "2016-04-27-vim-8"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "狀態 #1",
+  "author": 0,
+  "datePublished": "2016-04-22T20:53",
+  "dateCreated": "2016-04-22T20:53",
+  "dateModified": "2016-04-22T20:53",
+  "url": "2016-04-22-status-1"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "unlearn",
+  "author": 0,
+  "datePublished": "2016-04-20T09:31",
+  "dateCreated": "2016-04-20T09:31",
+  "dateModified": "2016-04-20T09:31",
+  "url": "2016-04-20-unlearn"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AltspaceVR",
+  "author": 0,
+  "datePublished": "2016-04-17T13:35",
+  "dateCreated": "2016-04-17T13:35",
+  "dateModified": "2016-04-17T13:35",
+  "url": "2016-04-17-altspace-vr"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "狀態 #0",
+  "author": 0,
+  "datePublished": "2016-03-31T11:39",
+  "dateCreated": "2016-03-31T11:39",
+  "dateModified": "2016-03-31T11:39",
+  "url": "2016-03-31-status-0"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "可惜我不記得他記得的",
+  "author": 0,
+  "datePublished": "2016-03-17T23:25",
+  "dateCreated": "2016-03-17T23:25",
+  "dateModified": "2016-03-17T23:25",
+  "url": "2016-03-17-mother"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Frege #0",
+  "author": 0,
+  "datePublished": "2016-03-16T15:47",
+  "dateCreated": "2016-03-16T15:47",
+  "dateModified": "2016-03-16T15:47",
+  "url": "2016-03-16-frege-0"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Build Your Own Haskell Compiler #3",
+  "author": 0,
+  "datePublished": "2016-02-28T04:06",
+  "dateCreated": "2016-02-28T04:06",
+  "dateModified": "2016-02-28T04:06",
+  "url": "2016-02-28-byohc-3"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "EPUB 3.1",
+  "author": 0,
+  "datePublished": "2016-02-04T13:52",
+  "dateCreated": "2016-02-04T13:52",
+  "dateModified": "2016-02-04T13:52",
+  "url": "2016-02-04-epub-31"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Build Your Own Haskell Compiler #2",
+  "author": 0,
+  "datePublished": "2015-12-23T21:59",
+  "dateCreated": "2015-12-23T21:59",
+  "dateModified": "2015-12-23T21:59",
+  "url": "2015-12-23-byohc-2"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "羨慕",
+  "author": 0,
+  "datePublished": "2015-12-04T11:41",
+  "dateCreated": "2015-12-04T11:41",
+  "dateModified": "2015-12-04T11:41",
+  "url": "2015-12-04-envy"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Build Your Own Haskell Compiler #1",
+  "author": 0,
+  "datePublished": "2015-11-29T20:54",
+  "dateCreated": "2015-11-29T20:54",
+  "dateModified": "2015-11-29T20:54",
+  "url": "2015-11-29-byohc-1"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "HN 與 \"The Implementation of Functional Programming Languages\"",
+  "author": 0,
+  "datePublished": "2015-11-23T07:07",
+  "dateCreated": "2015-11-23T07:07",
+  "dateModified": "2015-11-23T07:07",
+  "url": "2015-11-23-hn-and-spj"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Build Your Own λ-calculus Interpreter",
+  "author": 0,
+  "datePublished": "2015-10-24T21:20",
+  "dateCreated": "2015-10-24T21:20",
+  "dateModified": "2015-10-24T21:20",
+  "url": "2015-10-24-build-your-own-lambda"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
   "headline": "數學",
   "author": 0,
   "datePublished": "2015-08-30T22:34",
