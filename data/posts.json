@@ -1,6 +1,42 @@
 [{
   "@context": "http://schema.org",
   "@type": "BlogPosting",
+  "headline": "Jade, Stylus, LiveScript",
+  "author": 0,
+  "datePublished": "2014-04-21T04:35",
+  "dateCreated": "2014-04-21T04:35",
+  "dateModified": "2014-04-21T04:35",
+  "url": "2014-04-21-jade-stylus-livescript"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "RFC 6902",
+  "author": 0,
+  "datePublished": "2014-04-06T04:52",
+  "dateCreated": "2014-04-06T04:52",
+  "dateModified": "2014-04-06T04:52",
+  "url": "2014-04-06-rfc-6902"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "wondering",
+  "author": 0,
+  "datePublished": "2013-12-19T01:25",
+  "dateCreated": "2013-12-19T01:25",
+  "dateModified": "2013-12-19T01:25",
+  "url": "2013-12-19-wondering"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "the Little Necromancer",
+  "author": 0,
+  "datePublished": "2013-11-29T03:54",
+  "dateCreated": "2013-11-29T03:54",
+  "dateModified": "2013-11-29T03:54",
+  "url": "2013-11-29-little-necromancer"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
   "headline": "lenToRegex v.s. node-segment",
   "author": 0,
   "datePublished": "2013-11-26",
