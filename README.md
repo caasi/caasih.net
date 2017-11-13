@@ -10,7 +10,7 @@ This is my site. There are many like it, but this one is mine.
 
   * [x] use `react-router`
 
-  * [ ] move my web logs
+  * [x] move my web logs
 
     * [x] 2010
 
@@ -18,17 +18,17 @@ This is my site. There are many like it, but this one is mine.
 
     * [x] 2012
 
-    * [ ] 2013
+    * [x] 2013
 
-    * [ ] 2014
+    * [x] 2014
 
-    * [ ] 2015
+    * [x] 2015
 
-    * [ ] 2016
+    * [x] 2016
 
-    * [ ] 2017
+    * [x] 2017
 
   * [ ] move static files to the `gh-pages` branch
 
-  * [ ] use `sw-precache` to cache script files
+  * [ ] ~~use `sw-precache` to cache script files~~ service worker needs HTTPS
 
