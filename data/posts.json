@@ -1,6 +1,69 @@
 [{
   "@context": "http://schema.org",
   "@type": "BlogPosting",
+  "headline": "Re: Build Your Own Haskell Compiler #0.5",
+  "author": 0,
+  "datePublished": "2016-05-07T12:10",
+  "dateCreated": "2016-05-07T12:10",
+  "dateModified": "2016-05-07T12:10",
+  "url": "2016-05-07-re-byohc-0-5"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Re: Build Your Own Haskell Compiler #0.4",
+  "author": 0,
+  "datePublished": "2016-05-04T13:55",
+  "dateCreated": "2016-05-04T13:55",
+  "dateModified": "2016-05-04T13:55",
+  "url": "2016-05-04-re-byohc-0-4"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Re: Build Your Own Haskell Compiler #0 Appendix",
+  "author": 0,
+  "datePublished": "2016-05-01T14:34",
+  "dateCreated": "2016-05-01T14:34",
+  "dateModified": "2016-05-01T14:34",
+  "url": "2016-05-01-re-byohc-0-appendix"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Re: Build Your Own Haskell Compiler #0.3",
+  "author": 0,
+  "datePublished": "2016-05-03T12:35",
+  "dateCreated": "2016-05-03T12:35",
+  "dateModified": "2016-05-03T12:35",
+  "url": "2016-05-03-re-byohc-0-3"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Re: Build Your Own Haskell Compiler #0.2",
+  "author": 0,
+  "datePublished": "2016-05-02T05:50",
+  "dateCreated": "2016-05-02T05:50",
+  "dateModified": "2016-05-02T05:50",
+  "url": "2016-05-02-re-byohc-0-2"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Re: Build Your Own Haskell Compiler #0.1",
+  "author": 0,
+  "datePublished": "2016-05-01T14:26",
+  "dateCreated": "2016-05-01T14:26",
+  "dateModified": "2016-05-01T14:26",
+  "url": "2016-05-01-re-byohc-0-1"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Re: Build Your Own Haskell Compiler #0.0",
+  "author": 0,
+  "datePublished": "2016-05-01T14:22",
+  "dateCreated": "2016-05-01T14:22",
+  "dateModified": "2016-05-01T14:22",
+  "url": "2016-05-01-re-byohc-0-0"
+}, {
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
   "headline": "vim 8",
   "author": 0,
   "datePublished": "2016-04-27T19:30",
