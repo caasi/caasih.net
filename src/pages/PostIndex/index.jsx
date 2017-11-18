@@ -6,10 +6,12 @@ import { withRouter, Link, Route } from 'react-router-dom'
 import * as actions from 'actions'
 import * as func from 'types/func'
 import Post from '../Post'
-import { map } from 'ramda'
+import { compose, map, filter, not, prop } from 'ramda'
 import moment from 'moment'
 
 import styles from './index.css'
+
+const filterPublicPosts = filter(compose(not, prop('private')))
 
 
 
@@ -38,16 +40,18 @@ class PostIndex extends PureComponent {
         <div>
           <Route path={`${match.url}/:pid`} component={Post} />
         </div>
-        <ol>{
-          map(
-            p =>
-              <li key={p.url}>
-                <Link to={`${match.url}/${p.url}`}>{ p.headline }</Link>
-                { moment(p.datePublished).format('YYYY-MM-DD HH:mm') }
-              </li>,
-            post_index
-          )
-        }</ol>
+        <nav>
+          <ul>{
+            map(
+              p =>
+                <li key={p.url}>
+                  <Link to={`${match.url}/${p.url}`}>{ p.headline }</Link>
+                  { moment(p.datePublished).format('YYYY-MM-DD HH:mm') }
+                </li>,
+              post_index
+            )
+          }</ul>
+        </nav>
       </div>
     )
   }
@@ -56,7 +60,7 @@ class PostIndex extends PureComponent {
 
 
 export default withRouter(connect(
-  state => ({ post_index: state.post_index }),
+  state => ({ post_index: filterPublicPosts(state.post_index) }),
   dispatch => ({ actions: func.map(dispatch, actions) })
 )(PostIndex))
 

@@ -16,10 +16,13 @@ const Root = ({ id, className, store }) => {
     <Provider store={store}>
       <Router>
         <div id={id} className={className}>
-          <ul id={styles.menu}>
-            <li><Link to="/posts">posts</Link></li>
-            <li><Link to="/about">about</Link></li>
-          </ul>
+          <h1>caasih.net</h1>
+          <nav>
+            <ul id={styles.menu}>
+              <li><Link to="/posts">posts</Link></li>
+              <li><Link to="/about">about</Link></li>
+            </ul>
+          </nav>
           <div id={styles.container}>
             <Route path="/posts" component={PostIndex} />
             <Route path="/about" component={About} />
