@@ -6,7 +6,11 @@
   "datePublished": "2017-05-01T16:09",
   "dateCreated": "2017-05-01T16:09",
   "dateModified": "2017-05-01T16:09",
-  "url": "2017-05-01-cool-down"
+  "url": "2017-05-01-cool-down",
+  "license": {
+    "version": "4.0",
+    "type": "by"
+  }
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
