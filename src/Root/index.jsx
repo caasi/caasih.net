@@ -1,7 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
 import { Provider } from 'react-redux'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom'
 import PostIndex from 'pages/PostIndex'
 
 import styles from './index.css'
@@ -22,6 +22,7 @@ const Root = ({ id, className, store }) => {
             </ul>
           </nav>
           <div id={styles.container}>
+            <Route exact path="/" render={() => <Redirect to="/posts" />} />
             <Route path="/posts" component={PostIndex} />
           </div>
         </div>

@@ -14,8 +14,15 @@
   #menu {
     display: inline-block;
     font-weight: bold;
+    font-family: monospace;
+
+    &:after {
+      content: ' =';
+      color: #666;
+    }
 
     > ul {
+      display: inline;
       list-decoration: none;
       padding: 0;
       margin: 0;

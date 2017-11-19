@@ -6,11 +6,11 @@ body {
 
 a {
   &:link {
-    color: #b7b7b7;
+    color: #666;
   }
 
   &:visited {
-    color: #999;
+    color: #5b5b5b;
   }
 
   &:hover {

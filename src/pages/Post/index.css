@@ -1,9 +1,12 @@
 .className {
-  padding: 20px 40px;
-  line-height: 1.5rem;
+  padding: 20px 40px 60px 40px;
 
   .info {
     color: #666;
+  }
+
+  p, pre {
+    line-height: 1.5rem;
   }
 
   pre {
@@ -13,6 +16,7 @@
 
   code {
     color: #999;
+    user-select: none;
   }
 }
 
