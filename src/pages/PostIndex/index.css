@@ -1,3 +1,11 @@
 .className {
+  .posts {
+    line-height: 1.5rem;
+
+    > ul {
+      list-style: none;
+      padding: 0;
+    }
+  }
 }
 

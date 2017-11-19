@@ -30,7 +30,11 @@
   "datePublished": "2016-12-06T03:23",
   "dateCreated": "2016-12-06T03:23",
   "dateModified": "2016-12-06T03:23",
-  "url": "2016-12-06-into-the-core"
+  "url": "2016-12-06-into-the-core",
+  "license": {
+    "version": "4.0",
+    "type": "by"
+  }
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",

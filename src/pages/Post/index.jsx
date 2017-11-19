@@ -41,7 +41,7 @@ class Post extends PureComponent {
   }
 
   render() {
-    const { id, className, meta, post } = this.props
+    const { id, className, profile, meta, post } = this.props
     const classes = cx(styles.className, 'caasih-post', className)
     let publishedAt
     let modifiedAt
@@ -52,25 +52,25 @@ class Post extends PureComponent {
     }
 
     return (
-      <article>
-        {
-          meta &&
-            <ul>
-              <li>發佈於 { publishedAt }</li>
-              {
-                (modifiedAt !== publishedAt) &&
-                  <li>修改於 { modifiedAt }</li>
-              }
-            </ul>
-        }
+      <article className={classes}>
         {
           meta &&
             <h1>{ meta.headline }</h1>
         }
-        <ReactMarkdown id={id} className={classes} source={post} />
+        <ReactMarkdown id={id} source={post} />
         {
           meta && meta.license &&
             <CreativeCommons size="compact" {...meta.license} />
+        }
+        {
+          meta &&
+            <div className={styles.info}>
+              <span>由 { profile.name } 發佈於 { publishedAt }</span>
+              {
+                (modifiedAt !== publishedAt) &&
+                  <span>，並於 { modifiedAt } 更新內容</span>
+              }
+            </div>
         }
       </article>
     )
@@ -82,11 +82,11 @@ class Post extends PureComponent {
 export default withRouter(connect(
   (state, router) => {
     const { pid } = router && router.match && router.match.params || {}
-    const { post_index = [], post_list = [] } = state || {}
+    const { profile, post_index = [], post_list = [] } = state || {}
     const meta = find(propEq('url', pid), post_index)
     const post = post_list[pid]
 
-    return { meta, post }
+    return { profile, meta, post }
   },
   dispatch => ({ actions: func.map(dispatch, actions) })
 )(Post))

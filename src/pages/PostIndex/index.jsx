@@ -28,6 +28,7 @@ class PostIndex extends PureComponent {
 
   componentWillMount() {
     const { actions } = this.props
+    actions.profile()
     actions.postIndex()
   }
 
@@ -37,16 +38,18 @@ class PostIndex extends PureComponent {
 
     return (
       <div id={id} className={classes}>
-        <div>
-          <Route path={`${match.url}/:pid`} component={Post} />
-        </div>
-        <nav>
+        <Route path={`${match.url}/:pid`} component={Post} />
+        <nav className={styles.posts}>
           <ul>{
             map(
               p =>
                 <li key={p.url}>
-                  <Link to={`${match.url}/${p.url}`}>{ p.headline }</Link>
-                  { moment(p.datePublished).format('YYYY-MM-DD HH:mm') }
+                  <Link
+                    title={`發表於 ${moment(p.datePublished).format('YYYY-MM-DD HH:mm')}`}
+                    to={`${match.url}/${p.url}`}
+                  >
+                    { p.headline }
+                  </Link>
                 </li>,
               post_index
             )
