@@ -2,6 +2,7 @@ import React from 'react'
 import cx from 'classnames'
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom'
+import ScrollToTop from 'components/ScrollToTop'
 import PostIndex from 'pages/PostIndex'
 
 import styles from './index.css'
@@ -14,7 +15,7 @@ const Root = ({ id, className, store }) => {
   return (
     <Provider store={store}>
       <Router>
-        <div id={id} className={classes}>
+        <ScrollToTop as="div" id={id} className={classes}>
           <h1>caasih.net</h1>
           <nav id={styles.menu}>
             <ul>
@@ -25,7 +26,7 @@ const Root = ({ id, className, store }) => {
             <Route exact path="/" render={() => <Redirect to="/posts" />} />
             <Route path="/posts" component={PostIndex} />
           </div>
-        </div>
+        </ScrollToTop>
       </Router>
     </Provider>
   )
