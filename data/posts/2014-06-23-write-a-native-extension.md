@@ -16,7 +16,7 @@ c9s 前輩在 5 月 12 號開始寫一個叫做 [r3][0] ，飛快的 url router 
 
 途中感謝 au, c9s, C, godfat 等人協助， happy hacking XD
 
-這篇心得將分成兩部份，前面講講怎麼用 nan 寫 node extension ，後面講講為啥在 node 0.11.x 寫 extension 那麼éº»煩。
+這篇心得將分成兩部份，前面講講怎麼用 nan 寫 node extension ，後面講講為啥在 node 0.11.x 寫 extension 那麼麻煩。
 
 [0]: https://github.com/c9s/r3 "libr3 is a high-performance URL router library."
 [1]: https://github.com/fundon/pathing "A fast path lexer"
@@ -34,7 +34,7 @@ r3 的 APIs 可以說是靠 C 寫 OO ，例如 `r3_tree_create` 和 `r3_tree_fre
 
 HandleScope 是用來管理 Handle ，是 JS 值的容器，分兩種， Local\<T> 和 Persistent\<T> ，前者跟 HandleScope 共患難，後者會跟 gc 配合，得由開發者管理生命週期，詳見 [Google 的說明][4] 。
 
-如果只單純將 C 和 JavaScript 對應起來，那最大的問題是：「我該什麼時候呼叫 r3_tree_free 呢？」，在 JS 這邊並沒有 destructor ，而 GC 又不被控制。沒辦法只好放棄一一對應，在 C++ 那邊處理這些事情。
+如果只單純將 C 和 JavaScript 對應起來，那最大的問題是：「我該什麼時候呼叫 `r3_tree_free` 呢？」，在 JS 這邊並沒有 destructor ，而 GC 又不被控制。沒辦法只好放棄一一對應，在 C++ 那邊處理這些事情。
 
 [4]: https://developers.google.com/v8/embed "Embedder's Guide"
 
@@ -131,4 +131,4 @@ NAN_METHOD(constructor) {
 }
 ```
 
-Persistent::MakeWeak 那部份可以看出不經過 nan 要寫 extension 也不複雜，但 node 0.11.13 剛好遇到 v8 升級，許多 APIs 都變了，靠 nan 幫忙做掉這些問題會比自己手動升級輕鬆。
+`Persistent::MakeWeak` 那部份可以看出不經過 nan 要寫 extension 也不複雜，但 node 0.11.13 剛好遇到 v8 升級，許多 APIs 都變了，靠 nan 幫忙做掉這些問題會比自己手動升級輕鬆。

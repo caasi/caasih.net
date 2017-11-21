@@ -9,7 +9,7 @@
 * 曾獨立發明光跡追蹤（ray tracing）硬體。
 * 發表完才在 Bob Taylor 的介紹下認識 [Douglas Engelbart](http://worrydream.com/Engelbart/) 。
 * A.I. 研究者一直覺得 HyperText 踩到他們的線 XD
-* 一個 HyperText 各自表述， Ted Nelson 覺得像 [HyperCard](https://en.wikipedia.org/wiki/HyperCard) 就是個很奇怪的系çµ± XD
+* 一個 HyperText 各自表述， Ted Nelson 覺得像 [HyperCard](https://en.wikipedia.org/wiki/HyperCard) 就是個很奇怪的系統 XD
 * 醫生與心理學家對 hyper 這個字的用法跟數學家完全不同。
 * 覺得能一起看好幾頁是 HyperText 的核心概念。
 * 礙於 WWW 沒法好好[視覺化文件與文件間的關係](http://xanadu.com/xanademos/MoeJusteOrigins.html)，他覺得自己還是待在高地，讓其他人處理 JavaScript 和 HTML 吧。
