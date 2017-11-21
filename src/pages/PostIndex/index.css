@@ -10,12 +10,16 @@
       margin: 0;
 
       > li:before {
-        content: '  , ';
+        content: '  , "';
         white-space: pre;
       }
 
       > li:first-child:before {
-        content: '  [ ';
+        content: '  [ "';
+      }
+
+      li:after {
+        content: '"';
         white-space: pre;
       }
     }
