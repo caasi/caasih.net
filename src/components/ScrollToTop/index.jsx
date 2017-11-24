@@ -9,7 +9,11 @@ class ScrollToTop extends PureComponent {
   }
 
   render() {
-    const { as, children, ...props } = this.props
+    const {
+      as, children,
+      history, location, match, staticContext,
+      ...props
+    } = this.props
 
     return React.createElement(as, props, children)
   }

@@ -18,5 +18,17 @@
     color: #999;
     user-select: none;
   }
+
+  blockquote {
+    border-left: 2px solid #999;
+    padding-left: 18px;
+    margin-left: 20px;
+    color: #999;
+  }
+
+  blockquote + p {
+    margin-left: 40px;
+    color: #999;
+  }
 }
 
