@@ -24,3 +24,65 @@
 ---
 
 第二章除了方啊圓啊三角形外，馬上就加入多邊形。看來會有一段愉快的旅程 XD
+
+---
+
+一個工作的時程安排出錯，就一整週沒辦法看書。
+
+```
+module Shape (...) where
+
+data Shape
+  = Rectangle Side Side
+  | Ellipse Radius Radius
+  | RtTriangle Side Side
+  | Polygon [Vertex]
+  deriving Show
+
+type Radius = Float
+type Side = Float
+type Vertex = (Float, Float)
+
+square s = Rectangle s s
+circle r = Ellipse r r
+rectangle s0 s1 = Rectangle s0 s1
+rtTriangle s0 s1 = RtTriangle s0 s1
+
+regularPolygon :: Int -> Side -> Shape
+regularPolygon n s 
+  = let
+      r = pi / n
+      factor = s / (2 * sin r)
+    in
+      map (\i -> rotate (i * r) (factor, 0)) [0..n]
+
+rotate :: Radius -> Vertex -> Vertex
+rotate r (x, y) = ((x * cos r) - (y * sin r), (x * sin r) + (y * cos r))
+
+resize :: Float -> Vertex -> Vertex
+resize n (x, y) = ((x * n), (y * n))
+```
+
+pedagogy 是什麼意思？
+
+看 sum type 來決定 function 實作，是一種 polymorphism 嗎？
+
+看看：
+
+```
+class Eq a where
+  (==) :: a -> a -> Bool
+  (/=) :: a -> a -> Bool
+
+elem :: Eq a => a -> [a] -> Bool
+elem y []       = False
+elem y (x : xs) = (x == y) || elem y xs
+```
+
+如果沒有 type class ，那若得寫一個通用的 `elem` ，就得 pattern match 所有可能的 type `a` ，選擇對應的 `(==)` 。
+
+但和 OO 不同， interface 只看第一個參數（`a.eq(b)` 的 `a`）來決定實作。
+
+使用者可以自行讓新的 type 屬於某個 type class ，但卻無法擴充某個 sum type ，把新的 constructor 加進去。
+
+得把 `Shape.hs` 還有 project repo 開出來。
