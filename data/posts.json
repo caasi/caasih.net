@@ -1,6 +1,21 @@
 [{
   "@context": "http://schema.org",
   "@type": "BlogPosting",
+  "headline": "《不起眼女主角培育法》",
+  "private": true,
+  "author": 0,
+  "datePublished": "2017-12-04T20:49",
+  "dateCreated": "2017-12-04T20:49",
+  "dateModified": "2017-12-04T20:49",
+  "url": "2017-12-04-saekano",
+  "license": {
+    "version": "4.0",
+    "type": "by"
+  }
+},
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
   "headline": "the Haskell School of Expression",
   "private": true,
   "author": 0,
