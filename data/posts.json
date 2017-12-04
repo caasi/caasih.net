@@ -852,16 +852,6 @@
 }, {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
-  "headline": "emscripten",
-  "private": true,
-  "author": 0,
-  "datePublished": "2013-04-20",
-  "dateCreated": "2013-04-20",
-  "dateModified": "2013-04-20",
-  "url": "2013-04-20-emscripten"
-}, {
-  "@context": "http://schema.org",
-  "@type": "BlogPosting",
   "headline": "[Steam] Implement GLSL 1.30 (for older chipsets than SandyBridge)",
   "private": true,
   "author": 0,

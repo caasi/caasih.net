@@ -17,6 +17,7 @@
   code {
     color: #999;
     user-select: none;
+    line-height: 1em;
   }
 
   blockquote {
@@ -25,10 +26,12 @@
     margin-left: 20px;
     color: #999;
   }
-
-  blockquote + p {
-    margin-left: 40px;
-    color: #999;
-  }
 }
 
+@media only screen and (max-width: 480px) {
+  .className {
+    code {
+      font-size: 0.6rem;
+    }
+  }
+}
