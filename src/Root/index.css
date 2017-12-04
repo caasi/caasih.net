@@ -9,12 +9,15 @@
     right: 0;
     color: #202020;
     user-select: none;
+    z-index: 0;
   }
 
   #menu {
+    position: relative;
     display: inline-block;
     font-weight: bold;
     font-family: monospace;
+    z-index: 100;
 
     &:after {
       content: ' =';
@@ -43,6 +46,8 @@
   }
 
   #container {
+    position: relative;
+    z-index: 200;
   }
 }
 
