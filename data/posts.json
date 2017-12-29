@@ -1,6 +1,20 @@
 [{
   "@context": "http://schema.org",
   "@type": "BlogPosting",
+  "headline": "Desktop #0",
+  "author": 0,
+  "datePublished": "2017-12-29T15:44",
+  "dateCreated": "2017-12-29T15:44",
+  "dateModified": "2017-12-29T15:44",
+  "url": "2017-12-29-desktop-0",
+  "license": {
+    "version": "4.0",
+    "type": "by"
+  }
+},
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
   "headline": "《不起眼女主角培育法》",
   "private": true,
   "author": 0,
