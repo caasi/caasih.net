@@ -24,5 +24,5 @@
 這次趕著上場，來不及讀前一章的 An Imperative Robot Language 和音樂合成這部分。現在終於可以以輕鬆的心情看下去了 XD
 
 [Funth-59]: https://www.meetup.com/Functional-Thursday/events/245823929/
-[Talk-SchoolOfExpression]: caasih.net/Talk-SchoolOfExpression
+[Talk-SchoolOfExpression]: http://caasih.net/Talk-SchoolOfExpression
 [DrKungChen]: http://www.cs.nccu.edu.tw/~chenk/index-en.htm
