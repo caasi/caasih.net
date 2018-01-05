@@ -31,11 +31,10 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "the Haskell School of Expression",
-  "private": true,
   "author": 0,
   "datePublished": "2017-11-24T17:47",
   "dateCreated": "2017-11-24T17:47",
-  "dateModified": "2017-11-24T17:47",
+  "dateModified": "2018-01-05T21:55",
   "url": "2017-11-24-school-of-expression",
   "license": {
     "version": "4.0",

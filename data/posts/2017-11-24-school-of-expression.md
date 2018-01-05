@@ -13,76 +13,16 @@
 
 ---
 
-第一章作者試著教大家用 Haskell 寫程式，也介紹了數字系統可能有的問題。但並沒有詳細說明怎麼安裝 Hugs 或 ghc 。這不是一本入門書，想入門 Haskell ，還是得讀 [Learn You a Haskell for Great Good][LYaH] 或 [Haskell Programming from First Principle][HPfFP] 。更推薦後者，雖然它頁數多，但真的帶著讀者開始寫程式，而不會讓你誤以為「自己用看的就懂了」。
-
-那個年代沒有什麼入門書，可憐的讀者一直被建議去讀 [Haskell Report][Report] XDDD
-
-[LYaH]: http://learnyouahaskell.com/
-[HPfFP]: http://haskellbook.com/
-[Report]: https://www.haskell.org/onlinereport/
+朋友說她寫 CanvasDesigner 時，的確想著 Haskell 。
 
 ---
 
-第二章除了方啊圓啊三角形外，馬上就加入多邊形。看來會有一段愉快的旅程 XD
+在 1/4 的 [Funth #59][Funth-59] 給了個 book review ，果然私下 re 兩遍是不夠的，該找人實際講講才能知道別人想聽什麼、哪些細節可以不用說。投影片在[這裡][Talk-SchoolOfExpression]，錄影還沒放出來。
 
----
+聽 scm 老師講才知道， Paul Hudak 是[陳恭老師][DrKungChen]的指導教授，到過中研院演講。那時講的題目正是這本書提到的 Functional Music Composition ，而且還是從波形開始 XDDD
 
-一個工作的時程安排出錯，就一整週沒辦法看書。
+這次趕著上場，來不及讀前一章的 An Imperative Robot Language 和音樂合成這部分。現在終於可以以輕鬆的心情看下去了 XD
 
-```
-module Shape (...) where
-
-data Shape
-  = Rectangle Side Side
-  | Ellipse Radius Radius
-  | RtTriangle Side Side
-  | Polygon [Vertex]
-  deriving Show
-
-type Radius = Float
-type Side = Float
-type Vertex = (Float, Float)
-
-square s = Rectangle s s
-circle r = Ellipse r r
-rectangle s0 s1 = Rectangle s0 s1
-rtTriangle s0 s1 = RtTriangle s0 s1
-
-regularPolygon :: Int -> Side -> Shape
-regularPolygon n s 
-  = let
-      r = pi / n
-      factor = s / (2 * sin r)
-    in
-      map (\i -> rotate (i * r) (factor, 0)) [0..n]
-
-rotate :: Radius -> Vertex -> Vertex
-rotate r (x, y) = ((x * cos r) - (y * sin r), (x * sin r) + (y * cos r))
-
-resize :: Float -> Vertex -> Vertex
-resize n (x, y) = ((x * n), (y * n))
-```
-
-pedagogy 是什麼意思？
-
-看 sum type 來決定 function 實作，是一種 polymorphism 嗎？
-
-看看：
-
-```
-class Eq a where
-  (==) :: a -> a -> Bool
-  (/=) :: a -> a -> Bool
-
-elem :: Eq a => a -> [a] -> Bool
-elem y []       = False
-elem y (x : xs) = (x == y) || elem y xs
-```
-
-如果沒有 type class ，那若得寫一個通用的 `elem` ，就得 pattern match 所有可能的 type `a` ，選擇對應的 `(==)` 。
-
-但和 OO 不同， interface 只看第一個參數（`a.eq(b)` 的 `a`）來決定實作。
-
-使用者可以自行讓新的 type 屬於某個 type class ，但卻無法擴充某個 sum type ，把新的 constructor 加進去。
-
-得把 `Shape.hs` 還有 project repo 開出來。
+[Funth-59]: https://www.meetup.com/Functional-Thursday/events/245823929/
+[Talk-SchoolOfExpression]: caasih.net/Talk-SchoolOfExpression
+[DrKungChen]: http://www.cs.nccu.edu.tw/~chenk/index-en.htm
