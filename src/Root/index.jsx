@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom'
 import ScrollToTop from 'components/ScrollToTop'
 import PostIndex from 'pages/PostIndex'
+import Playground from 'pages/Playground'
 
 import styles from './index.css'
 
@@ -25,6 +26,7 @@ const Root = ({ id, className, store }) => {
           <div id={styles.container}>
             <Route exact path="/" render={() => <Redirect to="/posts" />} />
             <Route path="/posts" component={PostIndex} />
+            <Route path="/playground" component={Playground} />
           </div>
         </ScrollToTop>
       </Router>
