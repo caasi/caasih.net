@@ -1,17 +1,22 @@
-import React, { Component, Children, cloneElement } from 'react'
-import { compose, map, toPairs } from 'ramda'
+import React, { Component, Children } from 'react'
 
 class LiftPromise extends Component {
   constructor(props) {
     super(props)
 
-    compose(
-      map(([k, v]) => Promise.resolve(v).then(v => this.setState({ [k]: v }))),
-      toPairs
-    )(props)
-
     this.state = {}
+
+    for (const k in props)
+      Promise.resolve(props[k]).then(this.update(k))
   }
+
+  componentDidUpdate(prevProps) {
+    for (const k in prevProps)
+      if (prevProps[k] !== this.props[k])
+        Promise.resolve(this.props[k]).then(this.update(k))
+  }
+
+  update = k => v => this.setState({ [k]: v })
 
   render() {
     const child = Children.only(this.props.children)

@@ -15,6 +15,12 @@ const People = (props) => {
   return <span>I am { name || '???' }. I am { age || '??' } years old.</span>
 }
 
+const FooBar = (props) => {
+  const { foo, onClick } = props
+
+  return <span>Delayed counter: { foo } <a herf="#" onClick={onClick}>. Increase me!</a></span>
+}
+
 class Playground extends Component {
   static propTypes = {
     className: PropTypes.string
@@ -24,8 +30,21 @@ class Playground extends Component {
     className: ''
   }
 
+  constructor(props) {
+    super(props)
+    this.state = { foo: Promise.resolve(0) }
+  }
+
+  handleClick = (e) => {
+    const { foo } = this.state
+
+    e.preventDefault()
+    this.setState({ foo: foo.then(delay(500)).then(v => v + 1) })
+  }
+
   render() {
     const { id, className } = this.props
+    const { foo } = this.state
     const classes = cx(styles.className, 'caasih-playground', className)
 
     return (
@@ -39,6 +58,10 @@ class Playground extends Component {
             age={Promise.resolve(35).then(delay(10000))}
           >
             <People />
+          </LiftPromise>
+          <br />
+          <LiftPromise foo={foo}>
+            <FooBar onClick={this.handleClick} />
           </LiftPromise>
         </section>
       </div>
