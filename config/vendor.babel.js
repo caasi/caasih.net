@@ -1,4 +1,5 @@
 export default [
+  '@caasi/then',
   'axios',
   'babel-polyfill',
   'classnames',
