@@ -10,7 +10,8 @@
     "lint": "eslint src",
     "build:will": "pug --out ./ ./src/continuity.jade",
     "build:webpack": "webpack --config ./build.webpack.config.babel.js",
-    "build": "npm run clean && cross-env NODE_ENV=production npm run build:webpack && npm run clean:manifest"
+    "build": "npm run clean && cross-env NODE_ENV=production npm run build:webpack && npm run clean:manifest",
+    "flow": "flow"
   },
   "keywords": [
     "react",
@@ -51,6 +52,7 @@
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
+    "@caasi/then": "^1.0.2",
     "axios": "^0.17.0",
     "classnames": "^2.2.5",
     "moment": "^2.19.1",

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import Then from 'components/Then'
+import { Then } from '@caasi/then'
 import { delay } from 'types/time'
 
 import styles from './index.css'
