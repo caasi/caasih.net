@@ -11,7 +11,7 @@
     "build:will": "pug --out ./ ./src/continuity.jade",
     "build:webpack": "webpack --config ./build.webpack.config.babel.js",
     "build": "npm run clean && cross-env NODE_ENV=production npm run build:webpack && npm run clean:manifest",
-    "test": "jest --watchAll",
+    "test": "jest",
     "flow": "flow"
   },
   "keywords": [
