@@ -6,7 +6,7 @@ import ScrollToTop from 'components/ScrollToTop'
 import PostIndex from 'pages/PostIndex'
 import Playground from 'pages/Playground'
 
-import styles from './index.css'
+import styles from './Root.css'
 
 
 
