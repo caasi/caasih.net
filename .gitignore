@@ -1,4 +1,6 @@
 node_modules/
 bower_components/
+dist/*.js
+dist/*.html
 .DS_Store
 *.swp
