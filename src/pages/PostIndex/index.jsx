@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { withRouter, Link, Route } from 'react-router-dom'
 import * as actions from 'actions'
 import * as func from 'types/func'
+import List from 'components/List'
 import Post from '../Post'
 import { compose, map, filter, not, prop } from 'ramda'
 import moment from 'moment'
@@ -39,22 +40,19 @@ class PostIndex extends PureComponent {
     return (
       <div id={id} className={classes}>
         <Route path={`${match.url}/:pid`} component={Post} />
-        <nav className={styles.posts}>
-          <ul>{
-            map(
-              p =>
-                <li key={p.url}>
-                  <Link
-                    title={`發表於 ${moment(p.datePublished).format('YYYY-MM-DD HH:mm')}`}
-                    to={`${match.url}/${p.url}`}
-                  >
-                    { p.headline }
-                  </Link>
-                </li>,
-              post_index
-            )
-          }</ul>
-        </nav>
+        <List className={styles.list} label="posts">{
+          map(
+            p =>
+              <Link
+                key={p.url}
+                title={`發表於 ${moment(p.datePublished).format('YYYY-MM-DD HH:mm')}`}
+                to={`${match.url}/${p.url}`}
+              >
+                { p.headline }
+              </Link>,
+            post_index
+          )
+        }</List>
       </div>
     )
   }

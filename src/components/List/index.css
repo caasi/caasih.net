@@ -1,0 +1,42 @@
+.className {
+  font-family: monospace;
+  white-space: pre;
+
+  > label {
+    user-select: none;
+  }
+
+  > label:after {
+    content: ' =';
+  }
+
+  &:global(.empty) > label:after {
+    content: ' = []'
+  }
+
+  > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0 2ch;
+
+    > li:before {
+      content: ', "';
+      white-space: pre;
+    }
+
+    > li:first-child:before {
+      content: '[ "';
+    }
+
+    > li:after {
+      content: '"';
+      white-space: pre;
+    }
+
+    > li:last-child:after {
+      content: '"\A]';
+      white-space: pre;
+    }
+  }
+}
+
