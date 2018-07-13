@@ -15,13 +15,13 @@
   #menu {
     position: relative;
     display: inline-block;
-    font-weight: bold;
+    margin-top: 1em;
     font-family: monospace;
     z-index: 100;
+    white-space: pre;
 
-    &:after {
-      content: ' =';
-      color: #666;
+    &:before {
+      content: 'data Site = Site\A { posts      :: [Markdown]\A , playground :: [ReactElement]\A }\Asite = Site '
     }
 
     > ul {
@@ -32,14 +32,10 @@
 
       > li {
         display: inline-block;
-        margin-right: 0.5rem;
+        margin-right: 1ch;
 
         &:last-child {
           margin-right: 0;
-        }
-
-        > a {
-          text-decoration: none;
         }
       }
     }

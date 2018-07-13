@@ -18,16 +18,17 @@ const Root = ({ id, className, store }) => {
       <Router>
         <ScrollToTop as="div" id={id} className={classes}>
           <h1>caasih.net</h1>
-          <nav id={styles.menu}>
-            <ul>
-              <li><Link to="/posts">posts</Link></li>
-            </ul>
-          </nav>
           <div id={styles.container}>
             <Route exact path="/" render={() => <Redirect to="/posts" />} />
             <Route path="/posts" component={PostIndex} />
             <Route path="/playground" component={Playground} />
           </div>
+          <nav id={styles.menu}>
+            <ul>
+              <li><Link to="/posts">posts</Link></li>
+              <li><Link to="/playground">playground</Link></li>
+            </ul>
+          </nav>
         </ScrollToTop>
       </Router>
     </Provider>
