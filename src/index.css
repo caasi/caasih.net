@@ -1,29 +1,8 @@
 body {
   font-size: 12pt;
-  background-color: #16161d;
-  color: #fff;
-}
-
-a {
-  &:link {
-    color: #666;
-  }
-
-  &:visited {
-    color: #5b5b5b;
-  }
-
-  &:hover {
-    color: #ccc;
-  }
-
-  &:active {
-    color: #ccc;
-  }
 }
 
 hr {
-  border: 0;
-  border-top: 1px solid #202020;
-  border-bottom: 1px solid #202020;
+  border-top: .15em solid transparent;
+  border-image: 100% 0 0 linear-gradient(90deg, currentColor 2em, transparent 0);
 }
