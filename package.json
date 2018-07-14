@@ -8,7 +8,7 @@
     "clean": "rimraf ./dist/*.bundle.js ./dist/*.vendor.js ./dist/index.html ./dist/404.html",
     "clean:manifest": "rimraf ./dist/*.manifest.js",
     "lint": "eslint src",
-    "build:will": "pug --out ./ ./src/continuity.jade",
+    "build:will": "pug --out ./dist ./src/continuity.jade",
     "build:webpack": "webpack --config ./build.webpack.config.babel.js",
     "build": "npm run clean && cross-env NODE_ENV=production npm run build:webpack && npm run clean:manifest",
     "predeploy": "yarn build",
