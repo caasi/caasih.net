@@ -1,8 +1,6 @@
 import React, { PureComponent } from 'react'
 import { Group, Rect, Text } from 'react-konva'
 
-
-
 class TextInRect extends PureComponent {
   padding = {
     vertical: 16,
@@ -56,7 +54,5 @@ class TextInRect extends PureComponent {
     )
   }
 }
-
-
 
 export default TextInRect

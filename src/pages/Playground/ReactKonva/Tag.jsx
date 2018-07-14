@@ -2,8 +2,6 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Group, Rect, Text } from 'react-konva'
 
-
-
 class Tag extends PureComponent {
   static propTypes = {
     className: PropTypes.string,
@@ -96,7 +94,5 @@ class Tag extends PureComponent {
     )
   }
 }
-
-
 
 export default Tag

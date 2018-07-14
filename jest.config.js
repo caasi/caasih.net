@@ -5,7 +5,7 @@ module.exports = {
     '/reusable'
   ],
   moduleNameMapper: {
-    '^raw-loader!(.*)': 'identity-obj-proxy',
+    '^!raw-loader!(.*)': 'identity-obj-proxy',
     '\\.css$': 'identity-obj-proxy',
     '^actions(.*)$': '<rootDir>/src/actions$1',
     '^components(.*)$': '<rootDir>/src/components$1',

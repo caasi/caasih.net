@@ -1,8 +1,6 @@
 import React from 'react'
 import { Group, Rect, Text } from 'react-konva'
 
-
-
 function TextAndRect() {
   return (
     <Group>
@@ -11,7 +9,5 @@ function TextAndRect() {
     </Group>
   )
 }
-
-
 
 export default TextAndRect
