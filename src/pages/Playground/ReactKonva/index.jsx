@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { Stage, Layer } from 'react-konva'
+import SyntaxHighlighter from 'react-syntax-highlighter'
 import Article from 'components/Article'
 import CreativeCommons from 'components/CreativeCommons'
+import TextAndRectSource from 'raw-loader!./TextAndRect'
 import TextAndRect from './TextAndRect'
 import TextInRect from './TextInRect'
 import Tag from './Tag'
@@ -43,6 +45,9 @@ class ReactKonva extends Component {
         <p>
           乍看很美好，但 Konva.js 不提供像 HTML 或 SVG 那樣神奇的 layout 功能。
         </p>
+        <SyntaxHighlighter language="javascript">
+          {TextAndRectSource}
+        </SyntaxHighlighter>
         <MyStage>
           <TextAndRect />
         </MyStage>
