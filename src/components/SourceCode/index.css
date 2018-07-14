@@ -1,0 +1,10 @@
+.className {
+  margin: 1em 0;
+
+  label {
+    cursor: pointer;
+    display: inline-block;
+    font-family: monospace;
+    text-decoration: underline;
+  }
+}
