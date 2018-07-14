@@ -9,10 +9,12 @@ class SourceCode extends PureComponent {
   static propTypes = {
     className: PropTypes.string,
     lanugage: PropTypes.string,
+    label: PropTypes.string,
   }
 
   static defaultProps = {
     className: '',
+    label: 'source',
   }
 
   state = {
@@ -20,14 +22,14 @@ class SourceCode extends PureComponent {
   }
 
   render() {
-    const { id, className, children, language } = this.props
+    const { id, className, children, language, label } = this.props
     const { open } = this.state
     const classes = cx(styles.className, 'caasih-source-code', className)
 
     return (
       <div id={id} className={classes}>
         <label onClick={() => this.setState({ open: !open })}>
-          source
+          {label}
         </label>
         {
           open &&
