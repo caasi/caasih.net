@@ -8,12 +8,12 @@
     line-height: 1.5rem;
   }
 
-  pre {
-    padding: 1em 2em;
+  &:global(.markdown) pre {
+    padding: 0 2ch;
     white-space: pre-wrap;
   }
 
-  code {
+  &:global(.markdown) code {
     color: #666;
     user-select: none;
     line-height: 1em;
@@ -24,13 +24,5 @@
     padding-left: 1em;
     margin-left: 1.2em;
     color: #666;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .className {
-    code {
-      font-size: 0.6rem;
-    }
   }
 }

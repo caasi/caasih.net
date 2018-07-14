@@ -41,7 +41,7 @@ class Post extends PureComponent {
 
   render() {
     const { id, className, profile, meta, post } = this.props
-    const classes = cx('caasih-post', className)
+    const classes = cx('caasih-post', 'markdown', className)
     let publishedAt
     let modifiedAt
 
