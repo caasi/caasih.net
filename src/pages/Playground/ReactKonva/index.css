@@ -1,0 +1,5 @@
+.className {
+  .stage > :global(.konvajs-content) {
+    background-color: #efefef;
+  }
+}
