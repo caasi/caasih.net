@@ -1,10 +1,14 @@
 .className {
   padding: 1.25em 2.5em 3.75em 2.5em;
+  max-width: 720px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
 
   :global(.info) {
   }
 
-  p, pre, ul, ol {
+  p, pre, ul, ol, figure {
     line-height: 1.5rem;
   }
 
@@ -24,5 +28,15 @@
     padding-left: 1em;
     margin-left: 1.2em;
     color: #666;
+  }
+
+  figure {
+    width: min-content;
+    margin: auto;
+  }
+
+  figure > figcaption {
+    margin-top: 0.5em;
+    font-size: 0.875rem;
   }
 }
