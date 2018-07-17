@@ -1,6 +1,7 @@
 import React, { Component, createContext } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import * as state from './state'
 import MapObject from './MapObject'
 import MapActions from './MapActions'
 
@@ -17,26 +18,10 @@ class MinimumMap extends Component {
     className: '',
   }
 
-  // actions
-  updateObject = (obj, next) => {
-    const { id } = obj
-    const objects = { ...this.state.objects, [id]: obj }
-    this.setState({ objects }, next)
-  }
-
-  moveRight = (obj, next) => {
-    const { x } = obj
-    const newObj = { ...obj, x: x + 5 }
-    this.updateObject(newObj, next)
-  }
-
-  // the store
   state = {
-    objects: {
-      '0': { id: '0', x: 0, y: 0, width: 100, height: 60 },
-    },
+    ...state.init(),
     actions: {
-      moveRight: (obj) => this.moveRight(obj)
+      moveRight: (obj) => this.setState(state.moveRight(obj))
     }
   }
 
