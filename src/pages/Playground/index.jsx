@@ -5,11 +5,9 @@ import { withRouter, Link, Route } from 'react-router-dom'
 import List from 'components/List'
 import Then from './Then'
 import ReactKonva from './ReactKonva'
+import Map from './Map'
 
 import styles from './index.css'
-
-
-
 
 class Playground extends Component {
   static propTypes = {
@@ -26,21 +24,22 @@ class Playground extends Component {
     const paths = {
       'then': `${match.url}/then`,
       'react-konva': `${match.url}/react-konva`,
+      'map': `${match.url}/map`,
     }
 
     return (
       <div id={id} className={classes}>
         <Route path={paths['then']} render={() => <Then />} />
         <Route path={paths['react-konva']} render={() => <ReactKonva />} />
+        <Route path={paths['map']} render={() => <Map />} />
         <List className={styles.list} label="playground">
           <Link to={paths['then']}>{'<Then />'}</Link>
           <Link to={paths['react-konva']}>{'React Konva'}</Link>
+          <Link to={paths['map']}>{'Map'}</Link>
         </List>
       </div>
     )
   }
 }
-
-
 
 export default withRouter(Playground)
