@@ -1,0 +1,9 @@
+.className {
+  .content {
+    background-color: #efefef;
+    height: 480px;
+    overflow: hidden;
+    position: relative;
+    width: 640px;
+  }
+}

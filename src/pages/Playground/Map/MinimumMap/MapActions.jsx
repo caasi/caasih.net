@@ -1,5 +1,5 @@
 import React from 'react'
-import { Consumer } from './MinimumMap'
+import { Consumer } from './'
 
 function MapActions() {
   return (
