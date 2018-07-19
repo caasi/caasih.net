@@ -111,7 +111,9 @@ export const moveObject = (pt) => (obj) => {
 
 // dragStart :: Point -> Action
 export const dragStart = (pt) => (state) => {
-  return { ...state, isDragging: true, startPoint: pt, prevPoint: pt }
+  const { viewport: { scale } } = state
+  const pt2 = { x: pt.x / scale, y: pt.y / scale }
+  return { ...state, isDragging: true, startPoint: pt2, prevPoint: pt2 }
 }
 
 // dragEnd :: () -> Action
@@ -122,23 +124,35 @@ export const dragEnd = () => (state) => {
 
 // dragMove :: Point -> Action
 export const dragMove = (pt) => (state) => {
-  const { selection, prevPoint } = state
-  const vector = { x: pt.x - prevPoint.x, y: pt.y - prevPoint.y }
+  const { selection, prevPoint, viewport: { scale } } = state
+  // scale the input
+  // TODO: should do this in the map component
+  const pt2 = { x: pt.x / scale, y: pt.y / scale }
+  const vector = { x: pt2.x - prevPoint.x, y: pt2.y - prevPoint.y }
   const steps = selection.map(getObject(state)).map(moveObject(vector))
-  steps.push((state) => ({ ...state, prevPoint: pt }))
+  steps.push((state) => ({ ...state, prevPoint: pt2 }))
   steps.push(updateBoundingBox)
   return compose(...steps)(state)
 }
 
-// moveViewport :: Point -> Viewport -> Action
-export const moveViewport = (pt) => (vp) => (state) => {
+// moveViewport :: Point -> Action
+const moveViewport = (pt) => (state) => {
+  const vp = state.viewport
   const viewport = { ...vp, x: vp.x + pt.x, y: vp.y + pt.y }
+  return { ...state, viewport }
+}
+
+// scaleViewport :: Int -> Viewport -> Action
+export const scaleViewport = (scale) => (state) => {
+  const viewport = { ...state.viewport, scale }
   return { ...state, viewport }
 }
 
 // dragViewportStart :: Point -> Action
 export const dragViewportStart = (pt) => (state) => {
-  return { ...state, isDraggingV: true, startPointV: pt, prevPointV: pt }
+  const { viewport: { scale } } = state
+  const pt2 = { x: pt.x / scale, y: pt.y / scale }
+  return { ...state, isDraggingV: true, startPointV: pt2, prevPointV: pt2 }
 }
 
 // dragViewportEnd :: () -> Action
@@ -149,10 +163,11 @@ export const dragViewportEnd = () => (state) => {
 
 // dragViewportMove :: Point -> Action
 export const dragViewportMove = (pt) => (state) => {
-  const { viewport, prevPointV } = state
-  const vector = { x: pt.x - prevPointV.x, y: pt.y - prevPointV.y }
+  const { prevPointV, viewport: { scale } } = state
+  const pt2 = { x: pt.x / scale, y: pt.y / scale }
+  const vector = { x: pt2.x - prevPointV.x, y: pt2.y - prevPointV.y }
   return compose(
-    moveViewport(vector)(viewport),
-    (state) => ({ ...state, prevPointV: pt })
+    moveViewport(vector),
+    (state) => ({ ...state, prevPointV: pt2 })
   )(state)
 }

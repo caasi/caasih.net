@@ -23,6 +23,7 @@ class MinimumMap extends Component {
   state = {
     ...state.init(),
     actions: {
+      scaleViewport: (scale) => this.setState(state.scaleViewport(scale)),
       dragViewportStart: (pt) => this.setState(state.dragViewportStart(pt)),
       dragViewportEnd: () => this.setState(state.dragViewportEnd()),
       dragViewportMove: (pt) => this.setState(state.dragViewportMove(pt)),
@@ -50,11 +51,11 @@ class MinimumMap extends Component {
         <div
           className={styles.content}
           onMouseDown={(e) => {
-            const pt = { x: -e.screenX, y: -e.screenY }
+            const pt = { x: -e.clientX, y: -e.clientY }
             actions.dragViewportStart(pt)
           }}
           onMouseMove={(e) => {
-            const pt = { x: e.screenX, y: e.screenY }
+            const pt = { x: e.clientX, y: e.clientY }
             if (isDraggingV) {
               actions.dragViewportMove({ x: -pt.x, y: -pt.y })
             }
@@ -63,7 +64,7 @@ class MinimumMap extends Component {
             }
           }}
           onMouseUp={(e) => {
-            const pt ={ x: -e.screenX, y: -e.screenY }
+            const pt ={ x: -e.clientX, y: -e.clientY }
             actions.dragViewportEnd()
           }}
         >
@@ -84,17 +85,23 @@ class MinimumMap extends Component {
                     onMouseDown={(e, o) => {
                       e.stopPropagation()
 
-                      const pt = { x: e.screenX, y: e.screenY }
+                      const pt = { x: e.clientX, y: e.clientY }
                       actions.dragStart(pt)
                     }}
                     onMouseUp={(e, o) => {
                       e.stopPropagation()
 
-                      const pt = { x: e.screenX, y: e.screenY }
+                      const pt = {
+                        x: e.clientX / viewport.scale,
+                        y: e.clientY / viewport.scale
+                      }
                       actions.dragEnd()
 
                       const { startPoint } = this.state
-                      if (startPoint.x === pt.x && startPoint.y === pt.y) {
+                      if (
+                        Math.abs(startPoint.x - pt.x) < Number.EPSILON &&
+                        Math.abs(startPoint.y - pt.y) < Number.EPSILON
+                      ) {
                         isSelected
                           ? actions.unselect(o)
                           : actions.select(o)

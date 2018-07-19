@@ -5,11 +5,15 @@ function MapActions() {
   return (
     <div>
       <Consumer>{
-        ({ actions, objects }) => {
+        ({ actions, viewport }) => {
           return (
             <Fragment>
-              <button disabled>+</button>
-              <button disabled>-</button>
+              <button
+                onClick={() => actions.scaleViewport(viewport.scale + 0.1)}
+              >+</button>
+              <button
+                onClick={() => actions.scaleViewport(viewport.scale - 0.1)}
+              >-</button>
             </Fragment>
           )
         }

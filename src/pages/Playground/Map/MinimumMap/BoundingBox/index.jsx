@@ -28,7 +28,14 @@ class BoundingBox extends PureComponent {
   render() {
     const { id, className, x, y, width, height, viewport } = this.props
     const classes = cx(styles.className, 'minmap-bounding-box', className)
-    const style = { top: y - viewport.y, left: x - viewport.x, width, height }
+    const top = viewport.scale * (y - viewport.y)
+    const left = viewport.scale * (x - viewport.x)
+    const style = {
+      top,
+      left,
+      width: viewport.scale * width,
+      height: viewport.scale * height
+    }
 
     return (<div id={id} className={classes} style={style} />)
   }

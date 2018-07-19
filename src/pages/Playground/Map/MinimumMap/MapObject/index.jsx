@@ -11,7 +11,14 @@ function MapObject(obj) {
     onClick, onMouseDown, onMouseMove, onMouseUp,
   } = obj
   const classes = cx(styles.className, 'minmap-object', { selected }, className)
-  const style = { top: y - viewport.y, left: x - viewport.x, width, height }
+  const top = viewport.scale * (y - viewport.y)
+  const left = viewport.scale * (x - viewport.x)
+  const style = {
+    top,
+    left,
+    width: viewport.scale * width,
+    height: viewport.scale * height
+  }
 
   return (
     <div
