@@ -23,6 +23,9 @@ class MinimumMap extends Component {
   state = {
     ...state.init(),
     actions: {
+      dragViewportStart: (pt) => this.setState(state.dragViewportStart(pt)),
+      dragViewportEnd: () => this.setState(state.dragViewportEnd()),
+      dragViewportMove: (pt) => this.setState(state.dragViewportMove(pt)),
       select: (obj) => this.setState(state.select(obj)),
       unselect: (obj) => this.setState(state.unselect(obj)),
       dragStart: (pt) => this.setState(state.dragStart(pt)),
@@ -34,17 +37,34 @@ class MinimumMap extends Component {
   render() {
     const { id, className } = this.props
     const classes = cx(styles.className, 'playground-minmap', className)
-    const { actions, objects, selection, isDragging, boundingBox } = this.state
+    const {
+      actions,
+      viewport, isDraggingV,
+      objects,
+      selection, boundingBox,
+      isDragging
+    } = this.state
 
     return (
       <div id={id} className={classes}>
         <div
           className={styles.content}
+          onMouseDown={(e) => {
+            const pt = { x: -e.screenX, y: -e.screenY }
+            actions.dragViewportStart(pt)
+          }}
           onMouseMove={(e) => {
             const pt = { x: e.screenX, y: e.screenY }
+            if (isDraggingV) {
+              actions.dragViewportMove({ x: -pt.x, y: -pt.y })
+            }
             if (isDragging) {
               actions.dragMove(pt)
             }
+          }}
+          onMouseUp={(e) => {
+            const pt ={ x: -e.screenX, y: -e.screenY }
+            actions.dragViewportEnd()
           }}
         >
           {
@@ -57,14 +77,19 @@ class MinimumMap extends Component {
                   <MapObject
                     {...o}
                     key={o.id}
+                    viewport={viewport}
                     selected={isSelected}
                     onClick={(e, o) => {
                     }}
                     onMouseDown={(e, o) => {
+                      e.stopPropagation()
+
                       const pt = { x: e.screenX, y: e.screenY }
                       actions.dragStart(pt)
                     }}
                     onMouseUp={(e, o) => {
+                      e.stopPropagation()
+
                       const pt = { x: e.screenX, y: e.screenY }
                       actions.dragEnd()
 
@@ -79,7 +104,7 @@ class MinimumMap extends Component {
                 )
               })
           }
-          <BoundingBox {...boundingBox} />
+          <BoundingBox {...boundingBox} viewport={viewport} />
         </div>
         <Provider value={this.state}>
           <MapActions />

@@ -6,12 +6,22 @@ const compose = (...fs) => (state) => fs.reduce((s, f) => f(s), state)
 
 // init :: Action
 export const init = () => ({
+  // TODO: move into the viewport.js
+  viewport: {
+    x: 0,
+    y: 0,
+    scale: 1.0,
+  },
+  isDraggingV: false,
+  startPointV: { x: 0, y: 0 },
+  prevPointV: { x: 0, y: 0 },
   objects: {
     '0': { id: '0', x: 0, y: 0, width: 200, height: 160 },
     '1': { id: '1', x: 210, y: 20, width: 300, height: 200 },
   },
   selection: [],
   boundingBox: { x: 0, y: 0, width: 0, height: 0 },
+  // TODO: move into the selection.js
   isDragging: false,
   startPoint: { x: 0, y: 0 },
   prevPoint: { x: 0, y: 0 },
@@ -117,4 +127,31 @@ export const dragMove = (point) => (state) => {
   steps.push((state) => ({ ...state, prevPoint: point }))
   steps.push(updateBoundingBox)
   return compose(...steps)(state)
+}
+
+// moveViewport :: Point -> Viewport -> Action
+export const moveViewport = (pt) => (vp) => (state) => {
+  const viewport = { ...vp, x: vp.x + pt.x, y: vp.y + pt.y }
+  return { ...state, viewport }
+}
+
+// dragViewportStart :: Point -> Action
+export const dragViewportStart = (pt) => (state) => {
+  return { ...state, isDraggingV: true, startPointV: pt, prevPointV: pt }
+}
+
+// dragViewportEnd :: () -> Action
+export const dragViewportEnd = () => (state) => {
+  const origin = { x: 0, y: 0 }
+  return { ...state, isDraggingV: false, startPointV: origin, prevPointV: origin }
+}
+
+// dragViewportMove :: Point -> Action
+export const dragViewportMove = (pt) => (state) => {
+  const { viewport, prevPointV } = state
+  const vector = { x: pt.x - prevPointV.x, y: pt.y - prevPointV.y }
+  return compose(
+    moveViewport(vector)(viewport),
+    (state) => ({ ...state, prevPointV: pt })
+  )(state)
 }

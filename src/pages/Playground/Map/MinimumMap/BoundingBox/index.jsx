@@ -10,6 +10,10 @@ class BoundingBox extends PureComponent {
     y: PropTypes.number,
     width: PropTypes.number,
     height: PropTypes.number,
+    // TODO:
+    //   should create a pre-rendering function instead of passing the
+    //   viewport.
+    viewport: PropTypes.object,
   }
 
   static defaultProps = {
@@ -18,12 +22,13 @@ class BoundingBox extends PureComponent {
     y: 0,
     width: 0,
     height: 0,
+    viewport: { x: 0, y: 0, scale: 1.0 },
   }
 
   render() {
-    const { id, className, x, y, width, height } = this.props
+    const { id, className, x, y, width, height, viewport } = this.props
     const classes = cx(styles.className, 'minmap-bounding-box', className)
-    const style = { top: y, left: x, width, height }
+    const style = { top: y - viewport.y, left: x - viewport.x, width, height }
 
     return (<div id={id} className={classes} style={style} />)
   }
