@@ -12,6 +12,7 @@ export const init = () => ({
     y: 0,
     scale: 1.0,
   },
+  // TODO: move into the input.js
   isDraggingV: false,
   startPointV: { x: 0, y: 0 },
   prevPointV: { x: 0, y: 0 },
@@ -21,7 +22,7 @@ export const init = () => ({
   },
   selection: [],
   boundingBox: { x: 0, y: 0, width: 0, height: 0 },
-  // TODO: move into the selection.js
+  // TODO: move into the input.js
   isDragging: false,
   startPoint: { x: 0, y: 0 },
   prevPoint: { x: 0, y: 0 },
@@ -103,14 +104,14 @@ export const unselect = (obj) =>
   )
 
 // moveObject :: Point -> MapObject -> Action
-export const moveObject = (point) => (obj) => {
-  const newObj = { ...obj, x: obj.x + point.x, y: obj.y + point.y }
+export const moveObject = (pt) => (obj) => {
+  const newObj = { ...obj, x: obj.x + pt.x, y: obj.y + pt.y }
   return updateObject(newObj)
 }
 
 // dragStart :: Point -> Action
-export const dragStart = (point) => (state) => {
-  return { ...state, isDragging: true, startPoint: point, prevPoint: point }
+export const dragStart = (pt) => (state) => {
+  return { ...state, isDragging: true, startPoint: pt, prevPoint: pt }
 }
 
 // dragEnd :: () -> Action
@@ -120,11 +121,11 @@ export const dragEnd = () => (state) => {
 }
 
 // dragMove :: Point -> Action
-export const dragMove = (point) => (state) => {
+export const dragMove = (pt) => (state) => {
   const { selection, prevPoint } = state
-  const vector = { x: point.x - prevPoint.x, y: point.y - prevPoint.y }
+  const vector = { x: pt.x - prevPoint.x, y: pt.y - prevPoint.y }
   const steps = selection.map(getObject(state)).map(moveObject(vector))
-  steps.push((state) => ({ ...state, prevPoint: point }))
+  steps.push((state) => ({ ...state, prevPoint: pt }))
   steps.push(updateBoundingBox)
   return compose(...steps)(state)
 }
