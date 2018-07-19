@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import * as state from './state'
 import MapObject from './MapObject'
+import BoundingBox from './BoundingBox'
 import MapActions from './MapActions'
 import styles from './index.css'
 
@@ -33,7 +34,7 @@ class MinimumMap extends Component {
   render() {
     const { id, className } = this.props
     const classes = cx(styles.className, 'playground-minmap', className)
-    const { actions, objects, selection, isDragging } = this.state
+    const { actions, objects, selection, isDragging, boundingBox } = this.state
 
     return (
       <div id={id} className={classes}>
@@ -45,38 +46,41 @@ class MinimumMap extends Component {
               actions.dragMove(pt)
             }
           }}
-        >{
-          Object
-            .values(objects)
-            .map(o => {
-              const isSelected = selection.indexOf(o.id) !== -1
+        >
+          {
+            Object
+              .values(objects)
+              .map(o => {
+                const isSelected = selection.indexOf(o.id) !== -1
 
-              return (
-                <MapObject
-                  {...o}
-                  key={o.id}
-                  selected={isSelected}
-                  onClick={(e, o) => {
-                  }}
-                  onMouseDown={(e, o) => {
-                    const pt = { x: e.screenX, y: e.screenY }
-                    actions.dragStart(pt)
-                  }}
-                  onMouseUp={(e, o) => {
-                    const pt = { x: e.screenX, y: e.screenY }
-                    actions.dragEnd()
+                return (
+                  <MapObject
+                    {...o}
+                    key={o.id}
+                    selected={isSelected}
+                    onClick={(e, o) => {
+                    }}
+                    onMouseDown={(e, o) => {
+                      const pt = { x: e.screenX, y: e.screenY }
+                      actions.dragStart(pt)
+                    }}
+                    onMouseUp={(e, o) => {
+                      const pt = { x: e.screenX, y: e.screenY }
+                      actions.dragEnd()
 
-                    const { startPoint } = this.state
-                    if (startPoint.x === pt.x && startPoint.y === pt.y) {
-                      isSelected
-                        ? actions.unselect(o)
-                        : actions.select(o)
-                    }
-                  }}
-                />
-              )
-            })
-        }</div>
+                      const { startPoint } = this.state
+                      if (startPoint.x === pt.x && startPoint.y === pt.y) {
+                        isSelected
+                          ? actions.unselect(o)
+                          : actions.select(o)
+                      }
+                    }}
+                  />
+                )
+              })
+          }
+          <BoundingBox {...boundingBox} />
+        </div>
         <Provider value={this.state}>
           <MapActions />
         </Provider>

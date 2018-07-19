@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Consumer } from './'
 
 function MapActions() {
@@ -7,11 +7,10 @@ function MapActions() {
       <Consumer>{
         ({ actions, objects }) => {
           return (
-            <button
-              onClick={() => actions.moveRight(objects[0])}
-            >
-              move right
-            </button>
+            <Fragment>
+              <button disabled>+</button>
+              <button disabled>-</button>
+            </Fragment>
           )
         }
       }</Consumer>

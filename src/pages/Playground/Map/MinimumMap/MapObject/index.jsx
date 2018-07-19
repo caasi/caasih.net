@@ -7,7 +7,7 @@ function MapObject(obj) {
     id, className = '',
     x = 0, y = 0, width = 0, height = 0,
     selected = false,
-    onClick, onMouseDown, onMouseUp,
+    onClick, onMouseDown, onMouseMove, onMouseUp,
   } = obj
   const classes = cx(styles.className, 'minmap-object', { selected }, className)
   const style = { top: y, left: x, width, height }
@@ -19,6 +19,7 @@ function MapObject(obj) {
       style={style}
       onClick={e => onClick && onClick(e, obj)}
       onMouseDown={e => onMouseDown && onMouseDown(e, obj)}
+      onMouseMove={e => onMouseMove && onMouseMove(e, obj)}
       onMouseUp={e => onMouseUp && onMouseUp(e, obj)}
     >
       <span>{`pos: (${x}, ${y})`}</span>

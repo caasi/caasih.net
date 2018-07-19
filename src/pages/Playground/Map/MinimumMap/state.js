@@ -1,6 +1,9 @@
 // type State = { objects: { [key: string]: MapObject } }
 // type Action = State -> State
 
+// compose :: [Action] -> Action
+const compose = (...fs) => (state) => fs.reduce((s, f) => f(s), state)
+
 // init :: Action
 export const init = () => ({
   objects: {
@@ -8,6 +11,7 @@ export const init = () => ({
     '1': { id: '1', x: 210, y: 20, width: 300, height: 200 },
   },
   selection: [],
+  boundingBox: { x: 0, y: 0, width: 0, height: 0 },
   isDragging: false,
   startPoint: { x: 0, y: 0 },
   prevPoint: { x: 0, y: 0 },
@@ -25,8 +29,40 @@ export const updateObject = (obj) => (state) => {
   return { ...state, objects }
 }
 
+// updateBoundingBox :: Action
+export const updateBoundingBox = (state) => {
+  if (state.selection.length === 0) {
+    return { ...state, boundingBox: { x: 0, y: 0, width: 0, height: 0 } }
+  }
+
+  const box = state.selection
+    .map(getObject(state))
+    .reduce((box, obj) => {
+      const left = obj.x
+      const right = obj.x + obj.width
+      const top = obj.y
+      const bottom = obj.y + obj.height
+      return {
+        left: left < box.left ? left : box.left,
+        top: top < box.top ? top : box.top,
+        right: right > box.right ? right : box.right,
+        bottom: bottom > box.bottom ? bottom : box.bottom,
+      }
+    }, { left: Infinity, top: Infinity, right: -Infinity, bottom: -Infinity })
+
+  return {
+    ...state,
+    boundingBox: {
+      x: box.left,
+      y: box.top,
+      width: box.right - box.left,
+      height: box.bottom - box.top
+    }
+  }
+}
+
 // select :: MapObject -> Action
-export const select = (obj) => (state) => {
+const _select = (obj) => (state) => {
   const { id } = obj
   const selection = state.selection.indexOf(id) === -1
     ? [...state.selection, id]
@@ -34,8 +70,14 @@ export const select = (obj) => (state) => {
   return { ...state, selection }
 }
 
+export const select = (obj) =>
+  compose(
+    _select(obj),
+    updateBoundingBox,
+  )
+
 // unselect :: MapObject -> Action
-export const unselect = (obj) => (state) => {
+const _unselect = (obj) => (state) => {
   let selection = []
   for (let id of state.selection) {
     if (id === obj.id) continue
@@ -43,6 +85,12 @@ export const unselect = (obj) => (state) => {
   }
   return { ...state, selection }
 }
+
+export const unselect = (obj) =>
+  compose(
+    _unselect(obj),
+    updateBoundingBox,
+  )
 
 // moveObject :: Point -> MapObject -> Action
 export const moveObject = (point) => (obj) => {
@@ -67,5 +115,6 @@ export const dragMove = (point) => (state) => {
   const vector = { x: point.x - prevPoint.x, y: point.y - prevPoint.y }
   const steps = selection.map(getObject(state)).map(moveObject(vector))
   steps.push((state) => ({ ...state, prevPoint: point }))
-  return steps.reduce((state, step) => step(state), state)
+  steps.push(updateBoundingBox)
+  return compose(...steps)(state)
 }
