@@ -10,15 +10,21 @@ class SourceCode extends PureComponent {
     className: PropTypes.string,
     lanugage: PropTypes.string,
     label: PropTypes.string,
+    open: PropTypes.bool,
   }
 
   static defaultProps = {
     className: '',
     label: 'source',
+    open: false,
   }
 
-  state = {
-    open: false,
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      open: props.open
+    }
   }
 
   render() {
@@ -29,7 +35,7 @@ class SourceCode extends PureComponent {
     return (
       <div id={id} className={classes}>
         <label onClick={() => this.setState({ open: !open })}>
-          {label}
+          {open ? '-' : '+'} {label}
         </label>
         {
           open &&
