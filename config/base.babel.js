@@ -18,6 +18,8 @@ const htmlWebpackOptions = {
   title: 'caasih.net',
 }
 
+const isDevelopment = process.env.NODE_ENV === 'development'
+
 export default {
   entry: {
     vendor,
@@ -92,7 +94,19 @@ export default {
         }
       ],
       include: srcPath,
+    }, {
+      test: /\.purs$/,
+      loader: 'purs-loader',
+      exclude: /node_modules/,
+      query: {
+        psc: 'psa',
+        watch: isDevelopment,
+        src: [
+          'bower_components/purescript-*/src/**/*.purs',
+          'src/pages/Playground/PureScript/**/*.purs'
+        ]
+      }
     }]
-  },
+  }
 }
 
