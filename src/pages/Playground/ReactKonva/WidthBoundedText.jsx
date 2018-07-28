@@ -7,6 +7,13 @@ import { Text } from 'react-konva'
 //   height: number
 //   onResize :: (x: number, number, left: string) => void
 
+function initialState(props) {
+  return {
+    width: Infinity,
+    index: [...props.children].length,
+  }
+}
+
 // try to draw half of the string until comsuming all the width
 class WidthBoundedText extends PureComponent {
   static propTypes = {
@@ -28,11 +35,7 @@ class WidthBoundedText extends PureComponent {
 
   constructor(props) {
     super(props)
-
-    this.state = {
-      width: 0,
-      index: [...props.children].length,
-    }
+    this.state = initialState(props)
   }
 
   updateDimension() {
@@ -42,7 +45,7 @@ class WidthBoundedText extends PureComponent {
     const width = this.textNode.getWidth()
     const height = this.textNode.getHeight()
 
-    // nothing to render
+    // nothing to render and trigger the callback to notify ancestors
     if (index === 0) {
       const { onResize } = this.props
       if (typeof onResize === 'function') {
@@ -51,13 +54,16 @@ class WidthBoundedText extends PureComponent {
       return
     }
 
-    // out of the bound width
-    if (width > this.props.width) {
+    const { width: maxWidth } = this.props
+    // out of the bound
+    // render with half of the text
+    if (width > maxWidth) {
       this.setState({ width, index: Math.floor(index / 2) })
       return
     }
 
-    // render completed, update the width
+    // render complete
+    // update the width and the next `render` will draw the rest text
     this.setState({ width })
   }
 
@@ -73,8 +79,11 @@ class WidthBoundedText extends PureComponent {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.children !== prevProps.children) {
-      this.setState({ width: 0, index: [...this.props.children].length })
+    if (
+      this.props.children !== prevProps.children ||
+      this.props.width !== prevProps.width
+    ) {
+      this.setState(initialState(this.props))
       return
     }
     if (this.state.index !== prevState.index) {
@@ -102,6 +111,7 @@ class WidthBoundedText extends PureComponent {
         />
         {
           index > 0 &&
+          width < maxWidth &&
           <WidthBoundedText
             {...props}
             x={x + width}
