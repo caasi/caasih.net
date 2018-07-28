@@ -10,7 +10,8 @@ import { Text } from 'react-konva'
 function initialState(props) {
   return {
     width: Infinity,
-    index: [...props.children].length,
+    prevIndex: Infinity,
+    index: props.index || [...props.children].length,
   }
 }
 
@@ -58,7 +59,7 @@ class WidthBoundedText extends PureComponent {
     // out of the bound
     // render with half of the text
     if (width > maxWidth) {
-      this.setState({ width, index: Math.floor(index / 2) })
+      this.setState({ width, index: Math.floor(index / 2), prevIndex: index })
       return
     }
 
@@ -93,7 +94,7 @@ class WidthBoundedText extends PureComponent {
 
   render() {
     const { children, x, y, width: maxWidth, onResize, ...props } = this.props
-    const { width, index } = this.state
+    const { width, index, prevIndex } = this.state
 
     // naive unicode string manipulations
     const charArray = [...children]
@@ -117,6 +118,7 @@ class WidthBoundedText extends PureComponent {
             x={x + width}
             y={y}
             width={maxWidth - width}
+            index={Math.floor((prevIndex - index) / 2)}
             onResize={this.handleResize}
           >
             {left}
