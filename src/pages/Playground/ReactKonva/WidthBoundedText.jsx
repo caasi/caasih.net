@@ -8,10 +8,12 @@ import { Text } from 'react-konva'
 //   onResize :: (x: number, number, left: string) => void
 
 function initialState(props) {
+  const index = props.index || [...props.children].length
+
   return {
     width: Infinity,
-    prevIndex: Infinity,
-    index: props.index || [...props.children].length,
+    prevIndex: index,
+    index,
   }
 }
 

@@ -1,114 +1,10 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Group, Text } from 'react-konva'
-
-// public interface of every component:
-//   width: number
-//   height: number
-//   onResize :: (x: number, number, left: string) => void
-
-// try to draw half of the string until comsuming all the width
-class WidthBoundedText extends PureComponent {
-  static propTypes = {
-    children: PropTypes.string,
-    x: PropTypes.number,
-    y: PropTypes.number,
-    width: PropTypes.number,
-    onResize: PorpTypes.func,
-  }
-
-  static defaultProps = {
-    x: 0,
-    y: 0,
-    width: 0,
-  }
-
-  textNode = null
-
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      width: 0,
-      index: props.children.length,
-    }
-  }
-
-  updateDimension() {
-    if (!this.textNode) return
-
-    const { index } = this.state
-    const width = this.textNode.getWidth()
-    const height = this.textNode.getHeight()
-
-    // nothing to render
-    if (index === 0) {
-      const { onResize } = this.props
-      if (typeof onResize === 'function') {
-        onResize(width, height, this.props.children)
-      }
-    }
-
-    // out of the bound width
-    if (width > this.props.width) {
-      const index = Math.floor(index / 2)
-      this.setState({ index })
-    }
-
-    // render completed, update the width
-    this.setState({ width })
-  }
-
-  handleResize = (width, height, left) => {
-    const { onResize } = this.props
-    if (typeof onResize === 'function') {
-      onResize(this.state.width + width, height, left)
-    }
-  }
-
-  componentDidMount() {
-    this.updateDimension()
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.children !== prevProps.children) {
-      this.updateDimension()
-    }
-  }
-
-  render() {
-    const { children, x, y, onResize, ...props } = this.props
-    const { width, index } = this.state
-
-    const charArray = [...children]
-    const text = charArray.slice(0, index).join('')
-    const left = charArray.slice(index).join('')
-
-    return (
-      <Fragment>
-        <Text
-          {...props}
-          x={x}
-          y={y}
-          ref={node => this.textNode = node}
-          text={text}
-        />
-        <WidthBoundedText
-          {...props}
-          x={x + width}
-          y={y}
-          width={this.props.width - width}
-          onResize={this.handleResize}
-        />
-      </Fragment>
-    )
-  }
-}
+import WidthBoundedText from './WidthBoundedText'
 
 class BoundedText extends PureComponent {
   static propTypes = {
-    id: PropTypes.string,
-    className: PropTypes.string,
     children: PropTypes.string,
     x: PropTypes.number,
     y: PropTypes.number,
@@ -118,7 +14,6 @@ class BoundedText extends PureComponent {
   }
 
   static defaultProps = {
-    className: '',
     children: '',
     x: 0,
     y: 0,
@@ -129,32 +24,120 @@ class BoundedText extends PureComponent {
   state = {
     width: 0,
     height: 0,
+    left: '',
+  }
+
+  updateDimension() {
+    if (!this.textNode) return
+
+    const { width: maxWidth, onResize } = this.props
+
+    if (maxWidth === undefined) {
+      const width = this.textNode.getWidth()
+      const height = this.textNode.getHeight()
+      if (onResize) {
+        onResize(width, height, '')
+      }
+      return
+    }
+  }
+
+  componentDidMount() {
+    this.updateDimension()
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      this.props.children !== prevProps.children ||
+      this.props.width !== prevProps.width ||
+      this.props.height !== prevProps.height
+    ) {
+      this.setState({ width: 0, height: 0, left: '' })
+      this.updateDimension()
+      return
+    }
+  }
+
+  handleTextResize = (width, height, left) => {
+    const { onResize } = this.props
+
+    if (left.length === 0) {
+      if (onResize) {
+        onResize(width, height, left)
+      }
+    }
+
+    this.setState({ width, height, left })
+  }
+
+  handleResize = (width, height, left) => {
+    const { onResize } = this.props
+    const { width: textWidth, height: textHeight } = this.state
+
+    if (onResize) {
+      onResize(
+        textWidth > width ? textWidth : width,
+        textHeight + height,
+        left
+      )
+    }
   }
 
   render() {
     const {
-      id,
-      className,
       children,
       x,
       y,
-      width,
-      height,
-      onResize,
+      width: maxWidth,
+      height: maxHeight,
       ...props,
     } = this.props;
 
-    if (width === undefined) {
+    if (maxWidth === undefined) {
       return (
-        <Group id={id} className={className} x={x} y={y}>
-          <Text
-            {...props}
-            ref={node => this.textNode = node}
-          />
-        </Group>
+        <Text
+          {...props}
+          x={x}
+          y={y}
+          text={children}
+          ref={node => this.textNode = node}
+        />
       )
     }
 
-    return ()
+    if (maxHeight === undefined) {
+      const { width, height, left } = this.state
+      const length = [...left].length
+
+      return (
+        <Fragment>
+          <WidthBoundedText
+            {...props}
+            x={x}
+            y={y}
+            width={maxWidth}
+            onResize={this.handleTextResize}
+          >
+            {children}
+          </WidthBoundedText>
+          {
+            length !== 0 &&
+            <BoundedText
+              {...props}
+              x={x}
+              y={y + height}
+              width={maxWidth}
+              onResize={this.handleResize}
+            >
+              {left}
+            </BoundedText>
+          }
+        </Fragment>
+      )
+    }
+
+    return null
   }
 }
+
+export default BoundedText

@@ -16,6 +16,7 @@ import TagList from './TagList'
 import TagListRecSource from '!raw-loader!./TagListRec'
 import TagListRec from './TagListRec'
 import WidthBoundedText from './WidthBoundedText'
+import BoundedText from './BoundedText'
 import styles from './index.css'
 
 function MyStage({ children }) {
@@ -143,6 +144,19 @@ class ReactKonva extends Component {
           </MyStage>
           <figcaption>
             <code>WidthBoundedText</code> 專心把文字畫在指定寬度中
+          </figcaption>
+        </figure>
+        <p>
+          有了限制寬度的容器，可以做到文字換行。
+        </p>
+        <figure>
+          <MyStage>
+            <BoundedText width={150}>
+              中國政協會議定調，Lytro，呂明賜帶中華隊，追憶黃昭堂，基本面強勁，社會萬象，豐濱落海失蹤男童，金酸莓11入圍
+            </BoundedText>
+          </MyStage>
+          <figcaption>
+            一行 150px
           </figcaption>
         </figure>
         <CreativeCommons size="compact" type="by" />
