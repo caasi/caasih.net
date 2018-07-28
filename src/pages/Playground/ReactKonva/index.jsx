@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { Stage, Layer } from 'react-konva'
+import { Stage, Layer, Rect } from 'react-konva'
 import Article from 'components/Article'
 import SourceCode from 'components/SourceCode'
 import CreativeCommons from 'components/CreativeCommons'
@@ -15,6 +15,7 @@ import TagListSource from '!raw-loader!./TagList'
 import TagList from './TagList'
 import TagListRecSource from '!raw-loader!./TagListRec'
 import TagListRec from './TagListRec'
+import WidthBoundedText from './WidthBoundedText'
 import styles from './index.css'
 
 function MyStage({ children }) {
@@ -121,9 +122,29 @@ class ReactKonva extends Component {
         <SourceCode language="jsx" label="TagListRec.jsx">
           {TagListRecSource}
         </SourceCode>
+        <hr />
         <p>
           反過來說，可以先決定容器的寬度，再不斷修改內容物，直到所有子組件都能塞到容器內。
         </p>
+        <figure>
+          <MyStage>
+            <Rect x={1} y={1} width={120} height={10} stroke="#2ecc71" strokeWidth={1} />
+            <WidthBoundedText x={0} y={0} width={120}>
+              你專業，我信你！
+            </WidthBoundedText>
+            <Rect x={1} y={21} width={72} height={10} stroke="#2ecc71" strokeWidth={1} />
+            <WidthBoundedText x={0} y={20} width={72}>
+              你專業，我信你！
+            </WidthBoundedText>
+            <Rect x={1} y={41} width={50} height={10} stroke="#2ecc71" strokeWidth={1} />
+            <WidthBoundedText x={0} y={40} width={50}>
+              你專業，我信你！
+            </WidthBoundedText>
+          </MyStage>
+          <figcaption>
+            <code>WidthBoundedText</code> 專心把文字畫在指定寬度中
+          </figcaption>
+        </figure>
         <CreativeCommons size="compact" type="by" />
       </Article>
     )
