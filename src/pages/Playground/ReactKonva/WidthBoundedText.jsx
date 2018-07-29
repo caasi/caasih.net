@@ -1,6 +1,6 @@
 import React, { PureComponent, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { Text } from 'react-konva'
+import Text from './Text'
 
 // public interface of every component:
 //   width: number
@@ -34,19 +34,13 @@ class WidthBoundedText extends PureComponent {
     width: 0,
   }
 
-  textNode = null
-
   constructor(props) {
     super(props)
     this.state = initialState(props)
   }
 
-  updateDimension() {
-    if (!this.textNode) return
-
+  handleTextResize = (width, height) => {
     const { index } = this.state
-    const width = this.textNode.getWidth()
-    const height = this.textNode.getHeight()
 
     // nothing to render and trigger the callback to notify ancestors
     if (index === 0) {
@@ -77,10 +71,6 @@ class WidthBoundedText extends PureComponent {
     }
   }
 
-  componentDidMount() {
-    this.updateDimension()
-  }
-
   componentDidUpdate(prevProps, prevState) {
     if (
       this.props.children !== prevProps.children ||
@@ -88,9 +78,6 @@ class WidthBoundedText extends PureComponent {
     ) {
       this.setState(initialState(this.props))
       return
-    }
-    if (this.state.index !== prevState.index) {
-      this.updateDimension()
     }
   }
 
@@ -109,8 +96,8 @@ class WidthBoundedText extends PureComponent {
           {...props}
           x={x}
           y={y}
-          ref={node => this.textNode = node}
           text={text}
+          onResize={this.handleTextResize}
         />
         {
           index > 0 &&

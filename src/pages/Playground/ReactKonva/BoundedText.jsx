@@ -1,6 +1,6 @@
 import React, { PureComponent, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { Group, Text } from 'react-konva'
+import Text from './Text'
 import WidthBoundedText from './WidthBoundedText'
 
 class BoundedText extends PureComponent {
@@ -27,9 +27,17 @@ class BoundedText extends PureComponent {
     left: '',
   }
 
-  updateDimension() {
-    if (!this.textNode) return
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      this.props.children !== prevProps.children ||
+      this.props.width !== prevProps.width ||
+      this.props.height !== prevProps.height
+    ) {
+      this.setState({ width: 0, height: 0, left: '' })
+    }
+  }
 
+  handleTextResize = (width, height, left = '') => {
     const { width: maxWidth, onResize } = this.props
 
     if (maxWidth === undefined) {
@@ -40,26 +48,6 @@ class BoundedText extends PureComponent {
       }
       return
     }
-  }
-
-  componentDidMount() {
-    this.updateDimension()
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (
-      this.props.children !== prevProps.children ||
-      this.props.width !== prevProps.width ||
-      this.props.height !== prevProps.height
-    ) {
-      this.setState({ width: 0, height: 0, left: '' })
-      this.updateDimension()
-      return
-    }
-  }
-
-  handleTextResize = (width, height, left) => {
-    const { onResize } = this.props
 
     if (left.length === 0) {
       if (onResize) {
@@ -100,7 +88,7 @@ class BoundedText extends PureComponent {
           x={x}
           y={y}
           text={children}
-          ref={node => this.textNode = node}
+          onResize={this.handleTextResize}
         />
       )
     }
