@@ -1,29 +1,29 @@
-import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
+/* @flow */
+
+import * as React from 'react'
+import type Konva from 'konva'
 import { Text as KonvaText } from 'react-konva'
 
-class Text extends PureComponent {
-  static propTypes = {
-    onResize: PropTypes.func,
-  }
+type Props = {
+  onResize?: (width: number, height: number) => void
+}
 
-  static defaultProps = {
-    onResize: (width, height) => {}
-  }
-
-  textNode = null
-  width = 0
-  height = 0
+class Text extends React.PureComponent<Props> {
+  textNode: KonvaText;
+  width: number = 0
+  height: number = 0
 
   handleResize() {
     if (!this.textNode) return
 
-    const { onResize } = this.props
     const width = this.textNode.getWidth()
     const height = this.textNode.getHeight()
 
     if (this.width !== width || this.height !== height) {
-      onResize(width, height)
+      const { onResize } = this.props
+      if (onResize) {
+        onResize(width, height)
+      }
       this.width = width
       this.height = height
     }
