@@ -1,4 +1,6 @@
-import React from 'react'
+/* @flow */
+
+import * as React from 'react'
 import { Group, Rect, Text } from 'react-konva'
 
 function TextAndRect() {

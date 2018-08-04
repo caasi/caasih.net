@@ -1,25 +1,44 @@
-import React, { PureComponent, Fragment } from 'react'
-import PropTypes from 'prop-types'
+/* @flow */
+
+import * as React from 'react'
+import * as Konva from 'konva'
 import Text from './Text'
 import WidthBoundedText from './WidthBoundedText'
 
-class BoundedText extends PureComponent {
-  static propTypes = {
-    children: PropTypes.string,
-    x: PropTypes.number,
-    y: PropTypes.number,
-    width: PropTypes.number,
-    height: PropTypes.number,
-    onResize: PropTypes.func,
-  }
+type PartialTextConfig = Konva.ShapeConfig & {
+  fontFamily?: string,
+  fontSize?: number,
+  fontStyle?: string,
+  align?: string,
+  padding?: number,
+  lineHeight?: number,
+  wrap?: string,
+  ellipsis?: boolean,
+}
 
+type Props = PartialTextConfig & {
+  children: string,
+  x?: number,
+  y?: number,
+  width?: number,
+  height?: number,
+  onResize?: (width: number, height: number, left: string) => void,
+}
+
+type State = {
+  width: number,
+  height: number,
+  left: string,
+}
+
+class BoundedText extends React.PureComponent<Props, State> {
   static defaultProps = {
     children: '',
     x: 0,
     y: 0,
   }
 
-  textNode = null
+  textNode: Konva.Text
 
   state = {
     width: 0,
@@ -27,7 +46,7 @@ class BoundedText extends PureComponent {
     left: '',
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps: Props, prevState: State) {
     if (
       this.props.children !== prevProps.children ||
       this.props.width !== prevProps.width ||
@@ -37,7 +56,7 @@ class BoundedText extends PureComponent {
     }
   }
 
-  handleTextResize = (width, height, left = '') => {
+  handleTextResize = (width: number, height: number, left: string = '') => {
     const { width: maxWidth, onResize } = this.props
 
     if (maxWidth === undefined) {
@@ -58,7 +77,7 @@ class BoundedText extends PureComponent {
     this.setState({ width, height, left })
   }
 
-  handleResize = (width, height, left) => {
+  handleResize = (width: number, height: number, left: string) => {
     const { onResize } = this.props
     const { width: textWidth, height: textHeight } = this.state
 
@@ -78,7 +97,7 @@ class BoundedText extends PureComponent {
       y,
       width: maxWidth,
       height: maxHeight,
-      ...props,
+      ...props
     } = this.props;
 
     if (maxWidth === undefined) {
@@ -98,7 +117,7 @@ class BoundedText extends PureComponent {
       const length = [...left].length
 
       return (
-        <Fragment>
+        <React.Fragment>
           <WidthBoundedText
             {...props}
             x={x}
@@ -120,7 +139,7 @@ class BoundedText extends PureComponent {
               {left}
             </BoundedText>
           }
-        </Fragment>
+        </React.Fragment>
       )
     }
 

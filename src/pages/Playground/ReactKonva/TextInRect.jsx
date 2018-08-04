@@ -1,14 +1,23 @@
-import React, { PureComponent } from 'react'
+/* @flow */
+
+import * as React from 'react'
+import * as Konva from 'konva'
 import { Group, Rect, Text } from 'react-konva'
 
-class TextInRect extends PureComponent {
+type State = {
+  w: number,
+  h: number,
+}
+
+class TextInRect extends React.PureComponent<{}, State> {
   padding = {
     vertical: 16,
     horizontal: 8,
   }
-  textNode = null
 
-  constructor(props) {
+  textNode: Text
+
+  constructor(props: {}) {
     super(props)
     this.state = { w: 0, h: 0 }
   }

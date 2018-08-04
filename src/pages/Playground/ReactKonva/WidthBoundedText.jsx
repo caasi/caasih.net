@@ -1,5 +1,6 @@
-import React, { PureComponent, Fragment } from 'react'
-import PropTypes from 'prop-types'
+/* @flow */
+
+import * as React from 'react'
 import Text from './Text'
 
 // public interface of every component:
@@ -7,7 +8,22 @@ import Text from './Text'
 //   height: number
 //   onResize :: (x: number, number, left: string) => void
 
-function initialState(props) {
+type Props = {
+  children: string,
+  x: number,
+  y: number,
+  width: number,
+  index?: number,
+  onResize?: (x: number, y: number, left: string) => void,
+}
+
+type State = {
+  width: number,
+  prevIndex: number,
+  index: number,
+}
+
+function initialState(props: Props): State {
   const index = props.index || [...props.children].length
 
   return {
@@ -18,15 +34,7 @@ function initialState(props) {
 }
 
 // try to draw half of the string until comsuming all the width
-class WidthBoundedText extends PureComponent {
-  static propTypes = {
-    children: PropTypes.string,
-    x: PropTypes.number,
-    y: PropTypes.number,
-    width: PropTypes.number,
-    onResize: PropTypes.func,
-  }
-
+class WidthBoundedText extends React.PureComponent<Props, State> {
   static defaultProps = {
     children: '',
     x: 0,
@@ -34,12 +42,12 @@ class WidthBoundedText extends PureComponent {
     width: 0,
   }
 
-  constructor(props) {
+  constructor(props: Props) {
     super(props)
     this.state = initialState(props)
   }
 
-  handleTextResize = (width, height) => {
+  handleTextResize = (width: number, height: number): void => {
     const { index } = this.state
 
     // nothing to render and trigger the callback to notify ancestors
@@ -64,14 +72,14 @@ class WidthBoundedText extends PureComponent {
     this.setState({ width })
   }
 
-  handleResize = (width, height, left) => {
+  handleResize = (width: number, height: number, left: string) => {
     const { onResize } = this.props
     if (typeof onResize === 'function') {
       onResize(this.state.width + width, height, left)
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps: Props, prevState: State) {
     if (
       this.props.children !== prevProps.children ||
       this.props.width !== prevProps.width
@@ -91,7 +99,7 @@ class WidthBoundedText extends PureComponent {
     const left = charArray.slice(index).join('')
 
     return (
-      <Fragment>
+      <React.Fragment>
         <Text
           {...props}
           x={x}
@@ -113,7 +121,7 @@ class WidthBoundedText extends PureComponent {
             {left}
           </WidthBoundedText>
         }
-      </Fragment>
+      </React.Fragment>
     )
   }
 }

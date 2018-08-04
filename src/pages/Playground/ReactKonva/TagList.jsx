@@ -1,13 +1,24 @@
-import React, { Component, Children, cloneElement } from 'react'
-import PropTypes from 'prop-types'
+/* @flow */
+
+import * as React from 'react'
 import { Group } from 'react-konva'
 
-class TagList extends Component {
-  static propTypes = {
-    x: PropTypes.number,
-    y: PropTypes.number,
-  }
+type Props = {
+  children: React.Node,
+  x: number,
+  y: number,
+}
 
+type Dimension = {
+  width: number,
+  height: number,
+}
+
+type State = {
+  dimensions: Dimension[],
+}
+
+class TagList extends React.Component<Props, State> {
   static defaultProps = {
     x: 0,
     y: 0,
@@ -23,11 +34,11 @@ class TagList extends Component {
     }
   }
 
-  getDimension(index) {
+  getDimension(index: number): Dimension {
     return this.state.dimensions[index] || { width: 0, height: 0 }
   }
 
-  setDimension(index, { width = 0, height = 0 } = {}) {
+  setDimension(index: number, { width = 0, height = 0 }: Dimension = {}) {
     const { dimensions } = this.state
     const dimension = { width, height }
     dimensions[index] = dimension
@@ -35,7 +46,7 @@ class TagList extends Component {
     return dimension
   }
 
-  handleResize(index) {
+  handleResize(index: number): (width: number, height: number) => Dimension {
     return (width, height) => {
       return this.setDimension(index, { width, height })
     }
@@ -43,7 +54,7 @@ class TagList extends Component {
 
   render() {
     const { children, x, y } = this.props
-    const count = Children.count(children)
+    const count = React.Children.count(children)
     let xs = []
     for (let i = 0; i < count; ++i) {
       xs[i] = this.getDimension(i).width + this.styles.margin.right
@@ -52,8 +63,8 @@ class TagList extends Component {
 
     return (
       <Group x={x} y={y}>
-        {Children.map(children, (child, i) =>
-          cloneElement(
+        {React.Children.map(children, (child, i) =>
+          React.cloneElement(
             child,
             { x: xs[i], onResize: this.handleResize(i) }
           )

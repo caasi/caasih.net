@@ -9,7 +9,7 @@ type Props = {
 }
 
 class Text extends React.PureComponent<Props> {
-  textNode: KonvaText;
+  textNode: KonvaText
   width: number = 0
   height: number = 0
 
@@ -21,7 +21,7 @@ class Text extends React.PureComponent<Props> {
 
     if (this.width !== width || this.height !== height) {
       const { onResize } = this.props
-      if (onResize) {
+      if (typeof onResize === 'function') {
         onResize(width, height)
       }
       this.width = width

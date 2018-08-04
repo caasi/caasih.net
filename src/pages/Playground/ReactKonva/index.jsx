@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+/* @flow */
+
+import * as React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { Stage, Layer, Rect } from 'react-konva'
@@ -19,7 +21,12 @@ import WidthBoundedText from './WidthBoundedText'
 import BoundedText from './BoundedText'
 import styles from './index.css'
 
-function MyStage({ children }) {
+type Props = {
+  id?: string,
+  className: string,
+}
+
+function MyStage({ children }: { children: React.Node }) {
   return (
     <Stage className={styles.stage} width={210} height={80}>
       <Layer>{children}</Layer>
@@ -27,11 +34,7 @@ function MyStage({ children }) {
   )
 }
 
-class ReactKonva extends Component {
-  static propTypes = {
-    className: PropTypes.string
-  }
-
+class ReactKonva extends React.Component<Props> {
   static defaultProps = {
     className: ''
   }

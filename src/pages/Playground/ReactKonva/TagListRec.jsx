@@ -1,13 +1,20 @@
-import React, { Component, Children, cloneElement } from 'react'
-import PropTypes from 'prop-types'
+/* @flow */
+
+import * as React from 'react'
 import { Group } from 'react-konva'
 
-class TagListRec extends Component {
-  static propTypes = {
-    x: PropTypes.number,
-    y: PropTypes.number,
-  }
+type Props = {
+  children: React.Node,
+  x: number,
+  y: number,
+}
 
+type State = {
+  width: number,
+  height: number,
+}
+
+class TagListRec extends React.Component<Props, State> {
   static defaultProps = {
     x: 0,
     y: 0,
@@ -24,20 +31,20 @@ class TagListRec extends Component {
     }
   }
 
-  handleResize = (width, height) => {
+  handleResize = (width: number, height: number): void => {
     this.setState({ width, height })
   }
 
   render() {
     const { children, x, y } = this.props
     const { width, height } = this.state
-    const [c, ...cs] = Children.toArray(children)
+    const [c, ...cs] = React.Children.toArray(children)
 
     if (c === undefined) return null
 
     return (
       <Group x={x} y={y}>
-        {cloneElement(c, { onResize: this.handleResize })}
+        {React.cloneElement(c, { onResize: this.handleResize })}
         <TagListRec x={width + this.styles.margin.right}>
           {cs}
         </TagListRec>

@@ -1,19 +1,24 @@
-import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
+/* @flow */
+
+import * as React from 'react'
 import { Group, Rect, Text } from 'react-konva'
 
-class Tag extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    x: PropTypes.number,
-    y: PropTypes.number,
-    fontSize: PropTypes.number,
-    text: PropTypes.string,
-    color: PropTypes.string,
-    backgroundColor: PropTypes.string,
-    onResize: PropTypes.func,
-  }
+type Props = {
+  x: number,
+  y: number,
+  fontSize: number,
+  text: string,
+  color: string,
+  backgroundColor: string,
+  onResize?: (width: number, height: number) => void,
+}
 
+type State = {
+  w: number,
+  h: number,
+}
+
+class Tag extends React.PureComponent<Props, State> {
   static defaultProps = {
     className: '',
     x: 0,
@@ -33,9 +38,9 @@ class Tag extends PureComponent {
     }
   }
 
-  textNode = null
+  textNode: Text
 
-  constructor(props) {
+  constructor(props: Props) {
     super(props)
     this.state = { w: 0, h: 0 }
   }
@@ -61,7 +66,7 @@ class Tag extends PureComponent {
     this.updateDimension()
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps: Props) {
     if (this.props.text !== prevProps.text) {
       this.updateDimension()
     }
