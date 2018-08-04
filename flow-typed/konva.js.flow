@@ -2,39 +2,9 @@
 // reference: https://github.com/konvajs/konva/blob/master/konva.d.ts
 
 declare module 'konva' {
-  declare type GlobalCompositeOperationType
-    = ''
-    | 'source-over'
-    | 'source-in'
-    | 'source-out'
-    | 'source-atop'
-    | 'destination-over'
-    | 'destination-in'
-    | 'destination-out'
-    | 'destination-atop'
-    | 'lighter'
-    | 'copy'
-    | 'xor'
-    | 'multiply'
-    | 'screen'
-    | 'overlay'
-    | 'darken'
-    | 'lighten'
-    | 'color-dodge'
-    | 'color-burn'
-    | 'hard-light'
-    | 'soft-light'
-    | 'difference'
-    | 'exclusion'
-    | 'hue'
-    | 'saturation'
-    | 'color'
-    | 'luminosity'
-
-  declare type Vector2d = {
-    x: number,
-    y: number,
-  }
+  declare type HandlerFunc = (
+    e: { target: Shape; evt: Event; currentTarget: Node; cancelBubble: boolean  }
+  ) => void;
 
   declare type KonvaNodeEvent
     = 'mouseover'
@@ -77,6 +47,37 @@ declare module 'konva' {
 
   declare type KonvaEventString = KonvaEvent | string
 
+  declare type GlobalCompositeOperationType
+    = ''
+    | 'source-over'
+    | 'source-in'
+    | 'source-out'
+    | 'source-atop'
+    | 'destination-over'
+    | 'destination-in'
+    | 'destination-out'
+    | 'destination-atop'
+    | 'lighter'
+    | 'copy'
+    | 'xor'
+    | 'multiply'
+    | 'screen'
+    | 'overlay'
+    | 'darken'
+    | 'lighten'
+    | 'color-dodge'
+    | 'color-burn'
+    | 'hard-light'
+    | 'soft-light'
+    | 'difference'
+    | 'exclusion'
+    | 'hue'
+    | 'saturation'
+    | 'color'
+    | 'luminosity'
+
+  declare class Filter {}
+
   declare type KonvaStageEventMap = {
     'contentMouseover': MouseEvent,
     'contentMousemove': MouseEvent,
@@ -84,7 +85,8 @@ declare module 'konva' {
     'contentMousedown': MouseEvent,
     'contentMouseup': MouseEvent,
     'contentWheel': WheelEvent,
-    'contentContextmenu': PointerEvent,
+    // TODO: implement the PointEvent
+    'contentContextmenu': MouseEvent, // PointerEvent,
     'contentClick': MouseEvent,
     'contentDblclick': MouseEvent,
     'contentTouchstart': TouchEvent,
@@ -103,7 +105,8 @@ declare module 'konva' {
     'mousedown': MouseEvent,
     'mouseup': MouseEvent,
     'wheel': WheelEvent,
-    'contextmenu': PointerEvent,
+    // TODO: implement the PointerEvent
+    'contextmenu': MouseEvent, // PointerEvent,
     'click': MouseEvent,
     'dblclick': MouseEvent,
     'touchstart': TouchEvent,
@@ -140,7 +143,59 @@ declare module 'konva' {
     dragDistance?: number,
     dragBoundFunc?: (pos: Vector2d) => Vector2d,
     preventDefault?: boolean,
-    globalCompositionOperation?: GlobalCompositionOperationType,
+    globalCompositionOperation?: GlobalCompositeOperationType,
+  }
+
+  declare type SizeConfig = {
+    x?: number,
+    y?: number,
+    width?: number,
+    height?: number,
+  }
+
+  declare type ToCanvasConfig = SizeConfig & {
+    callback: Function,
+  }
+
+  declare type ToDataURLConfig = SizeConfig & {
+    mimeType?: string,
+    quality?: number,
+    pixelRatio?: number,
+  }
+
+  declare type ToImageConfig = SizeConfig & {
+    callback: Function,
+    mimeType?: string,
+    quality?: number,
+  }
+
+  declare type CacheConfig = SizeConfig & {
+    drawBorder?: boolean,
+    pixelRatio?: number,
+  }
+
+  declare type ClearConfig = SizeConfig
+
+  declare class Transform {
+    copy(): Transform;
+    getMatrix(): number[];
+    getTranslation(): Vector2d;
+    invert(): Transform;
+    multiply(matrix: number[]): Transform;
+    point(point: Vector2d): Vector2d;
+    rotate(deg: number): Transform;
+    scale(x: number, y: Number): Transform;
+    setAbsolutePosition(): Transform;
+    skew(x: number, y: Number): Transform;
+    translate(x: number, y: Number): Transform;
+  }
+
+  declare class Collection {
+    [i: number]: any;
+    static toCollection(arr: any[]): Collection;
+    each(f: (el: Node) => void): void;
+    toArray(): any[];
+    length: number;
   }
 
   declare class Node {
@@ -203,7 +258,7 @@ declare module 'konva' {
     // CHECK
     getCanvas(): Canvas;
     getClassName(): string;
-    getClientRect(attrs? : { skipTransform?: boolean, relativeTo?: object }): SizeConfig;
+    getClientRect(attrs? : { skipTransform?: boolean, relativeTo?: Object }): SizeConfig;
     getContent(): HTMLDivElement;
     getDepth(): number;
     getHeight(): number;
@@ -323,8 +378,233 @@ declare module 'konva' {
     x(x: number): this;
     y(): number;
     y(y: number): this;
-    globalCompositeOperation(): globalCompositeOperationType;
-    globalCompositeOperation(type: globalCompositeOperationType): this;
+    globalCompositeOperation(): GlobalCompositeOperationType;
+    globalCompositeOperation(type: GlobalCompositeOperationType): this;
+  }
+
+  declare type ContainerConfig = NodeConfig & {
+    clearBeforeDraw?: boolean;
+    clipFunc?: (ctx: CanvasRenderingContext2D) => void;
+    clipX?: number;
+    clipY?: number;
+    clipWidth?: number;
+    clipHeight?: number;
+  }
+
+	declare class Container extends Node {
+    constructor(params?: ContainerConfig): Container;
+    getChildren(filterfunc?: Function): Collection;
+    clip(): SizeConfig;
+    clip(clip: SizeConfig | void | null): this;
+    clipHeight(): number;
+    clipHeight(clipHeight: number | void | null): this;
+    clipWidth(): number;
+    clipWidth(clipWidth: number | void | null): this;
+    clipX(): number;
+    clipX(clipX: number | void | null): this;
+    clipY(): number;
+    clipY(clipY: number | void | null): this;
+    clipFunc(): (ctx: CanvasRenderingContext2D) => void;
+    clipFunc(ctx: CanvasRenderingContext2D | void | null): void;
+    destroyChildren(): void;
+    find(selector?: string | ((node: Node) => boolean)): Collection;
+    findOne<T: Node>(selector: string | ((node: Node) => boolean)): T;
+    getAllIntersections(pos: Vector2d): Shape[];
+    hasChildren(): boolean;
+    removeChildren(): void;
+  }
+
+  declare type LayerConfig = ContainerConfig & {
+    clearBeforeDraw?: boolean;
+    hitGraphEnabled?: boolean;
+  }
+
+  declare class FastLayer extends Container {
+    constructor(config?: LayerConfig): FastLayer;
+    add(...children: Node[]): this;
+    drawScene(): void;
+    hitGraphEnabled(val: boolean): this;
+    batchDraw(): void;
+  }
+
+  declare class Layer extends Container {
+    constructor(config?: LayerConfig): Layer;
+    add(...children: Node[]): this;
+    getIntersection(pos: Vector2d, selector?: string): Shape;
+    enableHitGraph(): this;
+    disableHitGraph(): this;
+    clearBeforeDraw(): boolean;
+    clearBeforeDraw(val: boolean): this;
+    hitGraphEnabled(): boolean;
+    hitGraphEnabled(val: boolean): this;
+    batchDraw(): void;
+    drawScene(): void;
+  }
+
+  declare type StageConfig = ContainerConfig & {
+    container: any;
+  }
+
+  declare class Stage extends Container {
+    constructor(StageConfig: StageConfig): Stage;
+    add(...layers: Layer[]): this;
+    add(...layers: FastLayer[]): this;
+    batchDraw(): void;
+    container(): HTMLElement;
+    destroy(): void;
+    drawHit(): void;
+    getIntersection(pos: Vector2d, selector?: string): Shape;
+    getLayers(): Layer[];
+    getPointerPosition(): Vector2d;
+    setContainer(con: HTMLElement): void;
+    setHeight(height: number): void;
+    setWidth(width: number): void;
+  }
+
+  declare type CanvasConfig = {
+    width: number,
+    height: number,
+    pixelRatio: number,
+  }
+
+  declare class Canvas {
+    constructor(CanvasConfig: CanvasConfig): Canvas;
+    getContext(): CanvasRenderingContext2D;
+    getHeight(): number;
+    getWidth(): number;
+    getPixelRatio(): number;
+    setHeight(val: number): void;
+    setWidth(val: number): void;
+    setPixelRatio(val: number): void;
+    setSize(size: { width: number; height: number }): void;
+    toDataURL(mimeType: string, quality: number): string;
+    _canvas: HTMLElement;
+  }
+
+  declare class Context {
+    clear(bounds?: ClearConfig): Context;
+    clearTrace(): void;
+    fillShape(shape: Shape): void;
+    fillStrokeShape(shape: Shape): void;
+    getCanvas(): Canvas;
+    getTrace(relaxed: boolean): string;
+    reset(): void;
+    setAttr(attr: string, value: any): void;
+    strokeShape(shape: Shape): void;
+
+    // context pass through methods
+    // originally from lib.es6.d.ts
+    arc(
+      x: number,
+      y: number,
+      radius: number,
+      startAngle: number,
+      endAngle: number,
+      anticlockwise?: boolean
+    ): void;
+    beginPath(): void;
+    bezierCurveTo(
+      cp1x: number,
+      cp1y: number,
+      cp2x: number,
+      cp2y: number,
+      x: number,
+      y: number
+    ): void;
+    clearRect(x: number, y: number, width: number, height: number): void;
+    clip(): void;
+    closePath(): void;
+    createImageData(imageDataOrSw: number | ImageData, sh?: number): ImageData;
+    createLinearGradient(
+      x0: number,
+      y0: number,
+      x1: number,
+      y1: number
+    ): CanvasGradient;
+    createPattern(
+      image: HTMLImageElement | HTMLCanvasElement | HTMLVideoElement,
+      repetition: string
+    ): CanvasPattern;
+    createRadialGradient(
+      x0: number,
+      y0: number,
+      r0: number,
+      x1: number,
+      y1: number,
+      r1: number
+    ): CanvasGradient;
+    drawImage(
+      image:
+        | HTMLImageElement
+        | HTMLCanvasElement
+        | HTMLVideoElement
+        | ImageBitmap,
+      dstX: number,
+      dstY: number
+    ): void;
+    drawImage(
+      image:
+        | HTMLImageElement
+        | HTMLCanvasElement
+        | HTMLVideoElement
+        | ImageBitmap,
+      dstX: number,
+      dstY: number,
+      dstW: number,
+      dstH: number
+    ): void;
+    drawImage(
+      image:
+        | HTMLImageElement
+        | HTMLCanvasElement
+        | HTMLVideoElement
+        | ImageBitmap,
+      srcX: number,
+      srcY: number,
+      srcW: number,
+      srcH: number,
+      dstX: number,
+      dstY: number,
+      dstW: number,
+      dstH: number
+    ): void;
+    isPointInPath(x: number, y: number): boolean;
+    fill(): void;
+    fillRect(x: number, y: number, width: number, height: number): void;
+    strokeRect(x: number, y: number, w: number, h: number): void;
+    fillText(text: string, x: number, y: number): void;
+    measureText(text: string): TextMetrics;
+    getImageData(sx: number, sy: number, sw: number, sh: number): ImageData;
+    lineTo(x: number, y: number): void;
+    moveTo(x: number, y: number): void;
+    rect(x: number, y: number, w: number, h: number): void;
+    putImageData(imagedata: ImageData, dx: number, dy: number): void;
+    quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void;
+    restore(): void;
+    rotate(angle: number): void;
+    save(): void;
+    scale(x: number, y: number): void;
+    setLineDash(segments: number[]): void;
+    getLineDash(): number[];
+    setTransform(
+      m11: number,
+      m12: number,
+      m21: number,
+      m22: number,
+      dx: number,
+      dy: number
+    ): void;
+    stroke(path?: Path2D): void;
+    strokeText(text: string, x: number, y: number): void;
+    transform(
+      m11: number,
+      m12: number,
+      m21: number,
+      m22: number,
+      dx: number,
+      dy: number
+    ): void;
+    translate(x: number, y: number): void;
   }
 
   declare type ShapeConfig = NodeConfig & {
@@ -527,5 +807,10 @@ declare module 'konva' {
     wrap(wrap: string): this;
     textDecoration(): string;
     textDecoration(textDecoration: string): this;
+  }
+
+  declare type Vector2d = {
+    x: number,
+    y: number,
   }
 }
