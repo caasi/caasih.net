@@ -1,8 +1,26 @@
+/* @flow */
+
 import React, { Component } from 'react'
 import cx from 'classnames'
+import type { Viewport } from '../state'
 import styles from './index.css'
 
-function MapObject(obj) {
+type Props = {
+  id: string,
+  className: string,
+  x: number,
+  y: number,
+  width: number,
+  height: number,
+  viewport: Viewport,
+  selected: boolean,
+  onClick?: (e: SyntheticEvent<HTMLDivElement>, obj: Props) => void,
+  onMouseDown?: (e: SyntheticEvent<HTMLDivElement>, obj: Props) => void,
+  onMouseMove?: (e: SyntheticEvent<HTMLDivElement>, obj: Props) => void,
+  onMouseUp?: (e: SyntheticEvent<HTMLDivElement>, obj: Props) => void,
+}
+
+function MapObject(obj: Props) {
   const {
     id, className = '',
     x = 0, y = 0, width = 0, height = 0,

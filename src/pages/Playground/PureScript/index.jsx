@@ -1,5 +1,6 @@
-import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
+/* @flow */
+
+import * as React from 'react'
 import cx from 'classnames'
 import Article from 'components/Article'
 import SourceCode from 'components/SourceCode'
@@ -7,11 +8,12 @@ import CreativeCommons from 'components/CreativeCommons'
 import * as Prelude from './Prelude.purs'
 import PreludeSource from '!raw-loader!./Prelude.purs'
 
-class PureScript extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-  }
+type Props = {
+  id?: string,
+  className: string,
+}
 
+class PureScript extends React.PureComponent<Props> {
   static defaultProps = {
     className: '',
   }

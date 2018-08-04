@@ -1,7 +1,6 @@
 import React, { Component, createContext } from 'react'
-import PropTypes from 'prop-types'
 import cx from 'classnames'
-import * as state from './state'
+import * as S from './state'
 import MapObject from './MapObject'
 import BoundingBox from './BoundingBox'
 import MapActions from './MapActions'
@@ -11,27 +10,42 @@ const { Provider, Consumer } = createContext({ state: { objects: {} } })
 
 export { Consumer as Consumer }
 
-class MinimumMap extends Component {
-  static propTypes = {
-    className: PropTypes.string,
-  }
+type Props = {
+  id: string,
+  className: string,
+}
 
+type State = S.State & {
+  actions: {
+    scaleViewport: typeof S.scaleViewport,
+    dragViewportStart: typeof S.dragViewportStart,
+    dragViewportEnd: typeof S.dragViewportEnd,
+    dragViewportMove: typeof S.dragViewportMove,
+    select: typeof S.select,
+    unselect: typeof S.unselect,
+    dragStart: typeof S.dragStart,
+    dragEnd: typeof S.dragEnd,
+    dragMove: typeof S.dragMove,
+  }
+}
+
+class MinimumMap extends Component<Props, State> {
   static defaultProps = {
     className: '',
   }
 
   state = {
-    ...state.init(),
+    ...S.init(),
     actions: {
-      scaleViewport: (scale) => this.setState(state.scaleViewport(scale)),
-      dragViewportStart: (pt) => this.setState(state.dragViewportStart(pt)),
-      dragViewportEnd: () => this.setState(state.dragViewportEnd()),
-      dragViewportMove: (pt) => this.setState(state.dragViewportMove(pt)),
-      select: (obj) => this.setState(state.select(obj)),
-      unselect: (obj) => this.setState(state.unselect(obj)),
-      dragStart: (pt) => this.setState(state.dragStart(pt)),
-      dragEnd: () => this.setState(state.dragEnd()),
-      dragMove: (pt) => this.setState(state.dragMove(pt))
+      scaleViewport: (scale) => this.setState(S.scaleViewport(scale)),
+      dragViewportStart: (pt) => this.setState(S.dragViewportStart(pt)),
+      dragViewportEnd: () => this.setState(S.dragViewportEnd()),
+      dragViewportMove: (pt) => this.setState(S.dragViewportMove(pt)),
+      select: (obj) => this.setState(S.select(obj)),
+      unselect: (obj) => this.setState(S.unselect(obj)),
+      dragStart: (pt) => this.setState(S.dragStart(pt)),
+      dragEnd: () => this.setState(S.dragEnd()),
+      dragMove: (pt) => this.setState(S.dragMove(pt))
     }
   }
 

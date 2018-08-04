@@ -1,7 +1,9 @@
+/* @flow */
+
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { withRouter, Link, Route } from 'react-router-dom'
+import type { ContextRouter } from 'react-router'
 import List from 'components/List'
 import Then from './Then'
 import ReactKonva from './ReactKonva'
@@ -10,11 +12,14 @@ import PureScript from './PureScript'
 
 import styles from './index.css'
 
-class Playground extends Component {
-  static propTypes = {
-    className: PropTypes.string
-  }
+type OwnProps = {
+  id: string,
+  className: string,
+}
 
+type Props = ContextRouter & OwnProps
+
+class Playground extends Component<Props> {
   static defaultProps = {
     className: ''
   }

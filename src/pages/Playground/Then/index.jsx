@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+/* @flow */
+
+import * as React from 'react'
 import cx from 'classnames'
 import { Then } from '@caasi/then'
 import { delay } from 'types/time'
@@ -8,24 +9,34 @@ import CreativeCommons from 'components/CreativeCommons'
 
 import styles from './index.css'
 
-
-
-const People = (props) => {
-  const { name, age } = props
-
-  return <span>I am { name || '???' }. I am { age || '??' } years old.</span>
+type PeopleProps = {
+  name?: string,
+  age?: number,
 }
 
-class AboutThen extends Component {
-  static propTypes = {
-    className: PropTypes.string
-  }
+const People = (props: PeopleProps) => {
+  const { name = '???', age = '??' } = props
 
+  return <span>I am { name }. I am { age } years old.</span>
+}
+
+type Props = {
+  id?: string,
+  className: string,
+}
+
+type State = {
+  name: Promise<string>,
+  age: Promise<number>,
+  foo: Promise<number>,
+}
+
+class AboutThen extends React.Component<Props, State> {
   static defaultProps = {
     className: ''
   }
 
-  constructor(props) {
+  constructor(props: Props) {
     super(props)
     this.state = {
       name: Promise.resolve('Isaac').then(delay(5000)),
@@ -34,7 +45,7 @@ class AboutThen extends Component {
     }
   }
 
-  handleClick = (e) => {
+  handleClick = (e: SyntheticEvent<HTMLButtonElement>) => {
     const { foo } = this.state
 
     e.preventDefault()

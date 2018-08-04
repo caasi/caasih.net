@@ -1,21 +1,24 @@
+/* @flow */
+
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import type { Viewport } from '../state'
 import styles from './index.css'
 
-class BoundingBox extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    x: PropTypes.number,
-    y: PropTypes.number,
-    width: PropTypes.number,
-    height: PropTypes.number,
-    // TODO:
-    //   should create a pre-rendering function instead of passing the
-    //   viewport.
-    viewport: PropTypes.object,
-  }
+type Props = {
+  id: string,
+  className: string,
+  x: number,
+  y: number,
+  width: number,
+  height: number,
+  // TODO:
+  //   should create a pre-rendering function instead of passing the
+  //   viewport.
+  viewport: Viewport,
+}
 
+class BoundingBox extends PureComponent<Props> {
   static defaultProps = {
     className: '',
     x: 0,

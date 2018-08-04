@@ -1,16 +1,18 @@
+/* @flow */
+
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import cx from 'classnames'
 import Article from 'components/Article'
 import SourceCode from 'components/SourceCode'
 import CreativeCommons from 'components/CreativeCommons'
 import MinimumMap from './MinimumMap'
 
-class Map extends Component {
-  static propTypes = {
-    className: PropTypes.string,
-  }
+type Props = {
+  id?: string,
+  className: string,
+}
 
+class Map extends Component<Props> {
   static defaultProps = {
     className: '',
   }
