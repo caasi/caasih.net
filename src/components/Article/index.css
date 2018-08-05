@@ -39,4 +39,9 @@
     margin-top: 0.5em;
     font-size: 0.875rem;
   }
+
+  @media only screen and (max-device-width: 767px) {
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+  }
 }
