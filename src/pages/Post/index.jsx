@@ -1,10 +1,13 @@
+/* @flow */
+
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
 import cx from 'classnames'
 import ReactMarkdown from 'react-markdown'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import type { ContextRouter } from 'react-router'
 import * as actions from 'actions'
+import * as T from 'types'
 import * as func from 'types/func'
 import Article from 'components/Article'
 import CreativeCommons from 'components/CreativeCommons'
@@ -13,15 +16,16 @@ import moment from 'moment'
 
 const DATETIME_FORMAT = 'YYYY-MM-DD HH:mm'
 
+type OwnProps = {
+  id?: string,
+  className: string,
+  meta: T.PostMeta,
+  post: string,
+}
 
+type Props = ContextRouter & OwnProps
 
-class Post extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    meta: PropTypes.object,
-    post: PropTypes.string,
-  }
-
+class Post extends PureComponent<Props> {
   static defaultProps = {
     className: '',
     post: '',
@@ -32,7 +36,7 @@ class Post extends PureComponent {
     actions.post(match.params.pid)
   }
 
-  componentWillUpdate(nextProps) {
+  componentWillUpdate(nextProps: Props) {
     if (!equals(this.props.match.params, nextProps.match.params)) {
       const { match, actions } = nextProps
       actions.post(match.params.pid)

@@ -1,7 +1,5 @@
 import { map as _map } from 'ramda'
 
-
-
 export const map = (f, o) =>
   _map(
     v => {
@@ -12,4 +10,3 @@ export const map = (f, o) =>
     },
     o
   )
-

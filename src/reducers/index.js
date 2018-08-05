@@ -1,26 +1,27 @@
-import {
-  NOP,
-  PROFILE,
-  POST_INDEX,
-  POST,
-} from 'types'
+/* @flow */
 
+import * as T from 'types'
 
+export type State = {
+  profile: T.Profile,
+  post_index: T.PostMeta[],
+  post_list: { [key: string]: string },
+}
 
-export const initialState = {
+export const initialState: State = {
   profile: { name: '...' },
   post_index: [],
   post_list: {},
 }
 
-export default (state = initialState, action) => {
+export default (state: State = initialState, action: T.Action): State => {
   switch(action.type) {
-    case NOP: {
+    case T.NOP: {
       console.warn('nop!')
       return state
     }
 
-    case PROFILE: {
+    case T.PROFILE: {
       const { profile } = action
 
       return {
@@ -29,7 +30,7 @@ export default (state = initialState, action) => {
       }
     }
 
-    case POST_INDEX: {
+    case T.POST_INDEX: {
       const { post_index } = action
 
       return {
@@ -38,7 +39,7 @@ export default (state = initialState, action) => {
       }
     }
 
-    case POST: {
+    case T.POST: {
       const { url, post } = action
 
       return {

@@ -1,9 +1,12 @@
+/* @flow */
+
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { connect } from 'react-redux'
 import { withRouter, Link, Route } from 'react-router-dom'
+import type { ContextRouter } from 'react-router'
 import * as actions from 'actions'
+import * as T from 'types'
 import * as func from 'types/func'
 import List from 'components/List'
 import Post from '../Post'
@@ -14,14 +17,15 @@ import styles from './index.css'
 
 const filterPublicPosts = filter(compose(not, prop('private')))
 
+type OwnProps = {
+  id?: string,
+  className: string,
+  post_index: T.PostMeta[],
+}
 
+type Props = ContextRouter & OwnProps
 
-class PostIndex extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    post_index: PropTypes.array,
-  }
-
+class PostIndex extends PureComponent<Props> {
   static defaultProps = {
     className: '',
     post_index: [],
@@ -58,10 +62,7 @@ class PostIndex extends PureComponent {
   }
 }
 
-
-
 export default withRouter(connect(
   state => ({ post_index: filterPublicPosts(state.post_index) }),
   dispatch => ({ actions: func.map(dispatch, actions) })
 )(PostIndex))
-

@@ -1,16 +1,9 @@
-import {
-  Nop,
-  Profile,
-  PostIndex,
-  Post,
-} from 'types'
+import * as T from 'types'
 import axios from 'axios'
-
-
 
 export const nop = store => async () => {
   const { dispatch } = store
-  dispatch(Nop())
+  dispatch(T.nop())
 }
 
 let pProfile
@@ -22,7 +15,7 @@ export const profile = store => async () => {
   }
 
   const result = await pProfile
-  dispatch(Profile(result))
+  dispatch(T.profile(result))
 
   return result
 }
@@ -36,7 +29,7 @@ export const postIndex = store => async () => {
   }
 
   const result = await pPostIndex
-  dispatch(PostIndex(result))
+  dispatch(T.postIndex(result))
 
   return result
 }
@@ -50,8 +43,7 @@ export const post = store => async (url) => {
   }
 
   const result = await pPost[url]
-  dispatch(Post(url, result))
+  dispatch(T.post(url, result))
 
   return result
 }
-
