@@ -7,9 +7,15 @@ import { Stage, Layer, Rect } from 'react-konva'
 import Article from 'components/Article'
 import SourceCode from 'components/SourceCode'
 import CreativeCommons from 'components/CreativeCommons'
-import TextAndRectSource from '!raw-loader!./TextAndRect'
+
+// snippets
+import textAndRectSource from '!raw-loader!./TextAndRect'
+import componentStructure from '!raw-loader!./examples/0-component.jsx'
+import ref from '!raw-loader!./examples/1-ref.jsx'
+import handleResize from '!raw-loader!./examples/2-handle-resize.js'
+import updateDimension from '!raw-loader!./examples/3-update-dimension.jsx'
+
 import TextAndRect from './TextAndRect'
-import TextInRectSource from '!raw-loader!./TextInRect'
 import TextInRect from './TextInRect'
 import TagSource from '!raw-loader!./Tag'
 import Tag from './Tag'
@@ -62,10 +68,32 @@ class ReactKonva extends React.Component<Props> {
           </figcaption>
         </figure>
         <SourceCode language="jsx">
-          {TextAndRectSource}
+          {textAndRectSource}
         </SourceCode>
         <p>
-          也就是說，當你想畫個剛好可以容納文字的容器（就叫他 <code>Tag</code> 吧）時，得先把文字畫好，得到其寬高，再決定外框該怎麼畫。沒有什麼文字自己把外框「撐開」這種事。如果想達成此效果，只能等 component render 完，取得文字佔據的長寬，再更新外框。
+          可以給 Konva.js <code>Text</code> 特定寬、高，來限制繪製區域。若希望在繪製完後根據文字寬高畫其他元件，則需要多包裝一下。
+        </p>
+        <p>
+          下面提到的元件都以 <a href="https://flow.org/">Flow</a> 標註型別，有著類似結構：
+        </p>
+        <SourceCode open language="jsx">
+          {componentStructure}
+        </SourceCode>
+        <hr />
+        <p>
+          為了取得文字寬高，得用上 <a href="https://reactjs.org/docs/refs-and-the-dom.html"><code>ref</code></a> 來存取 React 包裝起來的繪製結果。平常取得的 <code>ref</code> 是 DOM node ，在 React Konva 下，我們拿到的是 <a href="https://konvajs.github.io/api/Konva.Text.html"><code>Konva.Text</code></a> 。
+        </p>
+        <SourceCode open language="jsx">
+          {ref}
+        </SourceCode>
+        <p>
+          接著在 <code>componentDidMount</code> 和 <code>componentDidUpdate</code> 時，就可以將長寬回報給父元件。
+        </p>
+        <SourceCode open language="jsx">
+          {handleResize}
+        </SourceCode>
+        <p>
+          當你想畫個剛好可以容納文字的容器時，靠 <code>onResize</code> 取得第一次畫的文字長寬，再畫一次外面的容器即可。因為第二次畫的 <code>Text</code> 長寬不變， <code>onResize</code> 不會再被呼叫一次，不用擔心遞迴呼叫停不下來。
         </p>
         <figure>
           <MyStage>
@@ -75,12 +103,12 @@ class ReactKonva extends React.Component<Props> {
             <code>Text</code> 畫完後，再根據其長寬畫外框
           </figcaption>
         </figure>
-        <SourceCode language="jsx">
-          {TextInRectSource}
+        <SourceCode open language="jsx">
+          {updateDimension}
         </SourceCode>
+        <hr />
         <p>
-          如果今天希望一列這樣的 <code>Tag</code> ，可以自動抓好彼此間的寬度與間距，該怎麼辦？
-          React 16 的 <code>ref</code> 雖然能被<a href="https://reactjs.org/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components" title="Exposing DOM Refs to Parent Components">暴露給上層的父組件</a>，但沒辦法讓我們自訂它是什麼，也就無法傳遞我們計算過的寬高。為了讓父組件知道子組件的寬高變化，得另外提供個 callback function ，就叫它 <code>onResize</code> 吧。
+          如果今天希望一列這樣的 <code>Tag</code> ，可以自動抓好彼此間的寬度與間距，該怎麼辦？為了讓父組件知道子組件的寬高變化，可以讓 <code>Tag</code> 也有自己的 <code>onResize</code> ，將寬高傳上去。
         </p>
         <figure>
           <MyStage>
