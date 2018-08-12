@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react'
 import cx from 'classnames'
-import type { Viewport } from '../state'
+import type { Box } from '../state'
 import styles from './index.css'
 
 type Props = {
@@ -12,7 +12,8 @@ type Props = {
   y: number,
   width: number,
   height: number,
-  viewport: Viewport,
+  screen: Box,
+  viewport: Box,
   selected: boolean,
   onClick?: (e: SyntheticEvent<HTMLDivElement>, obj: Props) => void,
   onMouseDown?: (e: SyntheticEvent<HTMLDivElement>, obj: Props) => void,
@@ -24,18 +25,20 @@ function MapObject(obj: Props) {
   const {
     id, className = '',
     x = 0, y = 0, width = 0, height = 0,
-    viewport = { x: 0, y: 0, scale: 1.0 },
+    screen, viewport,
     selected = false,
     onClick, onMouseDown, onMouseMove, onMouseUp,
   } = obj
   const classes = cx(styles.className, 'minmap-object', { selected }, className)
-  const top = viewport.scale * (y - viewport.y)
-  const left = viewport.scale * (x - viewport.x)
+  const scaleX = screen.width / viewport.width
+  const scaleY = screen.height / viewport.height
+  const top = (y - viewport.y) * scaleY
+  const left = (x - viewport.x) * scaleX
   const style = {
     top,
     left,
-    width: viewport.scale * width,
-    height: viewport.scale * height
+    width: width * scaleX,
+    height: height * scaleY,
   }
 
   return (

@@ -7,14 +7,15 @@ function MapActions() {
   return (
     <div>
       <Consumer>{
-        ({ actions, viewport }) => {
+        ({ actions, screen, viewport }) => {
+          const scale = viewport.width / screen.width
           return (
             <Fragment>
               <button
-                onClick={() => actions.scaleViewport(viewport.scale + 0.1)}
+                onClick={() => actions.scaleViewport(scale - 0.1)}
               >+</button>
               <button
-                onClick={() => actions.scaleViewport(viewport.scale - 0.1)}
+                onClick={() => actions.scaleViewport(scale + 0.1)}
               >-</button>
             </Fragment>
           )

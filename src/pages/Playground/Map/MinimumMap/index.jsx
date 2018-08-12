@@ -35,7 +35,7 @@ class MinimumMap extends Component<Props, State> {
   }
 
   state = {
-    ...S.init(),
+    ...S.init(640, 480)(),
     actions: {
       scaleViewport: (scale) => this.setState(S.scaleViewport(scale)),
       dragViewportStart: (pt) => this.setState(S.dragViewportStart(pt)),
@@ -54,7 +54,7 @@ class MinimumMap extends Component<Props, State> {
     const classes = cx(styles.className, 'playground-minmap', className)
     const {
       actions,
-      viewport, isDraggingV,
+      screen, viewport, isDraggingV,
       objects,
       selection, boundingBox,
       isDragging
@@ -92,6 +92,7 @@ class MinimumMap extends Component<Props, State> {
                   <MapObject
                     {...o}
                     key={o.id}
+                    screen={screen}
                     viewport={viewport}
                     selected={isSelected}
                     onClick={(e, o) => {
@@ -105,10 +106,7 @@ class MinimumMap extends Component<Props, State> {
                     onMouseUp={(e, o) => {
                       e.stopPropagation()
 
-                      const pt = {
-                        x: e.clientX / viewport.scale,
-                        y: e.clientY / viewport.scale
-                      }
+                      const pt = { x: e.clientX, y: e.clientY }
                       actions.dragEnd()
 
                       const { startPoint } = this.state
@@ -125,7 +123,7 @@ class MinimumMap extends Component<Props, State> {
                 )
               })
           }
-          <BoundingBox {...boundingBox} viewport={viewport} />
+          <BoundingBox {...boundingBox} screen={screen} viewport={viewport} />
         </div>
         <Provider value={this.state}>
           <MapActions />

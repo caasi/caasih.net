@@ -2,7 +2,7 @@
 
 import React, { PureComponent } from 'react';
 import cx from 'classnames'
-import type { Viewport } from '../state'
+import type { Box } from '../state'
 import styles from './index.css'
 
 type Props = {
@@ -15,7 +15,8 @@ type Props = {
   // TODO:
   //   should create a pre-rendering function instead of passing the
   //   viewport.
-  viewport: Viewport,
+  screen: Box,
+  viewport: Box,
 }
 
 class BoundingBox extends PureComponent<Props> {
@@ -29,15 +30,17 @@ class BoundingBox extends PureComponent<Props> {
   }
 
   render() {
-    const { id, className, x, y, width, height, viewport } = this.props
+    const { id, className, x, y, width, height, screen, viewport } = this.props
     const classes = cx(styles.className, 'minmap-bounding-box', className)
-    const top = viewport.scale * (y - viewport.y)
-    const left = viewport.scale * (x - viewport.x)
+    const scaleX = screen.width / viewport.width
+    const scaleY = screen.height / viewport.height
+    const top = (y - viewport.y) * scaleY
+    const left = (x - viewport.x) * scaleX
     const style = {
       top,
       left,
-      width: viewport.scale * width,
-      height: viewport.scale * height
+      width: width * scaleX,
+      height: height * scaleY,
     }
 
     return (<div id={id} className={classes} style={style} />)

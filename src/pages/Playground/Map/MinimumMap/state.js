@@ -15,12 +15,6 @@ export type MapObject = {
   height: number,
 }
 
-export type Viewport = {
-  x: number,
-  y: number,
-  scale: number,
-}
-
 export type Box = {
   x: number,
   y: number,
@@ -36,7 +30,8 @@ export type Rect = {
 }
 
 export type State = {
-  viewport: Viewport,
+  screen: Box,
+  viewport: Box,
   isDraggingV: boolean,
   startPointV: Point,
   prevPointV: Point,
@@ -50,19 +45,26 @@ export type State = {
 
 export type Action = State => State
 
-// XXX: wrong direction
-const compose
+// XXX: wrong direction, should use reduceRight
+const pipe
   : (...fs: Action[]) => Action
   = (...fs) => (state) => fs.reduce((s, f) => f(s), state)
 
 export const init
-  : Action
-  = () => ({
-    // TODO: move into the viewport.js
+  : (number, number) => Action
+  = (width, height) => () => ({
+    // TODO: move into the dimension.js
+    screen: {
+      x: 0,
+      y: 0,
+      width,
+      height,
+    },
     viewport: {
       x: 0,
       y: 0,
-      scale: 1.0,
+      width,
+      height,
     },
     // TODO: move into the input.js
     isDraggingV: false,
@@ -140,7 +142,7 @@ const _select
 export const select
   : MapObject => Action
   = (obj) =>
-    compose(
+    pipe(
       _select(obj),
       updateBoundingBox,
     )
@@ -159,7 +161,7 @@ const _unselect
 export const unselect
   : MapObject => Action
   = (obj) =>
-    compose(
+    pipe(
       _unselect(obj),
       updateBoundingBox,
     )
@@ -174,8 +176,10 @@ export const moveObject
 export const dragStart
   : Point => Action
   = (pt) => (state) => {
-    const { viewport: { scale } } = state
-    const pt2 = { x: pt.x / scale, y: pt.y / scale }
+    const { screen, viewport } = state
+    const scaleX = viewport.width / screen.width
+    const scaleY = viewport.height / screen.height
+    const pt2 = { x: pt.x * scaleX, y: pt.y * scaleY }
     return { ...state, isDragging: true, startPoint: pt2, prevPoint: pt2 }
   }
 
@@ -189,15 +193,17 @@ export const dragEnd
 export const dragMove
   : Point => Action
   = (pt) => (state) => {
-    const { selection, prevPoint, viewport: { scale } } = state
+    const { selection, prevPoint, screen, viewport } = state
     // scale the input
+    const scaleX = viewport.width / screen.width
+    const scaleY = viewport.height / screen.height
     // TODO: should do this in the map component
-    const pt2 = { x: pt.x / scale, y: pt.y / scale }
+    const pt2 = { x: pt.x * scaleX, y: pt.y * scaleY }
     const vector = { x: pt2.x - prevPoint.x, y: pt2.y - prevPoint.y }
     const steps = selection.map(getObject(state)).map(moveObject(vector))
     steps.push((state) => ({ ...state, prevPoint: pt2 }))
     steps.push(updateBoundingBox)
-    return compose(...steps)(state)
+    return pipe(...steps)(state)
   }
 
 const moveViewport
@@ -211,15 +217,22 @@ const moveViewport
 export const scaleViewport
   : number => Action
   = (scale) => (state) => {
-    const viewport = { ...state.viewport, scale }
+    const { screen } = state
+    const viewport = {
+      ...state.viewport,
+      width: screen.width * scale,
+      height: screen.height * scale,
+    }
     return { ...state, viewport }
   }
 
 export const dragViewportStart
   : Point => Action
   = (pt) => (state) => {
-    const { viewport: { scale } } = state
-    const pt2 = { x: pt.x / scale, y: pt.y / scale }
+    const { screen, viewport } = state
+    const scaleX = viewport.width / screen.width
+    const scaleY = viewport.height / screen.height
+    const pt2 = { x: pt.x * scaleX, y: pt.y * scaleY }
     return { ...state, isDraggingV: true, startPointV: pt2, prevPointV: pt2 }
   }
 
@@ -233,10 +246,12 @@ export const dragViewportEnd
 export const dragViewportMove
   : Point => Action
   = (pt) => (state) => {
-    const { prevPointV, viewport: { scale } } = state
-    const pt2 = { x: pt.x / scale, y: pt.y / scale }
+    const { prevPointV, screen, viewport } = state
+    const scaleX = viewport.width / screen.width
+    const scaleY = viewport.height / screen.height
+    const pt2 = { x: pt.x * scaleX, y: pt.y * scaleY }
     const vector = { x: pt2.x - prevPointV.x, y: pt2.y - prevPointV.y }
-    return compose(
+    return pipe(
       moveViewport(vector),
       (state) => ({ ...state, prevPointV: pt2 })
     )(state)
