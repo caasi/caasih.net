@@ -3,6 +3,7 @@
 import React, { PureComponent } from 'react';
 import cx from 'classnames'
 import type { Box } from '../state'
+import { makeTransformers } from '../transform'
 import styles from './index.css'
 
 type Props = {
@@ -30,18 +31,11 @@ class BoundingBox extends PureComponent<Props> {
   }
 
   render() {
-    const { id, className, x, y, width, height, screen, viewport } = this.props
+    const { id, className, screen, viewport, ...box } = this.props
     const classes = cx(styles.className, 'minmap-bounding-box', className)
-    const scaleX = screen.width / viewport.width
-    const scaleY = screen.height / viewport.height
-    const top = (y - viewport.y) * scaleY
-    const left = (x - viewport.x) * scaleX
-    const style = {
-      top,
-      left,
-      width: width * scaleX,
-      height: height * scaleY,
-    }
+    const { toScreen } = makeTransformers(screen, viewport)
+    const { x: left, y: top, width, height } = toScreen(box)
+    const style = { left, top, width, height }
 
     return (<div id={id} className={classes} style={style} />)
   }

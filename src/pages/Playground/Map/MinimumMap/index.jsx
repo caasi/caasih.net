@@ -65,20 +65,17 @@ class MinimumMap extends Component<Props, State> {
         <div
           className={styles.content}
           onMouseDown={(e) => {
-            const pt = { x: -e.clientX, y: -e.clientY }
-            actions.dragViewportStart(pt)
+            actions.dragViewportStart({ x: -e.clientX, y: -e.clientY })
           }}
           onMouseMove={(e) => {
-            const pt = { x: e.clientX, y: e.clientY }
             if (isDraggingV) {
-              actions.dragViewportMove({ x: -pt.x, y: -pt.y })
+              actions.dragViewportMove({ x: -e.clientX, y: -e.clientY })
             }
             if (isDragging) {
-              actions.dragMove(pt)
+              actions.dragMove({ x: e.clientX, y: e.clientY })
             }
           }}
           onMouseUp={(e) => {
-            const pt ={ x: -e.clientX, y: -e.clientY }
             actions.dragViewportEnd()
           }}
         >
@@ -100,8 +97,7 @@ class MinimumMap extends Component<Props, State> {
                     onMouseDown={(e, o) => {
                       e.stopPropagation()
 
-                      const pt = { x: e.clientX, y: e.clientY }
-                      actions.dragStart(pt)
+                      actions.dragStart({ x: e.clientX, y: e.clientY })
                     }}
                     onMouseUp={(e, o) => {
                       e.stopPropagation()

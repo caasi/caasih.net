@@ -1,9 +1,7 @@
 /* @flow */
 
-export type Point = {
-  x: number,
-  y: number,
-}
+import type { Point, Box, Rect } from './geometry'
+import { makeTransformers } from './transform'
 
 export type MapObjectID = string
 
@@ -13,20 +11,6 @@ export type MapObject = {
   y: number,
   width: number,
   height: number,
-}
-
-export type Box = {
-  x: number,
-  y: number,
-  width: number,
-  height: number,
-}
-
-export type Rect = {
-  top: number,
-  right: number,
-  bottom: number,
-  left: number,
 }
 
 export type State = {
@@ -177,9 +161,9 @@ export const dragStart
   : Point => Action
   = (pt) => (state) => {
     const { screen, viewport } = state
-    const scaleX = viewport.width / screen.width
-    const scaleY = viewport.height / screen.height
-    const pt2 = { x: pt.x * scaleX, y: pt.y * scaleY }
+    const { toGlobal } = makeTransformers(screen, viewport)
+    const { x, y } = toGlobal(pt)
+    const pt2 = { x, y }
     return { ...state, isDragging: true, startPoint: pt2, prevPoint: pt2 }
   }
 
@@ -192,13 +176,13 @@ export const dragEnd
 
 export const dragMove
   : Point => Action
-  = (pt) => (state) => {
+  = ({ x: width, y: height }) => (state) => {
     const { selection, prevPoint, screen, viewport } = state
     // scale the input
-    const scaleX = viewport.width / screen.width
-    const scaleY = viewport.height / screen.height
     // TODO: should do this in the map component
-    const pt2 = { x: pt.x * scaleX, y: pt.y * scaleY }
+    const { toGlobal } = makeTransformers(screen, viewport)
+    const { width: x, height: y } = toGlobal({ width, height })
+    const pt2 = { x, y }
     const vector = { x: pt2.x - prevPoint.x, y: pt2.y - prevPoint.y }
     const steps = selection.map(getObject(state)).map(moveObject(vector))
     steps.push((state) => ({ ...state, prevPoint: pt2 }))
@@ -230,9 +214,9 @@ export const dragViewportStart
   : Point => Action
   = (pt) => (state) => {
     const { screen, viewport } = state
-    const scaleX = viewport.width / screen.width
-    const scaleY = viewport.height / screen.height
-    const pt2 = { x: pt.x * scaleX, y: pt.y * scaleY }
+    const { toGlobal } = makeTransformers(screen, viewport)
+    const { x, y } = toGlobal(pt)
+    const pt2 = { x, y }
     return { ...state, isDraggingV: true, startPointV: pt2, prevPointV: pt2 }
   }
 
@@ -245,11 +229,11 @@ export const dragViewportEnd
 
 export const dragViewportMove
   : Point => Action
-  = (pt) => (state) => {
+  = ({ x: width, y: height }) => (state) => {
     const { prevPointV, screen, viewport } = state
-    const scaleX = viewport.width / screen.width
-    const scaleY = viewport.height / screen.height
-    const pt2 = { x: pt.x * scaleX, y: pt.y * scaleY }
+    const { toGlobal } = makeTransformers(screen, viewport)
+    const { width: x, height: y } = toGlobal({ width, height })
+    const pt2 = { x, y }
     const vector = { x: pt2.x - prevPointV.x, y: pt2.y - prevPointV.y }
     return pipe(
       moveViewport(vector),
