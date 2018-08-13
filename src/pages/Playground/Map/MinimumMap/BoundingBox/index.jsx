@@ -2,17 +2,17 @@
 
 import React, { PureComponent } from 'react';
 import cx from 'classnames'
-import type { Box } from '../state'
+import type { Box } from '../geometry'
 import { makeTransformers } from '../transform'
 import styles from './index.css'
 
 type Props = {
   id: string,
-  className: string,
-  x: number,
-  y: number,
-  width: number,
-  height: number,
+  className?: string,
+  x?: number,
+  y?: number,
+  width?: number,
+  height?: number,
   // TODO:
   //   should create a pre-rendering function instead of passing the
   //   viewport.
@@ -27,7 +27,6 @@ class BoundingBox extends PureComponent<Props> {
     y: 0,
     width: 0,
     height: 0,
-    viewport: { x: 0, y: 0, scale: 1.0 },
   }
 
   render() {

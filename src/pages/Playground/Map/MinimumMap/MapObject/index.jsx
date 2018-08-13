@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react'
 import cx from 'classnames'
-import type { Box } from '../state'
+import type { Box } from '../geometry'
 import { makeTransformers } from '../transform'
 import styles from './index.css'
 
@@ -12,14 +12,14 @@ function round(value) {
 
 type Props = {
   id: string,
-  className: string,
-  x: number,
-  y: number,
-  width: number,
-  height: number,
+  className?: string,
+  x?: number,
+  y?: number,
+  width?: number,
+  height?: number,
   screen: Box,
   viewport: Box,
-  selected: boolean,
+  selected?: boolean,
   onClick?: (e: SyntheticEvent<HTMLDivElement>, obj: Props) => void,
   onMouseDown?: (e: SyntheticEvent<HTMLDivElement>, obj: Props) => void,
   onMouseMove?: (e: SyntheticEvent<HTMLDivElement>, obj: Props) => void,

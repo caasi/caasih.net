@@ -12,12 +12,7 @@ export type Box = {
   height: number,
 }
 
-export type PartialBox = {
-  x?: number,
-  y?: number,
-  width?: number,
-  height?: number,
-}
+export type PartialBox = $Shape<Box>
 
 export type Rect = {
   top: number,
