@@ -1,6 +1,20 @@
 [{
   "@context": "http://schema.org",
   "@type": "BlogPosting",
+  "headline": "the Haskell School of Music",
+  "author": 0,
+  "datePublished": "2018-09-20T05:53",
+  "dateCreated": "2018-09-20T05:53",
+  "dateModified": "2018-09-20T05:53",
+  "url": "2018-09-20-school-of-music",
+  "license": {
+    "version": "4.0",
+    "type": "by"
+  }
+},
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
   "headline": "Desktop #0",
   "author": 0,
   "datePublished": "2017-12-29T15:44",
