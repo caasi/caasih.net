@@ -2,6 +2,7 @@ node_modules/
 bower_components/
 output/
 dist/*.js
+!dist/sw.js
 dist/index.html
 dist/404.html
 .DS_Store
