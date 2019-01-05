@@ -1,17 +1,7 @@
-var cacheName = '0';
+var cacheName = 'app';
 
 self.addEventListener('install', function(event) {
   event.waitUntil(self.skipWaiting());
-  event.waitUntil(
-    caches.open(cacheName)
-      .then(function(cache) {
-        return cache.addAll([
-          '/css/main.css',
-          '/js/main.js',
-          '/js/vendor.js'
-        ]);
-      })
-  );
 });
 
 self.addEventListener('active', function(event) {
@@ -33,4 +23,37 @@ self.addEventListener('message', function(event) {
     default:
       event.ports[0].postMessage(event.data);
   }
+});
+
+self.addEventListener('fetch', function(event) {
+  if (!/\.(?:bundle|vendor)\.js$/.test(event.request.url)) return;
+  event.respondWith(
+    caches.match(event.request, { ignoreSearch: true })
+      .then(function(res) {
+        var requestToCache;
+
+        if (res) {
+          return res;
+        }
+
+        requestToCache = event.request.clone();
+
+        return fetch(requestToCache).then(function(res) {
+          var responseToCache;
+
+          if (!res || res.status !== 200) {
+            return res;
+          }
+
+          responseToCache = res.clone();
+
+          caches.open(cacheName)
+            .then(function(cache) {
+              cache.put(requestToCache, responseToCache);
+            })
+
+          return res;
+        })
+      })
+  );
 });
