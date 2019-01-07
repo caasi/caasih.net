@@ -13,5 +13,7 @@ module.exports = {
     '^pages(.*)$': '<rootDir>/src/pages$1',
     '^types(.*)$': '<rootDir>/src/types$1',
     '^reducers(.*)$': '<rootDir>/src/reducers$1'
-  }
+  },
+  coverageDirectory: './coverage/',
+  collectCoverage: true
 };

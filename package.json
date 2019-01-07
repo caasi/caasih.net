@@ -13,7 +13,7 @@
     "build": "npm run clean && cross-env NODE_ENV=production npm run build:webpack && npm run clean:manifest",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d dist",
-    "test": "jest",
+    "test": "jest && codecov",
     "flow": "flow"
   },
   "keywords": [
