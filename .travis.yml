@@ -3,6 +3,7 @@ node_js:
   - "8"
 
 install:
+  - yarn
   - npm install -g codecov
 
 branches:
