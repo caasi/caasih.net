@@ -26,7 +26,7 @@ self.addEventListener('message', function(event) {
 });
 
 self.addEventListener('fetch', function(event) {
-  if (!/\.(?:bundle|vendor)\.js$/.test(event.request.url)) return;
+  if (!/bundle\.js$/.test(event.request.url)) return;
   event.respondWith(
     caches.match(event.request, { ignoreSearch: true })
       .then(function(res) {
