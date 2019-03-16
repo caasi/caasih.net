@@ -1,4 +1,5 @@
 import React from 'react'
+import { hot } from 'react-hot-loader/root'
 import cx from 'classnames'
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom'
@@ -37,5 +38,5 @@ const Root = ({ id, className, store }) => {
 
 
 
-export default Root
+export default hot(Root)
 

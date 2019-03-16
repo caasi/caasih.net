@@ -6,7 +6,7 @@ import ReactMarkdown from 'react-markdown'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import type { ContextRouter } from 'react-router'
-import * as actions from 'actions'
+import { post } from 'actions'
 import * as T from 'types'
 import * as func from 'types/func'
 import Article from 'components/Article'
@@ -91,6 +91,6 @@ export default withRouter(connect(
 
     return { profile, meta, post }
   },
-  dispatch => ({ actions: func.map(dispatch, actions) })
+  dispatch => ({ actions: func.map(dispatch, { post }) })
 )(Post))
 

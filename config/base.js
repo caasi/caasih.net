@@ -1,13 +1,12 @@
-import path from 'path'
-import webpack from 'webpack'
-import InlineManifestWebpackPlugin from 'inline-manifest-webpack-plugin'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
-import autoprefixer from 'autoprefixer'
-import precss from 'precss'
-import syntax from 'postcss-scss'
-import vendor from './vendor.babel'
-import { createAliases } from './utils.babel'
-import { srcPath, dstPath } from './config.babel'
+const path = require('path')
+const webpack = require('webpack')
+const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const autoprefixer = require('autoprefixer')
+const precss = require('precss')
+const syntax = require('postcss-scss')
+const { createAliases } = require('./utils')
+const { srcPath, dstPath } = require('./config')
 
 
 
@@ -20,14 +19,24 @@ const htmlWebpackOptions = {
 
 const isDevelopment = process.env.NODE_ENV === 'development'
 
-export default {
+module.exports = {
   entry: {
-    vendor,
-    bundle: ['babel-polyfill', path.join(srcPath, 'index.jsx')],
+    bundle: path.join(srcPath, 'index.jsx'),
   },
   output: {
     path: dstPath,
     publicPath: '/',
+  },
+  optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /node_modules/,
+          chunks: 'initial',
+        },
+      },
+    },
   },
   plugins: [
     new HtmlWebpackPlugin(htmlWebpackOptions),
@@ -35,28 +44,17 @@ export default {
       ...htmlWebpackOptions,
       filename: '404.html',
     }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
-      }
-    }),
     new webpack.LoaderOptionsPlugin({
       options: { context: srcPath }
     }),
-    new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor', 'manifest'],
-      minChunks: Infinity,
-    }),
-    new InlineManifestWebpackPlugin({ name: 'webpackManifest' }),
-    new webpack.NamedModulesPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
+    new InlineManifestWebpackPlugin(),
   ],
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: createAliases(
       srcPath,
-      ['actions', 'components', 'pages', 'types', 'reducers']
-    )
+      ['actions', 'components', 'pages', 'types', 'reducers'],
+    ),
   },
   module: {
     rules: [{

@@ -1,5 +1,4 @@
 import './service-worker.js'
-import { AppContainer } from 'react-hot-loader'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { createStore } from 'redux'
@@ -13,19 +12,5 @@ import './index.css'
 
 const s = store()
 const rootEl = document.getElementById('app')
-const render = Comp =>
-  ReactDOM.render(
-    <AppContainer>
-      <Comp store={s} />
-    </AppContainer>,
-    rootEl
-  )
-render(Root)
-
-if (module.hot) {
-  module.hot.accept(
-    './Root',
-    () => render(Root)
-  )
-}
+ReactDOM.render(<Root store={s} />, rootEl)
 

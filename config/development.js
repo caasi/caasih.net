@@ -1,10 +1,11 @@
-import path from 'path'
-import webpack from 'webpack'
-import { host, port, srcPath, dstPath } from './config.babel'
+const path = require('path')
+const webpack = require('webpack')
+const { host, port, srcPath, dstPath } = require('./config')
 
 
 
-export default {
+module.exports = {
+  mode: 'development',
   devtool: 'source-map',
   entry: {
     bundle: [

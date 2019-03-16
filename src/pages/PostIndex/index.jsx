@@ -5,7 +5,7 @@ import cx from 'classnames'
 import { connect } from 'react-redux'
 import { withRouter, Link, Route } from 'react-router-dom'
 import type { ContextRouter } from 'react-router'
-import * as actions from 'actions'
+import { profile, postIndex } from 'actions'
 import * as T from 'types'
 import * as func from 'types/func'
 import List from 'components/List'
@@ -15,6 +15,7 @@ import moment from 'moment'
 
 import styles from './index.css'
 
+const actions = { profile, postIndex }
 const filterPublicPosts = filter(compose(not, prop('private')))
 
 type OwnProps = {
