@@ -1,9 +1,6 @@
 module.exports = {
   setupFiles: ['./jest.setup.js'],
-  testPathIgnorePatterns: [
-    '/node_modules/',
-    '/reusable'
-  ],
+  testPathIgnorePatterns: ['/node_modules/', '/reusable'],
   moduleNameMapper: {
     '^!raw-loader!(.*)': 'identity-obj-proxy',
     '\\.css$': 'identity-obj-proxy',
@@ -12,8 +9,8 @@ module.exports = {
     '^components(.*)$': '<rootDir>/src/components$1',
     '^pages(.*)$': '<rootDir>/src/pages$1',
     '^types(.*)$': '<rootDir>/src/types$1',
-    '^reducers(.*)$': '<rootDir>/src/reducers$1'
+    '^reducers(.*)$': '<rootDir>/src/reducers$1',
   },
   coverageDirectory: './coverage/',
-  collectCoverage: true
-};
+  collectCoverage: true,
+}

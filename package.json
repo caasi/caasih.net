@@ -14,7 +14,8 @@
     "predeploy": "yarn build",
     "deploy": "gh-pages -d dist",
     "test": "jest && codecov",
-    "flow": "flow"
+    "flow": "flow",
+    "prettier": "npx prettier --single-quote --no-semi --trailing-comma es5 --arrow-parens always --write *.js \"{config,flow,flow-typed}/**/*.js\""
   },
   "keywords": [
     "react",
@@ -70,6 +71,7 @@
     "postcss-loader": "3",
     "postcss-scss": "2",
     "precss": "4",
+    "prettier": "1.16.4",
     "pug": "2",
     "pug-cli": "^1.0.0-alpha6",
     "pug-loader": "2",

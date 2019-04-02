@@ -1,7 +1,5 @@
 const path = require('path')
 
-
-
 const createAliases = (dirname, dirs) => {
   const ret = {}
   for (const v of dirs) {
@@ -9,7 +7,5 @@ const createAliases = (dirname, dirs) => {
   }
   return ret
 }
-
-
 
 module.exports = { createAliases }

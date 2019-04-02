@@ -8,8 +8,6 @@ const syntax = require('postcss-scss')
 const { createAliases } = require('./utils')
 const { srcPath, dstPath } = require('./config')
 
-
-
 Error.stackTraceLimit = Infinity
 
 const htmlWebpackOptions = {
@@ -45,66 +43,71 @@ module.exports = {
       filename: '404.html',
     }),
     new webpack.LoaderOptionsPlugin({
-      options: { context: srcPath }
+      options: { context: srcPath },
     }),
     new InlineManifestWebpackPlugin(),
   ],
   resolve: {
     extensions: ['.js', '.jsx'],
-    alias: createAliases(
-      srcPath,
-      ['actions', 'components', 'pages', 'types', 'reducers'],
-    ),
+    alias: createAliases(srcPath, [
+      'actions',
+      'components',
+      'pages',
+      'types',
+      'reducers',
+    ]),
   },
   module: {
-    rules: [{
-      test: /\.jade/,
-      use: 'pug-loader',
-    }, {
-      test: /\.jsx?$/,
-      use: 'babel-loader',
-      exclude: /node_modules/,
-    }, {
-      test: /\.css$/,
-      use: [
-        'style-loader',
-        'css-loader',
-      ],
-      exclude: srcPath,
-    }, {
-      test: /\.css$/,
-      use: [
-        'style-loader',
-        {
-          loader: 'css-loader',
-          options: {
-            modules: true,
-            localIdentName: '[path][name]__[local]--[hash:base64:5]',
-            importLoaders: 1,
+    rules: [
+      {
+        test: /\.jade/,
+        use: 'pug-loader',
+      },
+      {
+        test: /\.jsx?$/,
+        use: 'babel-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+        exclude: srcPath,
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[path][name]__[local]--[hash:base64:5]',
+              importLoaders: 1,
+            },
           },
+          {
+            loader: 'postcss-loader',
+            options: {
+              parser: syntax,
+              plugins: () => [precss, autoprefixer],
+            },
+          },
+        ],
+        include: srcPath,
+      },
+      {
+        test: /\.purs$/,
+        loader: 'purs-loader',
+        exclude: /node_modules/,
+        query: {
+          psc: 'psa',
+          watch: isDevelopment,
+          src: [
+            'bower_components/purescript-*/src/**/*.purs',
+            'src/pages/Playground/PureScript/**/*.purs',
+          ],
         },
-        {
-          loader: 'postcss-loader',
-          options: {
-            parser: syntax,
-            plugins: () => [precss, autoprefixer],
-          },
-        }
-      ],
-      include: srcPath,
-    }, {
-      test: /\.purs$/,
-      loader: 'purs-loader',
-      exclude: /node_modules/,
-      query: {
-        psc: 'psa',
-        watch: isDevelopment,
-        src: [
-          'bower_components/purescript-*/src/**/*.purs',
-          'src/pages/Playground/PureScript/**/*.purs'
-        ]
-      }
-    }]
-  }
+      },
+    ],
+  },
 }
-
