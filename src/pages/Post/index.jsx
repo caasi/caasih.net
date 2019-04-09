@@ -58,7 +58,7 @@ class Post extends PureComponent<Props> {
       <Article className={classes}>
         {
           meta &&
-          <h1>{ meta.headline }</h1>
+          <header>{ meta.headline }</header>
         }
         <ReactMarkdown id={id} source={post} />
         {
@@ -68,7 +68,7 @@ class Post extends PureComponent<Props> {
         {
           meta &&
           <div className="info">
-            <span>由 { profile.name } 發佈於 { publishedAt }</span>
+            <span>由 { profile.name } 發佈於 <time dateTime={publishedAt}>{ publishedAt }</time></span>
             {
               (modifiedAt !== publishedAt) &&
                 <span>，並於 { modifiedAt } 更新內容</span>
