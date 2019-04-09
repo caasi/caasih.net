@@ -22,7 +22,7 @@ type OwnProps = {
   post_index: T.PostMeta[],
 }
 
-type Props = OwnProps
+type Props = { actions: any } & OwnProps
 
 class PostIndex extends PureComponent<Props> {
   static defaultProps = {
@@ -37,7 +37,7 @@ class PostIndex extends PureComponent<Props> {
   }
 
   render() {
-    const { id, className, match, post_index } = this.props
+    const { id, className, post_index } = this.props
     const classes = cx(styles.className, 'caasih-post-list', className, styles.list)
 
     return (
