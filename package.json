@@ -13,7 +13,8 @@
     "build": "npm run clean && cross-env NODE_ENV=production npm run build:webpack && npm run clean:manifest",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d dist",
-    "test": "jest && codecov",
+    "test": "jest",
+    "codecov": "jest && codecov",
     "flow": "flow",
     "prettier": "npx prettier --single-quote --no-semi --trailing-comma es5 --arrow-parens always --write *.js \"{config,flow,flow-typed}/**/*.js\""
   },
@@ -105,7 +106,7 @@
     "react": "^16.8.4",
     "react-dom": "npm:@hot-loader/react-dom",
     "react-konva": "^16.8.4",
-    "react-markdown": "^2.5.0",
+    "react-markdown": "^4.0.6",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
