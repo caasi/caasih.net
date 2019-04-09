@@ -8,11 +8,6 @@
   :global(.info) {
   }
 
-  header {
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
-
   p, pre, ul, ol, figure {
     line-height: 1.5rem;
   }
