@@ -38,10 +38,6 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin(htmlWebpackOptions),
-    new HtmlWebpackPlugin({
-      ...htmlWebpackOptions,
-      filename: '404.html',
-    }),
     new webpack.LoaderOptionsPlugin({
       options: { context: srcPath },
     }),

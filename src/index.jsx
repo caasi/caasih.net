@@ -1,6 +1,6 @@
 import './service-worker.js'
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from 'react-snapshot'
 import { createStore } from 'redux'
 import store from './store'
 import Root from './Root'
@@ -12,5 +12,5 @@ import './index.css'
 
 const s = store()
 const rootEl = document.getElementById('app')
-ReactDOM.render(<Root store={s} />, rootEl)
+render(<Root store={s} />, rootEl)
 

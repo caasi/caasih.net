@@ -3,8 +3,8 @@ bower_components/
 output/
 dist/*.js
 !dist/sw.js
-dist/index.html
-dist/404.html
+dist/**/*.html
+!dist/continuity.html
 coverage/
 .DS_Store
 *.swp
