@@ -3,6 +3,7 @@
 import React, { PureComponent } from 'react'
 import cx from 'classnames'
 import ReactMarkdown from 'react-markdown'
+import { Helmet } from 'react-helmet'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import type { ContextRouter } from 'react-router'
@@ -56,6 +57,12 @@ class Post extends PureComponent<Props> {
 
     return (
       <Article className={classes}>
+        {
+          meta &&
+          <Helmet>
+            <title>{ meta.headline } - caasih.net</title>
+          </Helmet>
+        }
         {
           meta &&
           <header><h1>{ meta.headline }</h1></header>
