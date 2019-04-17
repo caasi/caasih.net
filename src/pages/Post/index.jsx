@@ -67,7 +67,9 @@ class Post extends PureComponent<Props> {
           meta &&
           <header><h1>{ meta.headline }</h1></header>
         }
-        <ReactMarkdown id={id} source={post} />
+        <ReactMarkdown id={id} escapeHtml={false} linkTarget="_blank">
+          { post }
+        </ReactMarkdown>
         <footer className="info">
         {
           meta && meta.license &&
