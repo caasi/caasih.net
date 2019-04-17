@@ -1,6 +1,7 @@
 /* @flow */
 
 import React, { Component } from 'react'
+import { Helmet } from 'react-helmet'
 import cx from 'classnames'
 import { withRouter, Link, Route } from 'react-router-dom'
 import type { ContextRouter } from 'react-router'
@@ -36,6 +37,9 @@ class Playground extends Component<Props> {
 
     return (
       <div id={id} className={classes}>
+        <Helmet>
+          <title>playground - caasih.net</title>
+        </Helmet>
         <Route path={paths['then']} render={() => <Then />} />
         <Route path={paths['react-konva']} render={() => <ReactKonva />} />
         <Route path={paths['map']} render={() => <Map />} />

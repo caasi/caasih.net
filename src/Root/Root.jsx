@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 import { hot } from 'react-hot-loader/root'
 import cx from 'classnames'
 import { Provider } from 'react-redux'
@@ -19,6 +20,9 @@ const Root = ({ id, className, store }) => {
     <Provider store={store}>
       <Router>
         <ScrollToTop as="div" id={id} className={classes}>
+          <Helmet>
+            <title>caasih.net</title>
+          </Helmet>
           <h1>caasih.net</h1>
           <main id={styles.container}>
             <Route exact path="/" render={() => <Redirect to="/posts" />} />

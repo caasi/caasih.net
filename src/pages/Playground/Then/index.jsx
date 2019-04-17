@@ -1,6 +1,7 @@
 /* @flow */
 
 import * as React from 'react'
+import { Helmet } from 'react-helmet'
 import cx from 'classnames'
 import { Then } from '@caasi/then'
 import { delay } from 'types/time'
@@ -59,6 +60,9 @@ class AboutThen extends React.Component<Props, State> {
 
     return (
       <Article id={id} className={classes}>
+        <Helmet>
+          <title>&lt;Then /&gt; - caasih.net</title>
+        </Helmet>
         <h1>&lt;Then /&gt;</h1>
         <p>
           做了一個把 React component property 從 <code>T</code> 提升到 <code>Promise&lt;T&gt;</code> 的玩具：

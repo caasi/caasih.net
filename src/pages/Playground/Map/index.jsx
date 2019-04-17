@@ -1,6 +1,7 @@
 /* @flow */
 
 import React, { Component } from 'react'
+import { Helmet } from 'react-helmet'
 import cx from 'classnames'
 import Article from 'components/Article'
 import SourceCode from 'components/SourceCode'
@@ -23,6 +24,9 @@ class Map extends Component<Props> {
 
     return (
       <Article id={id} className={classes}>
+        <Helmet>
+          <title>Map - caasih.net</title>
+        </Helmet>
         <h1>Map</h1>
         <p>這裡比較像素描簿而不是遊樂場，堆著各種沒做完的草稿。</p>
         <MinimumMap />

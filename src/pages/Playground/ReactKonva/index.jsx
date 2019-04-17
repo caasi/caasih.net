@@ -1,6 +1,7 @@
 /* @flow */
 
 import * as React from 'react'
+import { Helmet } from 'react-helmet'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { Stage, Layer, Rect } from 'react-konva'
@@ -51,6 +52,9 @@ class ReactKonva extends React.Component<Props> {
 
     return (
       <Article id={id} className={classes}>
+        <Helmet>
+          <title>React Konva - caasih.net</title>
+        </Helmet>
         <h1>React Konva</h1>
         <p>
           React Konva 將 Canvas 繪圖函式庫 Konva.js 包裝成 React components 。
