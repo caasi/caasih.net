@@ -17,7 +17,7 @@
     "test": "jest",
     "codecov": "jest && codecov",
     "flow": "flow",
-    "prettier": "npx prettier --single-quote --no-semi --trailing-comma es5 --arrow-parens always --write *.js \"{config,flow,flow-typed}/**/*.js\""
+    "prettier": "npx prettier --single-quote --no-semi --trailing-comma es5 --arrow-parens always --write '*.js' '{config,flow,flow-typed}/**/*.js'"
   },
   "keywords": [
     "react",
