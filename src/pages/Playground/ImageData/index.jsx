@@ -6,6 +6,8 @@ import SourceCode from 'components/SourceCode'
 import CreativeCommons from 'components/CreativeCommons'
 import { useImageData } from 'types/hooks'
 import useImageDataSource from '!raw-loader!types/hooks/use-image-data'
+import System from './System'
+import SystemSource from '!raw-loader!./System'
 import styles from './index.css'
 
 function cloneImageData(imageData) {
@@ -122,6 +124,12 @@ function AboutUseImageData({ id, className }) {
         但我記得 ECMAScript 沒打算做 deep generator ，不知道未來 React hooks
         會怎麼走？像之前被 iCook 面試時，前端大大提到的那樣，靠 babel transpile 嗎？
       </p>
+      <hr/>
+      <p>同理，善用 <code>requestAnimationFrame</code> ，也可以拚出各種按時間變化的值。</p>
+      <System />
+      <SourceCode open language="jsx">
+        {SystemSource}
+      </SourceCode>
     </Article>
   )
 }
