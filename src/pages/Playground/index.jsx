@@ -21,6 +21,8 @@ type OwnProps = {
 
 type Props = ContextRouter & OwnProps
 
+const paths = ['then', 'react-konva', 'map', 'purescript', 'image-data']
+
 class Playground extends Component<Props> {
   static defaultProps = {
     className: ''
@@ -29,12 +31,9 @@ class Playground extends Component<Props> {
   render() {
     const { id, className, match } = this.props
     const classes = cx(styles.className, 'caasih-playground-list', className)
-    const paths = {
-      'then': `${match.url}/then`,
-      'react-konva': `${match.url}/react-konva`,
-      'map': `${match.url}/map`,
-      'purescript': `${match.url}/purescript`,
-      'image-data': `${match.url}/use-image-data`,
+    let ps = {}
+    for (let p of paths) {
+      ps[p] = `${match.url}/${p}`
     }
 
     return (
@@ -42,17 +41,17 @@ class Playground extends Component<Props> {
         <Helmet>
           <title>playground - caasih.net</title>
         </Helmet>
-        <Route path={paths['then']} render={() => <Then />} />
-        <Route path={paths['react-konva']} render={() => <ReactKonva />} />
-        <Route path={paths['map']} render={() => <Map />} />
-        <Route path={paths['purescript']} render={() => <PureScript />} />
-        <Route path={paths['image-data']} render={() => <ImageData />} />
+        <Route path={ps['then']} render={() => <Then />} />
+        <Route path={ps['react-konva']} render={() => <ReactKonva />} />
+        <Route path={ps['map']} render={() => <Map />} />
+        <Route path={ps['purescript']} render={() => <PureScript />} />
+        <Route path={ps['image-data']} render={() => <ImageData />} />
         <List className={styles.list} label="playground">
-          <Link to={paths['then']}>{'<Then />'}</Link>
-          <Link to={paths['react-konva']}>{'React Konva'}</Link>
-          <Link to={paths['map']}>{'Map'}</Link>
-          <Link to={paths['purescript']}>{'PureScript'}</Link>
-          <Link to={paths['image-data']}>{'ImageData'}</Link>
+          <Link to={ps['then']}>{'<Then />'}</Link>
+          <Link to={ps['react-konva']}>{'React Konva'}</Link>
+          <Link to={ps['map']}>{'Map'}</Link>
+          <Link to={ps['purescript']}>{'PureScript'}</Link>
+          <Link to={ps['image-data']}>{'ImageData'}</Link>
         </List>
       </div>
     )
