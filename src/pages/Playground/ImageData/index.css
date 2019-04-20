@@ -1,0 +1,15 @@
+.image {
+  position: relative;
+}
+
+.control {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  color: #fff;
+}
+
+.source {
+  text-align: center;
+  color: #666;
+}

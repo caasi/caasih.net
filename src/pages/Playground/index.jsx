@@ -10,6 +10,7 @@ import Then from './Then'
 import ReactKonva from './ReactKonva'
 import Map from './Map'
 import PureScript from './PureScript'
+import ImageData from './ImageData'
 
 import styles from './index.css'
 
@@ -33,6 +34,7 @@ class Playground extends Component<Props> {
       'react-konva': `${match.url}/react-konva`,
       'map': `${match.url}/map`,
       'purescript': `${match.url}/purescript`,
+      'image-data': `${match.url}/use-image-data`,
     }
 
     return (
@@ -44,11 +46,13 @@ class Playground extends Component<Props> {
         <Route path={paths['react-konva']} render={() => <ReactKonva />} />
         <Route path={paths['map']} render={() => <Map />} />
         <Route path={paths['purescript']} render={() => <PureScript />} />
+        <Route path={paths['image-data']} render={() => <ImageData />} />
         <List className={styles.list} label="playground">
           <Link to={paths['then']}>{'<Then />'}</Link>
           <Link to={paths['react-konva']}>{'React Konva'}</Link>
           <Link to={paths['map']}>{'Map'}</Link>
           <Link to={paths['purescript']}>{'PureScript'}</Link>
+          <Link to={paths['image-data']}>{'ImageData'}</Link>
         </List>
       </div>
     )
