@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const start = performance.now()
+const start = 'performance' in window ? performance.now() : 0
 
 function useTime() {
   const [time, setTime] = useState(0)
