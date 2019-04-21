@@ -58,6 +58,7 @@ function AboutUseImageData({ id, className }) {
     <Article id={id} className={classes}>
       <Helmet title="ImageData - caasih.net" />
       <h1>ImageData</h1>
+      <p>把一個 hook 搬到這裡，它叫 <code>useImageData</code> 。</p>
       <div
         className={styles.image}
         style={{ display: width ? 'block' : 'none' }}
@@ -109,7 +110,6 @@ function AboutUseImageData({ id, className }) {
       <div className={styles.source}>
         <a href="https://www.flickr.com/photos/84175980@N00/6595168855">"20111227 nigel"</a> by <a href="https://www.flickr.com/photos/84175980@N00">schizoform</a> is licensed under <a href="https://creativecommons.org/licenses/by/2.0"> CC BY 2.0 </a>
       </div>
-      <p>把一個小 hook 搬到這裡，它叫 <code>useImageData</code> 。</p>
       <SourceCode open language="jsx">
         {useImageDataSource}
       </SourceCode>
@@ -124,8 +124,13 @@ function AboutUseImageData({ id, className }) {
         但我記得 ECMAScript 沒打算做 deep generator ，不知道未來 React hooks
         會怎麼走？像之前被 iCook 面試時，前端大大提到的那樣，靠 babel transpile 嗎？
       </p>
+      <p>
+        後來找半天沒找到 ES Discuss 上關於 coroutine 的討論，但發現 the Little Calculist
+        2011 年曾寫過 <a href="http://calculist.org/blog/2011/12/14/why-coroutines-wont-work-on-the-web/">
+        Why coroutines won’t work on the web</a> ，解釋為何 JS 不太可能有 coroutine 。
+      </p>
       <hr/>
-      <p>同理，善用 <code>requestAnimationFrame</code> ，也可以拚出各種按時間變化的值。</p>
+      <p>同理，善用 <code>requestAnimationFrame</code> 與 React hook ，也可以拚出各種按時間變化的值。</p>
       <System />
       <SourceCode open language="jsx">
         {SystemSource}
