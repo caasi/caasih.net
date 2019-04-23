@@ -8,24 +8,29 @@
   :global(.info) {
   }
 
-  p, pre, ul, ol, figure {
+  & > p,
+  & > pre,
+  ul, ol, figure {
     line-height: 1.5rem;
   }
 
-  &:global(.markdown) pre {
+  & > pre {
     padding: 0 2ch;
     white-space: pre-wrap;
   }
 
-  &:global(.markdown) code {
-    color: #666;
+  --code-color: #666;
+
+  & > p > code,
+  & > pre > code {
+    color: var(--code-color);
     user-select: none;
     line-height: 1em;
   }
 
   --blockquote-color: #666;
 
-  blockquote {
+  & > blockquote {
     border-left: .15em solid var(--blockquote-color);
     padding-left: 1em;
     margin-left: 1.2em;
