@@ -58,7 +58,7 @@ function AboutUseImageData({ id, className }) {
     <Article id={id} className={classes}>
       <Helmet title="ImageData - caasih.net" />
       <h1>ImageData</h1>
-      <p>把一個 hook 搬到這裡，它叫 <code>useImageData</code> 。</p>
+      <p>把一個 React Hook 搬到這裡，它叫 <code>useImageData</code> 。</p>
       <div
         className={styles.image}
         style={{ display: width ? 'block' : 'none' }}
@@ -114,14 +114,20 @@ function AboutUseImageData({ id, className }) {
         {useImageDataSource}
       </SourceCode>
       <p>
-        把 React 的 render function 看成 reentrant function ，那就可以將 React hooks
-        看成某種包含資料依賴關係的 trait/type class 。裡面放什麼則看你怎麼組合 <code>useState</code>, <code>useEffect</code> 與 <code>useCallback</code> 等 hooks 。
+        也許有些人看了這些會覺得我不懂 React，在那邊嘴什麼奇怪的東西..。其實你們要說的那些我是知道的，而且大家介紹的也夠多了，我想從一個異於平常的角度，重新再來看待 React Hooks，希望給大家一個平常沒有想到的啟發。
+      </p>
+      <p>
+        把 React 的 render function 看成 reentrant function ，那就可以將 React Hooks
+        看成某種包含資料依賴關係的 trait/type class 。裡面放什麼則看你怎麼組合 <code>useState</code>, <code>useEffect</code> 與 <code>useCallback</code> 等 Hooks 。
       </p>
       <p>
         不管它放的是什麼， CPS 變換會在 rerender 時完成，於是用的人拿到的是包裹的值，而不是時間上或空間上的容器。
       </p>
       <p>
-        但我記得 ECMAScript 沒打算做 deep generator ，不知道未來 React hooks
+        CPS 變換這裡就不贅述，從 2011 開始寫 js 的大家肯定是知道的。
+      </p>
+      <p>
+        但我記得 ECMAScript 沒打算做 deep generator ，不知道未來 React Hooks
         會怎麼走？像之前被 iCook 面試時，前端大大提到的那樣，靠 babel transpile 嗎？
       </p>
       <p>
@@ -130,11 +136,14 @@ function AboutUseImageData({ id, className }) {
         Why coroutines won’t work on the web</a> ，解釋為何 JS 不太可能有 coroutine 。
       </p>
       <hr/>
-      <p>同理，善用 <code>requestAnimationFrame</code> 與 React hook ，也可以拚出各種按時間變化的值。</p>
+      <p>同理，善用 <code>requestAnimationFrame</code> 與 React Hook ，也可以拚出各種按時間變化的值。</p>
       <System />
       <SourceCode open language="jsx">
         {SystemSource}
       </SourceCode>
+      <hr/>
+      <p>EDIT: 補上朋友建議的挑釁段落 XD</p>
+      <CreativeCommons size="compact" type="by" />
     </Article>
   )
 }
