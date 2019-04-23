@@ -3,6 +3,7 @@ import thunk from './thunk'
 import reducer from 'reducers'
 
 
+// TODO: remove redux
 
 export default initialStore => {
   const middlewares = [thunk]

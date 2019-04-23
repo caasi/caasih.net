@@ -1,6 +1,7 @@
 /* @flow */
 
 import type { State } from 'reducers'
+import { compose, filter, not, prop } from 'ramda'
 
 // base types
 export type Profile = {
@@ -80,3 +81,6 @@ export type Dispatch = (action: Action | ThunkAction | PromiseAction) => any
 export type GetState = () => State
 type ThunkAction = (dispatch: Dispatch, getState: GetState) => any
 type PromiseAction = Promise<Action>
+
+// TODO: move to func.js
+export const filterPublicPosts = filter(compose(not, prop('private')))

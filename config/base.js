@@ -51,6 +51,7 @@ module.exports = {
       'pages',
       'types',
       'reducers',
+      'data',
     ]),
   },
   module: {

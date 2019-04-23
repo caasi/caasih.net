@@ -4,40 +4,33 @@ import React, { PureComponent } from 'react'
 import cx from 'classnames'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { profile, postIndex } from 'actions'
 import * as T from 'types'
 import * as func from 'types/func'
 import List from 'components/List'
-import { compose, map, filter, not, prop } from 'ramda'
+import { map } from 'ramda'
 import moment from 'moment'
+import { filterPublicPosts } from 'types'
 
 import styles from './index.css'
-
-const actions = { profile, postIndex }
-const filterPublicPosts = filter(compose(not, prop('private')))
 
 type OwnProps = {
   id?: string,
   className: string,
-  post_index: T.PostMeta[],
+  state: {
+    post_index: T.PostMeta[],
+  },
 }
 
-type Props = { actions: any } & OwnProps
-
-class PostIndex extends PureComponent<Props> {
+class PostIndex extends PureComponent<OwnProps> {
   static defaultProps = {
     className: '',
-    post_index: [],
-  }
-
-  componentWillMount() {
-    const { actions } = this.props
-    actions.profile()
-    actions.postIndex()
+    state: {
+      post_index: [],
+    },
   }
 
   render() {
-    const { id, className, post_index } = this.props
+    const { id, className, state: { post_index  } } = this.props
     const classes = cx(styles.className, 'caasih-post-list', className, styles.list)
 
     return (
@@ -59,6 +52,5 @@ class PostIndex extends PureComponent<Props> {
 }
 
 export default connect(
-  state => ({ post_index: filterPublicPosts(state.post_index) }),
-  dispatch => ({ actions: func.map(dispatch, actions) })
+  state => ({ state }),
 )(PostIndex)

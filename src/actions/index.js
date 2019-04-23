@@ -1,6 +1,8 @@
 import * as T from 'types'
 import axios from 'axios'
 
+// TODO: remove all actions
+
 export const nop = store => async () => {
   const { dispatch } = store
   dispatch(T.nop())

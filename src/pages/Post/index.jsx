@@ -5,9 +5,6 @@ import cx from 'classnames'
 import ReactMarkdown from 'react-markdown'
 import { Helmet } from 'react-helmet'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
-import type { ContextRouter } from 'react-router'
-import { post } from 'actions'
 import * as T from 'types'
 import * as func from 'types/func'
 import Article from 'components/Article'
@@ -20,28 +17,16 @@ const DATETIME_FORMAT = 'YYYY-MM-DD HH:mm'
 type OwnProps = {
   id?: string,
   className: string,
+  profile: T.Profile,
   meta: T.PostMeta,
   post: string,
+  url: string,
 }
 
-type Props = ContextRouter & OwnProps
-
-class Post extends PureComponent<Props> {
+class Post extends PureComponent<OwnProps> {
   static defaultProps = {
     className: '',
     post: '',
-  }
-
-  componentWillMount() {
-    const { match, actions } = this.props
-    actions.post(match.params.pid)
-  }
-
-  componentWillUpdate(nextProps: Props) {
-    if (!equals(this.props.match.params, nextProps.match.params)) {
-      const { match, actions } = nextProps
-      actions.post(match.params.pid)
-    }
   }
 
   render() {
@@ -93,15 +78,13 @@ class Post extends PureComponent<Props> {
 
 
 
-export default withRouter(connect(
-  (state, router) => {
-    const { pid } = router && router.match && router.match.params || {}
+export default connect(
+  (state, { pid }) => {
     const { profile, post_index = [], post_list = [] } = state || {}
     const meta = find(propEq('url', pid), post_index)
     const post = post_list[pid]
 
     return { profile, meta, post }
   },
-  dispatch => ({ actions: func.map(dispatch, { post }) })
-)(Post))
+)(Post)
 

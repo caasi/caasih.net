@@ -4,10 +4,13 @@ import { hot } from 'react-hot-loader/root'
 import cx from 'classnames'
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom'
+import { map } from 'ramda'
 import ScrollToTop from 'components/ScrollToTop'
 import PostIndex from 'pages/PostIndex'
 import Post from 'pages/Post'
 import Playground from 'pages/Playground'
+import posts from 'data/posts.json'
+import { filterPublicPosts } from 'types'
 
 import styles from './Root.css'
 
@@ -28,7 +31,13 @@ const Root = ({ id, className, store }) => {
             <Route exact path="/" render={() => <Redirect to="/posts" />} />
             <Route path="/posts" component={({ match }) =>
               <>
-                <Route path={`${match.url}/:pid`} component={Post} />
+                {map((p, i) =>
+                  <Route
+                    key={p.url}
+                    path={`${match.url}/${p.url}`}
+                    render={({ match }) => <Post pid={p.url} />}
+                  />
+                , filterPublicPosts(posts))}
                 <PostIndex />
               </>
             } />
