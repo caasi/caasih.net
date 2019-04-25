@@ -19,7 +19,7 @@ const isDevelopment = process.env.NODE_ENV === 'development'
 
 module.exports = {
   entry: {
-    bundle: path.join(srcPath, 'index.jsx'),
+    bundle: ['@babel/polyfill', path.join(srcPath, 'index.jsx')],
   },
   output: {
     path: dstPath,

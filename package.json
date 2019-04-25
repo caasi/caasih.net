@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "npm run clean && cross-env NODE_ENV=development webpack-dev-server",
-    "clean": "rimraf ./dist/*.bundle.js ./dist/*.vendor.js ./dist/index.html ./dist/404.html",
+    "clean": "rimraf ./dist/*bundle.js ./dist/index.html ./dist/404.html",
     "clean:manifest": "rimraf ./dist/*.manifest.js",
     "lint": "eslint src",
     "build:will": "pug --out ./dist ./src/continuity.jade",
