@@ -11,6 +11,7 @@ import ReactKonva from './ReactKonva'
 import Map from './Map'
 import PureScript from './PureScript'
 import ImageData from './ImageData'
+import Jigsaw from './Jigsaw'
 
 import styles from './index.css'
 
@@ -21,7 +22,7 @@ type OwnProps = {
 
 type Props = ContextRouter & OwnProps
 
-const paths = ['then', 'react-konva', 'map', 'purescript', 'image-data']
+const paths = ['then', 'react-konva', 'map', 'purescript', 'image-data', 'jigsaw']
 
 class Playground extends Component<Props> {
   static defaultProps = {
@@ -46,6 +47,7 @@ class Playground extends Component<Props> {
         <Route path={ps['map']} render={() => <Map />} />
         <Route path={ps['purescript']} render={() => <PureScript />} />
         <Route path={ps['image-data']} render={() => <ImageData />} />
+        <Route path={ps['jigsaw']} render={() => <Jigsaw />} />
         <List className={styles.list} label="playground">
           <Link to={ps['then']}>{'<Then />'}</Link>
           <Link to={ps['react-konva']}>{'React Konva'}</Link>
