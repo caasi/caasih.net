@@ -2,6 +2,7 @@ import React, { useState, useCallback, useMemo } from 'react'
 import { Helmet } from 'react-helmet'
 import cx from 'classnames'
 import Article from 'components/Article'
+import ImageDataCanvas from 'components/ImageDataCanvas'
 import SourceCode from 'components/SourceCode'
 import CreativeCommons from 'components/CreativeCommons'
 import { useImageData } from 'types/hooks'
@@ -45,14 +46,7 @@ function AboutUseImageData({ id, className }) {
     }
     return cloned
   }, [imageData, numR, numG, numB])
-  const { width = 0, height = 0 } = processed || {}
-
-  const canvasRef = useCallback(node => {
-    if (node && processed) {
-      const ctx = node.getContext('2d')
-      ctx.putImageData(processed, 0, 0)
-    }
-  }, [processed])
+  const { width = 0 } = processed || {}
 
   return (
     <Article id={id} className={classes}>
@@ -63,12 +57,10 @@ function AboutUseImageData({ id, className }) {
         className={styles.image}
         style={{ display: width ? 'block' : 'none' }}
       >
-        <canvas
-          ref={canvasRef}
+        <ImageDataCanvas
+          imageData={processed}
           role="img"
           aria-label="20111227 nigel"
-          width={width}
-          height={height}
           style={{ width: '100%' }}
         />
         <section className={styles.control}>
