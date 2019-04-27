@@ -5,11 +5,21 @@ function useFile(file) {
 
   useEffect(() => {
     if (!file) return
-    const reader = new FileReader()
-    const f = (e) => setData(e.target.result)
+
+    let reader = new FileReader()
+
+    const f = (e) => {
+      setData(e.target.result)
+      reader.removeEventListener('load', f)
+    }
+
     reader.addEventListener('load', f)
     reader.readAsArrayBuffer(file)
-    return () => reader.removeEventListener('load', f)
+
+    return () => {
+      reader.removeEventListener('load', f)
+      reader = undefined
+    }
   }, [file])
 
   return data

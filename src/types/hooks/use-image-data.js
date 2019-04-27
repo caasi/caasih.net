@@ -7,6 +7,7 @@ export function useImageData(url) {
     let img = new Image()
     img.crossOrigin = 'anonymous'
     img.src = url
+
     const f = () => {
       const canvas = document.createElement('canvas')
       canvas.width = img.width
@@ -14,8 +15,11 @@ export function useImageData(url) {
       const ctx = canvas.getContext('2d')
       ctx.drawImage(img, 0, 0)
       setImageData(ctx.getImageData(0, 0, img.width, img.height))
+      img.removeEventListener('load', f)
     }
+
     img.addEventListener('load', f, false)
+
     return () => {
       img.removeEventListener('load', f)
       img = undefined
