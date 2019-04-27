@@ -7,5 +7,5 @@
 [options]
 module.name_mapper='^!raw-loader!.*$' -> '<PROJECT_ROOT>/flow/stub/string.js'
 module.name_mapper='^.*\.purs$' -> '<PROJECT_ROOT>/flow/stub/any.js'
-module.name_mapper='^\(actions\|components\|pages\|types\|reducers\)' -> '<PROJECT_ROOT>/src/\1'
-module.name_mapper='^\(actions\|components\|pages\|types\|reducers\)/\(.*\)' -> '<PROJECT_ROOT>/src/\1/\2'
+module.name_mapper='^\(components\|pages\|types\|data\)' -> '<PROJECT_ROOT>/src/\1'
+module.name_mapper='^\(components\|pages\|types\|data\)/\(.*\)' -> '<PROJECT_ROOT>/src/\1/\2'

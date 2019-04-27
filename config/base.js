@@ -46,11 +46,9 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: createAliases(srcPath, [
-      'actions',
       'components',
       'pages',
       'types',
-      'reducers',
       'data',
     ]),
   },

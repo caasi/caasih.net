@@ -2,35 +2,28 @@
 
 import React, { PureComponent } from 'react'
 import cx from 'classnames'
-import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import * as T from 'types'
 import * as func from 'types/func'
 import List from 'components/List'
 import { map } from 'ramda'
 import moment from 'moment'
-import { filterPublicPosts } from 'types'
+import { index } from 'data/public-post'
 
 import styles from './index.css'
 
 type OwnProps = {
   id?: string,
   className: string,
-  state: {
-    post_index: T.PostMeta[],
-  },
 }
 
 class PostIndex extends PureComponent<OwnProps> {
   static defaultProps = {
     className: '',
-    state: {
-      post_index: [],
-    },
   }
 
   render() {
-    const { id, className, state: { post_index  } } = this.props
+    const { id, className } = this.props
     const classes = cx(styles.className, 'caasih-post-list', className, styles.list)
 
     return (
@@ -44,13 +37,11 @@ class PostIndex extends PureComponent<OwnProps> {
             >
               { p.headline }
             </Link>,
-          post_index
+          index
         )
       }</List>
     )
   }
 }
 
-export default connect(
-  state => ({ state }),
-)(PostIndex)
+export default PostIndex

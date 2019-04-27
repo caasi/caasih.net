@@ -4,34 +4,35 @@ import React, { PureComponent } from 'react'
 import cx from 'classnames'
 import ReactMarkdown from 'react-markdown'
 import { Helmet } from 'react-helmet'
-import { connect } from 'react-redux'
 import * as T from 'types'
 import * as func from 'types/func'
 import Article from 'components/Article'
 import CreativeCommons from 'components/CreativeCommons'
 import { equals, find, propEq } from 'ramda'
 import moment from 'moment'
+import profile from 'data/profile.json'
+import { index, contents } from 'data/public-post'
 
 const DATETIME_FORMAT = 'YYYY-MM-DD HH:mm'
 
 type OwnProps = {
   id?: string,
   className: string,
-  profile: T.Profile,
-  meta: T.PostMeta,
-  post: string,
-  url: string,
+  pid: string,
 }
 
 class Post extends PureComponent<OwnProps> {
   static defaultProps = {
     className: '',
-    post: '',
+    pid: '',
   }
 
   render() {
-    const { id, className, profile, meta, post } = this.props
+    const { id, className, pid } = this.props
     const classes = cx('caasih-post', 'markdown', className)
+    const meta = find(propEq('url', pid), index)
+    const post = contents[pid]
+
     let publishedAt
     let modifiedAt
 
@@ -78,13 +79,5 @@ class Post extends PureComponent<OwnProps> {
 
 
 
-export default connect(
-  (state, { pid }) => {
-    const { profile, post_index = [], post_list = [] } = state || {}
-    const meta = find(propEq('url', pid), post_index)
-    const post = post_list[pid]
-
-    return { profile, meta, post }
-  },
-)(Post)
+export default Post
 
