@@ -4,6 +4,7 @@ import useImageData from './use-image-data'
 import useTime from './use-time'
 import useRange from './use-range'
 import useFile from './use-file'
+import useObjectURL from './use-object-url'
 import useImageFile from './use-image-file'
 
 export {
@@ -13,5 +14,6 @@ export {
   useTime,
   useRange,
   useFile,
+  useObjectURL,
   useImageFile,
 }

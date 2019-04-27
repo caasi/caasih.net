@@ -8,7 +8,7 @@ function useFile(file) {
     const reader = new FileReader()
     const f = (e) => setData(e.target.result)
     reader.addEventListener('load', f)
-    reader.readAsDataURL(file)
+    reader.readAsArrayBuffer(file)
     return () => reader.removeEventListener('load', f)
   }, [file])
 
