@@ -1,5 +1,5 @@
 import React from 'react'
-import { useRange } from 'types/hooks'
+import { useRange } from '@caasi/hooks'
 import styles from './index.css'
 
 function Star({ x, y, children }) {

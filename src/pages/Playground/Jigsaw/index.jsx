@@ -4,7 +4,7 @@ import cx from 'classnames'
 import Article from 'components/Article'
 import ImageDataCanvas from 'components/ImageDataCanvas'
 import CreativeCommons from 'components/CreativeCommons'
-import { useImageFile } from 'types/hooks'
+import { useImageFile } from '@caasi/hooks'
 
 function AboutJigsaw({ id, className }) {
   const classes = cx('playground-zigzag', className)
