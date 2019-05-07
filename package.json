@@ -95,9 +95,11 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.3.4",
+    "@caasi/hooks": "^1.0.1",
     "@caasi/then": "^1.0.2",
     "axios": "^0.17.0",
     "classnames": "^2.2.5",
+    "jimp": "^0.6.1",
     "konva": "^2.1.7",
     "moment": "^2.19.1",
     "normalize.css": "^7.0.0",
