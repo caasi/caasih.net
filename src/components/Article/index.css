@@ -22,7 +22,9 @@
   --code-color: #666;
 
   & > p > code,
-  & > pre > code {
+  & > pre > code,
+  & > ul > li > code,
+  & > ol > li > code {
     color: var(--code-color);
     user-select: none;
     line-height: 1em;
