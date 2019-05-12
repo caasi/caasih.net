@@ -12,6 +12,7 @@ import Map from './Map'
 import PureScript from './PureScript'
 import ImageData from './ImageData'
 import Jigsaw from './Jigsaw'
+import UseLess from './UseLess'
 
 import styles from './index.css'
 
@@ -22,7 +23,15 @@ type OwnProps = {
 
 type Props = ContextRouter & OwnProps
 
-const paths = ['then', 'react-konva', 'map', 'purescript', 'image-data', 'jigsaw']
+const paths = [
+  'then',
+  'react-konva',
+  'map',
+  'purescript',
+  'image-data',
+  'jigsaw',
+  'useless',
+]
 
 class Playground extends Component<Props> {
   static defaultProps = {
@@ -48,12 +57,14 @@ class Playground extends Component<Props> {
         <Route path={ps['purescript']} render={() => <PureScript />} />
         <Route path={ps['image-data']} render={() => <ImageData />} />
         <Route path={ps['jigsaw']} render={() => <Jigsaw />} />
+        <Route path={ps['useless']} render={() => <UseLess />} />
         <List className={styles.list} label="playground">
           <Link to={ps['then']}>{'<Then />'}</Link>
           <Link to={ps['react-konva']}>{'React Konva'}</Link>
           <Link to={ps['map']}>{'Map'}</Link>
           <Link to={ps['purescript']}>{'PureScript'}</Link>
           <Link to={ps['image-data']}>{'ImageData'}</Link>
+          <Link to={ps['useless']}>{'無測無用'}</Link>
         </List>
       </div>
     )
