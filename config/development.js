@@ -14,6 +14,11 @@ module.exports = {
     filename: '[hash].[name].js',
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
+  resolve: {
+    alias: {
+      react: path.resolve(__dirname, '../node_modules/react'),
+    },
+  },
   devServer: {
     contentBase: dstPath,
     host,
