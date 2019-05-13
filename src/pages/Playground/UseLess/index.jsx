@@ -25,7 +25,7 @@ function AboutUseLess({ id, className }) {
   const [xss = [], reset] = useSpace(x)
   // for `useWebSocket`
   const [message, setMessage] = useState('');
-  const [socket, messages] = useWebSocket(echoURL);
+  const [socket, messages = []] = useWebSocket(echoURL);
   const msgs = messages.filter(x => x).reverse();
 
   return (
@@ -108,8 +108,7 @@ function AboutUseLess({ id, className }) {
       <h3><code>fmap</code></h3>
 
       <h3>更多無用的細節</h3>
-      <p>修改第一段的 <code>xs</code> ，會發現這個抽象並不完美，當 <code>xs</code> 更新後， <code>useSpace</code> 有機會忽略第一個值。 <code>useTimeArray</code> 一開始還會多給一個 <code>undefined</code> 。</p>
-      <p>而且目前的 <a href="https://github.com/mpeyper/react-hooks-testing-library/"><code>react-hooks-testing-library</code></a> ，並不能測試 <code>useSpace</code> 。</p>
+      <p>目前的 <a href="https://github.com/mpeyper/react-hooks-testing-library/"><code>react-hooks-testing-library</code></a> ，並不能測試 <code>useSpace</code> 。</p>
       <hr />
       <p>感謝朋友在閒聊時，提供標題 XD</p>
 

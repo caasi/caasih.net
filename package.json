@@ -95,7 +95,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.3.4",
-    "@caasi/hooks": "^1.3.0",
+    "@caasi/hooks": "^1.3.1",
     "@caasi/then": "^1.0.2",
     "axios": "^0.17.0",
     "classnames": "^2.2.5",
