@@ -21,12 +21,20 @@
 
   --code-color: #666;
 
+  & > h1 > code,
+  & > h2 > code,
+  & > h3 > code,
+  & > h4 > code,
+  & > h5 > code,
+  & > h6 > code {
+    color: var(--code-color);
+  }
+
   & > p > code,
   & > pre > code,
   & > ul > li > code,
   & > ol > li > code {
     color: var(--code-color);
-    user-select: none;
     line-height: 1em;
   }
 
