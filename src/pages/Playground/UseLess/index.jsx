@@ -10,11 +10,14 @@ import useTimeArraySource from '!raw-loader!./use-time-array'
 import { useSpace, useWebSocket } from '@caasi/hooks'
 import useSpaceSource from '!raw-loader!./use-space'
 import useWebSocketPart from '!raw-loader!./use-web-socket.part'
+import styles from './index.css'
 
-const echoURL = 'ws://echo.websocket.org';
+const { protocol } = window.location;
+const wsProtocol = protocol === 'https:' ? 'wss:' : 'ws:';
+const echoURL = `${wsProtocol}//echo.websocket.org`;
 
 function AboutUseLess({ id, className }) {
-  const classes = cx('playground-useless', className)
+  const classes = cx(styles.className, 'playground-useless', className)
   // for `useSpace`
   const [input, setInput] = useState('abc')
   const xs = useMemo(() => input.split(''), [input])
@@ -23,6 +26,7 @@ function AboutUseLess({ id, className }) {
   // for `useWebSocket`
   const [message, setMessage] = useState('');
   const [socket, messages] = useWebSocket(echoURL);
+  const msgs = messages.filter(x => x).reverse();
 
   return (
     <Article id={id} className={classes}>
@@ -67,32 +71,37 @@ function AboutUseLess({ id, className }) {
         {useWebSocketPart}
       </SourceCode>
       <p>於是 <code>handleMessage</code> 只需要關心 <code>setMessage</code> 即可 XD</p>
-      <hr />
-      <div>
-        <p>按下 send 按鈕，和 websocket.org 提供的 echo service: <code>{echoURL}</code> 通訊看看：</p>
+      <form className={styles.echo}>
+        <p>和 echo service: <code>{echoURL}</code> 通訊看看：</p>
         <section>
-          <input
-            value={message}
-            onChange={e => setMessage(e.target.value)}
-          />
-          <button
-            onClick={() => {
-              socket.send(message);
-              setMessage('');
-            }}
-          >
-            send
-          </button>
-          <ol>
+          <fieldset>
+            <input
+              value={message}
+              onChange={e => setMessage(e.target.value)}
+            />
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                socket.send(message);
+                setMessage('');
+              }}
+            >
+              ↵
+            </button>
+          </fieldset>
           {
-            messages
-              .filter(x => x)
-              .map((msg, i) => <li key={i}>{msg}</li>)
+            msgs.length !== 0 &&
+            <ol>
+            {
+              msgs
+                .filter(x => x)
+                .map((msg, i) => <li key={i}>{msg}</li>)
+            }
+            </ol>
           }
-          </ol>
         </section>
-      </div>
-      <p>但這個問題完全可以靠傳遞一個 update function 給 <code>setState</code> 解決， <code>useSpace</code> 還是沒用。</p>
+      </form>
+      <p>但這個問題完全可以靠傳遞一個 update function 給 <code>setState</code> 解決， <code>useSpace</code> 仍然沒用。</p>
 
       <h3><code>&lt;FlatTime /&gt;</code></h3>
 
