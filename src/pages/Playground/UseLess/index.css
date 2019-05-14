@@ -70,6 +70,10 @@
       }
     }
 
+    div {
+      line-height: 0;
+    }
+
     .colorRect {
       display: inline-block;
       width: 2rem;

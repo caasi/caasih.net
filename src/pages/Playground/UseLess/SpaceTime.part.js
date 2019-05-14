@@ -1,7 +1,3 @@
-function render({ color }) {
-  return (
-    <SpaceTime>
-      <ColorRect color={color} />
-    </SpaceTime>
-  )
-}
+<SpaceTime>
+  <ColorRect data={{ backgroundColor: color }} />
+</SpaceTime>

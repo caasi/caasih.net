@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import cx from 'classnames'
 import Article from 'components/Article'
@@ -10,49 +10,62 @@ import useTimeArraySource from '!raw-loader!./use-time-array'
 import { useSpace, useWebSocket } from '@caasi/hooks'
 import useSpaceSource from '!raw-loader!./use-space'
 import useWebSocketPart from '!raw-loader!./use-web-socket.part'
+import { colors, styleMap } from './color'
+import ColorRect from './ColorRect'
+import ColorRectSource from '!raw-loader!./ColorRect'
 import SpaceTime from './SpaceTime'
 import SpaceTimeSource from '!raw-loader!./SpaceTime'
 import SpaceTimeExample from '!raw-loader!./SpaceTime.part'
+import List from './List'
+import ListSource from '!raw-loader!./List'
+import ListExample from '!raw-loader!./List.part'
 import styles from './index.css'
 
-const { protocol } = window.location;
-const wsProtocol = protocol === 'https:' ? 'wss:' : 'ws:';
-const echoURL = `${wsProtocol}//echo.websocket.org`;
-const flatColors = [
-  '#1abc9c',
-  '#2ecc71',
-  '#3498db',
-  '#9b59b6',
-  '#34495e',
-  '#f1c40f',
-  '#e67e22',
-  '#e74c3c',
-  '#ecf0f1',
-  '#95a5a6',
-]
-
-function ColorRect({ color }) {
-  return (
-    <div className={styles.colorRect} style={{ backgroundColor: color }} />
-  );
-}
+const { protocol } = window.location
+const echoURL = `${protocol.replace(/^http/, 'ws')}//echo.websocket.org`
 
 function AboutUseLess({ id, className }) {
   const classes = cx(styles.className, 'playground-useless', className)
+
   // for `useSpace`
   const [input, setInput] = useState('abc')
   const xs = useMemo(() => input.split(''), [input])
   const x = useTimeArray(xs)
   const [xss = [], reset] = useSpace(x)
+
   // for `useWebSocket`
-  const [message, setMessage] = useState('');
-  const [socket, messages = []] = useWebSocket(echoURL);
-  const msgs = messages.filter(x => x).reverse();
+  const [message, setMessage] = useState('')
+  const [socket, messages = []] = useWebSocket(echoURL)
+  const msgs = messages.filter(x => x).reverse()
+
+  // for <SpaceTime />
+  const [isMouseDown, setMouseDown] = useState(false)
   const [counter, setCounter] = useState(0)
-  const colorIdx = counter % flatColors.length
   const colorElem = useMemo(() =>
-    <ColorRect color={flatColors[colorIdx]} />
-  , [colorIdx]);
+    <ColorRect data={{ backgroundColor: colors[counter] }} />
+  , [counter]);
+  useEffect(() => {
+    let id
+
+    const f = () => {
+      if (isMouseDown) {
+        id = requestAnimationFrame(f)
+        setCounter(Math.floor(Math.random() * colors.length))
+      }
+    }
+    id = requestAnimationFrame(f)
+
+    return () => cancelAnimationFrame(id)
+  }, [isMouseDown])
+
+  // last example
+  const bitmapElem = useMemo(() =>
+    <List data={styleMap}>
+      <List>
+        <ColorRect />
+      </List>
+    </List>
+  , [styleMap])
 
   return (
     <Article id={id} className={classes}>
@@ -61,7 +74,7 @@ function AboutUseLess({ id, className }) {
       <h2><code>useLess</code></h2>
 
       <p>當應用程式狀態更新時， <code>useState</code> hook 讓我們無視時間，拿到最新的值，好像我們一開始看到的就是最後的值一樣。</p>
-      <p>換個角度看，也可以說 <code>useState</code> 幫我們把值攤到時間上了，例如可以寫一個 <code>useTimeArray</code> ，把陣列中的值變成一系列更新：</p>
+      <p>換個角度看，也可以說 <code>useState</code> 幫我們把值攤到時間上了。例如可以寫一個 <code>useTimeArray</code> ，把陣列中的值變成一系列更新：</p>
       <SourceCode open language="js">
         {useTimeArraySource}
       </SourceCode>
@@ -76,19 +89,18 @@ function AboutUseLess({ id, className }) {
           }}
         />
       </p>
-      <p>這東西看起來很沒用，當你把 <code>xs = [{xs.join(', ')}]</code> 丟給它，只會看到最後的 <code>{x}</code> 。</p>
+      <p>這東西很沒用，當你把 <code>xs = [{xs.join(', ')}]</code> 丟給它，只會看到最後的 <code>{x}</code> 。</p>
 
       <h3><code>useSpace</code></h3>
-      <p>但既然能利用更新把值攤到時間上，能不能反過來把時間上的變化，攤回空間上呢？</p>
-      <p>我們可以設計一個 <code>useSpace</code> hook ：</p>
+      <p>但既然能把值攤到時間上，能不能反過來把時間上的變化，蒐集起來呢？</p>
+      <p>可以設計一個 <code>useSpace</code> hook ：</p>
       <SourceCode open language="js">
         {useSpaceSource}
       </SourceCode>
-      <p>它做的事很簡單，當傳進來的 state 變化時，就把它存到記錄下來的 state list 尾端。</p>
       <p>於是我們又把 <code>{x}</code> 變回了 <code>[{xss.join(', ')}]</code> 。</p>
       <h3><code>useWebSocket</code></h3>
       <p>
-        靠 React Hooks 處理 event listener 時，會遇上：「更新值的 function 得隨著值一起更新，於是得一直 add event listener ，再 remove event listener 」。
+        靠 React Hooks 與 event listener 互動時，會遇上：「更新值的 function 得隨著值一起更新，於是得一直 add event listener ，再 remove event listener 」。
       </p>
       <p>
         有了 <code>useSpace</code> ，我們可以：
@@ -96,9 +108,9 @@ function AboutUseLess({ id, className }) {
       <SourceCode open language="js">
         {useWebSocketPart}
       </SourceCode>
-      <p>於是 <code>handleMessage</code> 只需要關心 <code>setMessage</code> 即可 XD</p>
+      <p>於是 <code>handleMessage</code> 不用看到整個 <code>messages</code> 。</p>
       <form className={styles.demo}>
-        <p>和 echo service: <code>{echoURL}</code> 通訊看看：</p>
+        <p>和 <code>{echoURL}</code> 通訊看看：</p>
         <section>
           <fieldset>
             <input
@@ -127,23 +139,28 @@ function AboutUseLess({ id, className }) {
           }
         </section>
       </form>
-      <p>但這個問題完全可以靠傳遞一個 update function 給 <code>setState</code> 解決， <code>useSpace</code> 仍然沒用。</p>
+      <p>但這個問題完全可以靠傳遞一個 update function 給 <code>setState</code> 解決，無用。</p>
 
       <h3><code>&lt;SpaceTime /&gt;</code></h3>
       <p>我們還可以做出這樣的 component ：</p>
-      <SourceCode open language="js">
+      <SourceCode open language="jsx">
         {SpaceTimeSource}
       </SourceCode>
-      <p><code>&lt;SpaceTime /&gt;</code> 會幫我們展開過去繪製過的 children ，於是這樣寫：</p>
-      <SourceCode open language="js">
+      <p><code>&lt;SpaceTime /&gt;</code> 展開過去繪製過的 children ，於是這樣寫：</p>
+      <SourceCode open language="jsx">
+        {ColorRectSource}
+      </SourceCode>
+      <SourceCode open language="jsx">
         {SpaceTimeExample}
       </SourceCode>
-      <p>就能達成下面的效果。</p>
+      <p>就能達成下面的效果：</p>
       <div className={styles.demo}>
         <p>點下面的方塊：</p>
         <div
           className={styles.currentRect}
-          onClick={() => setCounter(c => c+1)}
+          onMouseDown={() => setMouseDown(true)}
+          onMouseUp={() => setMouseDown(false)}
+          onMouseLeave={() => setMouseDown(false)}
         >
           {colorElem}
         </div>
@@ -153,13 +170,28 @@ function AboutUseLess({ id, className }) {
           </SpaceTime>
         </div>
       </div>
-      <p>但這也可以靠 <code>useState</code> 再 <code>map</code> 做到😂</p>
+      <p>但這也可以靠 <code>useState</code> 做到，無用。😂</p>
 
-      <h3><code>fmap</code></h3>
+      <h3><code>map</code></h3>
+      <p>既然我們可以把值攤到時間上再組合回來，就可以把 <code>Array::map</code> 藏起來：</p>
+      <SourceCode open language="jsx">
+        {ListSource}
+      </SourceCode>
+      <p>再一口氣畫完一張圖：</p>
+      <SourceCode open language="jsx">
+        {ListExample}
+      </SourceCode>
+      <div className={styles.demo}>
+        {bitmapElem}
+      </div>
+      <p>超無用！❤️</p>
 
-      <h3>更多無用的細節</h3>
-      <p>目前的 <a href="https://github.com/mpeyper/react-hooks-testing-library/"><code>react-hooks-testing-library</code></a> ，並不能測試 <code>useSpace</code> 。</p>
-      <hr />
+      <h3>更多無用</h3>
+      <ul>
+        <li>這幾個 hooks 把 <code>undefined</code> 當成 reset 用的特殊值。</li>
+        <li>要是連續兩個值完全一樣，會被 <code>useTimeArray</code> 忽略。</li>
+        <li>目前 <a href="https://github.com/mpeyper/react-hooks-testing-library/"><code>react-hooks-testing-library</code></a> 無法測試 <code>useSpace</code> 。</li>
+      </ul>
       <p>感謝朋友在閒聊時，提供標題 XD</p>
 
       <CreativeCommons size="compact" type="by" />
