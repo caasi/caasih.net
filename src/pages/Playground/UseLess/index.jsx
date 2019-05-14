@@ -10,11 +10,32 @@ import useTimeArraySource from '!raw-loader!./use-time-array'
 import { useSpace, useWebSocket } from '@caasi/hooks'
 import useSpaceSource from '!raw-loader!./use-space'
 import useWebSocketPart from '!raw-loader!./use-web-socket.part'
+import SpaceTime from './SpaceTime'
+import SpaceTimeSource from '!raw-loader!./SpaceTime'
+import SpaceTimeExample from '!raw-loader!./SpaceTime.part'
 import styles from './index.css'
 
 const { protocol } = window.location;
 const wsProtocol = protocol === 'https:' ? 'wss:' : 'ws:';
 const echoURL = `${wsProtocol}//echo.websocket.org`;
+const flatColors = [
+  '#1abc9c',
+  '#2ecc71',
+  '#3498db',
+  '#9b59b6',
+  '#34495e',
+  '#f1c40f',
+  '#e67e22',
+  '#e74c3c',
+  '#ecf0f1',
+  '#95a5a6',
+]
+
+function ColorRect({ color }) {
+  return (
+    <div className={styles.colorRect} style={{ backgroundColor: color }} />
+  );
+}
 
 function AboutUseLess({ id, className }) {
   const classes = cx(styles.className, 'playground-useless', className)
@@ -27,6 +48,11 @@ function AboutUseLess({ id, className }) {
   const [message, setMessage] = useState('');
   const [socket, messages = []] = useWebSocket(echoURL);
   const msgs = messages.filter(x => x).reverse();
+  const [counter, setCounter] = useState(0)
+  const colorIdx = counter % flatColors.length
+  const colorElem = useMemo(() =>
+    <ColorRect color={flatColors[colorIdx]} />
+  , [colorIdx]);
 
   return (
     <Article id={id} className={classes}>
@@ -71,7 +97,7 @@ function AboutUseLess({ id, className }) {
         {useWebSocketPart}
       </SourceCode>
       <p>於是 <code>handleMessage</code> 只需要關心 <code>setMessage</code> 即可 XD</p>
-      <form className={styles.echo}>
+      <form className={styles.demo}>
         <p>和 echo service: <code>{echoURL}</code> 通訊看看：</p>
         <section>
           <fieldset>
@@ -103,7 +129,31 @@ function AboutUseLess({ id, className }) {
       </form>
       <p>但這個問題完全可以靠傳遞一個 update function 給 <code>setState</code> 解決， <code>useSpace</code> 仍然沒用。</p>
 
-      <h3><code>&lt;FlatTime /&gt;</code></h3>
+      <h3><code>&lt;SpaceTime /&gt;</code></h3>
+      <p>我們還可以做出這樣的 component ：</p>
+      <SourceCode open language="js">
+        {SpaceTimeSource}
+      </SourceCode>
+      <p><code>&lt;SpaceTime /&gt;</code> 會幫我們展開過去繪製過的 children ，於是這樣寫：</p>
+      <SourceCode open language="js">
+        {SpaceTimeExample}
+      </SourceCode>
+      <p>就能達成下面的效果。</p>
+      <div className={styles.demo}>
+        <p>點下面的方塊：</p>
+        <div
+          className={styles.currentRect}
+          onClick={() => setCounter(c => c+1)}
+        >
+          {colorElem}
+        </div>
+        <div className={styles.previousRects}>
+          <SpaceTime>
+            {colorElem}
+          </SpaceTime>
+        </div>
+      </div>
+      <p>但這也可以靠 <code>useState</code> 再 <code>map</code> 做到😂</p>
 
       <h3><code>fmap</code></h3>
 

@@ -1,15 +1,15 @@
 .className {
-  .echo {
+  .demo {
     background: #fcfcfc;
     padding: 0.5em;
     margin: 1em 0;
 
     *:first-child {
-      margin-top: 0;
+      margin-top: 0 !important;
     }
 
     *:last-child {
-      margin-bottom: 0;
+      margin-bottom: 0 !important;
     }
 
     section {
@@ -68,6 +68,21 @@
           }
         }
       }
+    }
+
+    .colorRect {
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+    }
+
+    .currentRect {
+      margin-bottom: 1em;
+      cursor: pointer;
+    }
+
+    .previousRects {
+      margin-bottom: 1em;
     }
   }
 }
