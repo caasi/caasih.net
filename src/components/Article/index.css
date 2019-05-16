@@ -20,22 +20,16 @@
   }
 
   --code-color: #666;
+  --dark-code-color: #999;
 
-  & > h1 > code,
-  & > h2 > code,
-  & > h3 > code,
-  & > h4 > code,
-  & > h5 > code,
-  & > h6 > code {
+  code {
     color: var(--code-color);
   }
 
-  & > p > code,
-  & > pre > code,
-  & > ul > li > code,
-  & > ol > li > code {
-    color: var(--code-color);
-    line-height: 1em;
+  @media (prefers-color-scheme: dark) {
+    code {
+      color: var(--dark-code-color);
+    }
   }
 
   --blockquote-color: #666;
