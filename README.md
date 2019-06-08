@@ -15,8 +15,6 @@ This is my site. There are many like it, but this one is mine.
 
   * [x] move my web logs
 
-  * [ ] move static files to the `gh-pages` branch
-
   * [ ] ~~use `sw-precache` to cache script files~~ service worker needs HTTPS
 
   * [ ] port Ludum Dare games
@@ -24,6 +22,8 @@ This is my site. There are many like it, but this one is mine.
   * [ ] port the continuity page
 
   * [ ] move ^C posts here
+
+  * [ ] add a links page
 
 [travis-image]: https://img.shields.io/travis/caasi/caasih.net.svg
 [travis-url]: https://travis-ci.org/caasi/caasih.net
