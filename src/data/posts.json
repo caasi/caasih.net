@@ -15,6 +15,20 @@
 {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
+  "headline": "On Matthew Fuller’s “Data Structures as Spatial Structures”",
+  "author": 0,
+  "datePublished": "2018-01-12T15:50:00.222Z",
+  "dateCreated": "2018-01-12T15:50:00.222Z",
+  "dateModified": "2018-01-12T15:50:00.222Z",
+  "url": "2018-01-12-on-matthew-fuller",
+  "license": {
+    "version": "4.0",
+    "type": "by"
+  }
+},
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
   "headline": "Desktop #0",
   "author": 0,
   "datePublished": "2017-12-29T15:44",
@@ -50,6 +64,20 @@
   "dateCreated": "2017-11-24T17:47",
   "dateModified": "2018-01-05T21:55",
   "url": "2017-11-24-school-of-expression",
+  "license": {
+    "version": "4.0",
+    "type": "by"
+  }
+},
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Safe Space",
+  "author": 0,
+  "datePublished": "2017-06-14T03:45:11.200Z",
+  "dateCreated": "2017-06-14T03:45:11.200Z",
+  "dateModified": "2017-06-14T03:45:11.200Z",
+  "url": "2017-06-14-safe-space",
   "license": {
     "version": "4.0",
     "type": "by"
