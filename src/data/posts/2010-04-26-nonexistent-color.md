@@ -2,5 +2,5 @@
 
 ---
 
-Update: [pyridine](https://web.archive.org/web/20100204035546/http://pyridine.wordpress.com/) 已經不存在了。
+Update: [pyridine](https://web.archive.org/web/20100204035546/http://pyridine.wordpress.com/) 已經不存在了，請至 [Medium](https://medium.com/@hsinhao) 尋找他的蹤跡。
 
