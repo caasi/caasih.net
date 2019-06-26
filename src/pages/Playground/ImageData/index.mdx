@@ -1,0 +1,48 @@
+import SourceCode from 'components/SourceCode'
+import CreativeCommons from 'components/CreativeCommons'
+import Picture from './Picture'
+import useImageDataSource from '!raw-loader!types/hooks/use-image-data'
+import System from './System'
+import SystemSource from '!raw-loader!./System'
+import layout from '../layout'
+export default layout('ImageData - caasih.net', 'playground-use-image-data')
+
+# ImageData
+
+把一個 React Hook 搬到這裡，它叫 `useImageData` 。
+
+<Picture />
+<SourceCode open language="jsx">
+  {useImageDataSource}
+</SourceCode>
+
+也許有些人看了這些會覺得我不懂 React，在那邊嘴什麼奇怪的東西..。其實你們要說的那些我是知道的，而且大家介紹的也夠多了，我想從一個異於平常的角度，重新再來看待 React Hooks，希望給大家一個平常沒有想到的啟發。
+
+把 React 的 render function 看成 reentrant function ，那就可以將 React Hooks
+看成某種包含資料依賴關係的 trait/type class 。裡面放什麼則看你怎麼組合 `useState`, `useEffect` 與 `useCallback` 等 Hooks 。
+
+不管它放的是什麼， CPS 變換會在 rerender 時完成，於是用的人拿到的是包裹的值，而不是時間上或空間上的容器。
+
+CPS 變換這裡就不贅述，從 2011 開始寫 js 的大家肯定是知道的。
+
+但我記得 ECMAScript 沒打算做 deep generator ，不知道未來 React Hooks
+會怎麼走？像之前被 iCook 面試時，前端大大提到的那樣，靠 babel transpile 嗎？
+
+後來找半天沒找到 ES Discuss 上關於 coroutine 的討論，但發現 the Little Calculist
+2011 年曾寫過 [Why coroutines won’t work on the web](http://calculist.org/blog/2011/12/14/why-coroutines-wont-work-on-the-web/)
+，解釋為何 JS 不太可能有 coroutine 。
+
+---
+
+同理，善用 `requestAnimationFrame` 與 React Hook ，也可以拚出各種按時間變化的值。
+
+<System />
+<SourceCode open language="jsx">
+  {SystemSource}
+</SourceCode>
+
+---
+
+EDIT: 補上朋友建議的挑釁段落 XD
+
+<CreativeCommons size="compact" type="by" />
