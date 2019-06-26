@@ -1,3 +1,5 @@
+const { defaults } = require('jest-config')
+
 module.exports = {
   setupFiles: ['./jest.setup.js'],
   testPathIgnorePatterns: ['/node_modules/', '/reusable'],
@@ -5,6 +7,7 @@ module.exports = {
     '^!raw-loader!(.*)': 'identity-obj-proxy',
     '\\.css$': 'identity-obj-proxy',
     '\\.purs$': 'identity-obj-proxy',
+    '\\.mdx$': 'identity-obj-proxy',
     '^components(.*)$': '<rootDir>/src/components$1',
     '^pages(.*)$': '<rootDir>/src/pages$1',
     '^types(.*)$': '<rootDir>/src/types$1',

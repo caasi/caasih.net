@@ -44,7 +44,7 @@ module.exports = {
     new InlineManifestWebpackPlugin(),
   ],
   resolve: {
-    extensions: ['.js', '.jsx', '.md', '.mdx'],
+    extensions: ['.md', '.mdx', '.js', '.jsx'],
     alias: createAliases(srcPath, [
       'components',
       'pages',
