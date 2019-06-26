@@ -44,7 +44,7 @@ module.exports = {
     new InlineManifestWebpackPlugin(),
   ],
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.md', '.mdx'],
     alias: createAliases(srcPath, [
       'components',
       'pages',
@@ -62,6 +62,13 @@ module.exports = {
         test: /\.jsx?$/,
         use: 'babel-loader',
         exclude: /node_modules/,
+      },
+      {
+        test: /\.mdx?$/,
+        use: [
+          'babel-loader',
+          '@mdx-js/loader',
+        ],
       },
       {
         test: /\.css$/,
