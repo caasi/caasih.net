@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useMemo } from 'react'
 import ImageDataCanvas from 'components/ImageDataCanvas'
-import { useImageData } from '@caasi/hooks'
+import { useImageData, useInput } from '@caasi/hooks'
 import styles from './index.css'
 
 function cloneImageData(imageData) {
@@ -11,9 +11,18 @@ function cloneImageData(imageData) {
 
 function Picture({ id }) {
   const imageData = useImageData('https://farm8.staticflickr.com/7166/6595168855_5566d615d9_b.jpg')
-  const [r, setR] = useState('1.0')
-  const [g, setG] = useState('1.0')
-  const [b, setB] = useState('1.0')
+  const [r, rRange] = useInput(
+    <input type="range" min="0.0" max="1.0" step="0.01" />,
+    '1.0'
+  )
+  const [g, gRange] = useInput(
+    <input type="range" min="0.0" max="1.0" step="0.01" />,
+    '1.0'
+  )
+  const [b, bRange] = useInput(
+    <input type="range" min="0.0" max="1.0" step="0.01" />,
+    '1.0'
+  )
   let numR = +r
   if (isNaN(numR) || numR < 0 || 1.0 < numR) {
     numR = 1.0
@@ -49,39 +58,9 @@ function Picture({ id }) {
           style={{ width: '100%' }}
         />
         <section className={styles.control}>
-          <div>
-            R&nbsp;
-            <input
-              type="range"
-              min="0.0"
-              max="1.0"
-              step="0.01"
-              value={r}
-              onChange={e => setR(e.target.value)}
-            />
-          </div>
-          <div>
-            G&nbsp;
-            <input
-              type="range"
-              min="0.0"
-              max="1.0"
-              step="0.01"
-              value={g}
-              onChange={e => setG(e.target.value)}
-            />
-          </div>
-          <div>
-            B&nbsp;
-            <input
-              type="range"
-              min="0.0"
-              max="1.0"
-              step="0.01"
-              value={b}
-              onChange={e => setB(e.target.value)}
-            />
-          </div>
+          <div>R {rRange}</div>
+          <div>G {gRange}</div>
+          <div>B {bRange}</div>
         </section>
       </div>
       <div className={styles.source}>
