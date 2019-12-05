@@ -2,7 +2,7 @@ function useWebSocket(url) {
   // ...
 
   const [message, setMessage] = useState();
-  const [messages, setMessages] = useSpace(message);
+  const messages = useSpace(message);
 
   // ...
 

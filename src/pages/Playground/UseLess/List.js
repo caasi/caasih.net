@@ -1,9 +1,9 @@
 import React, { Children, cloneElement } from 'react'
-import useTimeArray from './use-time-array'
+import { useArray } from '@caasi/hooks';
 import SpaceTime from './SpaceTime'
 
 function List({ data, children }) {
-  const x = useTimeArray(data)
+  const x = useArray(data)
   return x === undefined
     ? null
     : (

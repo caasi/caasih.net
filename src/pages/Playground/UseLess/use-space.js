@@ -1,18 +1,10 @@
 import { useState, useEffect } from 'react';
+import useFold from './use-fold';
+
+const concat = (acc = [], x) => [...acc, x];
 
 function useSpace(state) {
-  const [states, setStates] = useState();
-
-  useEffect(() => {
-    if (state === undefined) {
-      setStates();
-      return;
-    }
-
-    setStates((ss = []) => [...ss, state]);
-  }, [state]);
-
-  return [states, setStates];
+  return useFold(state, concat, []);
 }
 
 export default useSpace;
