@@ -1029,10 +1029,10 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@caasi/hooks@^1.7.2":
-  version "1.7.2"
-  resolved "https://registry.yarnpkg.com/@caasi/hooks/-/hooks-1.7.2.tgz#89bc71eabd24d741794afa1e325b1767ca7af6f6"
-  integrity sha512-CdZFqcKaluejaPWZeKprdgZ6h3/h0CHCtBLTToo5SI6uI4V5ZJ2lMcuIPvtdSqZAW4b/L76BeW2oLgS7UUS3LQ==
+"@caasi/hooks@^1.7.3":
+  version "1.7.3"
+  resolved "https://registry.yarnpkg.com/@caasi/hooks/-/hooks-1.7.3.tgz#f2434576439d720a66c800f0a626d9141add931a"
+  integrity sha512-HhJJuIeF9aMOIep2FHTze/uje2ibJFRbh6TUotbTBwJAseQPeaW6Qn84ue+TyDrTR49po/ck5qWb/q6/pJCDYQ==
 
 "@caasi/then@^1.0.2":
   version "1.0.2"
