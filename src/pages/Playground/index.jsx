@@ -13,6 +13,7 @@ import PureScript from './PureScript'
 import ImageData from './ImageData'
 import Jigsaw from './Jigsaw'
 import UseLess from './UseLess'
+import WebVR from './WebVR'
 
 import styles from './index.css'
 
@@ -31,6 +32,7 @@ const paths = [
   'image-data',
   'jigsaw',
   'useless',
+  'web-vr',
 ]
 
 class Playground extends Component<Props> {
@@ -58,6 +60,7 @@ class Playground extends Component<Props> {
         <Route path={ps['image-data']} render={() => <ImageData />} />
         <Route path={ps['jigsaw']} render={() => <Jigsaw />} />
         <Route path={ps['useless']} render={() => <UseLess />} />
+        <Route path={ps['web-vr']} render={() => <WebVR />} />
         <List className={styles.list} label="playground">
           <Link to={ps['then']}>{'<Then />'}</Link>
           <Link to={ps['react-konva']}>{'React Konva'}</Link>
@@ -65,6 +68,7 @@ class Playground extends Component<Props> {
           <Link to={ps['purescript']}>{'PureScript'}</Link>
           <Link to={ps['image-data']}>{'ImageData'}</Link>
           <Link to={ps['useless']}>{'無測無用'}</Link>
+          <Link to={ps['web-vr']}>{'WebVR Playground'}</Link>
         </List>
       </div>
     )
