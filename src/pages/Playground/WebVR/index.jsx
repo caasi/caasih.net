@@ -55,6 +55,14 @@ function Matrix({
   as: Component = 'code',
   data,
 }) {
+  if (data.length === 3) {
+    return (
+      <Component>
+        [{data[0].toFixed(3)}, {data[1].toFixed(3)}, {data[2].toFixed(3)}]
+      </Component>
+    )
+  }
+
   if (data.length === 4) {
     return (
       <Component>
