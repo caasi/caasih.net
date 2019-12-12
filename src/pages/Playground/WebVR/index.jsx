@@ -78,7 +78,7 @@ function Matrix({
   }
 
   return (
-    <Component>[matrix]</Component>
+    <Component>[array({data.length})]</Component>
   )
 }
 
