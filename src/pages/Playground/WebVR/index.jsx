@@ -42,9 +42,13 @@ function useVRDisplay(display) {
 }
 
 function keys(data = {}) {
-  return Object.keys(data)
-    .filter(k => k.length && k[0] !== '_' && k[k.length - 1] !== '_')
-    .filter(k => typeof data[k] !== 'function')
+  let keys = [];
+  for (let k in data) {
+    if (!k.length || k[0] === '_' || k[k.length - 1] === '_') continue
+    if (typeof data[k] === 'function') continue
+    keys.push(k)
+  }
+  return keys
 }
 
 function Matrix({
