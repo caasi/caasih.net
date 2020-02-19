@@ -16,8 +16,8 @@ class Text extends React.PureComponent<Props> {
   handleResize() {
     if (!this.textNode) return
 
-    const width = this.textNode.getTextWidth()
-    const height = this.textNode.getTextHeight()
+    const width = this.textNode.width()
+    const height = this.textNode.height()
 
     if (this.width !== width || this.height !== height) {
       const { onResize } = this.props
