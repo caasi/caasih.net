@@ -6,5 +6,8 @@ dist/*.js
 dist/**/*.html
 !dist/continuity.html
 coverage/
+lib/bs/
+.merlin
+*.bs.js
 .DS_Store
 *.swp
