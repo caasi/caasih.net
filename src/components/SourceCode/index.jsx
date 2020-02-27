@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import SyntaxHighlighter from 'react-syntax-highlighter'
-import style from 'react-syntax-highlighter/styles/hljs/github'
+import { github } from 'react-syntax-highlighter/dist/styles/hljs'
 import styles from './index.css'
 
 class SourceCode extends PureComponent {
@@ -39,7 +39,7 @@ class SourceCode extends PureComponent {
         </label>
         {
           open &&
-          <SyntaxHighlighter language={language} style={style}>
+          <SyntaxHighlighter language={language} style={github}>
             {children}
           </SyntaxHighlighter>
         }
