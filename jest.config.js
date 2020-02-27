@@ -7,6 +7,7 @@ module.exports = {
     '^!raw-loader!(.*)': 'identity-obj-proxy',
     '\\.css$': 'identity-obj-proxy',
     '\\.purs$': 'identity-obj-proxy',
+    '\\.bs$': 'identity-obj-proxy',
     '\\.mdx$': 'identity-obj-proxy',
     '^components(.*)$': '<rootDir>/src/components$1',
     '^pages(.*)$': '<rootDir>/src/pages$1',
