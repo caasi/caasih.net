@@ -4,7 +4,7 @@ open HtmlImageElement;
 
 module MyCanvas2d = {
   include Canvas2d;
-  [@bs.send.pipe : Canvas2d.t] external drawImage : (HtmlImageElement.t, float, float) => unit = "drawImage";
+  [@bs.send] external drawImage : (Canvas2d.t, HtmlImageElement.t, float, float) => unit = "drawImage";
 }
 
 let useImageData = url => {
@@ -21,12 +21,12 @@ let useImageData = url => {
 
       let rec f = (_) => {
         let canvas = document |> Document.createElement("canvas");
-        let width = img |> width;
-        let height = img |> height;
+        let width = img -> width;
+        let height = img -> height;
         canvas -> CanvasElement.setWidth(width);
         canvas -> CanvasElement.setHeight(height);
-        let ctx = CanvasElement.getContext2d(canvas);
-        ctx |> MyCanvas2d.drawImage(img, 0.0, 0.0);
+        let ctx = canvas -> CanvasElement.getContext2d;
+        ctx -> MyCanvas2d.drawImage(img, 0.0, 0.0);
         let imageData = ctx -> MyCanvas2d.getImageData(
           ~sx=0.0,
           ~sy=0.0,

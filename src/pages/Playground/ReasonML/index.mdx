@@ -1,0 +1,145 @@
+import SourceCode from 'components/SourceCode'
+import CreativeCommons from 'components/CreativeCommons'
+import { make as ImageData } from './ImageData.bs'
+import { make as ImagaDataCanvas } from './ImageDataCanvas.bs'
+import ImageDataSource from '!raw-loader!./ImageData.re'
+import ImageDataCanvasSource from '!raw-loader!./ImageDataCanvas.re'
+import layout from '../layout'
+export default layout('ReasonML - caasih.net', 'playground-reasonml')
+
+# ReasonML
+
+參考 [Adding ReasonML to an existing codebase (Part 1)][reasonml-tutorial-1]後，現在除了 PureScript 外，也可以用 Reason 寫 React 元件啦 XD
+
+<ImageData />
+<div style={{ textAlign: 'center', color: '#666' }}>
+  <a href="https://www.flickr.com/photos/84175980@N00/6595168855">"20111227 nigel"</a> by <a href="https://www.flickr.com/photos/84175980@N00">schizoform</a> is licensed under <a href="https://creativecommons.org/licenses/by/2.0"> CC BY 2.0 </a>
+</div>
+
+---
+
+假設我想重現 `ImageData` 的核心功能 `useCanvas` ，首先我得知道怎麼在 Reason 中使用 React Hooks ，並寫出這樣的骨架：
+
+```reasonml
+let useImageData = url => {
+  let (imageData, setImageData) = React.useState(() => /* 一些程式碼 */);
+
+  React.useEffect1(() => {
+    // 一些程式碼
+  }, [|url|])
+
+  imageData;
+}
+```
+
+看 Reason 教學時會注意到，首先 `useState` 給的初始值不是一個值是一個函數。而 `useEffect` 後面多了數字。根據之前寫函數語的經驗，可以猜到數字代表的應該是參數數量。
+
+參考[ ReasonReact 文件][reason-react-components]發現 `useEffect1` 除了只能給一個值外，那個相依的值還不能寫成 `(url)` ，得寫成 `[|url|]` 。因為只含一個元素的 tuple 在 Reason 編譯成 JS 後，會變成單一個值，而不是一個陣列。才需要特別寫上 `[||]` ，告訴 `bsb` 它還是一個陣列。
+
+查了一下在 Reason 裡因為沒有 `null` 跟 `undefined` （這就是大家一開始選用它的原因，盡可能以 ADT 表示資料，避免共用空值）。得另外使用 `Js.Nullable` ：
+
+```reasonml
+let (imageData, setImageData) = React.useState(() => Js.Nullable.undefined);
+```
+
+為了在 `useEffect1` 中方便判斷 `imageData` 存不存在，得先把 `Nullable` 轉成 `option` 再 match ：
+
+```reasonml
+React.useEffect1(() => {
+  let imageData = Js.Nullable.toOption(imageData);
+  switch (imageData) {
+  | Some(_) => None; // 什麼都不做
+  | None => {
+    // 做些什麼
+  }
+  }
+}, [|url|]);
+```
+
+操作 DOM 時，可以像 `bs-platform` 附的範例那樣，自己寫 JS 介面，或者選用別人寫好的介面，像是 [`bs-webapi`][bs-webapi] 。
+
+我會用上 `Webapi.Dom.Document`, `Webapi.Dom.HtmlImageElement`, `Webapi.Canvas.CanvasElement`, `Webapi.Canvas.Canvas2d` ，於是先 `open` 它們，少打一點字。好達成在 Haskell 中「不加 `qualified` 關鍵字，把 module 展開在現在的 namespace 」的效果：
+
+```reasonml
+open Webapi.Dom;
+open Webapi.Canvas;
+open HtmlImageElement;
+```
+
+目前 [`bs-webapi`][bs-webapi] 沒有提供 `Canvas` 2D context 的 `drawImage` 函數，可以自己擴充：
+
+```
+module MyCanvas2d = {
+  include Canvas2d;
+  [@bs.send] external drawImage : (Canvas2d.t, HtmlImageElement.t, float, float) => unit = "drawImage";
+}
+```
+
+`[@bs.send]` 會生出第一個參數是 class instance 的函數。
+
+接著就能操作 DOM ：
+
+```reasonml
+switch (imageData) {
+| Some(_) => None;
+| None => {
+	let img = HtmlImageElement.make();
+	img -> setCrossOrigin(Some("anonymous"))
+	img -> setSrc(url);
+
+	let rec f = (_) => {
+		let canvas = document |> Document.createElement("canvas");
+		let width = img |> width;
+		let height = img |> height;
+		canvas -> CanvasElement.setWidth(width);
+		canvas -> CanvasElement.setHeight(height);
+		let ctx = CanvasElement.getContext2d(canvas);
+		ctx |> MyCanvas2d.drawImage(img, 0.0, 0.0);
+		let imageData = ctx -> MyCanvas2d.getImageData(
+			~sx=0.0,
+			~sy=0.0,
+			~sw=Js.Int.toFloat(width),
+			~sh=Js.Int.toFloat(height)
+		);
+		setImageData((_) => Js.Nullable.return(imageData));
+		img |> removeLoadEventListener(f);
+	}
+
+	img |> addLoadEventListener(f);
+
+	Some(() => {
+		img |> removeLoadEventListener(f);
+	});
+}
+}
+```
+
+要注意的是這裡用上 `|>` 和 `->` 兩種語法。 `|>` 是 pipe ，會把 `|>` 左邊的值，當成右邊的最後一個參數。而 `->` 是 pipe first ，會把 `->` 左邊的值，當成右邊的第一個參數。
+
+`HtmlImageElement` 的 `width`, `height` 是 getter ，靠 `[@bs.get]` 橋接，可以想像成它生出了「把 `HtmlImageElement` 當第一個參數的 function 」，所以可以用 `->` 。前面提到的 `[@bs.send]` 也一樣。
+
+`addLoadEventListener`, `removeLoadEventListener` 用的是 `[@bs.send.pipe]` ，可以想成生出了「把 context 當成最後一個參數」函數，於是用 `|>` 。
+
+有個 [issue][issue-2625] 討論到 `->` 和 `|>` 的效率。在 `bs-webapi` 改寫之前，哪時候該用 `->` 、哪時候該用 `|>` 還是得乖乖看程式碼。
+
+[reason-react-components]: https://reasonml.github.io/reason-react/docs/en/components
+[bs-webapi]: https://github.com/reasonml-community/bs-webapi-incubator
+[issue-2625]: https://github.com/BuckleScript/bucklescript/issues/2625
+
+---
+
+附上 `ImageData` 完整程式：
+
+<SourceCode language="reasonml">
+  {ImageDataSource}
+</SourceCode>
+
+`ImageDataCanvas` 完整程式：
+
+<SourceCode language="reasonml">
+  {ImageDataCanvasSource}
+</SourceCode>
+
+<CreativeCommons size="compact" type="by" />
+
+[reasonml-tutorial-1]: https://dev.to/yakimych/adding-reasonml-to-an-existing-codebase-part-1-3kkg
