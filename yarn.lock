@@ -10381,10 +10381,10 @@ realpath-native@^1.1.0:
   dependencies:
     util.promisify "^1.0.0"
 
-reason-react@~0.8.0-dev.4:
-  version "0.8.0-dev.4"
-  resolved "https://registry.yarnpkg.com/reason-react/-/reason-react-0.8.0-dev.4.tgz#87a5561b3e4e09c7b9d668ce30725884e9ba06e2"
-  integrity sha512-3O2sfahNkmFbmD9QvtSNbM2RSvgNColknnoS2bZEbKbiHEL7VV/LsJRylqD2109cDTid9cSnx72oVDh3tTzhpg==
+reason-react@~0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/reason-react/-/reason-react-0.8.0.tgz#a55143f95a872596c92b54595e7904c03ee7c9db"
+  integrity sha512-97AfK3eCF6vfP8rnbq3k6GgXsZt//OiPMINTUk5luJ8W0Wt/JaYsDG6eWKP8Zx3gPpxSU1EPjB1pUm6o6fBnFA==
 
 refractor@^2.4.1:
   version "2.4.1"
