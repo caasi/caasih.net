@@ -15,6 +15,7 @@ import Jigsaw from './Jigsaw'
 import UseLess from './UseLess'
 import WebVR from './WebVR'
 import ReasonML from './ReasonML'
+import WebGL from './WebGL'
 
 import styles from './index.css'
 
@@ -35,6 +36,7 @@ const paths = [
   'useless',
   'web-vr',
   'reasonml',
+  'web-gl',
 ]
 
 class Playground extends Component<Props> {
@@ -83,6 +85,9 @@ class Playground extends Component<Props> {
           <Route path={ps['reasonml']}>
             <ReasonML />
           </Route>
+          <Route path={ps['web-gl']}>
+            <WebGL />
+          </Route>
         </Switch>
         <List className={styles.list} label="playground">
           <Link to={ps['then']}>{'<Then />'}</Link>
@@ -93,6 +98,7 @@ class Playground extends Component<Props> {
           <Link to={ps['useless']}>無測無用</Link>
           <Link to={ps['web-vr']}>WebVR Playground</Link>
           <Link to={ps['reasonml']}>ReasonML</Link>
+          <Link to={ps['web-gl']}>WebGL</Link>
         </List>
       </div>
     )
