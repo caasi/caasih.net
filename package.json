@@ -57,6 +57,7 @@
     "babel-eslint": "10.0.3",
     "babel-jest": "24.8.0",
     "babel-loader": "^8.1.0",
+    "bs-let": "^0.1.16",
     "bs-platform": "^7.2.2",
     "cross-env": "^2.0.0",
     "css-loader": "2",

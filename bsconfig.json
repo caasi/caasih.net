@@ -19,5 +19,6 @@
     "reason-react",
     "bs-webapi"
   ],
+  "ppx-flags": ["bs-let/ppx"],
   "refmt": 3
 }
