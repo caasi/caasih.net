@@ -4,7 +4,8 @@
   "description": "my own graveyard",
   "main": "src/index.js",
   "scripts": {
-    "start": "npm run clean && cross-env NODE_ENV=development webpack-dev-server",
+    "start": "concurrently --kill-others npm:dev npm:re:watch",
+    "dev": "npm run clean && cross-env NODE_ENV=development webpack-dev-server",
     "clean": "rimraf ./dist/*bundle.js ./dist/index.html ./dist/404.html",
     "clean:manifest": "rimraf ./dist/*.manifest.js",
     "lint": "eslint src",
@@ -59,6 +60,7 @@
     "babel-loader": "^8.1.0",
     "bs-let": "^0.1.16",
     "bs-platform": "^7.3.2",
+    "concurrently": "^5.2.0",
     "cross-env": "^2.0.0",
     "css-loader": "2",
     "enzyme": "^3.3.0",
