@@ -12,45 +12,42 @@ let _ATTACHED_SHADERS = 0x8B85;
 let _ACTIVE_ATTRIBUTES = 0x8B89;
 let _ACTIVE_UNIFORMS = 0x8B86;
 
-[@bs.send]
-external getBoolShaderParameter: (WebGl.glT, WebGl.shaderT, int) => bool =
-  "getShaderParameter";
+type result('a) =
+  | Bool: result(bool)
+  | Enum: result(int)
+  | Int: result(int);
 
 [@bs.send]
-external getEnumShaderParameter: (WebGl.glT, WebGl.shaderT, int) => bool =
+external getShaderParameter: (WebGl.glT, WebGl.shaderT, int, [@bs.ignore] result('a)) => 'a =
   "getShaderParameter";
 
 let getShaderErrorStatus = (gl, shader) =>
-  getBoolShaderParameter(gl, shader, _ERROR_STATUS);
+  getShaderParameter(gl, shader, _ERROR_STATUS, Bool);
 
 let getShaderCompileStatus = (gl, shader) =>
-  getBoolShaderParameter(gl, shader, _COMPILE_STATUS);
+  getShaderParameter(gl, shader, _COMPILE_STATUS, Bool);
 
 let getShaderType = (gl, shader) =>
-  getEnumShaderParameter(gl, shader, _SHADER_TYPE);
+  getShaderParameter(gl, shader, _SHADER_TYPE, Enum);
 
 [@bs.send]
-external getBoolProgramParameter: (WebGl.glT, WebGl.programT, int) => bool =
-  "getProgramParameter";
-
-[@bs.send]
-external getIntProgramParameter: (WebGl.glT, WebGl.programT, int) => int =
+external getProgramParameter: (WebGl.glT, WebGl.programT, int, [@bs.ignore] result('a)) => 'a =
   "getProgramParameter";
 
 let getProgramDeleteStatus = (gl, program) =>
-  getBoolProgramParameter(gl, program, _DELETE_STATUS);
+  getProgramParameter(gl, program, _DELETE_STATUS, Bool);
 
 let getProgramLinkStatus = (gl, program) =>
-  getBoolProgramParameter(gl, program, _LINK_STATUS);
+  getProgramParameter(gl, program, _LINK_STATUS, Bool);
 
 let getProgramValidateStatus = (gl, program) =>
-  getBoolProgramParameter(gl, program, _VALIDATE_SATUS);
+  getProgramParameter(gl, program, _VALIDATE_SATUS, Bool);
 
 let getProgramAttachedShaders = (gl, program) =>
-  getIntProgramParameter(gl, program, _ATTACHED_SHADERS);
+  getProgramParameter(gl, program, _ATTACHED_SHADERS, Int);
 
 let getProgramActiveAttributes = (gl, program) =>
-  getIntProgramParameter(gl, program, _ACTIVE_ATTRIBUTES);
+  getProgramParameter(gl, program, _ACTIVE_ATTRIBUTES, Int);
 
 let getProgramActiveUniforms = (gl, program) =>
-  getIntProgramParameter(gl, program, _ACTIVE_UNIFORMS);
+  getProgramParameter(gl, program, _ACTIVE_UNIFORMS, Int);
