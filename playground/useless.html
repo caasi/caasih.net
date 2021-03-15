@@ -1,0 +1,984 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1"><title>無測無用 - caasih.net</title><script src="https://www.googletagmanager.com/gtm.js?id=GTM-NB9HSNV"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NB9HSNV');</script><style type="text/css">.src-components-List-index__className--1z8R9 {
+  font-family: monospace;
+  white-space: pre;
+}
+
+  .src-components-List-index__className--1z8R9 > label {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+  }
+
+  .src-components-List-index__className--1z8R9 > label:after {
+    content: ' =';
+  }
+
+.src-components-List-index__className--1z8R9.empty > label:after {
+    content: ' = []'
+  }
+
+.src-components-List-index__className--1z8R9 > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0 2ch;
+  }
+
+.src-components-List-index__className--1z8R9 > ul > li:before {
+      content: ', "';
+      white-space: pre;
+    }
+
+.src-components-List-index__className--1z8R9 > ul > li:first-child:before {
+      content: '[ "';
+    }
+
+.src-components-List-index__className--1z8R9 > ul > li:after {
+      content: '"';
+      white-space: pre;
+    }
+
+.src-components-List-index__className--1z8R9 > ul > li:last-child:after {
+      content: '"\A]';
+      white-space: pre;
+    }
+
+</style><style type="text/css">.src-pages-PostIndex-index__className--2bxag .src-pages-PostIndex-index__list--2dUux {
+    line-height: 1.5rem;
+  }
+
+</style><style type="text/css">.src-components-Article-index__className--1GoCq {
+  padding: 1.25em 2.5em 3.75em 2.5em;
+  max-width: 38rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+  .src-components-Article-index__className--1GoCq .info {
+  }
+
+  .src-components-Article-index__className--1GoCq > p,
+  .src-components-Article-index__className--1GoCq > pre,
+  .src-components-Article-index__className--1GoCq ul,
+  .src-components-Article-index__className--1GoCq ol,
+  .src-components-Article-index__className--1GoCq figure {
+    line-height: 1.5rem;
+  }
+
+.src-components-Article-index__className--1GoCq > pre {
+    padding: 0 2ch;
+    white-space: pre-wrap;
+  }
+
+.src-components-Article-index__className--1GoCq {
+
+  --code-color: #666;
+  --dark-code-color: #999;
+}
+
+.src-components-Article-index__className--1GoCq code {
+    color: var(--code-color);
+  }
+
+@media (color-index: 48) {
+    .src-components-Article-index__className--1GoCq code {
+      color: var(--dark-code-color);
+    }
+  }
+
+@media (prefers-color-scheme: dark) {
+    .src-components-Article-index__className--1GoCq code {
+      color: var(--dark-code-color);
+    }
+  }
+
+.src-components-Article-index__className--1GoCq {
+
+  --blockquote-color: #666
+}
+
+.src-components-Article-index__className--1GoCq > blockquote {
+    border-left: .15em solid var(--blockquote-color);
+    padding-left: 1em;
+    margin-left: 1.2em;
+    color: var(--blockquote-color);
+  }
+
+.src-components-Article-index__className--1GoCq figure {
+    width: -webkit-min-content;
+    width: -moz-min-content;
+    width: min-content;
+    margin: auto;
+  }
+
+.src-components-Article-index__className--1GoCq figure > figcaption {
+    margin-top: 0.5em;
+    font-size: 0.875rem;
+  }
+
+@media only screen and (max-device-width: 767px) {
+
+  .src-components-Article-index__className--1GoCq {
+    padding-left: 0.25em;
+    padding-right: 0.25em
+}
+  }
+</style><style type="text/css">.src-pages-Playground-Then-index__className--2_068 .src-pages-Playground-Then-index__demo--2eD3u {
+    padding-left: 1em;
+    margin-bottom: 1em;
+  }
+</style><style type="text/css">.src-components-SourceCode-index__className--1t-Nw {
+  margin: 1em 0;
+}
+
+  .src-components-SourceCode-index__className--1t-Nw label {
+    cursor: pointer;
+    display: inline-block;
+    font-family: monospace;
+    text-decoration: underline;
+  }
+
+  .src-components-SourceCode-index__className--1t-Nw code {
+    color: inherit;
+  }
+</style><style type="text/css">.src-pages-Playground-ReactKonva-index__className--1ietP .src-pages-Playground-ReactKonva-index__stage--3rkax > .konvajs-content {
+    background-color: #efefef;
+  }
+</style><style type="text/css">.src-pages-Playground-Map-MinimumMap-MapObject-index__className--1C_DK {
+  box-sizing: border-box;
+  background-color: #2ecc71;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 0.2em 0.4em;
+  position: absolute;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none
+}
+.src-pages-Playground-Map-MinimumMap-MapObject-index__className--1C_DK.selected {
+    background-color: #e74c3c;
+  }
+</style><style type="text/css">.src-pages-Playground-Map-MinimumMap-BoundingBox-index__className--3BeZ4 {
+  box-shadow: inset 0 0 0 1px #e67e22;
+  box-sizing: border-box;
+  position: absolute;
+  pointer-events: none;
+}
+</style><style type="text/css">.src-pages-Playground-Map-MinimumMap-index__className--2h_iL .src-pages-Playground-Map-MinimumMap-index__content--3gAc1 {
+    background-color: #efefef;
+    height: 480px;
+    overflow: hidden;
+    position: relative;
+    width: 640px;
+  }
+</style><style type="text/css">.src-pages-Playground-ImageData-Picture-index__image--3pJAB {
+  position: relative;
+}
+
+.src-pages-Playground-ImageData-Picture-index__control--3mq_m {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  color: #fff;
+}
+
+.src-pages-Playground-ImageData-Picture-index__source--3DJ6P {
+  text-align: center;
+  color: #666;
+}
+</style><style type="text/css">.src-pages-Playground-ImageData-System-index__system--2AWeg {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  border-radius: 200px;
+  background: #16161d;
+  color: #fff;
+  margin: 1em auto;
+}
+
+.src-pages-Playground-ImageData-System-index__star--WOipS {
+  position: absolute;
+}
+
+.src-pages-Playground-ImageData-System-index__star--WOipS > div {
+  position: absolute;
+  left: -.5em;
+  top: -.5em;
+}
+</style><style type="text/css">.src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ {
+    background: #fcfcfc;
+    padding: 0.5em;
+    margin: 1em 0;
+    color: #333;
+  }
+
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ *:first-child {
+      margin-top: 0 !important;
+    }
+
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ *:last-child {
+      margin-bottom: 0 !important;
+    }
+
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ section fieldset {
+        border: 0;
+        margin: 0;
+        margin-bottom: 1em;
+        padding: 0;
+      }
+
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ section fieldset input, .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ section fieldset button {
+          box-sizing: content-box;
+          outline: none;
+          padding: 0.5rem 1rem;
+          border: 1px solid #ccc;
+        }
+
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ section fieldset input {
+          border-right-width: 0;
+        }
+
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ section fieldset button {
+          border-color: #09f;
+          background-color: #09f;
+          color: #fff;
+        }
+
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ section ol {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+      }
+
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ section ol li {
+          padding: 0.5rem 1rem;
+          line-height: 1rem;
+          background-color: #09f;
+          color: #fff;
+          border-top-right-radius: 1rem;
+          border-top-left-radius: 0.2rem;
+          border-bottom-right-radius: 1rem;
+          border-bottom-left-radius: 0.2rem;
+          margin-bottom: 0.2rem
+        }
+
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ section ol li:first-child {
+            border-top-left-radius: 1rem;
+
+          }
+
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ section ol li:last-child {
+            border-bottom-left-radius: 1rem;
+            margin-bottom: 0;
+          }
+
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ div {
+      line-height: 0;
+    }
+
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ .src-pages-Playground-UseLess-index__colorRect--2aBXc {
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+    }
+
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ .src-pages-Playground-UseLess-index__currentRect--1NZot {
+      margin-bottom: 1em;
+      cursor: pointer;
+    }
+
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ .src-pages-Playground-UseLess-index__previousRects--BY2MR {
+      margin-bottom: 1em;
+    }
+</style><style type="text/css">.src-pages-Playground-WebVR-index__className--QJqW- {}
+</style><style type="text/css">.src-pages-Playground-index__className--2sDC9 .src-pages-Playground-index__list--30Sh3 {
+    line-height: 1.5rem;
+  }
+</style><style type="text/css">.src-Root-Root__className--23B9r {
+  position: relative;
+}
+
+  .src-Root-Root__className--23B9r > h1 {
+    position: absolute;
+    font-size: 3rem;
+    margin: 0;
+    top: -1.25rem;
+    right: 0;
+    color: #666;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    z-index: 0;
+  }
+
+@media (color-index: 48) {
+    .src-Root-Root__className--23B9r > h1 {
+      color: #999;
+    }
+  }
+
+@media (prefers-color-scheme: dark) {
+    .src-Root-Root__className--23B9r > h1 {
+      color: #999;
+    }
+  }
+
+.src-Root-Root__className--23B9r #src-Root-Root__menu--2HZFx {
+    position: relative;
+    display: inline-block;
+    margin-top: 1em;
+    font-family: monospace;
+    z-index: 100;
+    white-space: pre
+  }
+
+.src-Root-Root__className--23B9r #src-Root-Root__menu--2HZFx:before {
+      content: 'data Site = Site\A { posts      :: [Markdown]\A , playground :: [ReactElement]\A }\Asite = Site '
+    }
+
+.src-Root-Root__className--23B9r #src-Root-Root__menu--2HZFx > ul {
+      display: inline;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+.src-Root-Root__className--23B9r #src-Root-Root__menu--2HZFx > ul > li {
+        display: inline-block;
+        margin-right: 1ch
+      }
+
+.src-Root-Root__className--23B9r #src-Root-Root__menu--2HZFx > ul > li:last-child {
+          margin-right: 0;
+        }
+
+.src-Root-Root__className--23B9r #src-Root-Root__container--3KyKv {
+    position: relative;
+    z-index: 200;
+  }
+
+@media (color-index: 48) {
+    .src-Root-Root__className--23B9r > h1 {
+      color: #999;
+    }
+  }
+
+@media (prefers-color-scheme: dark) {
+    .src-Root-Root__className--23B9r > h1 {
+      color: #999;
+    }
+  }
+
+</style><style type="text/css">/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
+
+/* Document
+   ========================================================================== */
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in
+ *    IE on Windows Phone and in iOS.
+ */
+
+html {
+  line-height: 1.15; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+
+body {
+  margin: 0;
+}
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in IE.
+ */
+
+figcaption,
+figure,
+main { /* 1 */
+  display: block;
+}
+
+/**
+ * Add the correct margin in IE 8.
+ */
+
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * 1. Remove the gray background on active links in IE 10.
+ * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+ */
+
+a {
+  background-color: transparent; /* 1 */
+  -webkit-text-decoration-skip: objects; /* 2 */
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57- and Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+
+/**
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+ */
+
+b,
+strong {
+  font-weight: inherit;
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+ * Add the correct font style in Android 4.3-.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Add the correct background and color in IE 9-.
+ */
+
+mark {
+  background-color: #ff0;
+  color: #000;
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+audio,
+video {
+  display: inline-block;
+}
+
+/**
+ * Add the correct display in iOS 4-7.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Remove the border on images inside links in IE 10-.
+ */
+
+img {
+  border-style: none;
+}
+
+/**
+ * Hide the overflow in IE.
+ */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * 1. Change the font styles in all browsers (opinionated).
+ * 2. Remove the margin in Firefox and Safari.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: sans-serif; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+button,
+input { /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+
+button,
+select { /* 1 */
+  text-transform: none;
+}
+
+/**
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+html [type="button"], /* 1 */
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/**
+ * 1. Add the correct display in IE 9-.
+ * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+progress {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Remove the default vertical scrollbar in IE.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10-.
+ * 2. Remove the padding in IE 10-.
+ */
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
+ */
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+
+/*
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
+ */
+
+details, /* 1 */
+menu {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+
+summary {
+  display: list-item;
+}
+
+/* Scripting
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+canvas {
+  display: inline-block;
+}
+
+/**
+ * Add the correct display in IE.
+ */
+
+template {
+  display: none;
+}
+
+/* Hidden
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 10-.
+ */
+
+[hidden] {
+  display: none;
+}
+</style><style type="text/css">body {
+  font-size: 12pt;
+  font-family: "Helvetica", "Arial", "黑體-繁", "Noto Sans TC", "Noto Sans SC", "微軟正黑體", sans-serif;
+}
+
+hr {
+  border-top: .15em solid transparent;
+  -o-border-image: 100% 0 0 linear-gradient(90deg, currentColor 2em, transparent 0);
+     border-image: 100% 0 0 linear-gradient(90deg, currentColor 2em, transparent 0);
+}
+
+a {
+  color: #000;
+}
+
+a:hover {
+  color: #666;
+}
+
+a:visited {
+  color: #999;
+}
+
+a:active {
+  color: #999;
+}
+
+@media (color-index: 48) {
+  body {
+    background-color: #252525;
+    color: #fff;
+  }
+
+  a {
+    color: #fff;
+  }
+
+  a:hover {
+    color: #999;
+  }
+
+  a:visited {
+    color: #666;
+  }
+
+  a:active {
+    color: #666;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #252525;
+    color: #fff;
+  }
+
+  a {
+    color: #fff;
+  }
+
+  a:hover {
+    color: #999;
+  }
+
+  a:visited {
+    color: #666;
+  }
+
+  a:active {
+    color: #666;
+  }
+}
+</style></head><body><div id="app"><div class="src-Root-Root__className--23B9r caasih"><h1>caasih.net</h1><main id="src-Root-Root__container--3KyKv"><div class="src-pages-Playground-index__className--2sDC9 caasih-playground-list"><article class="src-components-Article-index__className--1GoCq caasih-article src-pages-Playground-UseLess-index__className--19TBt playground-useless"><h1>無測無用</h1><h2><code>useLess</code></h2><p>當應用程式狀態更新時， <code>useState</code> hook 讓我們無視時間，拿到最新的值，好像我們一開始看到的就是最後的值一樣。</p><p>換個角度看，也可以說 <code>useState</code> 幫我們把值攤到時間上了。例如可以寫一個 <code>useArray</code> ，把陣列中的值變成一系列更新：</p><div class="src-components-SourceCode-index__className--1t-Nw caasih-source-code"><label>-<!-- --> <!-- -->source</label><pre style="display:block;overflow-x:auto;padding:0.5em;color:#333;background:#f8f8f8"><code><span style="color:#333;font-weight:bold">import</span> { useState, useEffect } <span style="color:#333;font-weight:bold">from</span> <span style="color:#d14">'react'</span>;
+
+<span style="color:#333;font-weight:bold">export</span> <span style="color:#333;font-weight:bold">default</span> <span class="hljs-function"><span style="color:#333;font-weight:bold">function</span> <span style="color:#900;font-weight:bold">useArray</span>(<span class="hljs-params">xs</span>) </span>{
+  <span style="color:#333;font-weight:bold">const</span> [index, setIndex] = useState(<span style="color:#008080">0</span>);
+
+  useEffect(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    setIndex(<span style="color:#008080">0</span>);
+  }, [xs]);
+
+  useEffect(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span style="color:#333;font-weight:bold">if</span> (index &lt; xs.length - <span style="color:#008080">1</span>) setIndex(index + <span style="color:#008080">1</span>);
+  }, [xs, index]);
+
+  <span style="color:#333;font-weight:bold">return</span> xs[index];
+}
+</code></pre></div><p>let xs = &nbsp;<input value="abc"></p><p>這東西很沒用，當你把 <code>xs = [<!-- -->a, b, c<!-- -->]</code> 丟給它，只會看到最後的 <code></code> 。</p><h3><code>useSpace</code></h3><p>但既然能把值攤到時間上，能不能反過來把時間上的變化，蒐集起來呢？</p><p>可以設計一個 <code>useSpace</code> hook ：</p><div class="src-components-SourceCode-index__className--1t-Nw caasih-source-code"><label>-<!-- --> <!-- -->source</label><pre style="display:block;overflow-x:auto;padding:0.5em;color:#333;background:#f8f8f8"><code><span style="color:#333;font-weight:bold">import</span> { useState, useEffect } <span style="color:#333;font-weight:bold">from</span> <span style="color:#d14">'react'</span>;
+<span style="color:#333;font-weight:bold">import</span> useFold <span style="color:#333;font-weight:bold">from</span> <span style="color:#d14">'./use-fold'</span>;
+
+<span style="color:#333;font-weight:bold">const</span> concat = <span class="hljs-function">(<span class="hljs-params">acc = [], x</span>) =&gt;</span> [...acc, x];
+
+<span class="hljs-function"><span style="color:#333;font-weight:bold">function</span> <span style="color:#900;font-weight:bold">useSpace</span>(<span class="hljs-params">state</span>) </span>{
+  <span style="color:#333;font-weight:bold">return</span> useFold(state, concat, []);
+}
+
+<span style="color:#333;font-weight:bold">export</span> <span style="color:#333;font-weight:bold">default</span> useSpace;
+</code></pre></div><p>於是我們又把 <code></code> 變回了 <code>[<!-- -->]</code> 。</p><h3><code>useWebSocket</code></h3><p>靠 React Hooks 與 event listener 互動時，會遇上：「更新值的 function 得隨著值一起更新，於是得一直 add event listener ，再 remove event listener 」。</p><p>有了 <code>useSpace</code> ，我們可以：</p><div class="src-components-SourceCode-index__className--1t-Nw caasih-source-code"><label>-<!-- --> <!-- -->source</label><pre style="display:block;overflow-x:auto;padding:0.5em;color:#333;background:#f8f8f8"><code><span class="hljs-function"><span style="color:#333;font-weight:bold">function</span> <span style="color:#900;font-weight:bold">useWebSocket</span>(<span class="hljs-params">url</span>) </span>{
+  <span style="color:#998;font-style:italic">// ...</span>
+
+  <span style="color:#333;font-weight:bold">const</span> [message, setMessage] = useState();
+  <span style="color:#333;font-weight:bold">const</span> messages = useSpace(message);
+
+  <span style="color:#998;font-style:italic">// ...</span>
+
+  <span style="color:#333;font-weight:bold">const</span> handleMessage = useCallback(<span class="hljs-function">(<span class="hljs-params">{ data }</span>) =&gt;</span> {
+    setMessage(data);
+  }, [setMessage]);
+
+  <span style="color:#998;font-style:italic">// ...</span>
+}
+</code></pre></div><p>於是 <code>handleMessage</code> 不用看到整個 <code>messages</code> 。</p><form class="src-pages-Playground-UseLess-index__demo--3n3KJ"><p>和 <code>ws://echo.websocket.org</code> 通訊看看：</p><section><fieldset><input value=""><button>↵</button></fieldset></section></form><p>但這個問題完全可以靠傳遞一個 update function 給 <code>setState</code> 解決，無用。</p><h3><code>&lt;SpaceTime /&gt;</code></h3><p>我們還可以做出這樣的 component ：</p><div class="src-components-SourceCode-index__className--1t-Nw caasih-source-code"><label>-<!-- --> <!-- -->source</label><pre style="display:block;overflow-x:auto;padding:0.5em;color:#333;background:#f8f8f8"><code><span style="color:#333;font-weight:bold">import</span> { useSpace } <span style="color:#333;font-weight:bold">from</span> <span style="color:#d14">'@caasi/hooks'</span>
+
+<span class="hljs-function"><span style="color:#333;font-weight:bold">function</span> <span style="color:#900;font-weight:bold">SpaceTime</span>(<span class="hljs-params">{ children }</span>) </span>{
+  <span style="color:#333;font-weight:bold">return</span> useSpace(children)
+}
+
+<span style="color:#333;font-weight:bold">export</span> <span style="color:#333;font-weight:bold">default</span> SpaceTime;
+</code></pre></div><p><code>&lt;SpaceTime /&gt;</code> 展開過去繪製過的 children ，於是這樣寫：</p><div class="src-components-SourceCode-index__className--1t-Nw caasih-source-code"><label>-<!-- --> <!-- -->source</label><pre style="display:block;overflow-x:auto;padding:0.5em;color:#333;background:#f8f8f8"><code><span style="color:#333;font-weight:bold">import</span> React <span style="color:#333;font-weight:bold">from</span> <span style="color:#d14">'react'</span>
+<span style="color:#333;font-weight:bold">import</span> styles <span style="color:#333;font-weight:bold">from</span> <span style="color:#d14">'./index.css'</span>
+
+<span class="hljs-function"><span style="color:#333;font-weight:bold">function</span> <span style="color:#900;font-weight:bold">ColorRect</span>(<span class="hljs-params">{ data }</span>) </span>{
+  <span style="color:#333;font-weight:bold">return</span> (
+    <span class="xml"><span style="color:#000080;font-weight:normal">&lt;<span style="color:#000080;font-weight:normal">div</span>
+      <span class="hljs-attr">className</span>=<span style="color:#d14">{styles.colorRect}</span>
+      <span class="hljs-attr">style</span>=<span style="color:#d14">{data}</span>
+    /&gt;</span>
+  )
+}
+
+export default ColorRect
+</span></code></pre></div><div class="src-components-SourceCode-index__className--1t-Nw caasih-source-code"><label>-<!-- --> <!-- -->source</label><pre style="display:block;overflow-x:auto;padding:0.5em;color:#333;background:#f8f8f8"><code>&lt;SpaceTime&gt;
+  <span class="xml"><span style="color:#000080;font-weight:normal">&lt;<span style="color:#000080;font-weight:normal">ColorRect</span> <span class="hljs-attr">data</span>=<span style="color:#d14">{{</span> <span class="hljs-attr">backgroundColor:</span> <span class="hljs-attr">color</span> }} /&gt;</span>
+<span style="color:#000080;font-weight:normal">&lt;/<span style="color:#000080;font-weight:normal">SpaceTime</span>&gt;</span></span>
+</code></pre></div><p>就能達成下面的效果：</p><div class="src-pages-Playground-UseLess-index__demo--3n3KJ"><p>點下面的方塊：</p><div class="src-pages-Playground-UseLess-index__currentRect--1NZot"><div class="src-pages-Playground-UseLess-index__colorRect--2aBXc" style="background-color:#1abc9c"></div></div><div class="src-pages-Playground-UseLess-index__previousRects--BY2MR"></div></div><p>但這也可以靠 <code>useState</code> 做到，無用。😂</p><h3><code>map</code></h3><p>既然我們可以把值攤到時間上再組合回來，就可以把 <code>Array::map</code> 藏起來：</p><div class="src-components-SourceCode-index__className--1t-Nw caasih-source-code"><label>-<!-- --> <!-- -->source</label><pre style="display:block;overflow-x:auto;padding:0.5em;color:#333;background:#f8f8f8"><code><span style="color:#333;font-weight:bold">import</span> React, { Children, cloneElement } <span style="color:#333;font-weight:bold">from</span> <span style="color:#d14">'react'</span>
+<span style="color:#333;font-weight:bold">import</span> { useArray } <span style="color:#333;font-weight:bold">from</span> <span style="color:#d14">'@caasi/hooks'</span>;
+<span style="color:#333;font-weight:bold">import</span> SpaceTime <span style="color:#333;font-weight:bold">from</span> <span style="color:#d14">'./SpaceTime'</span>
+
+<span class="hljs-function"><span style="color:#333;font-weight:bold">function</span> <span style="color:#900;font-weight:bold">List</span>(<span class="hljs-params">{ data, children }</span>) </span>{
+  <span style="color:#333;font-weight:bold">const</span> x = useArray(data)
+  <span style="color:#333;font-weight:bold">return</span> x === <span style="color:#008080">undefined</span>
+    ? <span style="color:#008080">null</span>
+    : (
+      <span class="xml"><span style="color:#000080;font-weight:normal">&lt;<span style="color:#000080;font-weight:normal">div</span>&gt;</span>
+        </span>&lt;SpaceTime&gt;
+          {cloneElement(Children.only(children), { data: x })}
+        &lt;/SpaceTime&gt;<span class="xml">
+      <span style="color:#000080;font-weight:normal">&lt;/<span style="color:#000080;font-weight:normal">div</span>&gt;</span></span>
+    )
+}
+
+<span style="color:#333;font-weight:bold">export</span> <span style="color:#333;font-weight:bold">default</span> List
+</code></pre></div><p>再一口氣畫完一張圖：</p><div class="src-components-SourceCode-index__className--1t-Nw caasih-source-code"><label>-<!-- --> <!-- -->source</label><pre style="display:block;overflow-x:auto;padding:0.5em;color:#333;background:#f8f8f8"><code>&lt;List data={styleMap}&gt;
+  <span class="xml"><span style="color:#000080;font-weight:normal">&lt;<span style="color:#000080;font-weight:normal">List</span>&gt;</span>
+    </span>&lt;ColorRect /&gt;<span class="xml">
+  <span style="color:#000080;font-weight:normal">&lt;/<span style="color:#000080;font-weight:normal">List</span>&gt;</span></span>
+&lt;<span style="color:#009926">/List&gt;
+</span></code></pre></div><div class="src-pages-Playground-UseLess-index__demo--3n3KJ"><div></div></div><p>超無用！❤️</p><h3>更多無用</h3><ul><li>因為新版的 <code>useSpace</code> 沒辦法 reset ，所以偷偷使用 <code>undefined</code> 當成分隔符號。</li><li>要是連續兩個值完全一樣，會被 <code>useArray</code> 忽略。</li><li>這些 custom hooks 很難測試，只好靠 E2E test 工具 <a href="https://www.cypress.io/"><code>cypress</code></a> 來測。</li></ul><p>感謝朋友在閒聊時，提供標題 XD</p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png"></a></article><div class="src-components-List-index__className--1z8R9 caasih-program-style-list src-pages-Playground-index__list--30Sh3"><label>playground</label><ul><li><a href="/playground/then">&lt;Then /&gt;</a></li><li><a href="/playground/react-konva">React Konva</a></li><li><a href="/playground/map">Map</a></li><li><a href="/playground/purescript">PureScript</a></li><li><a href="/playground/image-data">ImageData</a></li><li><a href="/playground/useless">無測無用</a></li><li><a href="/playground/web-vr">WebVR Playground</a></li><li><a href="/playground/reasonml">ReScript</a></li><li><a href="/playground/web-gl">WebGL</a></li></ul></div></div></main><nav id="src-Root-Root__menu--2HZFx"><ul><li><a href="/posts">posts</a></li><li><a href="/playground">playground</a></li></ul></nav></div></div><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NB9HSNV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><script type="text/javascript">!function(e){function r(r){for(var n,l,f=r[0],i=r[1],a=r[2],c=0,s=[];c<f.length;c++)l=f[c],Object.prototype.hasOwnProperty.call(o,l)&&o[l]&&s.push(o[l][0]),o[l]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,f=1;f<t.length;f++){var i=t[f];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=l(l.s=t[0]))}return e}var n={},o={1:0},u=[];function l(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,l),t.l=!0,t.exports}l.m=e,l.c=n,l.d=function(e,r,t){l.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},l.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},l.t=function(e,r){if(1&r&&(e=l(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(l.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)l.d(t,n,function(r){return e[r]}.bind(null,n));return t},l.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return l.d(r,"a",r),r},l.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},l.p="/";var f=window.webpackJsonp=window.webpackJsonp||[],i=f.push.bind(f);f.push=r,f=f.slice();for(var a=0;a<f.length;a++)r(f[a]);var p=i;t()}([]);</script><script type="text/javascript" src="/2ca0d1a6a7e0ecac67c2.vendor~bundle.js"></script><script type="text/javascript" src="/b6c1a6bd67f9a2887b9a.bundle.js"></script></body></html>

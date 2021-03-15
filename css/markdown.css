@@ -1,0 +1,38 @@
+body {
+  background-color: #16161d;
+  color: #eee;
+  font-size: 1.2em;
+}
+
+#wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 720px;
+}
+
+h1 {
+  font-size: 160%;
+}
+
+h2 {
+  font-size: 120%;
+  font-weight: normal;
+  padding-left: 0.25em;
+  border-left: 0.5em solid #eee;
+}
+
+a {
+  color: #f90;
+}
+
+p {
+  text-align: justify;
+}
+
+hr {
+  border: 0;
+  border-bottom: 1px solid #333;
+}
+

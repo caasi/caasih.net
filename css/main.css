@@ -1,0 +1,61 @@
+body {
+  background-color: #16161d;
+  color: #fff;
+  overflow: hidden;
+}
+
+#moe {
+  position: absolute;
+  right: -80px;
+  bottom: -160px;
+}
+
+#moe canvas {
+  z-index: -1;
+}
+
+#wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 400px;
+}
+
+#sns {
+  list-style: none;
+  margin: 0;
+  margin-top: 2em;
+  padding: 0;
+}
+
+#wrap i {
+  font-family: FontAwesome;
+  font-style: normal;
+  border: none;
+  padding: 0;
+}
+
+#wrap ul {
+  list-style: none;
+}
+
+.location i,
+.current i {
+  margin-right: 0.5em;
+}
+
+#sns li {
+  display: inline-block;
+  margin-right: 0.25em;
+}
+
+#sns li a {
+  color: #666;
+  text-decoration: none;
+}
+
+#sns li a:hover {
+  color: #fff;
+}
+
