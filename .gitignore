@@ -1,13 +1,21 @@
 node_modules/
 bower_components/
+
+# outputs
 output/
 dist/*.js
 !dist/sw.js
 dist/**/*.html
 !dist/continuity.html
-coverage/
+
+# ReScript
 lib/bs/
 .merlin
 *.bs.js
+.bsb.lock
+
+# misc
+coverage/
 .DS_Store
 *.swp
+
