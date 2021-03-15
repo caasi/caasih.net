@@ -14,7 +14,7 @@ import ImageData from './ImageData'
 import Jigsaw from './Jigsaw'
 import UseLess from './UseLess'
 import WebVR from './WebVR'
-import ReasonML from './ReasonML'
+import ReScript from './ReasonML'
 import WebGL from './WebGL'
 
 import styles from './index.css'
@@ -83,7 +83,7 @@ class Playground extends Component<Props> {
             <WebVR />
           </Route>
           <Route path={ps['reasonml']}>
-            <ReasonML />
+            <ReScript />
           </Route>
           <Route path={ps['web-gl']}>
             <WebGL />
@@ -97,7 +97,7 @@ class Playground extends Component<Props> {
           <Link to={ps['image-data']}>ImageData</Link>
           <Link to={ps['useless']}>無測無用</Link>
           <Link to={ps['web-vr']}>WebVR Playground</Link>
-          <Link to={ps['reasonml']}>ReasonML</Link>
+          <Link to={ps['reasonml']}>ReScript</Link>
           <Link to={ps['web-gl']}>WebGL</Link>
         </List>
       </div>

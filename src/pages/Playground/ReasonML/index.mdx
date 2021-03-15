@@ -2,14 +2,14 @@ import SourceCode from 'components/SourceCode'
 import CreativeCommons from 'components/CreativeCommons'
 import { make as ImageData } from './ImageData.bs'
 import { make as ImagaDataCanvas } from './ImageDataCanvas.bs'
-import ImageDataSource from '!raw-loader!./ImageData.re'
-import ImageDataCanvasSource from '!raw-loader!./ImageDataCanvas.re'
+import ImageDataSource from '!raw-loader!./ImageData.res'
+import ImageDataCanvasSource from '!raw-loader!./ImageDataCanvas.res'
 import layout from '../layout'
-export default layout('ReasonML - caasih.net', 'playground-reasonml')
+export default layout('ReScript - caasih.net', 'playground-rescript')
 
-# ReasonML
+# ReScript
 
-參考 [Adding ReasonML to an existing codebase (Part 1)][reasonml-tutorial-1]後，現在除了 PureScript 外，也可以用 Reason 寫 React 元件啦 XD
+參考 [Adding ReasonML to an existing codebase (Part 1)][reasonml-tutorial-1]後，現在除了 PureScript 外，也可以用 ReScript 寫 React 元件啦 XD
 
 <ImageData />
 <div style={{ textAlign: 'center', color: '#666' }}>
@@ -18,7 +18,7 @@ export default layout('ReasonML - caasih.net', 'playground-reasonml')
 
 ---
 
-假設我想重現 `ImageData` 的核心功能 `useImageData` ，首先我得知道怎麼在 Reason 中使用 React Hooks ，並寫出這樣的骨架：
+假設我想重現 `ImageData` 的核心功能 `useImageData` ，首先我得知道怎麼在 ReScript 中使用 React Hooks ，並寫出這樣的骨架：
 
 ```reasonml
 let useImageData = url => {
@@ -26,17 +26,17 @@ let useImageData = url => {
 
   React.useEffect1(() => {
     // 一些程式碼
-  }, [|url|])
+  }, [url])
 
   imageData;
 }
 ```
 
-看 Reason 教學時會注意到，首先 `useState` 給的初始值不是一個值是一個函數。而 `useEffect` 後面多了數字。根據之前寫函數語的經驗，可以猜到數字代表的應該是參數數量。
+看 ReScript 教學時會注意到，首先 `useState` 給的初始值不是一個值是一個函數。而 `useEffect` 後面多了數字。根據之前寫函數語的經驗，可以猜到數字代表的應該是參數數量。
 
-參考[ ReasonReact 文件][reason-react-components]發現 `useEffect1` 除了只能給一個值外，那個相依的值還不能寫成 `(url)` ，得寫成 `[|url|]` 。因為只含一個元素的 tuple 在 Reason 編譯成 JS 後，會變成單一個值，而不是一個陣列。才需要特別寫上 `[||]` ，告訴 `bsb` 它還是一個陣列。
+參考[ ReScript React 文件][rescript-react]發現 `useEffect1` 除了只能給一個值外，那個相依的值還不能寫成 `(url)` ，得寫成 `[url]` 。因為只含一個元素的 tuple 在 ReScript 編譯成 JS 後，會變成單一個值，而不是一個陣列。才需要特別寫上 `[]` ，告訴 `bsb` 它還是一個陣列。
 
-查了一下在 Reason 裡因為沒有 `null` 跟 `undefined` （這就是大家一開始選用它的原因，盡可能以 ADT 表示資料，避免共用空值）。得另外使用 `Js.Nullable` ：
+查了一下在 ReScript 裡因為沒有 `null` 跟 `undefined` （這就是大家一開始選用它的原因，盡可能以 ADT 表示資料，避免共用空值）。得另外使用 `Js.Nullable` ：
 
 ```reasonml
 let (imageData, setImageData) = React.useState(() => Js.Nullable.undefined);
@@ -53,7 +53,7 @@ React.useEffect1(() => {
     // 做些什麼
   }
   }
-}, [|url|]);
+}, [url]);
 ```
 
 操作 DOM 時，可以像 `bs-platform` 附的範例那樣，自己寫 JS 介面，或者選用別人寫好的介面，像是 [`bs-webapi`][bs-webapi] 。
@@ -122,7 +122,8 @@ switch (imageData) {
 
 有個 [issue][issue-2625] 討論到 `->` 和 `|>` 的效率。在 `bs-webapi` 改寫之前，哪時候該用 `->` 、哪時候該用 `|>` 還是得乖乖看程式碼。
 
-[reason-react-components]: https://reasonml.github.io/reason-react/docs/en/components
+[reasonml-tutorial-1]: https://dev.to/yakimych/adding-reasonml-to-an-existing-codebase-part-1-3kkg
+[rescript-react]: https://rescript-lang.org/docs/react/latest/introduction
 [bs-webapi]: https://github.com/reasonml-community/bs-webapi-incubator
 [issue-2625]: https://github.com/BuckleScript/bucklescript/issues/2625
 
@@ -142,4 +143,3 @@ switch (imageData) {
 
 <CreativeCommons size="compact" type="by" />
 
-[reasonml-tutorial-1]: https://dev.to/yakimych/adding-reasonml-to-an-existing-codebase-part-1-3kkg

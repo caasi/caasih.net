@@ -1,11 +1,12 @@
 {
   "name": "caasih.net",
-  "reason": {
-    "react-jsx": 3
-  },
-  "sources": {
+  "bsc-flags": ["-bs-super-errors"],
+  "sources": [{
     "dir": "src",
     "subdirs": true
+  }],
+  "reason": {
+    "react-jsx": 3
   },
   "package-specs": [
     {
@@ -16,7 +17,7 @@
   "suffix": ".bs.js",
   "namespace": true,
   "bs-dependencies": [
-    "reason-react",
+    "@rescript/react",
     "bs-webapi"
   ],
   "ppx-flags": ["bs-let/ppx"],
