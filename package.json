@@ -57,7 +57,7 @@
     "postcss-scss": "2",
     "precss": "4",
     "prettier": "1.16.4",
-    "pug": "2",
+    "pug": "3",
     "pug-cli": "^1.0.0-alpha6",
     "pug-loader": "2",
     "purescript": "^0.12.0",
