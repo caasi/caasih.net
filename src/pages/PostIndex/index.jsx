@@ -12,12 +12,14 @@ import { index } from 'data/public-post'
 
 import styles from './index.css'
 
+/*::
 type OwnProps = {
   id?: string,
   className: string,
 }
+*/
 
-class PostIndex extends PureComponent<OwnProps> {
+class PostIndex extends PureComponent {
   static defaultProps = {
     className: '',
   }

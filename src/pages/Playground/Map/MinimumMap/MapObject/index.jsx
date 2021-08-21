@@ -2,7 +2,9 @@
 
 import React, { Component } from 'react'
 import cx from 'classnames'
+/*::
 import type { Box } from '../geometry'
+*/
 import { makeTransformers } from '../transform'
 import styles from './index.css'
 
@@ -10,6 +12,7 @@ function round(value) {
   return Math.floor(value * 100) / 100
 }
 
+/*::
 type Props = {
   id: string,
   className?: string,
@@ -25,8 +28,9 @@ type Props = {
   onMouseMove?: (e: SyntheticEvent<HTMLDivElement>, obj: Props) => void,
   onMouseUp?: (e: SyntheticEvent<HTMLDivElement>, obj: Props) => void,
 }
+*/
 
-function MapObject(obj: Props) {
+function MapObject(obj) {
   const {
     id, className,
     screen, viewport,

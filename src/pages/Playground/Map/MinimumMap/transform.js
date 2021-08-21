@@ -1,9 +1,11 @@
 /* @flow */
 
+/*::
 import type { Box, PartialBox, Point } from './geometry'
+*/
 
 export const makeTransformers
-  : (Box, Box) => { toScreen: PartialBox => Box, toGlobal: PartialBox => Box }
+/*: (Box, Box) => { toScreen: PartialBox => Box, toGlobal: PartialBox => Box } */
   = (screen, viewport) => ({
     toScreen: ({ x = 0, y = 0, width = 0, height = 0 }) => {
       const scaleX = screen.width / viewport.width

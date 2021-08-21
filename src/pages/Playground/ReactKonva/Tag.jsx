@@ -1,24 +1,7 @@
-/* @flow */
-
 import * as React from 'react'
 import { Group, Rect, Text } from 'react-konva'
 
-type Props = {
-  x: number,
-  y: number,
-  fontSize: number,
-  text: string,
-  color: string,
-  backgroundColor: string,
-  onResize?: (width: number, height: number) => void,
-}
-
-type State = {
-  w: number,
-  h: number,
-}
-
-class Tag extends React.PureComponent<Props, State> {
+class Tag extends React.PureComponent {
   static defaultProps = {
     className: '',
     x: 0,
@@ -38,9 +21,9 @@ class Tag extends React.PureComponent<Props, State> {
     }
   }
 
-  textNode: Text
+  textNode
 
-  constructor(props: Props) {
+  constructor(props) {
     super(props)
     this.state = { w: 0, h: 0 }
   }
@@ -66,7 +49,7 @@ class Tag extends React.PureComponent<Props, State> {
     this.updateDimension()
   }
 
-  componentDidUpdate(prevProps: Props) {
+  componentDidUpdate(prevProps) {
     if (this.props.text !== prevProps.text) {
       this.updateDimension()
     }

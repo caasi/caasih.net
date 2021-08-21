@@ -10,26 +10,7 @@ const { Provider, Consumer } = createContext({ state: { objects: {} } })
 
 export { Consumer as Consumer }
 
-type Props = {
-  id: string,
-  className: string,
-}
-
-type State = S.State & {
-  actions: {
-    scaleViewport: typeof S.scaleViewport,
-    dragViewportStart: typeof S.dragViewportStart,
-    dragViewportEnd: typeof S.dragViewportEnd,
-    dragViewportMove: typeof S.dragViewportMove,
-    select: typeof S.select,
-    unselect: typeof S.unselect,
-    dragStart: typeof S.dragStart,
-    dragEnd: typeof S.dragEnd,
-    dragMove: typeof S.dragMove,
-  }
-}
-
-class MinimumMap extends Component<Props, State> {
+class MinimumMap extends Component {
   static defaultProps = {
     className: '',
   }

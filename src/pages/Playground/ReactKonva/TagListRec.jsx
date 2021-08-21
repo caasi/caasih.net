@@ -1,20 +1,7 @@
-/* @flow */
-
 import * as React from 'react'
 import { Group } from 'react-konva'
 
-type Props = {
-  children: React.Node,
-  x: number,
-  y: number,
-}
-
-type State = {
-  width: number,
-  height: number,
-}
-
-class TagListRec extends React.Component<Props, State> {
+class TagListRec extends React.Component {
   static defaultProps = {
     x: 0,
     y: 0,
@@ -31,7 +18,7 @@ class TagListRec extends React.Component<Props, State> {
     }
   }
 
-  handleResize = (width: number, height: number): void => {
+  handleResize = (width, height) => {
     this.setState({ width, height })
   }
 

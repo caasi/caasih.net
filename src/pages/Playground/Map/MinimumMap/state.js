@@ -1,10 +1,15 @@
 /* @flow */
 
+/*::
 import type { Point, Box, Rect } from './geometry'
+*/
 import { makeTransformers } from './transform'
 
+/*::
 export type MapObjectID = string
+*/
 
+/*::
 export type MapObject = {
   id: MapObjectID,
   x: number,
@@ -12,7 +17,9 @@ export type MapObject = {
   width: number,
   height: number,
 }
+*/
 
+/*::
 export type State = {
   screen: Box,
   viewport: Box,
@@ -26,16 +33,19 @@ export type State = {
   startPoint: Point,
   prevPoint: Point,
 }
+*/
 
+/*::
 export type Action = State => State
+*/
 
 // XXX: wrong direction, should use reduceRight
 const pipe
-  : (...fs: Action[]) => Action
+/*: (...fs: Action[]) => Action */
   = (...fs) => (state) => fs.reduce((s, f) => f(s), state)
 
 export const init
-  : (number, number) => Action
+/*: (number, number) => Action */
   = (width, height) => () => ({
     // TODO: move into the dimension.js
     screen: {
@@ -67,13 +77,13 @@ export const init
   })
 
 export const getObject
-  : State => MapObjectID => MapObject
+/*: State => MapObjectID => MapObject */
   = (state) => (id) => {
     return state.objects[id]
   }
 
 export const updateObject
-  : MapObject => Action
+/*: MapObject => Action */
   = (obj) => (state) => {
     const { id } = obj
     const objects = { ...state.objects, [id]: obj }
@@ -81,7 +91,7 @@ export const updateObject
   }
 
 export const updateBoundingBox
-  : Action
+/*: Action */
   = (state) => {
     if (state.selection.length === 0) {
       return { ...state, boundingBox: { x: 0, y: 0, width: 0, height: 0 } }
@@ -114,7 +124,7 @@ export const updateBoundingBox
   }
 
 const _select
-  : MapObject => Action
+/*: MapObject => Action */
   = (obj) => (state) => {
     const { id } = obj
     const selection = state.selection.indexOf(id) === -1
@@ -124,7 +134,7 @@ const _select
   }
 
 export const select
-  : MapObject => Action
+/*: MapObject => Action */
   = (obj) =>
     pipe(
       _select(obj),
@@ -132,7 +142,7 @@ export const select
     )
 
 const _unselect
-  : MapObject => Action
+/*: MapObject => Action */
   = (obj) => (state) => {
     let selection = []
     for (let id of state.selection) {
@@ -143,7 +153,7 @@ const _unselect
   }
 
 export const unselect
-  : MapObject => Action
+/*: MapObject => Action */
   = (obj) =>
     pipe(
       _unselect(obj),
@@ -151,14 +161,14 @@ export const unselect
     )
 
 export const moveObject
-  : Point => MapObject => Action
+/*: Point => MapObject => Action */
   = (pt) => (obj) => {
     const newObj = { ...obj, x: obj.x + pt.x, y: obj.y + pt.y }
     return updateObject(newObj)
   }
 
 export const dragStart
-  : Point => Action
+/*: Point => Action */
   = (pt) => (state) => {
     const { screen, viewport } = state
     const { toGlobal } = makeTransformers(screen, viewport)
@@ -168,14 +178,14 @@ export const dragStart
   }
 
 export const dragEnd
-  : () => Action
+/*: () => Action */
   = () => (state) => {
     const origin = { x: 0, y: 0 }
     return { ...state, isDragging: false, startPoint: origin, prevPoint: origin }
   }
 
 export const dragMove
-  : Point => Action
+/*: Point => Action */
   = ({ x: width, y: height }) => (state) => {
     const { selection, prevPoint, screen, viewport } = state
     // scale the input
@@ -191,7 +201,7 @@ export const dragMove
   }
 
 const moveViewport
-  : Point => Action
+/*: Point => Action */
   = (pt) => (state) => {
     const vp = state.viewport
     const viewport = { ...vp, x: vp.x + pt.x, y: vp.y + pt.y }
@@ -199,7 +209,7 @@ const moveViewport
   }
 
 export const scaleViewport
-  : number => Action
+/*: number => Action */
   = (scale) => (state) => {
     const { screen } = state
     const viewport = {
@@ -211,7 +221,7 @@ export const scaleViewport
   }
 
 export const dragViewportStart
-  : Point => Action
+/*: Point => Action */
   = (pt) => (state) => {
     const { screen, viewport } = state
     const { toGlobal } = makeTransformers(screen, viewport)
@@ -221,14 +231,14 @@ export const dragViewportStart
   }
 
 export const dragViewportEnd
-  : () => Action
+/*: () => Action */
   = () => (state) => {
     const origin = { x: 0, y: 0 }
     return { ...state, isDraggingV: false, startPointV: origin, prevPointV: origin }
   }
 
 export const dragViewportMove
-  : Point => Action
+/*: Point => Action */
   = ({ x: width, y: height }) => (state) => {
     const { prevPointV, screen, viewport } = state
     const { toGlobal } = makeTransformers(screen, viewport)

@@ -1,15 +1,8 @@
-/* @flow */
-
 import React, { PureComponent } from 'react'
 import { Group, Rect } from 'react-konva'
 import Text from './Text'
 
-type State = {
-  w: number,
-  h: number,
-}
-
-class TextInRect extends PureComponent<{}, State> {
+class TextInRect extends PureComponent {
   padding = {
     vertical: 16,
     horizontal: 8,
@@ -17,7 +10,7 @@ class TextInRect extends PureComponent<{}, State> {
 
   state = { w: 0, h: 0 }
 
-  handleResize = (w: number, h: number) => {
+  handleResize = (w, h) => {
     this.setState({ w, h })
   }
 

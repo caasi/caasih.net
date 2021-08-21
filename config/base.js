@@ -17,9 +17,19 @@ const htmlWebpackOptions = {
 
 const isDevelopment = process.env.NODE_ENV === 'development'
 
+const swcOptions = {
+  jsc: {
+    parser: {
+      syntax: 'ecmascript',
+      jsx: true,
+      exportDefaultFrom: true,
+    },
+  },
+};
+
 module.exports = {
   entry: {
-    bundle: ['@babel/polyfill', path.join(srcPath, 'index.jsx')],
+    bundle: path.join(srcPath, 'index.jsx'),
   },
   output: {
     path: dstPath,
@@ -60,14 +70,20 @@ module.exports = {
       },
       {
         test: /\.jsx?$/,
-        use: 'babel-loader',
         exclude: /node_modules/,
+        use: {
+          loader: 'swc-loader',
+          options: swcOptions,
+        },
       },
       {
         test: /\.mdx?$/,
         use: [
-          'babel-loader',
-          '@mdx-js/loader',
+          {
+            loader: 'swc-loader',
+            options: swcOptions,
+          },
+          { loader: '@mdx-js/loader' },
         ],
       },
       {

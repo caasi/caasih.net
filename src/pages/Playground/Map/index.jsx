@@ -1,5 +1,3 @@
-/* @flow */
-
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 import cx from 'classnames'
@@ -8,12 +6,7 @@ import SourceCode from 'components/SourceCode'
 import CreativeCommons from 'components/CreativeCommons'
 import MinimumMap from './MinimumMap'
 
-type Props = {
-  id?: string,
-  className: string,
-}
-
-class Map extends Component<Props> {
+class Map extends Component {
   static defaultProps = {
     className: '',
   }

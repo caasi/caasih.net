@@ -1,10 +1,7 @@
-/* @flow */
-
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 import cx from 'classnames'
 import { withRouter, Link, Route, Switch } from 'react-router-dom'
-import type { ContextRouter } from 'react-router'
 import List from 'components/List'
 import Then from './Then'
 import ReactKonva from './ReactKonva'
@@ -19,13 +16,6 @@ import WebGL from './WebGL'
 
 import styles from './index.css'
 
-type OwnProps = {
-  id: string,
-  className: string,
-}
-
-type Props = ContextRouter & OwnProps
-
 const paths = [
   'then',
   'react-konva',
@@ -39,7 +29,7 @@ const paths = [
   'web-gl',
 ]
 
-class Playground extends Component<Props> {
+class Playground extends Component {
   static defaultProps = {
     className: ''
   }

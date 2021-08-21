@@ -1,24 +1,7 @@
-/* @flow */
-
 import * as React from 'react'
 import { Group } from 'react-konva'
 
-type Props = {
-  children: React.Node,
-  x: number,
-  y: number,
-}
-
-type Dimension = {
-  width: number,
-  height: number,
-}
-
-type State = {
-  dimensions: Dimension[],
-}
-
-class TagList extends React.Component<Props, State> {
+class TagList extends React.Component {
   static defaultProps = {
     x: 0,
     y: 0,
@@ -34,11 +17,11 @@ class TagList extends React.Component<Props, State> {
     }
   }
 
-  getDimension(index: number): Dimension {
+  getDimension(index) {
     return this.state.dimensions[index] || { width: 0, height: 0 }
   }
 
-  setDimension(index: number, { width = 0, height = 0 }: Dimension = {}) {
+  setDimension(index, { width = 0, height = 0 } = {}) {
     const { dimensions } = this.state
     const dimension = { width, height }
     dimensions[index] = dimension
@@ -46,7 +29,7 @@ class TagList extends React.Component<Props, State> {
     return dimension
   }
 
-  handleResize(index: number): (width: number, height: number) => Dimension {
+  handleResize(index) {
     return (width, height) => {
       return this.setDimension(index, { width, height })
     }

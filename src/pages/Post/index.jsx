@@ -15,13 +15,15 @@ import { index, contents } from 'data/public-post'
 
 const DATETIME_FORMAT = 'YYYY-MM-DD HH:mm'
 
+/*::
 type OwnProps = {
   id?: string,
   className: string,
   pid: string,
 }
+*/
 
-class Post extends PureComponent<OwnProps> {
+class Post extends PureComponent {
   static defaultProps = {
     className: '',
     pid: '',

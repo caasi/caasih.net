@@ -1,5 +1,3 @@
-/* @flow */
-
 import * as React from 'react'
 import { Helmet } from 'react-helmet'
 import cx from 'classnames'
@@ -10,34 +8,18 @@ import CreativeCommons from 'components/CreativeCommons'
 
 import styles from './index.css'
 
-type PeopleProps = {
-  name?: string,
-  age?: number,
-}
-
-const People = (props: PeopleProps) => {
+const People = (props) => {
   const { name = '???', age = '??' } = props
 
   return <span>I am { name }. I am { age } years old.</span>
 }
 
-type Props = {
-  id?: string,
-  className: string,
-}
-
-type State = {
-  name: Promise<string>,
-  age: Promise<number>,
-  foo: Promise<number>,
-}
-
-class AboutThen extends React.Component<Props, State> {
+class AboutThen extends React.Component {
   static defaultProps = {
     className: ''
   }
 
-  constructor(props: Props) {
+  constructor(props) {
     super(props)
     this.state = {
       name: Promise.resolve('Isaac').then(delay(5000)),
@@ -46,7 +28,7 @@ class AboutThen extends React.Component<Props, State> {
     }
   }
 
-  handleClick = (e: SyntheticEvent<HTMLButtonElement>) => {
+  handleClick = (e) => {
     const { foo } = this.state
 
     e.preventDefault()

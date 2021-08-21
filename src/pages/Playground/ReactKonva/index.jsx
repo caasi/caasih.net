@@ -1,5 +1,3 @@
-/* @flow */
-
 import * as React from 'react'
 import { Helmet } from 'react-helmet'
 import PropTypes from 'prop-types'
@@ -28,12 +26,7 @@ import WidthBoundedText from './WidthBoundedText'
 import BoundedText from './BoundedText'
 import styles from './index.css'
 
-type Props = {
-  id?: string,
-  className: string,
-}
-
-function MyStage({ children }: { children: React.Node }) {
+function MyStage({ children }) {
   return (
     <Stage className={styles.stage} width={210} height={80}>
       <Layer>{children}</Layer>
@@ -41,7 +34,7 @@ function MyStage({ children }: { children: React.Node }) {
   )
 }
 
-class ReactKonva extends React.Component<Props> {
+class ReactKonva extends React.Component {
   static defaultProps = {
     className: ''
   }

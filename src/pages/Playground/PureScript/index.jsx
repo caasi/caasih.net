@@ -1,5 +1,3 @@
-/* @flow */
-
 import * as React from 'react'
 import { Helmet } from 'react-helmet'
 import cx from 'classnames'
@@ -9,12 +7,7 @@ import CreativeCommons from 'components/CreativeCommons'
 import * as Prelude from './Prelude.purs'
 import PreludeSource from '!raw-loader!./Prelude.purs'
 
-type Props = {
-  id?: string,
-  className: string,
-}
-
-class PureScript extends React.PureComponent<Props> {
+class PureScript extends React.PureComponent {
   static defaultProps = {
     className: '',
   }

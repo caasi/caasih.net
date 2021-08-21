@@ -1,8 +1,24 @@
 const { defaults } = require('jest-config')
 
+const swcOptions = {
+  jsc: {
+    parser: {
+      syntax: "ecmascript",
+      jsx: true,
+      exportDefaultFrom: true
+    },
+  },
+  module: {
+    type: "commonjs",
+  },
+};
+
 module.exports = {
   setupFiles: ['./jest.setup.js'],
   testPathIgnorePatterns: ['/node_modules/', '/reusable'],
+  transform: {
+    '^.+\\.(t|j)sx?$': ['@swc/jest', swcOptions],
+  },
   moduleNameMapper: {
     '^!raw-loader!(.*)': 'identity-obj-proxy',
     '\\.css$': 'identity-obj-proxy',

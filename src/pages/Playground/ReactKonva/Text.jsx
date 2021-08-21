@@ -1,17 +1,9 @@
-/* @flow */
-
 import * as React from 'react'
-import type Konva from 'konva'
 import { Text as KonvaText } from 'react-konva'
 
-type Props = {
-  onResize?: (width: number, height: number) => void
-}
-
-class Text extends React.PureComponent<Props> {
-  textNode: KonvaText
-  width: number = 0
-  height: number = 0
+class Text extends React.PureComponent {
+  width = 0
+  height = 0
 
   handleResize() {
     if (!this.textNode) return

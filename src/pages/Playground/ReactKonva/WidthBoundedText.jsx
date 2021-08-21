@@ -1,29 +1,7 @@
-/* @flow */
-
 import * as React from 'react'
 import Text from './Text'
 
-// public interface of every component:
-//   width: number
-//   height: number
-//   onResize :: (x: number, number, left: string) => void
-
-type Props = {
-  children: string,
-  x: number,
-  y: number,
-  width: number,
-  index?: number,
-  onResize?: (x: number, y: number, left: string) => void,
-}
-
-type State = {
-  width: number,
-  prevIndex: number,
-  index: number,
-}
-
-function initialState(props: Props): State {
+function initialState(props) {
   const index = props.index || [...props.children].length
 
   return {
@@ -34,7 +12,7 @@ function initialState(props: Props): State {
 }
 
 // try to draw half of the string until comsuming all the width
-class WidthBoundedText extends React.PureComponent<Props, State> {
+class WidthBoundedText extends React.PureComponent {
   static defaultProps = {
     children: '',
     x: 0,
@@ -42,12 +20,12 @@ class WidthBoundedText extends React.PureComponent<Props, State> {
     width: 0,
   }
 
-  constructor(props: Props) {
+  constructor(props) {
     super(props)
     this.state = initialState(props)
   }
 
-  handleTextResize = (width: number, height: number): void => {
+  handleTextResize = (width, height) => {
     const { index } = this.state
 
     // nothing to render and trigger the callback to notify ancestors
@@ -72,14 +50,14 @@ class WidthBoundedText extends React.PureComponent<Props, State> {
     this.setState({ width })
   }
 
-  handleResize = (width: number, height: number, left: string) => {
+  handleResize = (width, height, left) => {
     const { onResize } = this.props
     if (typeof onResize === 'function') {
       onResize(this.state.width + width, height, left)
     }
   }
 
-  componentDidUpdate(prevProps: Props, prevState: State) {
+  componentDidUpdate(prevProps, prevState) {
     if (
       this.props.children !== prevProps.children ||
       this.props.width !== prevProps.width

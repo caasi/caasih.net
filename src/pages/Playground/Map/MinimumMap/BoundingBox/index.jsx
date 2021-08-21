@@ -2,10 +2,13 @@
 
 import React, { PureComponent } from 'react';
 import cx from 'classnames'
+/*::
 import type { Box } from '../geometry'
+*/
 import { makeTransformers } from '../transform'
 import styles from './index.css'
 
+/*::
 type Props = {
   id: string,
   className?: string,
@@ -19,8 +22,9 @@ type Props = {
   screen: Box,
   viewport: Box,
 }
+*/
 
-class BoundingBox extends PureComponent<Props> {
+class BoundingBox extends PureComponent {
   static defaultProps = {
     className: '',
     x: 0,
