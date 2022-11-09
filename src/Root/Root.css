@@ -27,7 +27,7 @@
     white-space: pre;
 
     &:before {
-      content: 'data Site = Site\A { posts      :: [Markdown]\A , playground :: [ReactElement]\A }\Asite = Site '
+      content: 'data Site = Site\A { posts      :: [Markdown]\A , playground :: [ReactElement]\A , mastodon   :: Link\A }\Asite = Site '
     }
 
     > ul {

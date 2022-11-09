@@ -45,6 +45,7 @@ const Root = ({ id, className }) => {
           <ul>
             <li><Link to="/posts">posts</Link></li>
             <li><Link to="/playground">playground</Link></li>
+            <li><a rel="me" href="https://g0v.social/@caasih">mastodon</a></li>
           </ul>
         </nav>
       </ScrollToTop>
