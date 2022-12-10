@@ -43,7 +43,7 @@
     "eslint": "5",
     "eslint-plugin-react": "7",
     "eventsource-polyfill": "^0.9.6",
-    "express": "^4.14.0",
+    "express": "^4.17.3",
     "gentype": "^3.21.0",
     "gh-pages": "^1.2.0",
     "html-webpack-plugin": "3",
