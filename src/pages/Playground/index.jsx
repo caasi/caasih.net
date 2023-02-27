@@ -24,9 +24,7 @@ const paths = [
   'image-data',
   'jigsaw',
   'useless',
-  'web-vr',
   'reasonml',
-  'web-gl',
 ]
 
 class Playground extends Component {
@@ -86,9 +84,7 @@ class Playground extends Component {
           <Link to={ps['purescript']}>PureScript</Link>
           <Link to={ps['image-data']}>ImageData</Link>
           <Link to={ps['useless']}>無測無用</Link>
-          <Link to={ps['web-vr']}>WebVR Playground</Link>
           <Link to={ps['reasonml']}>ReScript</Link>
-          <Link to={ps['web-gl']}>WebGL</Link>
         </List>
       </div>
     )
