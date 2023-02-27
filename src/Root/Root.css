@@ -7,14 +7,16 @@
     margin: 0;
     top: -1.25rem;
     right: 0;
-    color: #666;
     user-select: none;
     z-index: 0;
+    color: var(--background-color);
+    filter: brightness(0.95);
   }
 
   @media (prefers-color-scheme: dark) {
     > h1 {
-      color: #999;
+      color: var(--background-color-dark);
+      filter: brightness(1.4);
     }
   }
 
@@ -50,12 +52,6 @@
   #container {
     position: relative;
     z-index: 200;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    > h1 {
-      color: #999;
-    }
   }
 }
 

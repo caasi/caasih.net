@@ -8,10 +8,8 @@
   :global(.info) {
   }
 
-  & > p,
-  & > pre,
-  ul, ol, figure {
-    line-height: 1.5rem;
+  h1 {
+    color: var(--m-blue);
   }
 
   & > pre {
@@ -19,23 +17,18 @@
     white-space: pre-wrap;
   }
 
-  --code-color: #666;
-  --dark-code-color: #999;
-
   code {
     color: var(--code-color);
   }
 
   @media (prefers-color-scheme: dark) {
     code {
-      color: var(--dark-code-color);
+      color: var(--code-color-dark);
     }
   }
 
-  --blockquote-color: #666;
-
   & > blockquote {
-    border-left: .15em solid var(--blockquote-color);
+    border-left: .15em solid var(--m-red);
     padding-left: 1em;
     margin-left: 1.2em;
     color: var(--blockquote-color);

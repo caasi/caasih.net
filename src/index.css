@@ -1,6 +1,28 @@
+:root {
+  --m-white: #e6e6e7;
+  --m-blue: #33a0d1;
+  --m-purple: #373485;
+  --m-red: #c52b30;
+
+  --background-color: var(--m-white);
+  --background-color-dark: #161618;
+  --text-color: #161618;
+  --text-color-dark: var(--m-white);
+  --link-color: var(--m-purple);
+  --link-color-light: #514e9a;
+  --link-color-lighter: #7a77b7;
+  --link-color-dark: #23206d;
+  --link-color-darker: #0f0c50;
+  --code-color: #666;
+  --code-color-dark: #999;
+  --blockquote-color: #666;
+}
+
 body {
   font-size: 12pt;
   font-family: "Helvetica", "Arial", "黑體-繁", "Noto Sans TC", "Noto Sans SC", "微軟正黑體", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 hr {
@@ -9,40 +31,40 @@ hr {
 }
 
 a {
-  color: #000;
+  color: var(--link-color);
 }
 
 a:hover {
-  color: #666;
+  color: var(--link-color-light);
 }
 
 a:visited {
-  color: #999;
+  color: var(--link-color-lighter);
 }
 
 a:active {
-  color: #999;
+  color: var(--link-color-lighter);
 }
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #252525;
-    color: #fff;
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
   }
 
   a {
-    color: #fff;
+    color: var(--link-color-lighter);
   }
 
   a:hover {
-    color: #999;
+    color: var(--link-color-light);
   }
 
   a:visited {
-    color: #666;
+    color: var(--link-color);
   }
 
   a:active {
-    color: #666;
+    color: var(--link-color);
   }
 }
