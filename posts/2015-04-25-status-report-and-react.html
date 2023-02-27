@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1"><title>近況與 React - caasih.net</title><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JWEYL7WZ24"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config','G-JWEYL7WZ24');</script><style type="text/css">.src-components-List-index__className--1z8R9 {
+<!DOCTYPE html><html lang="zh-Hant-TW"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1"><title>近況與 React - caasih.net</title><link rel="stylesheet" media="all" href="//cdnjs.cloudflare.com/ajax/libs/Han/3.2.7/han.min.css"><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JWEYL7WZ24"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config','G-JWEYL7WZ24');</script><style type="text/css">.src-components-List-index__className--1z8R9 {
   font-family: monospace;
   white-space: pre;
 }
@@ -58,12 +58,8 @@
   .src-components-Article-index__className--1GoCq .info {
   }
 
-  .src-components-Article-index__className--1GoCq > p,
-  .src-components-Article-index__className--1GoCq > pre,
-  .src-components-Article-index__className--1GoCq ul,
-  .src-components-Article-index__className--1GoCq ol,
-  .src-components-Article-index__className--1GoCq figure {
-    line-height: 1.5rem;
+  .src-components-Article-index__className--1GoCq h1 {
+    color: var(--m-blue);
   }
 
 .src-components-Article-index__className--1GoCq > pre {
@@ -71,35 +67,24 @@
     white-space: pre-wrap;
   }
 
-.src-components-Article-index__className--1GoCq {
-
-  --code-color: #666;
-  --dark-code-color: #999;
-}
-
 .src-components-Article-index__className--1GoCq code {
     color: var(--code-color);
   }
 
 @media (color-index: 48) {
     .src-components-Article-index__className--1GoCq code {
-      color: var(--dark-code-color);
+      color: var(--code-color-dark);
     }
   }
 
 @media (prefers-color-scheme: dark) {
     .src-components-Article-index__className--1GoCq code {
-      color: var(--dark-code-color);
+      color: var(--code-color-dark);
     }
   }
 
-.src-components-Article-index__className--1GoCq {
-
-  --blockquote-color: #666
-}
-
 .src-components-Article-index__className--1GoCq > blockquote {
-    border-left: .15em solid var(--blockquote-color);
+    border-left: .15em solid var(--m-red);
     padding-left: 1em;
     margin-left: 1.2em;
     color: var(--blockquote-color);
@@ -310,23 +295,26 @@
     margin: 0;
     top: -1.25rem;
     right: 0;
-    color: #666;
     -webkit-user-select: none;
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none;
     z-index: 0;
+    color: var(--background-color);
+    filter: brightness(0.95);
   }
 
 @media (color-index: 48) {
     .src-Root-Root__className--23B9r > h1 {
-      color: #999;
+      color: var(--background-color-dark);
+      filter: brightness(1.4);
     }
   }
 
 @media (prefers-color-scheme: dark) {
     .src-Root-Root__className--23B9r > h1 {
-      color: #999;
+      color: var(--background-color-dark);
+      filter: brightness(1.4);
     }
   }
 
@@ -364,468 +352,33 @@
     z-index: 200;
   }
 
-@media (color-index: 48) {
-    .src-Root-Root__className--23B9r > h1 {
-      color: #999;
-    }
-  }
+</style><style type="text/css">:root {
+  --m-white: #e6e6e7;
+  --m-blue: #33a0d1;
+  --m-purple: #373485;
+  --m-red: #c52b30;
 
-@media (prefers-color-scheme: dark) {
-    .src-Root-Root__className--23B9r > h1 {
-      color: #999;
-    }
-  }
-
-</style><style type="text/css">/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
-
-/* Document
-   ========================================================================== */
-
-/**
- * 1. Correct the line height in all browsers.
- * 2. Prevent adjustments of font size after orientation changes in
- *    IE on Windows Phone and in iOS.
- */
-
-html {
-  line-height: 1.15; /* 1 */
-  -ms-text-size-adjust: 100%; /* 2 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+  --background-color: var(--m-white);
+  --background-color-dark: #161618;
+  --text-color: #161618;
+  --text-color-dark: var(--m-white);
+  --link-color: var(--m-purple);
+  --link-color-light: #514e9a;
+  --link-color-lighter: #7a77b7;
+  --link-color-dark: #23206d;
+  --link-color-darker: #0f0c50;
+  --code-color: #666;
+  --code-color-dark: #999;
+  --blockquote-color: #666;
 }
-
-/* Sections
-   ========================================================================== */
-
-/**
- * Remove the margin in all browsers (opinionated).
- */
 
 body {
-  margin: 0;
-}
-
-/**
- * Add the correct display in IE 9-.
- */
-
-article,
-aside,
-footer,
-header,
-nav,
-section {
-  display: block;
-}
-
-/**
- * Correct the font size and margin on `h1` elements within `section` and
- * `article` contexts in Chrome, Firefox, and Safari.
- */
-
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-
-/* Grouping content
-   ========================================================================== */
-
-/**
- * Add the correct display in IE 9-.
- * 1. Add the correct display in IE.
- */
-
-figcaption,
-figure,
-main { /* 1 */
-  display: block;
-}
-
-/**
- * Add the correct margin in IE 8.
- */
-
-figure {
-  margin: 1em 40px;
-}
-
-/**
- * 1. Add the correct box sizing in Firefox.
- * 2. Show the overflow in Edge and IE.
- */
-
-hr {
-  box-sizing: content-box; /* 1 */
-  height: 0; /* 1 */
-  overflow: visible; /* 2 */
-}
-
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-
-pre {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-}
-
-/* Text-level semantics
-   ========================================================================== */
-
-/**
- * 1. Remove the gray background on active links in IE 10.
- * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
- */
-
-a {
-  background-color: transparent; /* 1 */
-  -webkit-text-decoration-skip: objects; /* 2 */
-}
-
-/**
- * 1. Remove the bottom border in Chrome 57- and Firefox 39-.
- * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
- */
-
-abbr[title] {
-  border-bottom: none; /* 1 */
-  text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
-}
-
-/**
- * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
- */
-
-b,
-strong {
-  font-weight: inherit;
-}
-
-/**
- * Add the correct font weight in Chrome, Edge, and Safari.
- */
-
-b,
-strong {
-  font-weight: bolder;
-}
-
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-
-code,
-kbd,
-samp {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-}
-
-/**
- * Add the correct font style in Android 4.3-.
- */
-
-dfn {
-  font-style: italic;
-}
-
-/**
- * Add the correct background and color in IE 9-.
- */
-
-mark {
-  background-color: #ff0;
-  color: #000;
-}
-
-/**
- * Add the correct font size in all browsers.
- */
-
-small {
-  font-size: 80%;
-}
-
-/**
- * Prevent `sub` and `sup` elements from affecting the line height in
- * all browsers.
- */
-
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-sup {
-  top: -0.5em;
-}
-
-/* Embedded content
-   ========================================================================== */
-
-/**
- * Add the correct display in IE 9-.
- */
-
-audio,
-video {
-  display: inline-block;
-}
-
-/**
- * Add the correct display in iOS 4-7.
- */
-
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-
-/**
- * Remove the border on images inside links in IE 10-.
- */
-
-img {
-  border-style: none;
-}
-
-/**
- * Hide the overflow in IE.
- */
-
-svg:not(:root) {
-  overflow: hidden;
-}
-
-/* Forms
-   ========================================================================== */
-
-/**
- * 1. Change the font styles in all browsers (opinionated).
- * 2. Remove the margin in Firefox and Safari.
- */
-
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: sans-serif; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
-  margin: 0; /* 2 */
-}
-
-/**
- * Show the overflow in IE.
- * 1. Show the overflow in Edge.
- */
-
-button,
-input { /* 1 */
-  overflow: visible;
-}
-
-/**
- * Remove the inheritance of text transform in Edge, Firefox, and IE.
- * 1. Remove the inheritance of text transform in Firefox.
- */
-
-button,
-select { /* 1 */
-  text-transform: none;
-}
-
-/**
- * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
- *    controls in Android 4.
- * 2. Correct the inability to style clickable types in iOS and Safari.
- */
-
-button,
-html [type="button"], /* 1 */
-[type="reset"],
-[type="submit"] {
-  -webkit-appearance: button; /* 2 */
-}
-
-/**
- * Remove the inner border and padding in Firefox.
- */
-
-button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
-}
-
-/**
- * Restore the focus styles unset by the previous rule.
- */
-
-button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
-
-/**
- * Correct the padding in Firefox.
- */
-
-fieldset {
-  padding: 0.35em 0.75em 0.625em;
-}
-
-/**
- * 1. Correct the text wrapping in Edge and IE.
- * 2. Correct the color inheritance from `fieldset` elements in IE.
- * 3. Remove the padding so developers are not caught out when they zero out
- *    `fieldset` elements in all browsers.
- */
-
-legend {
-  box-sizing: border-box; /* 1 */
-  color: inherit; /* 2 */
-  display: table; /* 1 */
-  max-width: 100%; /* 1 */
-  padding: 0; /* 3 */
-  white-space: normal; /* 1 */
-}
-
-/**
- * 1. Add the correct display in IE 9-.
- * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
- */
-
-progress {
-  display: inline-block; /* 1 */
-  vertical-align: baseline; /* 2 */
-}
-
-/**
- * Remove the default vertical scrollbar in IE.
- */
-
-textarea {
-  overflow: auto;
-}
-
-/**
- * 1. Add the correct box sizing in IE 10-.
- * 2. Remove the padding in IE 10-.
- */
-
-[type="checkbox"],
-[type="radio"] {
-  box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
-}
-
-/**
- * Correct the cursor style of increment and decrement buttons in Chrome.
- */
-
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
-
-/**
- * 1. Correct the odd appearance in Chrome and Safari.
- * 2. Correct the outline style in Safari.
- */
-
-[type="search"] {
-  -webkit-appearance: textfield; /* 1 */
-  outline-offset: -2px; /* 2 */
-}
-
-/**
- * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
- */
-
-[type="search"]::-webkit-search-cancel-button,
-[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-/**
- * 1. Correct the inability to style clickable types in iOS and Safari.
- * 2. Change font properties to `inherit` in Safari.
- */
-
-::-webkit-file-upload-button {
-  -webkit-appearance: button; /* 1 */
-  font: inherit; /* 2 */
-}
-
-/* Interactive
-   ========================================================================== */
-
-/*
- * Add the correct display in IE 9-.
- * 1. Add the correct display in Edge, IE, and Firefox.
- */
-
-details, /* 1 */
-menu {
-  display: block;
-}
-
-/*
- * Add the correct display in all browsers.
- */
-
-summary {
-  display: list-item;
-}
-
-/* Scripting
-   ========================================================================== */
-
-/**
- * Add the correct display in IE 9-.
- */
-
-canvas {
-  display: inline-block;
-}
-
-/**
- * Add the correct display in IE.
- */
-
-template {
-  display: none;
-}
-
-/* Hidden
-   ========================================================================== */
-
-/**
- * Add the correct display in IE 10-.
- */
-
-[hidden] {
-  display: none;
-}
-</style><style type="text/css">body {
   font-size: 12pt;
   font-family: "Helvetica", "Arial", "黑體-繁", "Noto Sans TC", "Noto Sans SC", "微軟正黑體", sans-serif;
+  background-color: #e6e6e7;
+  background-color: var(--background-color);
+  color: #161618;
+  color: var(--text-color);
 }
 
 hr {
@@ -835,64 +388,80 @@ hr {
 }
 
 a {
-  color: #000;
+  color: #373485;
+  color: var(--link-color);
 }
 
 a:hover {
-  color: #666;
+  color: #514e9a;
+  color: var(--link-color-light);
 }
 
 a:visited {
-  color: #999;
+  color: #7a77b7;
+  color: var(--link-color-lighter);
 }
 
 a:active {
-  color: #999;
+  color: #7a77b7;
+  color: var(--link-color-lighter);
 }
 
 @media (color-index: 48) {
   body {
-    background-color: #252525;
-    color: #fff;
+    background-color: #161618;
+    background-color: var(--background-color-dark);
+    color: #e6e6e7;
+    color: var(--text-color-dark);
   }
 
   a {
-    color: #fff;
+    color: #7a77b7;
+    color: var(--link-color-lighter);
   }
 
   a:hover {
-    color: #999;
+    color: #514e9a;
+    color: var(--link-color-light);
   }
 
   a:visited {
-    color: #666;
+    color: #373485;
+    color: var(--link-color);
   }
 
   a:active {
-    color: #666;
+    color: #373485;
+    color: var(--link-color);
   }
 }
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #252525;
-    color: #fff;
+    background-color: #161618;
+    background-color: var(--background-color-dark);
+    color: #e6e6e7;
+    color: var(--text-color-dark);
   }
 
   a {
-    color: #fff;
+    color: #7a77b7;
+    color: var(--link-color-lighter);
   }
 
   a:hover {
-    color: #999;
+    color: #514e9a;
+    color: var(--link-color-light);
   }
 
   a:visited {
-    color: #666;
+    color: #373485;
+    color: var(--link-color);
   }
 
   a:active {
-    color: #666;
+    color: #373485;
+    color: var(--link-color);
   }
 }
 </style></head><body><div id="app"><div class="src-Root-Root__className--23B9r caasih"><h1>caasih.net</h1><main id="src-Root-Root__container--3KyKv"><article class="src-components-Article-index__className--1GoCq caasih-article caasih-post markdown"><header><h1>近況與 React</h1></header><p>C ：</p><p>今天頻道上提到 <a target="_blank" href="http://userpage.fu-berlin.de/~ram/pub/pub_jf47ht81Ht/doc_kay_oop_en">Dr. Alan Kay on the Meaning of “Object-Oriented Programming”</a> ，略讀後和朋友 MW 分享了幾段 Alan Kay 在文末講的話：</p><blockquote><p><a href="">...</a> all through the seventies and eighties, there were many people who tried to get by with "Remote Procedure Call" instead of thinking about objects and messages. <a href="">...</a></p></blockquote><p>這段讓我想起 Pete Hunt 的 <a target="_blank" href="https://www.youtube.com/watch?v=IVvHPPcl2TM">React: RESTful UI Rendering</a> 。影片將 RPC 和 DOM 類比，將 RESTful API 和 React.js 類比。</p><blockquote><p><a href="">...</a> in which he showed that using the lamda expressions the right way would allow data to be abstracted by procedures.</p></blockquote><p>而這段和前面提到的 dataless programming ，讓我有點迷惑。</p><p>您說：</p><blockquote><p>用 (x, y) =&gt; x 和 (x, y) =&gt; y 來代替心中的 true, false..</p></blockquote><p>讓我想起 <a target="_blank" href="http://en.wikipedia.org/wiki/Church_encoding">Church encoding</a> ，就有個底了，也貼回去給 MW ，畢竟是他先跟我提é Alan Kay 的生物學背景，還有從細胞來的想像。</p><hr><p>之前一直在煩惱 React 的 component 可以怎麼樣合成，才方便重用，而不會綁死自己，做重複工。</p><p>React component 和配著一起用的 jsx 對我來說是這樣的：</p><p><code>&lt;Foobar /&gt;</code> 這個 component 就好像自訂的 HTML element ，從外面可以傳值給它，叫做 properties ，在裡面寫做 <code>this.props</code> ，寫起來像 HTML element 的 attributes ， <code>&lt;Foobar foo="bar" /&gt;</code> 。 component 可以有自己的狀態，在裡面寫做 <code>this.state</code> （開發團隊似乎很小心地選擇了長度一樣的字，在 <code>getDefaultProps</code> 和 <code>getInitialState</code> 上也可以看到）。</p><p>如果把 component 視為吃 <code>props</code> 吐 HTML/SVG 的 function ，不用到 <code>state</code> 的話，那看來沒有副作用。也難怪 @thecat 大一直強調 "single source of truth" 。也因為看來像 function ，我一直想要組合它們。</p><p>在前公司做的事，讓我知道可以靠：</p><pre><code class="language-html">&lt;Foobar&gt;
@@ -915,4 +484,4 @@ a:active {
     return { foo, bar };
   }}&gt;
   &lt;Foobar /&gt;
-&lt;/Container&gt;</code></pre><p>才有這樣的感想：</p><blockquote><p>最近寫 React 一直鬼打牆想 composite component ，然後才發現我該專注在處理被包起來的 data 。</p></blockquote><p>而且 function 該怎麼組合跟重用，已經很成熟了，我不用再打造自己的工具，讓 <code>&lt;Foobar /&gt;</code> 用起來像 function 一樣。但這樣就對 Alan Kay 提到的 dataless programming 更好奇了 XD</p><p>沒有寫過 <a target="_blank" href="https://github.com/omcljs/om">Om</a> 和 <a target="_blank" href="http://elm-lang.org/">Elm</a> （雖然在頻道上和 godfat 口中都聽過幾次），正好奇 Om 用的 cursor 會不會比 container component 更適合處理跨 component 間的溝通，而不會讓 Flux 的 Store 彼此靠 Actions 互相依賴？ React 也有人實作了 <a target="_blank" href="https://github.com/dustingetz/react-cursor">cursor</a> ，也許會在 side-project 試看看。</p><p>另外 LY 已經做過數個 Isomorphic JavaScript 應用，他的心得和我不同，期待和他多聊聊。搞不好我發出 Actions 的方法根本就不對 XDDD</p><hr><p>補充：半夜看 <a target="_blank" href="https://gist.github.com/jlongster/75ef6271f81527574125">jlongster / forms-with-react.js</a> ，也許我該堅持「吃什麼進去（porps），就該吐什麼出來（onChange/onUpdate）」，而且把這件事自動化。</p><footer class="info"><div><span>由 <!-- -->Isaac Huang<!-- --> 發佈於 <time datetime="2015-04-25 00:29">2015-04-25 00:29</time></span></div></footer></article><div class="src-components-List-index__className--1z8R9 caasih-program-style-list src-pages-PostIndex-index__list--2dUux"><label>posts</label><ul><li><a title="發表於 2023-02-27 20:27" href="/posts/2023-02-27-jabberwocky">胡說</a></li><li><a title="發表於 2018-09-20 05:53" href="/posts/2018-09-20-school-of-music">the Haskell School of Music</a></li><li><a title="發表於 2018-01-12 23:50" href="/posts/2018-01-12-on-matthew-fuller">On Matthew Fuller’s “Data Structures as Spatial Structures”</a></li><li><a title="發表於 2017-12-29 15:44" href="/posts/2017-12-29-desktop-0">Desktop #0</a></li><li><a title="發表於 2017-11-24 17:47" href="/posts/2017-11-24-school-of-expression">the Haskell School of Expression</a></li><li><a title="發表於 2017-06-14 11:45" href="/posts/2017-06-14-safe-space">Safe Space</a></li><li><a title="發表於 2016-12-06 03:23" href="/posts/2016-12-06-into-the-core">Into the Core</a></li><li><a title="發表於 2016-12-18 20:10" href="/posts/2016-12-18-ifl-7">程式語言學習心得 7</a></li><li><a title="發表於 2016-12-02 02:27" href="/posts/2016-12-02-ifl-6">程式語言學習心得 6</a></li><li><a title="發表於 2016-12-01 04:49" href="/posts/2016-12-01-ifl-5">程式語言學習心得 5</a></li><li><a title="發表於 2016-11-27 01:27" href="/posts/2016-11-27-being-lazy-with-class">Being Lazy with Class</a></li><li><a title="發表於 2016-11-26 22:25" href="/posts/2016-11-26-ifl-4">程式語言學習心得 4</a></li><li><a title="發表於 2016-11-24 18:49" href="/posts/2016-11-24-ifl-3">程式語言學習心得 3</a></li><li><a title="發表於 2016-11-23 03:22" href="/posts/2016-11-23-ifl-1-2">程式語言學習心得 1&amp;2</a></li><li><a title="發表於 2016-11-18 22:59" href="/posts/2016-11-18-ifl-0">自我挑戰之前</a></li><li><a title="發表於 2016-11-10 01:10" href="/posts/2016-11-10-re-byohc-1-3">Re: Build Your Own Haskell Compiler #1.3</a></li><li><a title="發表於 2016-07-29 01:47" href="/posts/2016-07-29-re-byohc-1-2">Re: Build Your Own Haskell Compiler #1.2</a></li><li><a title="發表於 2016-07-20 02:13" href="/posts/2016-07-20-re-byohc-1-1">Re: Build Your Own Haskell Compiler #1.1</a></li><li><a title="發表於 2016-07-19 08:25" href="/posts/2016-07-19-re-byohc-1-0">Re: Build Your Own Haskell Compiler #1.0</a></li><li><a title="發表於 2016-05-07 12:10" href="/posts/2016-05-07-re-byohc-0-5">Re: Build Your Own Haskell Compiler #0.5</a></li><li><a title="發表於 2016-05-04 13:55" href="/posts/2016-05-04-re-byohc-0-4">Re: Build Your Own Haskell Compiler #0.4</a></li><li><a title="發表於 2016-05-01 14:34" href="/posts/2016-05-01-re-byohc-0-appendix">Re: Build Your Own Haskell Compiler #0 Appendix</a></li><li><a title="發表於 2016-05-03 12:35" href="/posts/2016-05-03-re-byohc-0-3">Re: Build Your Own Haskell Compiler #0.3</a></li><li><a title="發表於 2016-05-02 05:50" href="/posts/2016-05-02-re-byohc-0-2">Re: Build Your Own Haskell Compiler #0.2</a></li><li><a title="發表於 2016-05-01 14:26" href="/posts/2016-05-01-re-byohc-0-1">Re: Build Your Own Haskell Compiler #0.1</a></li><li><a title="發表於 2016-05-01 14:22" href="/posts/2016-05-01-re-byohc-0-0">Re: Build Your Own Haskell Compiler #0.0</a></li><li><a title="發表於 2016-03-16 15:47" href="/posts/2016-03-16-frege-0">Frege #0</a></li><li><a title="發表於 2016-02-28 04:06" href="/posts/2016-02-28-byohc-3">Build Your Own Haskell Compiler #3</a></li><li><a title="發表於 2015-12-23 21:59" href="/posts/2015-12-23-byohc-2">Build Your Own Haskell Compiler #2</a></li><li><a title="發表於 2015-11-29 20:54" href="/posts/2015-11-29-byohc-1">Build Your Own Haskell Compiler #1</a></li><li><a title="發表於 2015-11-23 07:07" href="/posts/2015-11-23-hn-and-spj">HN 與 "The Implementation of Functional Programming Languages"</a></li><li><a title="發表於 2015-10-24 21:20" href="/posts/2015-10-24-build-your-own-lambda">Build Your Own λ-calculus Interpreter</a></li><li><a title="發表於 2015-08-25 19:35" href="/posts/2015-08-25-hypertext-and-ted-nelson">超文本</a></li><li><a title="發表於 2015-06-23 08:56" href="/posts/2015-06-23-one-of-my-alt-promises">Alt 裡的 Promise</a></li><li><a title="發表於 2015-04-25 00:29" href="/posts/2015-04-25-status-report-and-react">近況與 React</a></li><li><a title="發表於 2015-04-02 22:39" href="/posts/2015-04-02-re-bad-suggestions-about-learning-c">Re: 工程師的缺德行為：叫朋友去學C/C++</a></li><li><a title="發表於 2015-02-24 14:41" href="/posts/2015-02-24-react-component-in-es6">用 ES6 寫 React Component</a></li><li><a title="發表於 2015-01-14 02:25" href="/posts/2015-01-14-0225">2015年1月14日 上午2:25</a></li><li><a title="發表於 2014-12-03 22:00" href="/posts/2014-12-03-states-are-like-bubbles">狀態好像泡泡</a></li><li><a title="發表於 2014-10-30 02:20" href="/posts/2014-10-30-societies-and-epub">近況、溝通還有電子書</a></li><li><a title="發表於 2014-09-09 18:30" href="/posts/2014-09-09-caasi">Spell My Name with an S</a></li><li><a title="發表於 2014-07-05 01:52" href="/posts/2014-07-05-permutation-city">排列之城</a></li><li><a title="發表於 2014-06-23 03:50" href="/posts/2014-06-23-write-a-native-extension">用 nan 寫 node native extension</a></li><li><a title="發表於 2014-04-06 04:52" href="/posts/2014-04-06-rfc-6902">RFC 6902</a></li><li><a title="發表於 2013-12-19 01:25" href="/posts/2013-12-19-wondering">wondering</a></li><li><a title="發表於 2013-11-26 00:00" href="/posts/2013-11-26-lentoregex-vs-node-segment">lenToRegex v.s. node-segment</a></li><li><a title="發表於 2013-08-08 00:00" href="/posts/2013-08-08-g0v">我是如何參與零時政府</a></li><li><a title="發表於 2013-04-20 00:00" href="/posts/2013-04-20-llvm-ir">現代行動藝術</a></li><li><a title="發表於 2012-02-26 00:00" href="/posts/2012-02-26-js-singleton">Fun with JavaScript Singleton</a></li><li><a title="發表於 2012-02-16 00:00" href="/posts/2012-02-16-prototype">prototype 的聯想</a></li><li><a title="發表於 2011-04-19 00:00" href="/posts/2011-04-19-jenovachen">陳星漢</a></li><li><a title="發表於 2010-04-26 00:00" href="/posts/2010-04-26-nonexistent-color">不存在的顏色</a></li><li><a title="發表於 2010-02-09 00:00" href="/posts/2010-02-09-testing">測試</a></li></ul></div></main><nav id="src-Root-Root__menu--2HZFx"><ul><li><a href="/posts">posts</a></li><li><a href="/playground">playground</a></li><li><a rel="me" href="https://g0v.social/@caasih">mastodon</a></li></ul></nav></div></div><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NB9HSNV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><script type="text/javascript">!function(e){function r(r){for(var n,l,f=r[0],i=r[1],a=r[2],c=0,s=[];c<f.length;c++)l=f[c],Object.prototype.hasOwnProperty.call(o,l)&&o[l]&&s.push(o[l][0]),o[l]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,f=1;f<t.length;f++){var i=t[f];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=l(l.s=t[0]))}return e}var n={},o={1:0},u=[];function l(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,l),t.l=!0,t.exports}l.m=e,l.c=n,l.d=function(e,r,t){l.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},l.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},l.t=function(e,r){if(1&r&&(e=l(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(l.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)l.d(t,n,function(r){return e[r]}.bind(null,n));return t},l.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return l.d(r,"a",r),r},l.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},l.p="/";var f=window.webpackJsonp=window.webpackJsonp||[],i=f.push.bind(f);f.push=r,f=f.slice();for(var a=0;a<f.length;a++)r(f[a]);var p=i;t()}([]);</script><script type="text/javascript" src="/c1a1fbef1d56981d5581.vendor~bundle.js"></script><script type="text/javascript" src="/8edbf2c1e635da6e26e6.bundle.js"></script></body></html>
+&lt;/Container&gt;</code></pre><p>才有這樣的感想：</p><blockquote><p>最近寫 React 一直鬼打牆想 composite component ，然後才發現我該專注在處理被包起來的 data 。</p></blockquote><p>而且 function 該怎麼組合跟重用，已經很成熟了，我不用再打造自己的工具，讓 <code>&lt;Foobar /&gt;</code> 用起來像 function 一樣。但這樣就對 Alan Kay 提到的 dataless programming 更好奇了 XD</p><p>沒有寫過 <a target="_blank" href="https://github.com/omcljs/om">Om</a> 和 <a target="_blank" href="http://elm-lang.org/">Elm</a> （雖然在頻道上和 godfat 口中都聽過幾次），正好奇 Om 用的 cursor 會不會比 container component 更適合處理跨 component 間的溝通，而不會讓 Flux 的 Store 彼此靠 Actions 互相依賴？ React 也有人實作了 <a target="_blank" href="https://github.com/dustingetz/react-cursor">cursor</a> ，也許會在 side-project 試看看。</p><p>另外 LY 已經做過數個 Isomorphic JavaScript 應用，他的心得和我不同，期待和他多聊聊。搞不好我發出 Actions 的方法根本就不對 XDDD</p><hr><p>補充：半夜看 <a target="_blank" href="https://gist.github.com/jlongster/75ef6271f81527574125">jlongster / forms-with-react.js</a> ，也許我該堅持「吃什麼進去（porps），就該吐什麼出來（onChange/onUpdate）」，而且把這件事自動化。</p><footer class="info"><div><span>由 <!-- -->Isaac Huang<!-- --> 發佈於 <time datetime="2015-04-25 00:29">2015-04-25 00:29</time></span></div></footer></article><div class="src-components-List-index__className--1z8R9 caasih-program-style-list src-pages-PostIndex-index__list--2dUux"><label>posts</label><ul><li><a title="發表於 2023-02-27 20:27" href="/posts/2023-02-27-jabberwocky">胡說</a></li><li><a title="發表於 2018-09-20 05:53" href="/posts/2018-09-20-school-of-music">the Haskell School of Music</a></li><li><a title="發表於 2018-01-12 23:50" href="/posts/2018-01-12-on-matthew-fuller">On Matthew Fuller’s “Data Structures as Spatial Structures”</a></li><li><a title="發表於 2017-12-29 15:44" href="/posts/2017-12-29-desktop-0">Desktop #0</a></li><li><a title="發表於 2017-11-24 17:47" href="/posts/2017-11-24-school-of-expression">the Haskell School of Expression</a></li><li><a title="發表於 2017-06-14 11:45" href="/posts/2017-06-14-safe-space">Safe Space</a></li><li><a title="發表於 2016-12-06 03:23" href="/posts/2016-12-06-into-the-core">Into the Core</a></li><li><a title="發表於 2016-12-18 20:10" href="/posts/2016-12-18-ifl-7">程式語言學習心得 7</a></li><li><a title="發表於 2016-12-02 02:27" href="/posts/2016-12-02-ifl-6">程式語言學習心得 6</a></li><li><a title="發表於 2016-12-01 04:49" href="/posts/2016-12-01-ifl-5">程式語言學習心得 5</a></li><li><a title="發表於 2016-11-27 01:27" href="/posts/2016-11-27-being-lazy-with-class">Being Lazy with Class</a></li><li><a title="發表於 2016-11-26 22:25" href="/posts/2016-11-26-ifl-4">程式語言學習心得 4</a></li><li><a title="發表於 2016-11-24 18:49" href="/posts/2016-11-24-ifl-3">程式語言學習心得 3</a></li><li><a title="發表於 2016-11-23 03:22" href="/posts/2016-11-23-ifl-1-2">程式語言學習心得 1&amp;2</a></li><li><a title="發表於 2016-11-18 22:59" href="/posts/2016-11-18-ifl-0">自我挑戰之前</a></li><li><a title="發表於 2016-11-10 01:10" href="/posts/2016-11-10-re-byohc-1-3">Re: Build Your Own Haskell Compiler #1.3</a></li><li><a title="發表於 2016-07-29 01:47" href="/posts/2016-07-29-re-byohc-1-2">Re: Build Your Own Haskell Compiler #1.2</a></li><li><a title="發表於 2016-07-20 02:13" href="/posts/2016-07-20-re-byohc-1-1">Re: Build Your Own Haskell Compiler #1.1</a></li><li><a title="發表於 2016-07-19 08:25" href="/posts/2016-07-19-re-byohc-1-0">Re: Build Your Own Haskell Compiler #1.0</a></li><li><a title="發表於 2016-05-07 12:10" href="/posts/2016-05-07-re-byohc-0-5">Re: Build Your Own Haskell Compiler #0.5</a></li><li><a title="發表於 2016-05-04 13:55" href="/posts/2016-05-04-re-byohc-0-4">Re: Build Your Own Haskell Compiler #0.4</a></li><li><a title="發表於 2016-05-01 14:34" href="/posts/2016-05-01-re-byohc-0-appendix">Re: Build Your Own Haskell Compiler #0 Appendix</a></li><li><a title="發表於 2016-05-03 12:35" href="/posts/2016-05-03-re-byohc-0-3">Re: Build Your Own Haskell Compiler #0.3</a></li><li><a title="發表於 2016-05-02 05:50" href="/posts/2016-05-02-re-byohc-0-2">Re: Build Your Own Haskell Compiler #0.2</a></li><li><a title="發表於 2016-05-01 14:26" href="/posts/2016-05-01-re-byohc-0-1">Re: Build Your Own Haskell Compiler #0.1</a></li><li><a title="發表於 2016-05-01 14:22" href="/posts/2016-05-01-re-byohc-0-0">Re: Build Your Own Haskell Compiler #0.0</a></li><li><a title="發表於 2016-03-16 15:47" href="/posts/2016-03-16-frege-0">Frege #0</a></li><li><a title="發表於 2016-02-28 04:06" href="/posts/2016-02-28-byohc-3">Build Your Own Haskell Compiler #3</a></li><li><a title="發表於 2015-12-23 21:59" href="/posts/2015-12-23-byohc-2">Build Your Own Haskell Compiler #2</a></li><li><a title="發表於 2015-11-29 20:54" href="/posts/2015-11-29-byohc-1">Build Your Own Haskell Compiler #1</a></li><li><a title="發表於 2015-11-23 07:07" href="/posts/2015-11-23-hn-and-spj">HN 與 "The Implementation of Functional Programming Languages"</a></li><li><a title="發表於 2015-10-24 21:20" href="/posts/2015-10-24-build-your-own-lambda">Build Your Own λ-calculus Interpreter</a></li><li><a title="發表於 2015-08-25 19:35" href="/posts/2015-08-25-hypertext-and-ted-nelson">超文本</a></li><li><a title="發表於 2015-06-23 08:56" href="/posts/2015-06-23-one-of-my-alt-promises">Alt 裡的 Promise</a></li><li><a title="發表於 2015-04-25 00:29" href="/posts/2015-04-25-status-report-and-react">近況與 React</a></li><li><a title="發表於 2015-04-02 22:39" href="/posts/2015-04-02-re-bad-suggestions-about-learning-c">Re: 工程師的缺德行為：叫朋友去學C/C++</a></li><li><a title="發表於 2015-02-24 14:41" href="/posts/2015-02-24-react-component-in-es6">用 ES6 寫 React Component</a></li><li><a title="發表於 2015-01-14 02:25" href="/posts/2015-01-14-0225">2015年1月14日 上午2:25</a></li><li><a title="發表於 2014-12-03 22:00" href="/posts/2014-12-03-states-are-like-bubbles">狀態好像泡泡</a></li><li><a title="發表於 2014-10-30 02:20" href="/posts/2014-10-30-societies-and-epub">近況、溝通還有電子書</a></li><li><a title="發表於 2014-09-09 18:30" href="/posts/2014-09-09-caasi">Spell My Name with an S</a></li><li><a title="發表於 2014-07-05 01:52" href="/posts/2014-07-05-permutation-city">排列之城</a></li><li><a title="發表於 2014-06-23 03:50" href="/posts/2014-06-23-write-a-native-extension">用 nan 寫 node native extension</a></li><li><a title="發表於 2014-04-06 04:52" href="/posts/2014-04-06-rfc-6902">RFC 6902</a></li><li><a title="發表於 2013-12-19 01:25" href="/posts/2013-12-19-wondering">wondering</a></li><li><a title="發表於 2013-11-26 00:00" href="/posts/2013-11-26-lentoregex-vs-node-segment">lenToRegex v.s. node-segment</a></li><li><a title="發表於 2013-08-08 00:00" href="/posts/2013-08-08-g0v">我是如何參與零時政府</a></li><li><a title="發表於 2013-04-20 00:00" href="/posts/2013-04-20-llvm-ir">現代行動藝術</a></li><li><a title="發表於 2012-02-26 00:00" href="/posts/2012-02-26-js-singleton">Fun with JavaScript Singleton</a></li><li><a title="發表於 2012-02-16 00:00" href="/posts/2012-02-16-prototype">prototype 的聯想</a></li><li><a title="發表於 2011-04-19 00:00" href="/posts/2011-04-19-jenovachen">陳星漢</a></li><li><a title="發表於 2010-04-26 00:00" href="/posts/2010-04-26-nonexistent-color">不存在的顏色</a></li><li><a title="發表於 2010-02-09 00:00" href="/posts/2010-02-09-testing">測試</a></li></ul></div></main><nav id="src-Root-Root__menu--2HZFx"><ul><li><a href="/posts">posts</a></li><li><a href="/playground">playground</a></li><li><a rel="me" href="https://g0v.social/@caasih">mastodon</a></li></ul></nav></div></div><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NB9HSNV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><script type="text/javascript">!function(e){function r(r){for(var n,l,f=r[0],i=r[1],a=r[2],c=0,s=[];c<f.length;c++)l=f[c],Object.prototype.hasOwnProperty.call(o,l)&&o[l]&&s.push(o[l][0]),o[l]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,f=1;f<t.length;f++){var i=t[f];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=l(l.s=t[0]))}return e}var n={},o={1:0},u=[];function l(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,l),t.l=!0,t.exports}l.m=e,l.c=n,l.d=function(e,r,t){l.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},l.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},l.t=function(e,r){if(1&r&&(e=l(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(l.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)l.d(t,n,function(r){return e[r]}.bind(null,n));return t},l.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return l.d(r,"a",r),r},l.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},l.p="/";var f=window.webpackJsonp=window.webpackJsonp||[],i=f.push.bind(f);f.push=r,f=f.slice();for(var a=0;a<f.length;a++)r(f[a]);var p=i;t()}([]);</script><script type="text/javascript" src="/b41b98f9e27a7e97ed9f.vendor~bundle.js"></script><script type="text/javascript" src="/cbd3414ffa67ce4e78e4.bundle.js"></script></body></html>

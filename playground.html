@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1"><title>WebVR Playground - caasih.net</title><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JWEYL7WZ24"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config','G-JWEYL7WZ24');</script><style type="text/css">.src-components-List-index__className--1z8R9 {
+<!DOCTYPE html><html lang="zh-Hant-TW"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1"><title>WebVR Playground - caasih.net</title><link rel="stylesheet" media="all" href="//cdnjs.cloudflare.com/ajax/libs/Han/3.2.7/han.min.css"><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JWEYL7WZ24"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config','G-JWEYL7WZ24');</script><style type="text/css">.src-components-List-index__className--1z8R9 {
   font-family: monospace;
   white-space: pre;
 }
@@ -58,12 +58,8 @@
   .src-components-Article-index__className--1GoCq .info {
   }
 
-  .src-components-Article-index__className--1GoCq > p,
-  .src-components-Article-index__className--1GoCq > pre,
-  .src-components-Article-index__className--1GoCq ul,
-  .src-components-Article-index__className--1GoCq ol,
-  .src-components-Article-index__className--1GoCq figure {
-    line-height: 1.5rem;
+  .src-components-Article-index__className--1GoCq h1 {
+    color: var(--m-blue);
   }
 
 .src-components-Article-index__className--1GoCq > pre {
@@ -71,35 +67,24 @@
     white-space: pre-wrap;
   }
 
-.src-components-Article-index__className--1GoCq {
-
-  --code-color: #666;
-  --dark-code-color: #999;
-}
-
 .src-components-Article-index__className--1GoCq code {
     color: var(--code-color);
   }
 
 @media (color-index: 48) {
     .src-components-Article-index__className--1GoCq code {
-      color: var(--dark-code-color);
+      color: var(--code-color-dark);
     }
   }
 
 @media (prefers-color-scheme: dark) {
     .src-components-Article-index__className--1GoCq code {
-      color: var(--dark-code-color);
+      color: var(--code-color-dark);
     }
   }
 
-.src-components-Article-index__className--1GoCq {
-
-  --blockquote-color: #666
-}
-
 .src-components-Article-index__className--1GoCq > blockquote {
-    border-left: .15em solid var(--blockquote-color);
+    border-left: .15em solid var(--m-red);
     padding-left: 1em;
     margin-left: 1.2em;
     color: var(--blockquote-color);
@@ -310,23 +295,26 @@
     margin: 0;
     top: -1.25rem;
     right: 0;
-    color: #666;
     -webkit-user-select: none;
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none;
     z-index: 0;
+    color: var(--background-color);
+    filter: brightness(0.95);
   }
 
 @media (color-index: 48) {
     .src-Root-Root__className--23B9r > h1 {
-      color: #999;
+      color: var(--background-color-dark);
+      filter: brightness(1.4);
     }
   }
 
 @media (prefers-color-scheme: dark) {
     .src-Root-Root__className--23B9r > h1 {
-      color: #999;
+      color: var(--background-color-dark);
+      filter: brightness(1.4);
     }
   }
 
@@ -364,468 +352,33 @@
     z-index: 200;
   }
 
-@media (color-index: 48) {
-    .src-Root-Root__className--23B9r > h1 {
-      color: #999;
-    }
-  }
+</style><style type="text/css">:root {
+  --m-white: #e6e6e7;
+  --m-blue: #33a0d1;
+  --m-purple: #373485;
+  --m-red: #c52b30;
 
-@media (prefers-color-scheme: dark) {
-    .src-Root-Root__className--23B9r > h1 {
-      color: #999;
-    }
-  }
-
-</style><style type="text/css">/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
-
-/* Document
-   ========================================================================== */
-
-/**
- * 1. Correct the line height in all browsers.
- * 2. Prevent adjustments of font size after orientation changes in
- *    IE on Windows Phone and in iOS.
- */
-
-html {
-  line-height: 1.15; /* 1 */
-  -ms-text-size-adjust: 100%; /* 2 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+  --background-color: var(--m-white);
+  --background-color-dark: #161618;
+  --text-color: #161618;
+  --text-color-dark: var(--m-white);
+  --link-color: var(--m-purple);
+  --link-color-light: #514e9a;
+  --link-color-lighter: #7a77b7;
+  --link-color-dark: #23206d;
+  --link-color-darker: #0f0c50;
+  --code-color: #666;
+  --code-color-dark: #999;
+  --blockquote-color: #666;
 }
-
-/* Sections
-   ========================================================================== */
-
-/**
- * Remove the margin in all browsers (opinionated).
- */
 
 body {
-  margin: 0;
-}
-
-/**
- * Add the correct display in IE 9-.
- */
-
-article,
-aside,
-footer,
-header,
-nav,
-section {
-  display: block;
-}
-
-/**
- * Correct the font size and margin on `h1` elements within `section` and
- * `article` contexts in Chrome, Firefox, and Safari.
- */
-
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-
-/* Grouping content
-   ========================================================================== */
-
-/**
- * Add the correct display in IE 9-.
- * 1. Add the correct display in IE.
- */
-
-figcaption,
-figure,
-main { /* 1 */
-  display: block;
-}
-
-/**
- * Add the correct margin in IE 8.
- */
-
-figure {
-  margin: 1em 40px;
-}
-
-/**
- * 1. Add the correct box sizing in Firefox.
- * 2. Show the overflow in Edge and IE.
- */
-
-hr {
-  box-sizing: content-box; /* 1 */
-  height: 0; /* 1 */
-  overflow: visible; /* 2 */
-}
-
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-
-pre {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-}
-
-/* Text-level semantics
-   ========================================================================== */
-
-/**
- * 1. Remove the gray background on active links in IE 10.
- * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
- */
-
-a {
-  background-color: transparent; /* 1 */
-  -webkit-text-decoration-skip: objects; /* 2 */
-}
-
-/**
- * 1. Remove the bottom border in Chrome 57- and Firefox 39-.
- * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
- */
-
-abbr[title] {
-  border-bottom: none; /* 1 */
-  text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
-}
-
-/**
- * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
- */
-
-b,
-strong {
-  font-weight: inherit;
-}
-
-/**
- * Add the correct font weight in Chrome, Edge, and Safari.
- */
-
-b,
-strong {
-  font-weight: bolder;
-}
-
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-
-code,
-kbd,
-samp {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-}
-
-/**
- * Add the correct font style in Android 4.3-.
- */
-
-dfn {
-  font-style: italic;
-}
-
-/**
- * Add the correct background and color in IE 9-.
- */
-
-mark {
-  background-color: #ff0;
-  color: #000;
-}
-
-/**
- * Add the correct font size in all browsers.
- */
-
-small {
-  font-size: 80%;
-}
-
-/**
- * Prevent `sub` and `sup` elements from affecting the line height in
- * all browsers.
- */
-
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-sup {
-  top: -0.5em;
-}
-
-/* Embedded content
-   ========================================================================== */
-
-/**
- * Add the correct display in IE 9-.
- */
-
-audio,
-video {
-  display: inline-block;
-}
-
-/**
- * Add the correct display in iOS 4-7.
- */
-
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-
-/**
- * Remove the border on images inside links in IE 10-.
- */
-
-img {
-  border-style: none;
-}
-
-/**
- * Hide the overflow in IE.
- */
-
-svg:not(:root) {
-  overflow: hidden;
-}
-
-/* Forms
-   ========================================================================== */
-
-/**
- * 1. Change the font styles in all browsers (opinionated).
- * 2. Remove the margin in Firefox and Safari.
- */
-
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: sans-serif; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
-  margin: 0; /* 2 */
-}
-
-/**
- * Show the overflow in IE.
- * 1. Show the overflow in Edge.
- */
-
-button,
-input { /* 1 */
-  overflow: visible;
-}
-
-/**
- * Remove the inheritance of text transform in Edge, Firefox, and IE.
- * 1. Remove the inheritance of text transform in Firefox.
- */
-
-button,
-select { /* 1 */
-  text-transform: none;
-}
-
-/**
- * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
- *    controls in Android 4.
- * 2. Correct the inability to style clickable types in iOS and Safari.
- */
-
-button,
-html [type="button"], /* 1 */
-[type="reset"],
-[type="submit"] {
-  -webkit-appearance: button; /* 2 */
-}
-
-/**
- * Remove the inner border and padding in Firefox.
- */
-
-button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
-}
-
-/**
- * Restore the focus styles unset by the previous rule.
- */
-
-button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
-
-/**
- * Correct the padding in Firefox.
- */
-
-fieldset {
-  padding: 0.35em 0.75em 0.625em;
-}
-
-/**
- * 1. Correct the text wrapping in Edge and IE.
- * 2. Correct the color inheritance from `fieldset` elements in IE.
- * 3. Remove the padding so developers are not caught out when they zero out
- *    `fieldset` elements in all browsers.
- */
-
-legend {
-  box-sizing: border-box; /* 1 */
-  color: inherit; /* 2 */
-  display: table; /* 1 */
-  max-width: 100%; /* 1 */
-  padding: 0; /* 3 */
-  white-space: normal; /* 1 */
-}
-
-/**
- * 1. Add the correct display in IE 9-.
- * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
- */
-
-progress {
-  display: inline-block; /* 1 */
-  vertical-align: baseline; /* 2 */
-}
-
-/**
- * Remove the default vertical scrollbar in IE.
- */
-
-textarea {
-  overflow: auto;
-}
-
-/**
- * 1. Add the correct box sizing in IE 10-.
- * 2. Remove the padding in IE 10-.
- */
-
-[type="checkbox"],
-[type="radio"] {
-  box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
-}
-
-/**
- * Correct the cursor style of increment and decrement buttons in Chrome.
- */
-
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
-
-/**
- * 1. Correct the odd appearance in Chrome and Safari.
- * 2. Correct the outline style in Safari.
- */
-
-[type="search"] {
-  -webkit-appearance: textfield; /* 1 */
-  outline-offset: -2px; /* 2 */
-}
-
-/**
- * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
- */
-
-[type="search"]::-webkit-search-cancel-button,
-[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-/**
- * 1. Correct the inability to style clickable types in iOS and Safari.
- * 2. Change font properties to `inherit` in Safari.
- */
-
-::-webkit-file-upload-button {
-  -webkit-appearance: button; /* 1 */
-  font: inherit; /* 2 */
-}
-
-/* Interactive
-   ========================================================================== */
-
-/*
- * Add the correct display in IE 9-.
- * 1. Add the correct display in Edge, IE, and Firefox.
- */
-
-details, /* 1 */
-menu {
-  display: block;
-}
-
-/*
- * Add the correct display in all browsers.
- */
-
-summary {
-  display: list-item;
-}
-
-/* Scripting
-   ========================================================================== */
-
-/**
- * Add the correct display in IE 9-.
- */
-
-canvas {
-  display: inline-block;
-}
-
-/**
- * Add the correct display in IE.
- */
-
-template {
-  display: none;
-}
-
-/* Hidden
-   ========================================================================== */
-
-/**
- * Add the correct display in IE 10-.
- */
-
-[hidden] {
-  display: none;
-}
-</style><style type="text/css">body {
   font-size: 12pt;
   font-family: "Helvetica", "Arial", "黑體-繁", "Noto Sans TC", "Noto Sans SC", "微軟正黑體", sans-serif;
+  background-color: #e6e6e7;
+  background-color: var(--background-color);
+  color: #161618;
+  color: var(--text-color);
 }
 
 hr {
@@ -835,64 +388,80 @@ hr {
 }
 
 a {
-  color: #000;
+  color: #373485;
+  color: var(--link-color);
 }
 
 a:hover {
-  color: #666;
+  color: #514e9a;
+  color: var(--link-color-light);
 }
 
 a:visited {
-  color: #999;
+  color: #7a77b7;
+  color: var(--link-color-lighter);
 }
 
 a:active {
-  color: #999;
+  color: #7a77b7;
+  color: var(--link-color-lighter);
 }
 
 @media (color-index: 48) {
   body {
-    background-color: #252525;
-    color: #fff;
+    background-color: #161618;
+    background-color: var(--background-color-dark);
+    color: #e6e6e7;
+    color: var(--text-color-dark);
   }
 
   a {
-    color: #fff;
+    color: #7a77b7;
+    color: var(--link-color-lighter);
   }
 
   a:hover {
-    color: #999;
+    color: #514e9a;
+    color: var(--link-color-light);
   }
 
   a:visited {
-    color: #666;
+    color: #373485;
+    color: var(--link-color);
   }
 
   a:active {
-    color: #666;
+    color: #373485;
+    color: var(--link-color);
   }
 }
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #252525;
-    color: #fff;
+    background-color: #161618;
+    background-color: var(--background-color-dark);
+    color: #e6e6e7;
+    color: var(--text-color-dark);
   }
 
   a {
-    color: #fff;
+    color: #7a77b7;
+    color: var(--link-color-lighter);
   }
 
   a:hover {
-    color: #999;
+    color: #514e9a;
+    color: var(--link-color-light);
   }
 
   a:visited {
-    color: #666;
+    color: #373485;
+    color: var(--link-color);
   }
 
   a:active {
-    color: #666;
+    color: #373485;
+    color: var(--link-color);
   }
 }
-</style></head><body><div id="app"><div class="src-Root-Root__className--23B9r caasih"><h1>caasih.net</h1><main id="src-Root-Root__container--3KyKv"><div class="src-pages-Playground-index__className--2sDC9 caasih-playground-list"><article class="src-components-Article-index__className--1GoCq caasih-article src-pages-Playground-WebVR-index__className--QJqW- playground-web-vr"><h1>WebVR Playground</h1><p>WebVR supported but no <code>VRDisplay</code>s found.</p></article><div class="src-components-List-index__className--1z8R9 caasih-program-style-list src-pages-Playground-index__list--30Sh3"><label>playground</label><ul><li><a href="/playground/then">&lt;Then /&gt;</a></li><li><a href="/playground/react-konva">React Konva</a></li><li><a href="/playground/map">Map</a></li><li><a href="/playground/purescript">PureScript</a></li><li><a href="/playground/image-data">ImageData</a></li><li><a href="/playground/useless">無測無用</a></li><li><a href="/playground/reasonml">ReScript</a></li></ul></div></div></main><nav id="src-Root-Root__menu--2HZFx"><ul><li><a href="/posts">posts</a></li><li><a href="/playground">playground</a></li><li><a rel="me" href="https://g0v.social/@caasih">mastodon</a></li></ul></nav></div></div><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NB9HSNV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><script type="text/javascript">!function(e){function r(r){for(var n,l,f=r[0],i=r[1],a=r[2],c=0,s=[];c<f.length;c++)l=f[c],Object.prototype.hasOwnProperty.call(o,l)&&o[l]&&s.push(o[l][0]),o[l]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,f=1;f<t.length;f++){var i=t[f];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=l(l.s=t[0]))}return e}var n={},o={1:0},u=[];function l(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,l),t.l=!0,t.exports}l.m=e,l.c=n,l.d=function(e,r,t){l.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},l.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},l.t=function(e,r){if(1&r&&(e=l(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(l.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)l.d(t,n,function(r){return e[r]}.bind(null,n));return t},l.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return l.d(r,"a",r),r},l.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},l.p="/";var f=window.webpackJsonp=window.webpackJsonp||[],i=f.push.bind(f);f.push=r,f=f.slice();for(var a=0;a<f.length;a++)r(f[a]);var p=i;t()}([]);</script><script type="text/javascript" src="/c1a1fbef1d56981d5581.vendor~bundle.js"></script><script type="text/javascript" src="/8edbf2c1e635da6e26e6.bundle.js"></script></body></html>
+</style></head><body><div id="app"><div class="src-Root-Root__className--23B9r caasih"><h1>caasih.net</h1><main id="src-Root-Root__container--3KyKv"><div class="src-pages-Playground-index__className--2sDC9 caasih-playground-list"><article class="src-components-Article-index__className--1GoCq caasih-article src-pages-Playground-WebVR-index__className--QJqW- playground-web-vr"><h1>WebVR Playground</h1><p>WebVR supported but no <code>VRDisplay</code>s found.</p></article><div class="src-components-List-index__className--1z8R9 caasih-program-style-list src-pages-Playground-index__list--30Sh3"><label>playground</label><ul><li><a href="/playground/then">&lt;Then /&gt;</a></li><li><a href="/playground/react-konva">React Konva</a></li><li><a href="/playground/map">Map</a></li><li><a href="/playground/purescript">PureScript</a></li><li><a href="/playground/image-data">ImageData</a></li><li><a href="/playground/useless">無測無用</a></li><li><a href="/playground/reasonml">ReScript</a></li></ul></div></div></main><nav id="src-Root-Root__menu--2HZFx"><ul><li><a href="/posts">posts</a></li><li><a href="/playground">playground</a></li><li><a rel="me" href="https://g0v.social/@caasih">mastodon</a></li></ul></nav></div></div><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NB9HSNV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><script type="text/javascript">!function(e){function r(r){for(var n,l,f=r[0],i=r[1],a=r[2],c=0,s=[];c<f.length;c++)l=f[c],Object.prototype.hasOwnProperty.call(o,l)&&o[l]&&s.push(o[l][0]),o[l]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,f=1;f<t.length;f++){var i=t[f];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=l(l.s=t[0]))}return e}var n={},o={1:0},u=[];function l(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,l),t.l=!0,t.exports}l.m=e,l.c=n,l.d=function(e,r,t){l.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},l.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},l.t=function(e,r){if(1&r&&(e=l(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(l.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)l.d(t,n,function(r){return e[r]}.bind(null,n));return t},l.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return l.d(r,"a",r),r},l.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},l.p="/";var f=window.webpackJsonp=window.webpackJsonp||[],i=f.push.bind(f);f.push=r,f=f.slice();for(var a=0;a<f.length;a++)r(f[a]);var p=i;t()}([]);</script><script type="text/javascript" src="/b41b98f9e27a7e97ed9f.vendor~bundle.js"></script><script type="text/javascript" src="/cbd3414ffa67ce4e78e4.bundle.js"></script></body></html>
