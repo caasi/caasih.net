@@ -34,7 +34,7 @@ class CreativeCommons extends PureComponent {
         <img
           alt="Creative Commons License"
           style={{ borderWidth: 0 }}
-          src={`https://i.creativecommons.org/l/${type}/${version}/${sizeMap[size]}.png`}
+          src={`https://licensebuttons.net/l/${type}/${version}/${sizeMap[size]}.png`}
         />
       </a>
     )
