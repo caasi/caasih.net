@@ -9,6 +9,9 @@ dist/*.js
 !dist/sw.js
 dist/**/*.html
 !dist/continuity.html
+dist/feed.xml
+dist/atom.xml
+dist/feed.json
 
 # ReScript
 lib/bs/
@@ -20,4 +23,3 @@ lib/bs/
 coverage/
 .DS_Store
 *.swp
-
