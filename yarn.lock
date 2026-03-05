@@ -2826,6 +2826,7 @@ __metadata:
     eslint-plugin-react: "npm:7"
     eventsource-polyfill: "npm:^0.9.6"
     express: "npm:^4.14.0"
+    feed: "npm:^5.2.0"
     gentype: "npm:^3.21.0"
     gh-pages: "npm:^1.2.0"
     html-webpack-plugin: "npm:3"
@@ -5176,6 +5177,15 @@ __metadata:
     picomatch:
       optional: true
   checksum: 10c0/e345083c4306b3aed6cb8ec551e26c36bab5c511e99ea4576a16750ddc8d3240e63826cc624f5ae17ad4dc82e68a253213b60d556c11bfad064b7607847ed07f
+  languageName: node
+  linkType: hard
+
+"feed@npm:^5.2.0":
+  version: 5.2.0
+  resolution: "feed@npm:5.2.0"
+  dependencies:
+    xml-js: "npm:^1.6.11"
+  checksum: 10c0/3fabeeb1b5e272cf8a6a6e96605d580ef5af7e9e763d55fa4d610a4198a7c21f04928748e32963f76db37f3510da87effd6614ec0245724aa727305bfd25d42b
   languageName: node
   linkType: hard
 
@@ -15032,6 +15042,17 @@ __metadata:
     parse-headers: "npm:^2.0.0"
     xtend: "npm:^4.0.0"
   checksum: 10c0/b73b6413b678846c422559cbc0afb2acb34c3a75b4c3bbee1f258e984255a8b8d65c1749b51691278bbdc28781782950d77a759ef5a9adf7774bed2f5dabc954
+  languageName: node
+  linkType: hard
+
+"xml-js@npm:^1.6.11":
+  version: 1.6.11
+  resolution: "xml-js@npm:1.6.11"
+  dependencies:
+    sax: "npm:^1.2.4"
+  bin:
+    xml-js: ./bin/cli.js
+  checksum: 10c0/c83631057f10bf90ea785cee434a8a1a0030c7314fe737ad9bf568a281083b565b28b14c9e9ba82f11fc9dc582a3a907904956af60beb725be1c9ad4b030bc5a
   languageName: node
   linkType: hard
 

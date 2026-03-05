@@ -44,6 +44,7 @@
     "eslint-plugin-react": "7",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.14.0",
+    "feed": "^5.2.0",
     "gentype": "^3.21.0",
     "gh-pages": "^1.2.0",
     "html-webpack-plugin": "3",
