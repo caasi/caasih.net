@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>caasih.net</title>
+        <link>https://caasih.net</link>
+        <description>Personal site for interactive writing, archives, and sketches</description>
+        <lastBuildDate>Wed, 15 Mar 2023 21:34:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>feed</generator>
+        <language>zh-TW</language>
+        <item>
+            <title><![CDATA[CoolShell]]></title>
+            <link>https://caasih.net/posts/2023-05-15-coolshell</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2023-05-15-coolshell</guid>
+            <pubDate>Wed, 15 Mar 2023 21:34:00 GMT</pubDate>
+            <description><![CDATA[早上看推才知道 CoolShell 站長陈皓走了，中國資訊人發推紀念他。不是中國人，不方便說什麼。 yihong0618 用 https://github.com/JustAnotherArchivist/snscrape 備份了 https://twitter.com/haoel 的推文，有鑑於馬斯克要砍未活動帳號，按著他的思路弄半天，也成功備份了 https://twitter.com/ilya 的。 把消息轉到 godfat 那邊和 cschat ， godfat 不知道他， cschat 那邊也只有 descent 有反應。常看他文章的那段時間跟]]></description>
+        </item>
+        <item>
+            <title><![CDATA[胡說]]></title>
+            <link>https://caasih.net/posts/2023-02-27-jabberwocky</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2023-02-27-jabberwocky</guid>
+            <pubDate>Mon, 27 Feb 2023 12:27:00 GMT</pubDate>
+            <description><![CDATA[最近 [ChatGPT][ChatGPT] 這種 LLM 正紅，如果要它介紹一下 caasih ，它會寫出這樣的文章： 但 g0v 並不是什麼島民國，我也沒有貢獻過政府開放資料雲端服務平台、 OpenStreetMap ，也沒參與過像是 g0v 小學校那種公民教育推廣組織。更別提 Jekyll, RoR 了。很明顯 [ChatGPT][ChatGPT] 只是用網路上查到的資料在鬼扯。 [ChatGPT]: https://chat.openai.com/chat/]]></description>
+        </item>
+        <item>
+            <title><![CDATA[the Haskell School of Music]]></title>
+            <link>https://caasih.net/posts/2018-09-20-school-of-music</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2018-09-20-school-of-music</guid>
+            <pubDate>Wed, 19 Sep 2018 21:53:00 GMT</pubDate>
+            <description><![CDATA[前幾天 [@lovecankill][lovecankill twitter] 提到 [The Haskell School of Music: From Signals to Symphonies][school of music] 出版了。 查了下才知道在 Paul Hudak 過世後， Donya Quick 接手完成整本書。 Reddit 上的 lovaz 快三年前擔心沒人接手，[曾問][lovaz 3pt3dg]： But, as some of you know, Mr. Hudak passed away earlier this year]]></description>
+        </item>
+        <item>
+            <title><![CDATA[On Matthew Fuller’s “Data Structures as Spatial Structures”]]></title>
+            <link>https://caasih.net/posts/2018-01-12-on-matthew-fuller</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2018-01-12-on-matthew-fuller</guid>
+            <pubDate>Fri, 12 Jan 2018 15:50:00 GMT</pubDate>
+            <description><![CDATA[Ilya 前年介紹了 Matthew Fuller 在 caa ins 上的一場，有關數據結構與空間結構的演講。那時沒辦法到場聽，但最近發現有[錄影與逐字稿][caa ins 1213]。 開場就引用 Kurt Gödel 的不完備定理，接著說明編碼、轉譯、解碼這樣的過程，在我們的社會、文化中隨處可見。將各種程式語言的表現方式視為紋理、物料，好像混凝土、陶土那樣，有各自的特質和使用方式。這點有很有意思。 但我不懂，拿 [Gödel numbering][goedel numbering] 來類比之後所有的編碼、解碼方式，是不是有點牽強？ Gödel 編碼]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Desktop #0]]></title>
+            <link>https://caasih.net/posts/2017-12-29-desktop-0</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2017-12-29-desktop-0</guid>
+            <pubDate>Fri, 29 Dec 2017 07:44:00 GMT</pubDate>
+            <description><![CDATA[一邊逃避工作一邊把讀 code 機裝好，繼續和 stack, xmonad 打架。 這次升級 Arch 後剛好遇上 ld 一直要求加上 fPIC 的錯誤。但是文件中的 [I get strange ld errors about recompiling with " fPIC" ][fPIC] 幫不上忙。安裝 AUR 上的 ncurses5 compat libs 也無法解決此問題。 踩到的其實是 [Stack 1.6 linking issues on Arch Linux][linking issues] 。 解法是使用 [stack setup 2]]></description>
+        </item>
+        <item>
+            <title><![CDATA[the Haskell School of Expression]]></title>
+            <link>https://caasih.net/posts/2017-11-24-school-of-expression</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2017-11-24-school-of-expression</guid>
+            <pubDate>Fri, 24 Nov 2017 09:47:00 GMT</pubDate>
+            <description><![CDATA[昨天（11/23）在母校圖書館發現 "the Haskell School of Expression: Learning Functional Programming through Multimedia" 。 還想說誰那麼狂，竟然取這種書名，原來是大佬 Paul Hudak 。 haskell.tw 上， monochrom 說： 視乎你好哪個學習方向. Hudak 應該是唯一一個一早就有 graphics 有 IO 的. 所以看你喜歡一開始就有眼睛冰淇淋還是一開始就有 pure function 和 algebraic data types. — ]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Safe Space]]></title>
+            <link>https://caasih.net/posts/2017-06-14-safe-space</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2017-06-14-safe-space</guid>
+            <pubDate>Wed, 14 Jun 2017 03:45:11 GMT</pubDate>
+            <description><![CDATA[（原來有個安心的地方，才有餘力面對世界） 雖然生命中看過不少令人安心的地方，但那都是「別人」經營出來的。待在那些地方很輕鬆，可以放心做事，但不是隨時都能去，對空間的存續也無能為力。 （對不起，不會再闖進別人的 safe space 了） 就算是虛幻的也好，讓我經營屬於自己的角落。 謝謝你讓我知道人在無能為力時，可以嘗試從來沒有想過的事情。 （像一面鏡子） 技術不是最重要的，「無法取代的事情」從小就知道了，只是沒有好好思考過得花多少功夫來保護它。 （對不起，對不起，對不起） 然後我想知道，開開心心地學習、撰碼是什麼感覺。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[程式語言學習心得 7]]></title>
+            <link>https://caasih.net/posts/2016-12-18-ifl-7</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2016-12-18-ifl-7</guid>
+            <pubDate>Sun, 18 Dec 2016 12:10:00 GMT</pubDate>
+            <description><![CDATA[infix operator 的 precendence 是寫死在文法中的。 才有書中 figure 1.3 這樣結構： 直接寫起來會變成： 為了避免 expr1 不管成功或失敗，都各 parse expr2 一次，引進了新的資料結構： PartialExpr 。 就可以寫成： 而把 PartialExpr 組合成 CoreExpr ，則需要： 從現在的角度看，這讓我想起 Maybe ，但是 CoreExpr 和 PartialExpr 就算是 monoid ，也是兩種不同的 monoid ，如果真的要把它們接起來，那 assembleOp 對應的，會是]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Into the Core]]></title>
+            <link>https://caasih.net/posts/2016-12-06-into-the-core</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2016-12-06-into-the-core</guid>
+            <pubDate>Mon, 05 Dec 2016 19:23:00 GMT</pubDate>
+            <description><![CDATA[<iframe width="740" height="555" src="https://www.youtube.com/embed/uR VzYxvbxg" frameborder="0" allowfullscreen </iframe 整場演講配上 SPJ 的語調與活力，超歡樂！可惜投影片看不太清楚 XD 本來以為只是介紹 Core 有多精巧，沒想到後面在講 Core optimisations ： Inlining Rewrite rules Beta reduction Case of case Case of known construct]]></description>
+        </item>
+        <item>
+            <title><![CDATA[程式語言學習心得 6]]></title>
+            <link>https://caasih.net/posts/2016-12-02-ifl-6</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2016-12-02-ifl-6</guid>
+            <pubDate>Thu, 01 Dec 2016 18:27:00 GMT</pubDate>
+            <description><![CDATA[補上了之前沒實作的 syntax :: [Token] CoreProgram ： 翻成白話是： 如果現在看到的是一個 parse 完成的 program ，那就是它了！ 如果現在看的沒 parse 完，那就看下一個， 如果看到最後都沒找到 parse 完的，就報錯。 pProgram 只要用已經建立好的 parsers ，就能按書上第 18 頁的 BNF syntax 做出來。但要注意，該濾掉的關鍵字得濾乾淨，不然連簡單的 f = x 都 parse 不出來。 昨天自己亂做，馬上撞到 left recursion ，也就是： 造成 pExpr 自己呼叫]]></description>
+        </item>
+        <item>
+            <title><![CDATA[程式語言學習心得 5]]></title>
+            <link>https://caasih.net/posts/2016-12-01-ifl-5</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2016-12-01-ifl-5</guid>
+            <pubDate>Wed, 30 Nov 2016 20:49:00 GMT</pubDate>
+            <description><![CDATA[pOneOrMoreWithSep 和 pSat 都很平常，要把 pZeroOrMore 和 pOneOrMoreWithSep 中多餘的可能性清掉也很容易（只留比較長的結果就對了）。 pExpr 很長很苦工，好在有 Parser a ，讓 pExpr 的結構和 Expr a 的很相似。 有趣的是， Parser a 越來越像 applicative functor 。帶著 1992 年沒有的知識，現在我們知道該把 pApply 的參數位置調換一下： 而且還知道了將 function 放到 Parser 中的重要性： 於是 pThen, pThen3 等]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Being Lazy with Class]]></title>
+            <link>https://caasih.net/posts/2016-11-27-being-lazy-with-class</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2016-11-27-being-lazy-with-class</guid>
+            <pubDate>Sat, 26 Nov 2016 17:27:00 GMT</pubDate>
+            <description><![CDATA[<iframe width="740" height="555" src="https://www.youtube.com/embed/06x8Wf2r2Mc" frameborder="0" allowfullscreen </iframe 沒想到 SPJ 同樣以 Being Lazy with Class 為名講過 Haskell 的歷史，非常歡樂 XD 目前好奇的部分有： [type classes][type classes] 一開始就存在了，是為了 (==) ，還用一張投影片展示其實作背後的概念 介紹 [QuickCheck][QuickChe]]></description>
+        </item>
+        <item>
+            <title><![CDATA[程式語言學習心得 4]]></title>
+            <link>https://caasih.net/posts/2016-11-26-ifl-4</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2016-11-26-ifl-4</guid>
+            <pubDate>Sat, 26 Nov 2016 14:25:00 GMT</pubDate>
+            <description><![CDATA[接著書上教大家做 parser ，把 parser 分成兩個部分： lexical analysis clex :: String [Token]和 syntax analysis syntax :: [Token] CoreProgram 。 clex 那部分就是切 token ，保留行號並移除註解（ Core 的註解竟然是 || 開頭，是要跟 Haskell 的 正交嗎？）。 因為沒受過教育（沒念到大三，活該），本來很怕 parser 超難，沒想到竟然是從 parser combinator 講起，而且沒有 monoid 也沒有 monad （但是還]]></description>
+        </item>
+        <item>
+            <title><![CDATA[程式語言學習心得 3]]></title>
+            <link>https://caasih.net/posts/2016-11-24-ifl-3</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2016-11-24-ifl-3</guid>
+            <pubDate>Thu, 24 Nov 2016 10:49:00 GMT</pubDate>
+            <description><![CDATA[趁機複習一下這幾天學到的東西，我會看到什麼？ Implementing Functional Languages 一書不講 front end ，也就是把目標語言 desugar 成 Core language 那部分，不像前身 the Implementation of Functional Languages 。另外一開始就當做讀者知道 supercombinator 是什麼東西。 書中範例是以 Miranda 寫成，似乎沒有 type classes ，學習起來也許會輕鬆些？現在讀到的程式都可以翻譯成 Haskell 。 雖然可以把值參數當成零個參]]></description>
+        </item>
+        <item>
+            <title><![CDATA[程式語言學習心得 1&2]]></title>
+            <link>https://caasih.net/posts/2016-11-23-ifl-1-2</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2016-11-23-ifl-1-2</guid>
+            <pubDate>Tue, 22 Nov 2016 19:22:00 GMT</pubDate>
+            <description><![CDATA[今天幾乎完成了 pprint ， pprint 把 CoreProgram 還有 CoreExpr 轉成中間格式 Iseq ，最後再轉成 String 。 CoreExpr 有 EVar, ENum, EConstr, EAp, ELet, ECase, ELam 七種 data constructor ，但排版用的 Iseq 只有 INil, IStr, IAppend 三種，就算加上未來的 IIndent 和 INewline 也不過五種。最後輸出的 String 就只有一種了。 可見 pprint 是個損失資訊的過程，資訊變少的新結構 Iseq 是]]></description>
+        </item>
+        <item>
+            <title><![CDATA[自我挑戰之前]]></title>
+            <link>https://caasih.net/posts/2016-11-18-ifl-0</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2016-11-18-ifl-0</guid>
+            <pubDate>Fri, 18 Nov 2016 14:59:00 GMT</pubDate>
+            <description><![CDATA[這一年來學習了函數式程式語言，才發現自己因為缺乏資訊本科訓練、貪玩不求甚解，給自己帶來多大的劣勢。剛好今年鐵人賽正要開始，想把它當成自我挑戰，撐 30 天，把想補的知識補起來。 目前鎖定 [Implementing functional languages: a tutorial][IFL] ，希望可以把書上的內容實作一遍，並記錄下自己的思考和心得，以期待哪一天成為同事、朋友的助力。 [IFL]: http://research.microsoft.com/en us/um/people/simonpj/Papers/pj lester book/]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Re: Build Your Own Haskell Compiler #1.3]]></title>
+            <link>https://caasih.net/posts/2016-11-10-re-byohc-1-3</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2016-11-10-re-byohc-1-3</guid>
+            <pubDate>Wed, 09 Nov 2016 17:10:00 GMT</pubDate>
+            <description><![CDATA[[haskell src exts][haskell src exts] 的 AST 複雜很多，會遇到放在 Maybe 和 [] 裡面的 AST 。這時要是只用 famp ，就會遇上把 [Term a] 變成 [Desugar (Term a)] 這種窘境。真正想得到的是 Desugar [Term a] ，接著才可以繼續 (< ) 下去。 [haskell src exts]: https://hackage.haskell.org/package/haskell src exts 1.17.1 先把本來的 Term 改成這樣： 表示現在 Lam 可以]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Re: Build Your Own Haskell Compiler #1.2]]></title>
+            <link>https://caasih.net/posts/2016-07-29-re-byohc-1-2</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2016-07-29-re-byohc-1-2</guid>
+            <pubDate>Thu, 28 Jul 2016 17:47:00 GMT</pubDate>
+            <description><![CDATA[明明只是入門，卻讓苦惱了半年，程度真差。 上次讓 Desugar 成為了 Functor 還有 Applicative ，於是可以讓一個函式作用在被 Desugar 包起來的 Term 上面（fmap :: (a b) f a f b）。也有了最小最小的 context （pure :: a f a），跟將收在 Desugar 中的函式作用在被包起來的其他東西的辦法（(< ) :: f (a b) f a f b）。 再來我好奇的是，他們符合各自該符合的 laws 嗎？LYaH 教我 Functor 和 Applicative 得符合某些規定，而那些規定]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Re: Build Your Own Haskell Compiler #1.1]]></title>
+            <link>https://caasih.net/posts/2016-07-20-re-byohc-1-1</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2016-07-20-re-byohc-1-1</guid>
+            <pubDate>Tue, 19 Jul 2016 18:13:00 GMT</pubDate>
+            <description><![CDATA[坑主在五月底時曾建議可以從最簡單的 context 開始 記錄現在 AST 中含的 expression 數量就好： 然後會有一個叫做 Desugar 的 data ： 根據她的建議： 定義自己的 monad 來攜帶未來要加的資料結構, 讓這個骨幹的運行是在這個 monad 裡 我們必須要實作： 但是， return 所代表的 minimum context 是什麼？我該在何時改變 info 來反應 expression 數量更新了呢？光看 return 和 ( =) 一點頭緒也沒有。事後我才知道， desugar 這件事可以分成兩個問題來看。 其一是如]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Re: Build Your Own Haskell Compiler #1.0]]></title>
+            <link>https://caasih.net/posts/2016-07-19-re-byohc-1-0</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2016-07-19-re-byohc-1-0</guid>
+            <pubDate>Tue, 19 Jul 2016 00:25:00 GMT</pubDate>
+            <description><![CDATA[太久沒寫，先回憶一下進度： 實作 desugar 的骨幹, 走訪整個 syntax tree (可以定義一個 class, 然後把所有的 syntax node type 加進 instance; 或是為每一個 syntax node type 定義一個不一樣的函數名的作法也可以; 也可以兩種都有...) 定義自己的 monad 來攜帶未來要加的資料結構, 讓這個骨幹的運行是在這個 monad 裡 (使用 mtl 的 Control.Monad.State 也可以) 一直聽不懂 desugar 的骨幹是什麼，只記得要把資料存在 monad 的 conte]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Re: Build Your Own Haskell Compiler #0.5]]></title>
+            <link>https://caasih.net/posts/2016-05-07-re-byohc-0-5</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2016-05-07-re-byohc-0-5</guid>
+            <pubDate>Sat, 07 May 2016 04:10:00 GMT</pubDate>
+            <description><![CDATA[檔名、路徑 把 sample/ 下的檔案做了些調整： 現在要把 "Chat.C" 變成 "Chat/C.hs" 。 在 [System.FilePath][filepath] 的協助下，很簡單就能做到。 先在 my project.cabal 加上 然後： 處理 module 名時則： pathSeparator 和 extSeparator 都是 System.FilePath 提供的函數，會按使用的平台（POSIX 或 Windows），給出正確的 Char 。 [filepath]: https://hackage.haskell.org/pack]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Re: Build Your Own Haskell Compiler #0.4]]></title>
+            <link>https://caasih.net/posts/2016-05-04-re-byohc-0-4</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2016-05-04-re-byohc-0-4</guid>
+            <pubDate>Wed, 04 May 2016 05:55:00 GMT</pubDate>
+            <description><![CDATA[遞迴讀檔 想要知道自己這個 Module 叫什麼名字的話，看 ModuleHead ，想要看 import 出些什麼的話，看 [ImportDecl] 。 在上面還推薦大家要看的一個 library 叫做 Data.Map.Strict 。這個是我用來記錄 Module 到底讀過了沒有。你也可以用 List ，但這個效率會比較好一點。只是用起來比較複雜一點。 在遞迴讀檔前，花了不少時間整理思路，最後的想法是： 1. 我需要一個 Map 來蒐集 module name 與 module AST 的對應關係。 2. 我希望得到的結果在 IO 裡面，因為 re]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Re: Build Your Own Haskell Compiler #0.3]]></title>
+            <link>https://caasih.net/posts/2016-05-03-re-byohc-0-3</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2016-05-03-re-byohc-0-3</guid>
+            <pubDate>Tue, 03 May 2016 04:35:00 GMT</pubDate>
+            <description><![CDATA[讀檔與蒐集 用了 readFile ，就脫離不了 IO 。於是只好把希望得到的，放在 IO 裡面： 一開始先來個 do ，躲到 IO 裡面去： 蒐集 AST 中 import 的 Module 時，要用到 readModule 的結果， IO 也跟著出現了： 這件事一直讓我想起 [What Color is Your Function][function color] 。對了，別忘記 import Map ： 並在 my project.cabal 中補上 containers ： 先試著蒐集不重複的 Module 就好，不遞迴讀檔： 回到 main ，]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Re: Build Your Own Haskell Compiler #0.2]]></title>
+            <link>https://caasih.net/posts/2016-05-02-re-byohc-0-2</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2016-05-02-re-byohc-0-2</guid>
+            <pubDate>Sun, 01 May 2016 21:50:00 GMT</pubDate>
+            <description><![CDATA[parseModule 其實他很邪惡，要用到時才開始讀，雖然他叫 lazy ，但是跟 lazy evaluation 沒有關係。 m m 很不喜歡。 先開個新檔案 sample/A.hs ： 讀檔可以用 Prelude 中的 getContents ，它會還給你一個 IO String ，可以用在 main 的 do notation 裡面： 這樣子輸入一行就能看到程式輸出一行。 把 inputStr 餵給來自 Language.Haskell.Exts.Annotated 的 parseModule ，可以得到 [ParseResult][ParseR]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Re: Build Your Own Haskell Compiler #0 Appendix]]></title>
+            <link>https://caasih.net/posts/2016-05-01-re-byohc-0-appendix</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2016-05-01-re-byohc-0-appendix</guid>
+            <pubDate>Sun, 01 May 2016 06:34:00 GMT</pubDate>
+            <description><![CDATA[附錄： C 的 Parse.hs 以下程式按閱讀順序重新編排過。 從 Main.hs 來看，該從 getAllModules ，還有 prettyPrintAllModules 看起。 getAllModules 在做的是，從給定的檔案內容中取得 Module 名稱與所 imports 的其他 Modules 名稱，再存到 Map 中。 一直留著 ParseResult ，猜想是把它當 Maybe 用了。 存到 Map 中的工作，由 addMoreModules 完成。有趣的是，在 Haskell 中打兩次 M.Map String (Module Sr]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Re: Build Your Own Haskell Compiler #0.1]]></title>
+            <link>https://caasih.net/posts/2016-05-01-re-byohc-0-1</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2016-05-01-re-byohc-0-1</guid>
+            <pubDate>Sun, 01 May 2016 06:26:00 GMT</pubDate>
+            <description><![CDATA[預習 按 C 的計畫，這天要利用 Language.Haskell.Exts 這套件讀出原始碼本身屬於哪個套件、 import 了哪些套件，再把它們通通讀出來，然後印出來。建議先讀過的套件有： [haskell src exts][src exts] [Language.Haskell.Exts.Annotated.Syntax][annotated syntax] [Language.Haskell.Exts.Annotated.Parser][annotated parser] [Language.Haskell.Exts.Pretty][prett]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Re: Build Your Own Haskell Compiler #0.0]]></title>
+            <link>https://caasih.net/posts/2016-05-01-re-byohc-0-0</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2016-05-01-re-byohc-0-0</guid>
+            <pubDate>Sun, 01 May 2016 06:22:00 GMT</pubDate>
+            <description><![CDATA[2016 04 29 的 Workshop 重新開始，使用 [stack][stack] 管理開發環境，寫自己的 transpiler 。 stack 「lts 是比較穩定的版本，什麼 nightly build 是他們還在 try 的版本。心臟比較大顆的可以試試看。」 行前先預習一下 stack 基本操作： 下 stack new my project 時， stack 會幫忙生出整個專案目錄，包含： 除了 stack.yaml 外，今天要關心的只有 my project.cabal 和 Main.hs 。 記得 Workshop 剛開始時， C 用的]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Frege #0]]></title>
+            <link>https://caasih.net/posts/2016-03-16-frege-0</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2016-03-16-frege-0</guid>
+            <pubDate>Wed, 16 Mar 2016 07:47:00 GMT</pubDate>
+            <description><![CDATA[想在工作用得上的 side project 裡試試 Frege 。初衷是：如果大家都在 production 用 FP language ，我也必須這樣。不然經驗永遠不夠，只能把 FP 當玩具。 [Frege: Hello Java mmhelloworld][Frege Hello Java] 介紹了如何用 Frege 跟 Java 溝通，可以看到不純的 class 要放在長長的 ST s (Mutable s (ClassName a)) 中，可以簡寫成 STMutable s (ClassName a) 。 ST s a 的說明可以在 [Prelu]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Build Your Own Haskell Compiler #3]]></title>
+            <link>https://caasih.net/posts/2016-02-28-byohc-3</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2016-02-28-byohc-3</guid>
+            <pubDate>Sat, 27 Feb 2016 20:06:00 GMT</pubDate>
+            <description><![CDATA[嗨， 1/14 的 caasi ， commits 看得怎麼樣了？下一次活動是 1/28 ，然後就要過年了。我是 2/28 的 caasi ，現在要跟你說一些未來的事情，像是你會去一趟上海，你會很煩，但是你知道你必須要了解中國。你會在上海交大讀著印出來的程式，自我感覺良好，卻還是沒能完全搞懂。 但最重要的是，我要捏他！這樣也許你在學習的路上可以開心一點 XD 會變成： l 是那長長一大串，包含這段 AST 來自程式碼那邊的原始資訊。可以靠著 forgetL 一次清掉。 PVar 的 P 是 Pattern 的 P 。 Nothing 是 where 的 ]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Build Your Own Haskell Compiler #2]]></title>
+            <link>https://caasih.net/posts/2015-12-23-byohc-2</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2015-12-23-byohc-2</guid>
+            <pubDate>Wed, 23 Dec 2015 13:59:00 GMT</pubDate>
+            <description><![CDATA[為了讓大家可以簡單地寫 desugar function ， C 使用 Template Haskell ，以便編譯時自動產生程式碼，輸出給 Haskell.Src.Exts 用的 desugar function template ，於是做 if 的 desugar 時，只要寫： 省掉手寫處理其他 Syntax 的三百多行。 但身為一個連 Monoid, Functor, Applicative 都還搞不清楚的笨蛋，怎麼可能一下子就懂 TH （Template Haskell）在搞什麼呢？ 所以來拆解 https://github.com/CindyL]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Build Your Own Haskell Compiler #1]]></title>
+            <link>https://caasih.net/posts/2015-11-29-byohc-1</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2015-11-29-byohc-1</guid>
+            <pubDate>Sun, 29 Nov 2015 12:54:00 GMT</pubDate>
+            <description><![CDATA[跟著 https://github.com/CindyLinz/BYOHC Workshop 做自己的 compiler ，也兩個月了。 目前 https://github.com/CindyLinz/Haskell.js/tree/master/trans 和 https://github.com/op8867555/BYOHC transpiler 做到 transpiler 。還跟不上。 為了觀察每一步是怎麼 reduce ，近一個月前全部重做，從 LiveScript 移到 https://github.com/caasi/ulc playgro]]></description>
+        </item>
+        <item>
+            <title><![CDATA[HN 與 "The Implementation of Functional Programming Languages"]]></title>
+            <link>https://caasih.net/posts/2015-11-23-hn-and-spj</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2015-11-23-hn-and-spj</guid>
+            <pubDate>Sun, 22 Nov 2015 23:07:00 GMT</pubDate>
+            <description><![CDATA[昨天在 HN 看到 https://news.ycombinator.com/item?id=10609960 ，翻譯一下回應，好激勵自己。 https://news.ycombinator.com/item?id=10610737: I've read (part of) this book and used it to implement a toy compiler. It helped me a lot in getting a better understanding of Haskell and other functional langua]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Build Your Own λ-calculus Interpreter]]></title>
+            <link>https://caasih.net/posts/2015-10-24-build-your-own-lambda</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2015-10-24-build-your-own-lambda</guid>
+            <pubDate>Sat, 24 Oct 2015 13:20:00 GMT</pubDate>
+            <description><![CDATA[前幾周 C 開始了個https://github.com/CindyLinz/BYOHC Workshop的活動。按傳統，學 FP 要從 lambda calculus 開始，前兩週的作業就是寫 lambda calculus interpreter ，再試著使用實作環境內建的 function 並想辦法加速計算過程。 據說 interpreter 比 parser 好寫，於是一開始大家一起操作著以 JSON 表示的 AST 。 寫成： 表示成： 已經有https://github.com/CindyLinz/BYOHC Workshop/blob/ma]]></description>
+        </item>
+        <item>
+            <title><![CDATA[超文本]]></title>
+            <link>https://caasih.net/posts/2015-08-25-hypertext-and-ted-nelson</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2015-08-25-hypertext-and-ted-nelson</guid>
+            <pubDate>Tue, 25 Aug 2015 11:35:00 GMT</pubDate>
+            <description><![CDATA[從 HN 看到 https://gigaom.com/2015/08/24/hypertext 50/ 才注意到 HyperText 50 歲了！ 雜感： Ted Nelson 寫詩、編雜誌、寫搖滾音樂劇還拍過https://www.youtube.com/watch?v=rFgul6rwNbQ，父親是名編劇，母親是名演員。 意識到電腦是台通用機器，是新媒體，正好適合視自己為電影製作人、哲學家和媒體人的他。 互動不是新鮮事，書也是互動的，只是在六零年代他怎麼講都很難讓人理解。 還是將軟體與電影視為同一件事：在一系列的事件與互動中影響觀者的身心。 曾獨立發]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Alt 裡的 Promise]]></title>
+            <link>https://caasih.net/posts/2015-06-23-one-of-my-alt-promises</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2015-06-23-one-of-my-alt-promises</guid>
+            <pubDate>Tue, 23 Jun 2015 00:56:00 GMT</pubDate>
+            <description><![CDATA[使用 Alt 這套 Flux framework 時，我知道 Store 的 this.waitFor(anotherStore) 是 sync 的，於是 async 的操作，都得放到 actions 中。 TL;DR 把 Promise 記起來，避免重複操作，並讓 action 寫起來跟原本的一樣。但該怎麼記，我還沒有個好方法。 https://twitter.com/tomchentw 建議該在 fetch 時解決一切，還提到可以用 https://github.com/cscott/prfun promiseguardfunctionnumber ]]></description>
+        </item>
+        <item>
+            <title><![CDATA[近況與 React]]></title>
+            <link>https://caasih.net/posts/2015-04-25-status-report-and-react</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2015-04-25-status-report-and-react</guid>
+            <pubDate>Fri, 24 Apr 2015 16:29:00 GMT</pubDate>
+            <description><![CDATA[C ： 今天頻道上提到 http://userpage.fu berlin.de/~ram/pub/pub jf47ht81Ht/doc kay oop en ，略讀後和朋友 MW 分享了幾段 Alan Kay 在文末講的話： [...] all through the seventies and eighties, there were many people who tried to get by with "Remote Procedure Call" instead of thinking about objects and messages. ]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Re: 工程師的缺德行為：叫朋友去學C/C++]]></title>
+            <link>https://caasih.net/posts/2015-04-02-re-bad-suggestions-about-learning-c</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2015-04-02-re-bad-suggestions-about-learning-c</guid>
+            <pubDate>Thu, 02 Apr 2015 14:39:00 GMT</pubDate>
+            <description><![CDATA[嗨，轉個彎您好： 基於現在的信仰（ Nyarlathotep 和 Yog Sothoth ），我覺得有必要以公開信的方式，回應您的文章，讓世界變得更有趣。 大學有幸進了資訊系，乖乖學什麼 C ，那時受到很大的打擊，作業要花很多時間才寫得出來。還想學強者我摯友寫什麼 ACM UVa 題庫，根本寫不動，然後如此這般，就被踢出來了， GG 。 不好意思，今天竟然還在這裡跟大家一起混飯吃。 可能是因為那段經驗，對 C 很有好感（從痛苦中生出來的那種好感）。當時也和其他同學一樣，乖乖找經典來看。不得不提，《The C Programming Language》真棒]]></description>
+        </item>
+        <item>
+            <title><![CDATA[用 ES6 寫 React Component]]></title>
+            <link>https://caasih.net/posts/2015-02-24-react-component-in-es6</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2015-02-24-react-component-in-es6</guid>
+            <pubDate>Tue, 24 Feb 2015 06:41:00 GMT</pubDate>
+            <description><![CDATA[現在的案子已經靠 [Babel][learn babel] （之前叫做 6to5 ） ，使用 ES6 寫 React(0.12.0) Component 。 用到的特性有： [Arrows][arrows] [Enhanced Object Literals][enhanced object literals] [Destructuring][destructuring] [Modules][modules] 最後交給 [webpack][webpack] 打包，細節就不詳述。 所以現在是怎麼寫 React Component 的？ 以麵包屑為例，一開始]]></description>
+        </item>
+        <item>
+            <title><![CDATA[2015年1月14日 上午2:25]]></title>
+            <link>https://caasih.net/posts/2015-01-14-0225</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2015-01-14-0225</guid>
+            <pubDate>Tue, 13 Jan 2015 18:25:00 GMT</pubDate>
+            <description><![CDATA[前情提要：在 godfat 講「rest core 的承諾」的那段時間，私下討論跟比較過 js 這邊慣用的 promise 用起來長怎樣。雖然一段時間前也討論過，但那時對 promise 還不熟，也沒寫 LiveScript 。 最近的心得可以在https://github.com/caasi/sandbox/blob/master/livescript/promises.ls找到。 特別喜歡這段： 下面附上信的一部分，與提到的參考資料 XD godfat: 我認為 ES6 的 generator 進來後，這 promise 其實就不太需要了 當然跟現有]]></description>
+        </item>
+        <item>
+            <title><![CDATA[狀態好像泡泡]]></title>
+            <link>https://caasih.net/posts/2014-12-03-states-are-like-bubbles</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2014-12-03-states-are-like-bubbles</guid>
+            <pubDate>Wed, 03 Dec 2014 14:00:00 GMT</pubDate>
+            <description><![CDATA[R: 這幾個月都在寫 React.js ，本來以為自己跟 React 滿合的，沒想到缺乏設計軟體系統的經驗讓自己吃了大虧。整個狀況大概可以簡化成下面這個例子： 一切都很好 一開始，要作個開關。 <iframe width="100%" height="300" src="http://jsfiddle.net/tx0a8mqu/1/embedded/" allowfullscreen="allowfullscreen" frameborder="0" </iframe React 好棒棒，一下就做好了！還可以封裝到 <Button 裡面！萬歲！ 加點什麼]]></description>
+        </item>
+        <item>
+            <title><![CDATA[近況、溝通還有電子書]]></title>
+            <link>https://caasih.net/posts/2014-10-30-societies-and-epub</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2014-10-30-societies-and-epub</guid>
+            <pubDate>Wed, 29 Oct 2014 18:20:00 GMT</pubDate>
+            <description><![CDATA[法蘭克福書展後，公司似乎不那麼忙亂，但我的心態卻有了變化。 先別急著吐槽：「你也放棄得太快了吧？」或是「就知道會這樣。」 並不覺得對不起這份工作，雖然沒有忙到像天天 hackathon ，但在台北的日子，能不被打擾想著公事。這也是來之前的初衷，要像桐山零（或按訪談的說法，就是作者羽海野チカ本人）看齊，不讓自己有藉口抱怨：「要是當時再拼一點就好了。」 喜歡 GitHub 這種看得到 source ，東西壞掉時找得到 issue 或是 pull request ，對這個問題什麼時候會修，或有沒有人在意有個底。加上在 g0v.tw 頻道看到的合作模式，讓我對無]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Spell My Name with an S]]></title>
+            <link>https://caasih.net/posts/2014-09-09-caasi</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2014-09-09-caasi</guid>
+            <pubDate>Tue, 09 Sep 2014 10:30:00 GMT</pubDate>
+            <description><![CDATA[認真的東西一直拖，只好寫些有的沒有的。 caasi 這 id 是 Isaac 倒過來拼，至於為什麼選 Isaac ，則是因為： 很常見，在不能用 caasi 的環境用 Isaac 也沒關係 雖然不信教，但知道他差點被老爸拿去獻祭 提醒自己哪天要把對萊布尼茲很機車的牛頓爵士寫的《自然哲学的数学原理》看完 Isaac Asimov 尤其是最後一點。 說來很傻，以前聽葉李華教授在節目中提過 Asimov 的名字常被錯寫為 Azimov （請見：http://en.wikipedia.org/wiki/Spell My Name with an S），卻記成將 ]]></description>
+        </item>
+        <item>
+            <title><![CDATA[排列之城]]></title>
+            <link>https://caasih.net/posts/2014-07-05-permutation-city</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2014-07-05-permutation-city</guid>
+            <pubDate>Fri, 04 Jul 2014 17:52:00 GMT</pubDate>
+            <description><![CDATA[au 晚上在 haskell.tw 上提到 http://en.wikipedia.org/wiki/Permutation City 。 大概十年前，在重考班，卻不願意面對現實時，曾從計算到底是什麼出發，想到也許平行的事件可以是宇宙在背後循序計算出來的。宇宙計算機存在的世界，時間尺度將和內部世界不同。另外一個原因大概是自己從來沒面對過 threads ，老是在寫 single thread ，最多只到 event driven ，想想現在會那麼鳥蛋也是剛好而已 XD 當時只當成有趣的，可能成為小說題材的點子，還在台中龍軒急著打電話給 lunadance]]></description>
+        </item>
+        <item>
+            <title><![CDATA[用 nan 寫 node native extension]]></title>
+            <link>https://caasih.net/posts/2014-06-23-write-a-native-extension</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2014-06-23-write-a-native-extension</guid>
+            <pubDate>Sun, 22 Jun 2014 19:50:00 GMT</pubDate>
+            <description><![CDATA[c9s 前輩在 5 月 12 號開始寫一個叫做 [r3][0] ，飛快的 url router 。隨後掀起了幫 r3 寫不同語言 binding 的熱潮。到今天（ 6 月 23 日）已經有 Perl, Python, Haskell, Vala, node.js 版，甚至還有個叫做 [pathing][1] ，受 r3 啟發，純 JavaScript 的實作。 5 月 22 日，自己推坑自己，寫 node.js binding ： 19:43:51 \<caasihuang 意圖使人學寫 node extension... 隨即被 au 大長輩推坑 na]]></description>
+        </item>
+        <item>
+            <title><![CDATA[RFC 6902]]></title>
+            <link>https://caasih.net/posts/2014-04-06-rfc-6902</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2014-04-06-rfc-6902</guid>
+            <pubDate>Sat, 05 Apr 2014 20:52:00 GMT</pubDate>
+            <description><![CDATA[在自己的 https://github.com/caasi/rfc6902 做得差不多時，才發現 @chbrown https://github.com/chbrown/rfc6902 。他沒做 move ，但無傷大雅。正如他所說， RFC 6902 diff 不是決定性的。 我的實作更慘，對這些例子，生不出 RFC 範例中給的 patch ： A.2. Adding an Array Element A.4. Removing an Array Element A.7. Moving an Array Element A.16. Adding an A]]></description>
+        </item>
+        <item>
+            <title><![CDATA[wondering]]></title>
+            <link>https://caasih.net/posts/2013-12-19-wondering</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2013-12-19-wondering</guid>
+            <pubDate>Wed, 18 Dec 2013 17:25:00 GMT</pubDate>
+            <description><![CDATA[I am wondering what will you do in the same context. What make you so different? Others like me may question subject's attitude and abilities. But you just make things done.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[lenToRegex v.s. node-segment]]></title>
+            <link>https://caasih.net/posts/2013-11-26-lentoregex-vs-node-segment</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2013-11-26-lentoregex-vs-node-segment</guid>
+            <pubDate>Tue, 26 Nov 2013 00:00:00 GMT</pubDate>
+            <description><![CDATA[update:]]></description>
+        </item>
+        <item>
+            <title><![CDATA[我是如何參與零時政府]]></title>
+            <link>https://caasih.net/posts/2013-08-08-g0v</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2013-08-08-g0v</guid>
+            <pubDate>Thu, 08 Aug 2013 00:00:00 GMT</pubDate>
+            <description><![CDATA[COSCUP 後好些人來到 g0v.tw 後，和當初的自己一樣，不得其門而入，於是想簡單提一下，我是怎麼參與http://g0v.tw/。 寫在前面 本來就會的事情有： 知道 IRC ，也試著用過，但對於人少的頻道，很久會有人回應這點十分不習慣。本來只知道人多的頻道如 javascript 。對現在沒有機器可以掛的我來說，不知道什麼時候會錯過訊息。 有 github 帳號，但是沒有和人合作過的經驗，只用來放自己的東西，而且每個 repo 該有的東西不一定完整。 曾經嚮往 Google Wave 的願景，也看過、聽過「the Mother of All D]]></description>
+        </item>
+        <item>
+            <title><![CDATA[現代行動藝術]]></title>
+            <link>https://caasih.net/posts/2013-04-20-llvm-ir</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2013-04-20-llvm-ir</guid>
+            <pubDate>Sat, 20 Apr 2013 00:00:00 GMT</pubDate>
+            <description><![CDATA[他們把c/c++變成LLVM ir JS W.T.F 他們想從這種行為中表達什麼主張嗎orz 比起技術發展我覺得這比較像現代行動藝術阿 表達對既有概念的反思與抗拒還有貼近人類思考的社會關懷 他們從計算量無限 傳輸頻寬無限 記憶體無限的世界中降臨 展示予有現的人類 他們無限的存在是如何做計算的 — lunadance]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Fun with JavaScript Singleton]]></title>
+            <link>https://caasih.net/posts/2012-02-26-js-singleton</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2012-02-26-js-singleton</guid>
+            <pubDate>Sun, 26 Feb 2012 00:00:00 GMT</pubDate>
+            <description><![CDATA[I think this is much clear than http://stackoverflow.com/questions/1479319/simplest cleanest way to implement singleton in javascript, but THE reputation system on stackoverflow prevents me from answering it :D The key of this code is that JavaScript& 8217;s construct will return]]></description>
+        </item>
+        <item>
+            <title><![CDATA[prototype 的聯想]]></title>
+            <link>https://caasih.net/posts/2012-02-16-prototype</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2012-02-16-prototype</guid>
+            <pubDate>Thu, 16 Feb 2012 00:00:00 GMT</pubDate>
+            <description><![CDATA[去年中開始看 Douglas Crockford 的 & 8220;JavaScript: The Good Parts& 8221;，才知道 JavaScript 這幾年不是無緣無故翻身。而 prototype based OOP 與 class based OOP 的比較，讓我對 OOP 有了不同的認識。 先看看 prototype 繼承的用法， Crockford 的http://javascript.crockford.com/prototypal.html是： 之所以不能簡單的先隨便弄個新的 instance n 再讓 n.prototype ]]></description>
+        </item>
+        <item>
+            <title><![CDATA[陳星漢]]></title>
+            <link>https://caasih.net/posts/2011-04-19-jenovachen</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2011-04-19-jenovachen</guid>
+            <pubDate>Tue, 19 Apr 2011 00:00:00 GMT</pubDate>
+            <description><![CDATA[http://www.jenovachen.com/ 很久以前玩過他的雲(Cloud), 沒機會玩花(Flower), 沒想到他有在 Maxis 做過。 結果 2017 年， [Flower 上了 App Store][Flower] 。 還發表新作：[《光遇》][Sky]。 [Flower]: https://itunes.apple.com/us/app/flower/id1279174518 [Sky]: https://sky.163.com/]]></description>
+        </item>
+        <item>
+            <title><![CDATA[不存在的顏色]]></title>
+            <link>https://caasih.net/posts/2010-04-26-nonexistent-color</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2010-04-26-nonexistent-color</guid>
+            <pubDate>Mon, 26 Apr 2010 00:00:00 GMT</pubDate>
+            <description><![CDATA[http://pyridine.wordpress.com/2010/03/17/%E4%B8%8D%E5%AD%98%E5%9C%A8%E7%9A%84%E9%A1%8F%E8%89%B2/ Update: https://web.archive.org/web/20100204035546/http://pyridine.wordpress.com/ 已經不存在了，請至 https://medium.com/@hsinhao 尋找他的蹤跡。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[測試]]></title>
+            <link>https://caasih.net/posts/2010-02-09-testing</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2010-02-09-testing</guid>
+            <pubDate>Tue, 09 Feb 2010 00:00:00 GMT</pubDate>
+            <description><![CDATA[http://godfat.tumblr.com/post/380126699: ㄟ，我有看到這篇，不過這邊我東西都還沒調好… :( 暫時沒空慢慢調… http://caasi.tumblr.com/post/378845276: http://godfat.tumblr.com/post/318414280: 天上龍捲風捲龍上天。 Knock knock，有人在家嗎？ 沒差啦，反正寫這個又沒有壓力 XD 看到你在用 tumblr嚇了一跳，因為你已經很勤地在寫星之一角了。 有段時間在爬 PTT 的程式語言版，也發過一篇鱷魚蛋的。後來因此找到你的星球 XD]]></description>
+        </item>
+    </channel>
+</rss>
