@@ -17,3 +17,13 @@
 （對不起，對不起，對不起）
 
 然後我想知道，開開心心地學習、撰碼是什麼感覺。
+
+---
+
+## UPDATE (2026-03-06)
+
+LLM tools are now destroying the safe space of many senior programmers by almost invalidating their value to companies.
+
+Salespeople use AI coding hype to create FOMO and sell AI courses.
+
+AI should be a companion that empowers people, instead of replacing humans and spreading fear.
