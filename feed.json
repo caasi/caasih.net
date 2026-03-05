@@ -53,7 +53,7 @@
         },
         {
             "id": "https://caasih.net/posts/2017-06-14-safe-space",
-            "content_html": "（原來有個安心的地方，才有餘力面對世界） 雖然生命中看過不少令人安心的地方，但那都是「別人」經營出來的。待在那些地方很輕鬆，可以放心做事，但不是隨時都能去，對空間的存續也無能為力。 （對不起，不會再闖進別人的 safe space 了） 就算是虛幻的也好，讓我經營屬於自己的角落。 謝謝你讓我知道人在無能為力時，可以嘗試從來沒有想過的事情。 （像一面鏡子） 技術不是最重要的，「無法取代的事情」從小就知道了，只是沒有好好思考過得花多少功夫來保護它。 （對不起，對不起，對不起） 然後我想知道，開開心心地學習、撰碼是什麼感覺。",
+            "content_html": "（原來有個安心的地方，才有餘力面對世界） 雖然生命中看過不少令人安心的地方，但那都是「別人」經營出來的。待在那些地方很輕鬆，可以放心做事，但不是隨時都能去，對空間的存續也無能為力。 （對不起，不會再闖進別人的 safe space 了） 就算是虛幻的也好，讓我經營屬於自己的角落。 謝謝你讓我知道人在無能為力時，可以嘗試從來沒有想過的事情。 （像一面鏡子） 技術不是最重要的，「無法取代的事情」從小就知道了，只是沒有好好思考過得花多少功夫來保護它。 （對不起，對不起，對不起） 然後我想知道，開開心心地學習、撰碼是什麼感覺。 UPDATE (2026 03 0",
             "url": "https://caasih.net/posts/2017-06-14-safe-space",
             "title": "Safe Space",
             "date_modified": "2017-06-14T03:45:11.200Z"
@@ -354,14 +354,14 @@
         },
         {
             "id": "https://caasih.net/posts/2012-02-26-js-singleton",
-            "content_html": "I think this is much clear than http://stackoverflow.com/questions/1479319/simplest cleanest way to implement singleton in javascript, but THE reputation system on stackoverflow prevents me from answering it :D The key of this code is that JavaScript& 8217;s construct will return",
+            "content_html": "I think this is much clear than https://stackoverflow.com/questions/1479319/simplest cleanest way to implement singleton in javascript, but THE reputation system on stackoverflow prevents me from answering it :D The key of this code is that JavaScript& 8217;s construct will retur",
             "url": "https://caasih.net/posts/2012-02-26-js-singleton",
             "title": "Fun with JavaScript Singleton",
             "date_modified": "2012-02-26T00:00:00.000Z"
         },
         {
             "id": "https://caasih.net/posts/2012-02-16-prototype",
-            "content_html": "去年中開始看 Douglas Crockford 的 & 8220;JavaScript: The Good Parts& 8221;，才知道 JavaScript 這幾年不是無緣無故翻身。而 prototype based OOP 與 class based OOP 的比較，讓我對 OOP 有了不同的認識。 先看看 prototype 繼承的用法， Crockford 的http://javascript.crockford.com/prototypal.html是： 之所以不能簡單的先隨便弄個新的 instance n 再讓 n.prototype ",
+            "content_html": "去年中開始看 Douglas Crockford 的 & 8220;JavaScript: The Good Parts& 8221;，才知道 JavaScript 這幾年不是無緣無故翻身。而 prototype based OOP 與 class based OOP 的比較，讓我對 OOP 有了不同的認識。 先看看 prototype 繼承的用法， Crockford 的https://javascript.crockford.com/prototypal.html是： 之所以不能簡單的先隨便弄個新的 instance n 再讓 n.prototype",
             "url": "https://caasih.net/posts/2012-02-16-prototype",
             "title": "prototype 的聯想",
             "date_modified": "2012-02-16T00:00:00.000Z"
