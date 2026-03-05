@@ -7,3 +7,15 @@ au 晚上在 #haskell.tw 上提到 [Permutation City](http://en.wikipedia.org/wi
 另外一個結果就是對紙筆能做的「計算」有興趣，但已經忘了是在之前還是之後，發現當時由 godfat 管的 PLT 版。此後接觸了 untyped λ calculus ，一直到今天來上 FLOLAC ，還在跟這樣的計算奮鬥，仍常常推錯，或是不知道接下來要怎麼算 XD 後來對費曼的計算機教材有興趣，也是源於此（很晚才發現 and or 之類的鬼東西會遺失資訊，要是不漏掉，就能搞可逆計算？）。
 
 高中數學唸得不好，但有幸讀了數學歸納法，除了看到自然數的推導會興奮外，也喜歡可以先猜出意義再用歸納法證的證明，唸離散時，也只對無窮數列與它的和有興趣（能把無窮數列改用有限的符號表示，並對它們做計算，再推出到第 n 項的和不是很美妙嗎？），其他都不太明白。
+
+---
+
+## UPDATE (2026-03-06)
+
+This update section was written by an LLM.
+
+One point I did not explain clearly in the original post is that irreversible computing loses information, and that loss has a physical cost as heat dissipation.
+
+This is why Feynman and others cared about reversible computation: in principle, reversible steps can avoid the fundamental heat cost caused by erasing information.
+
+That line of thought also connects to quantum computing, where time evolution is unitary (reversible), making reversibility a core conceptual foundation.
