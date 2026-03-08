@@ -19,6 +19,9 @@ lib/bs/
 *.bs.js
 .bsb.lock
 
+# Playwright MCP
+.playwright-mcp/
+
 # misc
 coverage/
 .DS_Store
