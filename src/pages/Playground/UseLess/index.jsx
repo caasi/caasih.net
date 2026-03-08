@@ -20,8 +20,7 @@ import ListSource from '!raw-loader!./List'
 import ListExample from '!raw-loader!./List.part'
 import styles from './index.css'
 
-const { protocol } = window.location
-const echoURL = `${protocol.replace(/^http/, 'ws')}//echo.websocket.org`
+const echoURL = 'wss://echo.websocket.org'
 
 function identity(x) {
   return x;
