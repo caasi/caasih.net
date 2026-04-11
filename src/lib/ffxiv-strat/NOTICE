@@ -1,0 +1,11 @@
+This project contains code derived from the following projects:
+
+- marimelon/stgy-tools (https://github.com/marimelon/stgy-tools)
+  Copyright (c) marimelon
+  Licensed under the MIT License
+  Used as the primary code reference for the encoder/decoder implementation.
+
+- wtw0212/ff14-strategyboard-decode (https://github.com/wtw0212/ff14-strategyboard-decode)
+  Copyright (c) 2025 wtw0212
+  Licensed under the MIT License
+  Used as the primary spec/documentation reference for the binary format.
