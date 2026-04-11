@@ -24,6 +24,8 @@ export function decode(input: string): BoardData {
   const binary = decodeBase64(base64String);
 
   // 4. Unpack header, verify CRC32
+  // Header: [CRC32 (4B)] [decompressed length (2B)] [compressed data...]
+  // CRC covers bytes 4–end (length field + compressed data)
   const { storedCRC, decompressedLength, compressedData } = unpackHeader(binary);
   const calculatedCRC = calculateCRC32(binary.slice(4));
   if (storedCRC !== calculatedCRC) {
