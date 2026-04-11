@@ -13,6 +13,7 @@ import UseLess from './UseLess'
 import WebVR from './WebVR'
 import ReScript from './ReasonML'
 import WebGL from './WebGL'
+import FFXIVStrat from './FFXIVStrat'
 
 import styles from './index.css'
 
@@ -27,6 +28,7 @@ const routes = [
   { path: 'web-vr', hidden: true, component: WebVR },
   { path: 'reasonml', label: 'ReScript', component: ReScript },
   { path: 'web-gl', hidden: true, component: WebGL },
+  { path: 'ffxiv-strat', label: 'FFXIV Strat', component: FFXIVStrat },
 ]
 
 class Playground extends Component {
