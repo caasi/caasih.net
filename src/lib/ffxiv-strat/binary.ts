@@ -431,7 +431,9 @@ export function parseBoardData(data: Uint8Array): BoardData {
     )
   }
   reader.readUint32() // content length (skip; we parse to end)
-  reader.skip(8) // padding
+  reader.readUint16() // flags (preserved on round-trip via serializer defaults)
+  reader.readUint16() // title length (not needed; name parsed from Field 1)
+  reader.readUint32() // padding
 
   // Parse sections / fields
   const context = createParseContext()
@@ -464,8 +466,12 @@ export function parseBoardData(data: Uint8Array): BoardData {
     const parser = fieldParsers[sectionTypeOrFieldId]
     if (parser) {
       parser(reader, context)
+    } else {
+      // Unknown field ID encountered. The binary format has no generic length
+      // prefix, so we cannot safely skip the field's data. Break out of the
+      // parsing loop to avoid misinterpreting payload bytes as field IDs.
+      break
     }
-    // Unknown field IDs are silently skipped
   }
 
   return {
