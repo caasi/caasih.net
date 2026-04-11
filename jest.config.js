@@ -17,7 +17,8 @@ module.exports = {
   setupFiles: ['./jest.setup.js'],
   testPathIgnorePatterns: ['/node_modules/', '/reusable'],
   transform: {
-    '^.+\\.(t|j)sx?$': ['@swc/jest', swcOptions],
+    '^.+\\.jsx?$': ['@swc/jest', swcOptions],
+    '^.+\\.tsx?$': '<rootDir>/jest-ts-transform.js',
   },
   moduleNameMapper: {
     '^!raw-loader!(.*)': 'identity-obj-proxy',
