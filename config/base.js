@@ -54,7 +54,7 @@ module.exports = {
     new InlineManifestWebpackPlugin(),
   ],
   resolve: {
-    extensions: ['.md', '.mdx', '.js', '.jsx'],
+    extensions: ['.md', '.mdx', '.js', '.jsx', '.ts', '.tsx'],
     alias: createAliases(srcPath, [
       'components',
       'pages',
@@ -75,6 +75,21 @@ module.exports = {
           loader: 'swc-loader',
           options: swcOptions,
         },
+      },
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: [{
+          loader: 'swc-loader',
+          options: {
+            jsc: {
+              parser: {
+                syntax: 'typescript',
+                tsx: true,
+              },
+            },
+          },
+        }],
       },
       {
         test: /\.mdx?$/,
