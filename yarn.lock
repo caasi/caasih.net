@@ -2980,7 +2980,7 @@ __metadata:
     postcss-loader: "npm:3"
     postcss-scss: "npm:2"
     precss: "npm:4"
-    prettier: "npm:1.16.4"
+    prettier: "npm:3"
     prop-types: "npm:^15.7.2"
     pug: "npm:3"
     pug-cli: "npm:^1.0.0-alpha6"
@@ -11471,12 +11471,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:1.16.4":
-  version: 1.16.4
-  resolution: "prettier@npm:1.16.4"
+"prettier@npm:3":
+  version: 3.8.2
+  resolution: "prettier@npm:3.8.2"
   bin:
-    prettier: ./bin-prettier.js
-  checksum: 10c0/57a1bfabe24a188472318d5178936f0d6dd66c3cd4789479e2182471c6ee6db4b391469984dfd59398187660118d8d415d4b9ce7e792f6a34d682feeb15bf533
+    prettier: bin/prettier.cjs
+  checksum: 10c0/2d64bd01d269c8dd6d8c423a2a2e1fb88230a53aac523204b327de40059ccf8bd8e6fe70b8ce6154b97ed4442e9fd878504ff8a5330f3a4f64bd13d1576f7652
   languageName: node
   linkType: hard
 

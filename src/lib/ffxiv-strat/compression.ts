@@ -62,9 +62,7 @@ export function packHeader(
  * @returns The stored CRC32, expected decompressed length, and compressed bytes.
  * @throws {@link StratDecodeError} if the buffer is shorter than 6 bytes.
  */
-export function unpackHeader(
-  data: Uint8Array
-): {
+export function unpackHeader(data: Uint8Array): {
   storedCRC: number
   decompressedLength: number
   compressedData: Uint8Array
