@@ -25,6 +25,9 @@ lib/bs/
 # Jest
 .jest-node-shims/
 
+# npm (this project uses Yarn)
+package-lock.json
+
 # misc
 coverage/
 .DS_Store
