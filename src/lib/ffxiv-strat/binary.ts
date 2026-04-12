@@ -431,8 +431,8 @@ export function parseBoardData(data: Uint8Array): BoardData {
     )
   }
   reader.readUint32() // content length (skip; we parse to end)
-  reader.readUint16() // flags (preserved on round-trip via serializer defaults)
-  reader.readUint16() // title length (not needed; name parsed from Field 1)
+  reader.readUint16() // flags (not used; zeroed on re-encode)
+  reader.readUint16() // title length (not used; name parsed from Field 1)
   reader.readUint32() // padding
 
   // Parse sections / fields
@@ -510,7 +510,8 @@ export function serializeBoardData(board: BoardData): Uint8Array {
   // Board header (16 bytes)
   writer.writeUint32(SUPPORTED_VERSION) // version = 2
   writer.writeUint32(totalContentLength) // content length
-  writer.writeUint32(0) // padding
+  writer.writeUint16(0) // flags (unused, set to zero)
+  writer.writeUint16(0) // title length (unused, set to zero)
   writer.writeUint32(0) // padding
 
   // Content section
