@@ -1,5 +1,12 @@
 import { StratDecodeError } from './types';
 
+/**
+ * Maps each custom-alphabet character to its substitution target.
+ *
+ * @remarks
+ * Used to derive the cipher key from the first payload character.
+ * 62 entries (A–Z, a–z, 0–9, `+`, `-`).
+ */
 export const KEY_TABLE: Record<string, string> = {
   '+': 'N', '-': 'P', '0': 'x', '1': 'g', '2': '0', '3': 'K',
   '4': '8', '5': 'S', '6': 'J', '7': '2', '8': 's', '9': 'Z',
@@ -14,6 +21,13 @@ export const KEY_TABLE: Record<string, string> = {
   'w': '1', 'x': 'u', 'y': 'z', 'z': 'Q',
 };
 
+/**
+ * Maps each custom-alphabet character to its standard base64 equivalent.
+ *
+ * @remarks
+ * Applied per-character during cipher decrypt/encrypt before the
+ * position-dependent shift.
+ */
 export const ALPHABET_TABLE: Record<string, string> = {
   'b': '-', '2': '0', 'w': '1', '7': '2', 'q': '3', 'S': '4',
   't': '5', 'E': '6', 'V': '7', '4': '8', 'P': '9', 'f': 'A',
@@ -28,11 +42,19 @@ export const ALPHABET_TABLE: Record<string, string> = {
   'v': 'w', '0': 'x', 's': 'y', 'y': 'z',
 };
 
+/** Inverse of {@link ALPHABET_TABLE}: standard base64 char → custom alphabet char. */
 export const REVERSE_ALPHABET_TABLE: Record<string, string> =
   Object.fromEntries(
     Object.entries(ALPHABET_TABLE).map(([k, v]) => [v, k])
   );
 
+/**
+ * Converts a URL-safe base64 character to its 6-bit numeric value (0–63).
+ *
+ * @param char - A single base64 character (`A`–`Z`, `a`–`z`, `0`–`9`, `-`, `_`).
+ * @returns The 6-bit value.
+ * @throws {@link StratDecodeError} if the character is not valid base64.
+ */
 export function base64CharToValue(char: string): number {
   const code = char.charCodeAt(0);
   if (code >= 65 && code <= 90) return code - 65;
@@ -43,6 +65,13 @@ export function base64CharToValue(char: string): number {
   throw new StratDecodeError(`Invalid base64 character: ${char}`);
 }
 
+/**
+ * Converts a 6-bit numeric value (0–63) to its URL-safe base64 character.
+ *
+ * @param value - A value in the range 0–63.
+ * @returns The corresponding base64 character.
+ * @throws {@link StratDecodeError} if the value is out of range.
+ */
 export function valueToBase64Char(value: number): string {
   if (value < 0 || value > 63) {
     throw new StratDecodeError(`Invalid base64 value: ${value}`);
@@ -54,6 +83,7 @@ export function valueToBase64Char(value: number): string {
   return '_';
 }
 
+/** Inverse of {@link KEY_TABLE}: base64 numeric value → custom alphabet char. */
 export const REVERSE_KEY_TABLE: Record<number, string> =
   Object.fromEntries(
     Object.entries(KEY_TABLE).map(([keyChar, base64Char]) => [
