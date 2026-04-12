@@ -86,7 +86,12 @@ export function decodeBase64(base64: string): Uint8Array {
   let std = base64.replace(/-/g, '+').replace(/_/g, '/')
   const pad = (4 - (std.length % 4)) % 4
   std += '='.repeat(pad)
-  const binary = atob(std)
+  let binary: string
+  try {
+    binary = atob(std)
+  } catch {
+    throw new StratDecodeError('Invalid base64 payload: decoding failed')
+  }
   const bytes = new Uint8Array(binary.length)
   for (let i = 0; i < binary.length; i++) {
     bytes[i] = binary.charCodeAt(i)
