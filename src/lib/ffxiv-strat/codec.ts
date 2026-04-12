@@ -73,10 +73,7 @@ export function encodeBase64(data: Uint8Array): string {
     parts.push(String.fromCharCode(...data.subarray(i, i + chunkSize)))
   }
   const binary = parts.join('')
-  return btoa(binary)
-    .replace(/\+/g, '-')
-    .replace(/\//g, '_')
-    .replace(/=+$/, '')
+  return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '')
 }
 
 /**
@@ -104,9 +101,10 @@ export function decodeBase64(base64: string): Uint8Array {
  * @returns The first payload character (key) and the remaining cipher text.
  * @throws {@link StratDecodeError} if the prefix, suffix, or minimum length is invalid.
  */
-export function unwrapStgy(
-  input: string
-): { keyChar: string; payload: string } {
+export function unwrapStgy(input: string): {
+  keyChar: string
+  payload: string
+} {
   if (!input.startsWith(STGY_PREFIX)) {
     throw new StratDecodeError('Invalid stgy string: missing prefix')
   }

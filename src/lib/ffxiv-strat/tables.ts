@@ -149,10 +149,8 @@ export const ALPHABET_TABLE: Record<string, string> = {
 }
 
 /** Inverse of {@link ALPHABET_TABLE}: standard base64 char → custom alphabet char. */
-export const REVERSE_ALPHABET_TABLE: Record<
-  string,
-  string
-> = Object.fromEntries(Object.entries(ALPHABET_TABLE).map(([k, v]) => [v, k]))
+export const REVERSE_ALPHABET_TABLE: Record<string, string> =
+  Object.fromEntries(Object.entries(ALPHABET_TABLE).map(([k, v]) => [v, k]))
 
 /**
  * Converts a URL-safe base64 character to its 6-bit numeric value (0–63).

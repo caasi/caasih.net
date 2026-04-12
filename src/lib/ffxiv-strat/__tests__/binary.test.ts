@@ -218,7 +218,11 @@ describe('binary', () => {
   describe('serializeBoardData', () => {
     it('produces valid binary header', () => {
       const binary = serializeBoardData(minimalBoard)
-      const view = new DataView(binary.buffer, binary.byteOffset, binary.byteLength)
+      const view = new DataView(
+        binary.buffer,
+        binary.byteOffset,
+        binary.byteLength
+      )
       // version = 2
       expect(view.getUint32(0, true)).toBe(2)
       // content length > 0

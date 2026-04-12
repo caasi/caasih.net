@@ -77,7 +77,7 @@ class BinaryReader {
     const bytes = new Uint8Array(
       this.view.buffer,
       this.view.byteOffset + this.offset,
-      length,
+      length
     )
     this.offset += length
     let end = bytes.indexOf(0)
@@ -87,7 +87,9 @@ class BinaryReader {
 
   skip(bytes: number): void {
     if (bytes < 0) {
-      throw new StratDecodeError(`Invalid skip length: ${bytes} at offset ${this.offset}`)
+      throw new StratDecodeError(
+        `Invalid skip length: ${bytes} at offset ${this.offset}`
+      )
     }
     this.ensureRemaining(bytes)
     this.offset += bytes
@@ -97,7 +99,7 @@ class BinaryReader {
     if (this.remaining < bytes) {
       throw new StratDecodeError(
         `Unexpected end of data: need ${bytes} bytes at offset ${this.offset}, ` +
-          `but only ${this.remaining} remaining`,
+          `but only ${this.remaining} remaining`
       )
     }
   }
@@ -225,7 +227,7 @@ type FieldParser = (reader: BinaryReader, context: ParseContext) => void
 /** Field 1: Board name — string with 4-byte-aligned length. */
 function parseFieldBoardName(
   reader: BinaryReader,
-  context: ParseContext,
+  context: ParseContext
 ): void {
   const stringLength = reader.readUint16()
   const paddedLength = padTo4Bytes(stringLength)
@@ -233,10 +235,7 @@ function parseFieldBoardName(
 }
 
 /** Field 2: Object ID — single u16 per occurrence. */
-function parseFieldObjectId(
-  reader: BinaryReader,
-  context: ParseContext,
-): void {
+function parseFieldObjectId(reader: BinaryReader, context: ParseContext): void {
   const objectId = reader.readUint16()
   context.objectIds.push(objectId)
 }
@@ -250,7 +249,7 @@ function parseFieldObjectId(
  */
 function parseFieldTextOrBackground(
   reader: BinaryReader,
-  context: ParseContext,
+  context: ParseContext
 ): void {
   const length = reader.readUint16()
   if (length === 1) {
@@ -277,7 +276,7 @@ function parseFieldFlags(reader: BinaryReader, context: ParseContext): void {
 /** Field 5: Positions array — each element is two u16 (x, y). No scaling. */
 function parseFieldPositions(
   reader: BinaryReader,
-  context: ParseContext,
+  context: ParseContext
 ): void {
   reader.readUint16() // type
   const count = reader.readUint16()
@@ -291,7 +290,7 @@ function parseFieldPositions(
 /** Field 6: Rotations array — typed array of i16. */
 function parseFieldRotations(
   reader: BinaryReader,
-  context: ParseContext,
+  context: ParseContext
 ): void {
   reader.readUint16() // type
   const count = reader.readUint16()
@@ -425,7 +424,7 @@ const SUPPORTED_VERSION = 2
 export function parseBoardData(data: Uint8Array): BoardData {
   if (data.length < BOARD_HEADER_SIZE) {
     throw new StratDecodeError(
-      `Data too short: expected at least ${BOARD_HEADER_SIZE} bytes, got ${data.length}`,
+      `Data too short: expected at least ${BOARD_HEADER_SIZE} bytes, got ${data.length}`
     )
   }
 
@@ -435,7 +434,7 @@ export function parseBoardData(data: Uint8Array): BoardData {
   const version = reader.readUint32()
   if (version !== SUPPORTED_VERSION) {
     throw new StratDecodeError(
-      `Unsupported version: ${version} (expected ${SUPPORTED_VERSION})`,
+      `Unsupported version: ${version} (expected ${SUPPORTED_VERSION})`
     )
   }
   reader.readUint32() // content length (skip; we parse to end)
@@ -453,10 +452,7 @@ export function parseBoardData(data: Uint8Array): BoardData {
     // Content section start (SectionType 0x00)
     // Note: SectionType.CONTENT (0x00) and FieldId EMPTY (0x00) share the same value.
     // Only treat as SectionType when not yet inside the content section.
-    if (
-      sectionTypeOrFieldId === SectionType.CONTENT &&
-      !insideContentSection
-    ) {
+    if (sectionTypeOrFieldId === SectionType.CONTENT && !insideContentSection) {
       reader.readUint16() // section content length (skip)
       insideContentSection = true
       continue
@@ -479,7 +475,7 @@ export function parseBoardData(data: Uint8Array): BoardData {
       // prefix, so we cannot safely skip the field's data. Treat this as a
       // decode failure instead of returning a partially parsed board.
       throw new StratDecodeError(
-        `Unknown field ID: 0x${sectionTypeOrFieldId.toString(16).padStart(4, '0')}`,
+        `Unknown field ID: 0x${sectionTypeOrFieldId.toString(16).padStart(4, '0')}`
       )
     }
   }
@@ -502,12 +498,12 @@ export function serializeBoardData(board: BoardData): Uint8Array {
   // Validate format limits
   if (board.objects.length > MAX_OBJECTS) {
     throw new StratEncodeError(
-      `Too many objects: ${board.objects.length} (max ${MAX_OBJECTS})`,
+      `Too many objects: ${board.objects.length} (max ${MAX_OBJECTS})`
     )
   }
   if (board.name.length > MAX_NAME_LENGTH) {
     throw new StratEncodeError(
-      `Board name too long: ${board.name.length} chars (max ${MAX_NAME_LENGTH})`,
+      `Board name too long: ${board.name.length} chars (max ${MAX_NAME_LENGTH})`
     )
   }
   for (let i = 0; i < board.objects.length; i++) {
@@ -516,7 +512,7 @@ export function serializeBoardData(board: BoardData): Uint8Array {
       const textBytes = new TextEncoder().encode(obj.text)
       if (textBytes.length > MAX_TEXT_BYTES) {
         throw new StratEncodeError(
-          `Object ${i} text too long: ${textBytes.length} bytes (max ${MAX_TEXT_BYTES})`,
+          `Object ${i} text too long: ${textBytes.length} bytes (max ${MAX_TEXT_BYTES})`
         )
       }
     }

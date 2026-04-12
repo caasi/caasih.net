@@ -1,8 +1,21 @@
 import { StratDecodeError, StratEncodeError } from './types'
 import type { BoardData } from './types'
 import { KEY_TABLE, REVERSE_KEY_TABLE, base64CharToValue } from './tables'
-import { unwrapStgy, wrapStgy, decryptCipher, encryptCipher, encodeBase64, decodeBase64 } from './codec'
-import { calculateCRC32, packHeader, unpackHeader, compress, decompress } from './compression'
+import {
+  unwrapStgy,
+  wrapStgy,
+  decryptCipher,
+  encryptCipher,
+  encodeBase64,
+  decodeBase64,
+} from './codec'
+import {
+  calculateCRC32,
+  packHeader,
+  unpackHeader,
+  compress,
+  decompress,
+} from './compression'
 import { parseBoardData, serializeBoardData } from './binary'
 
 export type { BoardData, BoardObject, ObjectFlags } from './types'
@@ -75,7 +88,7 @@ export function encode(board: BoardData): string {
 
   if (binaryData.length > 0xffff) {
     throw new StratEncodeError(
-      `Serialized data too large for u16 length field: ${binaryData.length} bytes (max 65535)`,
+      `Serialized data too large for u16 length field: ${binaryData.length} bytes (max 65535)`
     )
   }
 

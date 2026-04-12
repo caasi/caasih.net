@@ -20,7 +20,7 @@
     "deploy": "gh-pages -t -d dist",
     "test": "jest",
     "codecov": "jest && codecov",
-    "prettier": "npx prettier --single-quote --no-semi --trailing-comma es5 --arrow-parens always --write '*.js' 'config/**/*.js'",
+    "prettier": "npx prettier --single-quote --no-semi --trailing-comma es5 --arrow-parens always --write '*.js' 'config/**/*.js' 'src/**/*.ts'",
     "update:browserslist": "npx browserslist@latest --update-db"
   },
   "keywords": [
@@ -59,7 +59,7 @@
     "postcss-loader": "3",
     "postcss-scss": "2",
     "precss": "4",
-    "prettier": "1.16.4",
+    "prettier": "3",
     "pug": "3",
     "pug-cli": "^1.0.0-alpha6",
     "pug-loader": "2",

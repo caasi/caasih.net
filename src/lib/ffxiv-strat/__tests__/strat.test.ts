@@ -43,9 +43,15 @@ describe('strat integration', () => {
         expect(reDecoded.backgroundId).toBe(decoded.backgroundId)
         expect(reDecoded.objects.length).toBe(decoded.objects.length)
         for (let j = 0; j < decoded.objects.length; j++) {
-          expect(reDecoded.objects[j].objectId).toBe(decoded.objects[j].objectId)
-          expect(reDecoded.objects[j].position).toEqual(decoded.objects[j].position)
-          expect(reDecoded.objects[j].rotation).toBe(decoded.objects[j].rotation)
+          expect(reDecoded.objects[j].objectId).toBe(
+            decoded.objects[j].objectId
+          )
+          expect(reDecoded.objects[j].position).toEqual(
+            decoded.objects[j].position
+          )
+          expect(reDecoded.objects[j].rotation).toBe(
+            decoded.objects[j].rotation
+          )
           expect(reDecoded.objects[j].size).toBe(decoded.objects[j].size)
           expect(reDecoded.objects[j].text).toBe(decoded.objects[j].text)
         }
@@ -61,7 +67,12 @@ describe('strat integration', () => {
         objects: [
           {
             objectId: 0x2f,
-            flags: { visible: true, flipHorizontal: false, flipVertical: false, locked: false },
+            flags: {
+              visible: true,
+              flipHorizontal: false,
+              flipVertical: false,
+              locked: false,
+            },
             position: { x: 2560, y: 1920 },
             rotation: 45,
             size: 100,
@@ -70,7 +81,12 @@ describe('strat integration', () => {
           },
           {
             objectId: 0x64,
-            flags: { visible: true, flipHorizontal: false, flipVertical: false, locked: false },
+            flags: {
+              visible: true,
+              flipHorizontal: false,
+              flipVertical: false,
+              locked: false,
+            },
             position: { x: 1000, y: 500 },
             rotation: 0,
             size: 80,
@@ -101,7 +117,12 @@ describe('strat integration', () => {
         backgroundId: 1,
         objects: Array.from({ length: 50 }, (_, i) => ({
           objectId: 0x2f,
-          flags: { visible: true, flipHorizontal: false, flipVertical: false, locked: false },
+          flags: {
+            visible: true,
+            flipHorizontal: false,
+            flipVertical: false,
+            locked: false,
+          },
           position: { x: i * 100, y: i * 50 },
           rotation: 0,
           size: 100,
