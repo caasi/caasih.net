@@ -472,9 +472,11 @@ export function parseBoardData(data: Uint8Array): BoardData {
       parser(reader, context)
     } else {
       // Unknown field ID encountered. The binary format has no generic length
-      // prefix, so we cannot safely skip the field's data. Break out of the
-      // parsing loop to avoid misinterpreting payload bytes as field IDs.
-      break
+      // prefix, so we cannot safely skip the field's data. Treat this as a
+      // decode failure instead of returning a partially parsed board.
+      throw new StratDecodeError(
+        `Unknown field ID: 0x${sectionTypeOrFieldId.toString(16).padStart(4, '0')}`,
+      )
     }
   }
 
