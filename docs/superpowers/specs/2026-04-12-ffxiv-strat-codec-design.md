@@ -50,9 +50,9 @@ A `[stgy:...]` string goes through these layers:
 |--------|------|---------|-----------------------------------------------------|
 | 0x00   | 4    | u32 LE  | Version (expected: 2). Reject other values.         |
 | 0x04   | 4    | u32 LE  | Content length (bytes after header)                 |
-| 0x08   | 2    | u16 LE  | Flags (observed: `0x0001`). Preserve for round-trip.|
-| 0x0A   | 2    | u16 LE  | Title length (bytes)                                |
-| 0x0C   | 4    | —       | Padding (zeros). Preserve for round-trip.           |
+| 0x08   | 2    | u16 LE  | Flags (always `0x0001` in real data). Hardcoded on encode. |
+| 0x0A   | 2    | u16 LE  | Title length (bytes). Set to zero on encode.        |
+| 0x0C   | 4    | —       | Reserved padding. Set to zero on encode.            |
 
 **Content sections** use a Structure-of-Arrays layout. All objects' same attribute is stored contiguously. Each section starts with a Field ID (u16 LE):
 
