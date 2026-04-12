@@ -20,7 +20,7 @@
     "deploy": "gh-pages -t -d dist",
     "test": "jest",
     "codecov": "jest && codecov",
-    "prettier": "npx prettier --single-quote --no-semi --trailing-comma es5 --arrow-parens always --write '*.js' 'config/**/*.js' 'src/**/*.ts'",
+    "prettier": "npx prettier --single-quote --no-semi --trailing-comma es5 --arrow-parens always --write '*.js' 'config/**/*.js' 'src/**/*.ts' 'src/**/*.tsx'",
     "update:browserslist": "npx browserslist@latest --update-db"
   },
   "keywords": [
