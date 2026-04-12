@@ -4,12 +4,12 @@
 // This file uses require() instead of import because ES module imports are
 // hoisted — the polyfill assignment must execute before enzyme's transitive
 // deps trigger side-effects that reference TextDecoder.
-const { TextEncoder, TextDecoder } = require('util');
+const { TextEncoder, TextDecoder } = require('util')
 if (global.TextEncoder == null) {
-  global.TextEncoder = TextEncoder;
+  global.TextEncoder = TextEncoder
 }
 if (global.TextDecoder == null) {
-  global.TextDecoder = TextDecoder;
+  global.TextDecoder = TextDecoder
 }
 
 require('raf/polyfill')

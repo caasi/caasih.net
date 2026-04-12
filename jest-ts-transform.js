@@ -3,7 +3,7 @@
  * Needed because @swc/jest v0.2.2 caches its config globally on first use,
  * making it incompatible with per-extension config splits in Jest 24.
  */
-const { transformSync } = require('@swc/core');
+const { transformSync } = require('@swc/core')
 
 module.exports = {
   process(src, filename) {
@@ -22,8 +22,8 @@ module.exports = {
         module: {
           type: 'commonjs',
         },
-      });
+      })
     }
-    return src;
+    return src
   },
-};
+}
