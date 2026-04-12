@@ -65,10 +65,12 @@ export function encryptCipher(base64: string, key: number): string {
  * @returns URL-safe base64 string (`-` and `_` instead of `+` and `/`).
  */
 export function encodeBase64(data: Uint8Array): string {
-  let binary = '';
-  for (let i = 0; i < data.length; i++) {
-    binary += String.fromCharCode(data[i]);
+  const chunkSize = 0x8000;
+  const parts: string[] = [];
+  for (let i = 0; i < data.length; i += chunkSize) {
+    parts.push(String.fromCharCode(...data.subarray(i, i + chunkSize)));
   }
+  const binary = parts.join('');
   return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 }
 
