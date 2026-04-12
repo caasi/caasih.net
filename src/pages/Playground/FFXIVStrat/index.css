@@ -1,0 +1,67 @@
+.className {
+  textarea {
+    width: 100%;
+    font-family: monospace;
+    font-size: 0.85em;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    background: inherit;
+    color: inherit;
+    box-sizing: border-box;
+    resize: vertical;
+  }
+
+  button {
+    outline: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--m-blue);
+    background-color: var(--m-blue);
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .error {
+    color: #c00;
+    background: #fff0f0;
+    border: 1px solid #fcc;
+    padding: 8px 12px;
+    border-radius: 4px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.85em;
+    display: block;
+    overflow-x: auto;
+  }
+
+  th {
+    border: 1px solid #ccc;
+    padding: 4px 8px;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  td {
+    border: 1px solid #ccc;
+    padding: 4px 8px;
+    white-space: nowrap;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    textarea {
+      border-color: #555;
+    }
+
+    .error {
+      color: #f88;
+      background: #2a0000;
+      border-color: #600;
+    }
+
+    th, td {
+      border-color: #555;
+    }
+  }
+}

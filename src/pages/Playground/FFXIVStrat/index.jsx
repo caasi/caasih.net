@@ -1,40 +1,12 @@
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet'
+import cx from 'classnames'
 import Article from 'components/Article'
 import { decode } from '../../../lib/ffxiv-strat'
+import styles from './index.css'
 
 const SAMPLE_CODE =
   '[stgy:aw5-pKJcyPZdvO9iFpRLn893nGo-dyTe5Q+n0j4D3qpRP+mTCPgl9Jrl+2lu7k03DC9TqqPEQ49zWzew62B+IV6P-eWGEznZp-B+P95K6VaPKAnA9vigQwpCDxxIr5kyCveZJX96gGbNEReJZ3vX-u3iO5l0JfgcyHOdUKonCfuXsSQqdM-qqx8ngqZchxv0vAeF5ETCyyFmONz6YzjTAEHEKLCEZkje]'
-
-const tableStyle = {
-  borderCollapse: 'collapse',
-  width: '100%',
-  fontSize: '0.85em',
-  overflowX: 'auto',
-  display: 'block',
-}
-
-const thStyle = {
-  border: '1px solid #ccc',
-  padding: '4px 8px',
-  textAlign: 'left',
-  background: '#f5f5f5',
-  whiteSpace: 'nowrap',
-}
-
-const tdStyle = {
-  border: '1px solid #ccc',
-  padding: '4px 8px',
-  whiteSpace: 'nowrap',
-}
-
-const errorStyle = {
-  color: '#c00',
-  background: '#fff0f0',
-  border: '1px solid #fcc',
-  padding: '8px 12px',
-  borderRadius: '4px',
-}
 
 function FFXIVStrat() {
   const [input, setInput] = useState(SAMPLE_CODE)
@@ -54,7 +26,7 @@ function FFXIVStrat() {
   }
 
   return (
-    <Article className="playground-ffxiv-strat">
+    <Article className={cx(styles.className, 'playground-ffxiv-strat')}>
       <Helmet>
         <title>FFXIV Strat - caasih.net</title>
       </Helmet>
@@ -95,7 +67,6 @@ function FFXIVStrat() {
           <textarea
             id="stgy-input"
             rows={4}
-            style={{ width: '100%', fontFamily: 'monospace', fontSize: '0.85em' }}
             value={input}
             onChange={e => setInput(e.target.value)}
             placeholder={SAMPLE_CODE}
@@ -108,7 +79,7 @@ function FFXIVStrat() {
       </form>
 
       {error && (
-        <p style={errorStyle}>
+        <p className={styles.error}>
           <strong>Error:</strong> {error}
         </p>
       )}
@@ -117,66 +88,48 @@ function FFXIVStrat() {
         <div>
           <h2>Result</h2>
           <dl>
-            <dt>
-              <strong>Board name</strong>
-            </dt>
+            <dt><strong>Board name</strong></dt>
             <dd>{result.name || '(empty)'}</dd>
-            <dt>
-              <strong>Background ID</strong>
-            </dt>
+            <dt><strong>Background ID</strong></dt>
             <dd>{result.backgroundId}</dd>
-            <dt>
-              <strong>Objects</strong>
-            </dt>
+            <dt><strong>Objects</strong></dt>
             <dd>{result.objects.length}</dd>
           </dl>
 
           {result.objects.length > 0 && (
-            <table style={tableStyle}>
+            <table>
               <thead>
                 <tr>
                   {[
-                    'objectId',
-                    'x',
-                    'y',
-                    'rotation',
-                    'size',
-                    'r',
-                    'g',
-                    'b',
-                    'opacity',
-                    'flags',
-                    'params',
-                    'text',
+                    'objectId', 'x', 'y', 'rotation', 'size',
+                    'r', 'g', 'b', 'opacity', 'flags', 'params', 'text',
                   ].map(col => (
-                    <th key={col} style={thStyle}>
-                      {col}
-                    </th>
+                    <th key={col}>{col}</th>
                   ))}
                 </tr>
               </thead>
               <tbody>
                 {result.objects.map((obj, i) => (
                   <tr key={i}>
-                    <td style={tdStyle}>{obj.objectId}</td>
-                    <td style={tdStyle}>{obj.position.x}</td>
-                    <td style={tdStyle}>{obj.position.y}</td>
-                    <td style={tdStyle}>{obj.rotation}</td>
-                    <td style={tdStyle}>{obj.size}</td>
-                    <td style={tdStyle}>{obj.color.r}</td>
-                    <td style={tdStyle}>{obj.color.g}</td>
-                    <td style={tdStyle}>{obj.color.b}</td>
-                    <td style={tdStyle}>{obj.color.opacity}</td>
-                    <td style={tdStyle}>
+                    <td>{obj.objectId}</td>
+                    <td>{obj.position.x}</td>
+                    <td>{obj.position.y}</td>
+                    <td>{obj.rotation}</td>
+                    <td>{obj.size}</td>
+                    <td>{obj.color.r}</td>
+                    <td>{obj.color.g}</td>
+                    <td>{obj.color.b}</td>
+                    <td>{obj.color.opacity}</td>
+                    <td>
                       {Object.entries(obj.flags)
                         .filter(([, v]) => v)
                         .map(([k]) => k)
                         .join(', ') || '-'}
                     </td>
-                    <td style={tdStyle}>
+                    <td>
                       {obj.params.a},{obj.params.b},{obj.params.c}
                     </td>
-                    <td style={tdStyle}>{obj.text ?? '-'}</td>
+                    <td>{obj.text ?? '-'}</td>
                   </tr>
                 ))}
               </tbody>
