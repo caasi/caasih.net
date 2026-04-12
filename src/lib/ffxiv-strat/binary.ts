@@ -11,8 +11,12 @@
 
 import {
   StratDecodeError,
+  StratEncodeError,
   BOARD_HEADER_SIZE,
   TEXT_OBJECT_ID,
+  MAX_OBJECTS,
+  MAX_NAME_LENGTH,
+  MAX_TEXT_BYTES,
   FieldIds,
   FlagBits,
   SectionType,
@@ -489,6 +493,29 @@ export function parseBoardData(data: Uint8Array): BoardData {
  * Serialize a BoardData structure into SoA binary format.
  */
 export function serializeBoardData(board: BoardData): Uint8Array {
+  // Validate format limits
+  if (board.objects.length > MAX_OBJECTS) {
+    throw new StratEncodeError(
+      `Too many objects: ${board.objects.length} (max ${MAX_OBJECTS})`,
+    )
+  }
+  if (board.name.length > MAX_NAME_LENGTH) {
+    throw new StratEncodeError(
+      `Board name too long: ${board.name.length} chars (max ${MAX_NAME_LENGTH})`,
+    )
+  }
+  for (let i = 0; i < board.objects.length; i++) {
+    const obj = board.objects[i]
+    if (obj.text !== undefined) {
+      const textBytes = new TextEncoder().encode(obj.text)
+      if (textBytes.length > MAX_TEXT_BYTES) {
+        throw new StratEncodeError(
+          `Object ${i} text too long: ${textBytes.length} bytes (max ${MAX_TEXT_BYTES})`,
+        )
+      }
+    }
+  }
+
   // 1. Serialize field content into a temporary buffer
   const contentWriter = new BinaryWriter()
   serializeFields(board, contentWriter)
