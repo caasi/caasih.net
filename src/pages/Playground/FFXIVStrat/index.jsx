@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet'
 import cx from 'classnames'
 import Article from 'components/Article'
@@ -11,20 +11,16 @@ const SAMPLE_CODE =
 
 function FFXIVStrat() {
   const [input, setInput] = useState(SAMPLE_CODE)
-  const [result, setResult] = useState(null)
-  const [error, setError] = useState(null)
 
-  function handleDecode(e) {
-    e.preventDefault()
-    setResult(null)
-    setError(null)
+  const { result, error } = useMemo(() => {
+    const trimmed = input.trim()
+    if (!trimmed) return { result: null, error: null }
     try {
-      const board = decode(input.trim())
-      setResult(board)
+      return { result: decode(trimmed), error: null }
     } catch (err) {
-      setError(err.message || String(err))
+      return { result: null, error: err.message || String(err) }
     }
-  }
+  }, [input])
 
   return (
     <Article className={cx(styles.className, 'playground-ffxiv-strat')}>
@@ -58,26 +54,21 @@ function FFXIVStrat() {
         .
       </p>
 
-      <form onSubmit={handleDecode}>
-        <p>
-          <label htmlFor="stgy-input">
-            Paste a <code>[stgy:...]</code> code:
-          </label>
-        </p>
-        <p>
-          <textarea
-            id="stgy-input"
-            rows={4}
-            value={input}
-            onChange={e => setInput(e.target.value)}
-            placeholder={SAMPLE_CODE}
-            spellCheck={false}
-          />
-        </p>
-        <p>
-          <button type="submit">Decode</button>
-        </p>
-      </form>
+      <p>
+        <label htmlFor="stgy-input">
+          Paste a <code>[stgy:...]</code> code:
+        </label>
+      </p>
+      <p>
+        <textarea
+          id="stgy-input"
+          rows={4}
+          value={input}
+          onChange={e => setInput(e.target.value)}
+          placeholder={SAMPLE_CODE}
+          spellCheck={false}
+        />
+      </p>
 
       {error && (
         <p className={styles.error}>
