@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Helmet } from 'react-helmet'
 import cx from 'classnames'
 import Article from 'components/Article'
+import SourceCode from 'components/SourceCode'
 import { decode } from '../../../lib/ffxiv-strat'
 import styles from './index.css'
 
@@ -85,57 +86,9 @@ function FFXIVStrat() {
       )}
 
       {result && (
-        <div>
-          <h2>Result</h2>
-          <dl>
-            <dt><strong>Board name</strong></dt>
-            <dd>{result.name || '(empty)'}</dd>
-            <dt><strong>Background ID</strong></dt>
-            <dd>{result.backgroundId}</dd>
-            <dt><strong>Objects</strong></dt>
-            <dd>{result.objects.length}</dd>
-          </dl>
-
-          {result.objects.length > 0 && (
-            <table>
-              <thead>
-                <tr>
-                  {[
-                    'objectId', 'x', 'y', 'rotation', 'size',
-                    'r', 'g', 'b', 'opacity', 'flags', 'params', 'text',
-                  ].map(col => (
-                    <th key={col}>{col}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {result.objects.map((obj, i) => (
-                  <tr key={i}>
-                    <td>{obj.objectId}</td>
-                    <td>{obj.position.x}</td>
-                    <td>{obj.position.y}</td>
-                    <td>{obj.rotation}</td>
-                    <td>{obj.size}</td>
-                    <td>{obj.color.r}</td>
-                    <td>{obj.color.g}</td>
-                    <td>{obj.color.b}</td>
-                    <td>{obj.color.opacity}</td>
-                    <td>
-                      {Object.entries(obj.flags)
-                        .filter(([, v]) => v)
-                        .map(([k]) => k)
-                        .join(', ') || '-'}
-                    </td>
-                    <td>
-                      {obj.params.a},{obj.params.b},{obj.params.c}
-                    </td>
-                    <td>{obj.text ?? '-'}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          )}
-        </div>
+        <SourceCode open language="json" label="decoded">
+          {JSON.stringify(result, null, 2)}
+        </SourceCode>
       )}
     </Article>
   )

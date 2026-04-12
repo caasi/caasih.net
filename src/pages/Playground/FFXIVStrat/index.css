@@ -28,27 +28,6 @@
     border-radius: 4px;
   }
 
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 0.85em;
-    display: block;
-    overflow-x: auto;
-  }
-
-  th {
-    border: 1px solid #ccc;
-    padding: 4px 8px;
-    text-align: left;
-    white-space: nowrap;
-  }
-
-  td {
-    border: 1px solid #ccc;
-    padding: 4px 8px;
-    white-space: nowrap;
-  }
-
   @media (prefers-color-scheme: dark) {
     textarea {
       border-color: #555;
@@ -58,10 +37,6 @@
       color: #f88;
       background: #2a0000;
       border-color: #600;
-    }
-
-    th, td {
-      border-color: #555;
     }
   }
 }
