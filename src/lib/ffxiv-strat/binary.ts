@@ -86,6 +86,10 @@ class BinaryReader {
   }
 
   skip(bytes: number): void {
+    if (bytes < 0) {
+      throw new StratDecodeError(`Invalid skip length: ${bytes} at offset ${this.offset}`)
+    }
+    this.ensureRemaining(bytes)
     this.offset += bytes
   }
 
