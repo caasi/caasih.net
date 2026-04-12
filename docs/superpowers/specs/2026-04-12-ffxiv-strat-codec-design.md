@@ -70,7 +70,7 @@ A `[stgy:...]` string goes through these layers:
 
 **Note**: Field ID 3 is overloaded: it encodes text content when it follows a text object (ID=0x64) in the Field 2 section, and encodes the background ID when it appears as the final section (distinguished by length=1).
 
-**Note**: Field ID 9 does not exist in the upstream format. This is intentional — the game client skips this ID. The parser should treat an encountered Field 9 as unknown and skip it gracefully.
+**Note**: Field ID 9 does not exist in the upstream format. This is intentional — the game client skips this ID, so it never appears in real share codes. The parser throws `StratDecodeError` on any unknown field ID (including 0x09) because the binary format has no generic length prefix to safely skip unknown fields.
 
 **Note**: Field 0 (empty) may appear as alignment padding between sections. Skip it.
 
