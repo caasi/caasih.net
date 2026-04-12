@@ -16,6 +16,13 @@ describe('tables', () => {
       expect(KEY_TABLE['z']).toBe('Q');
     });
   });
+  describe('KEY_TABLE bijectivity', () => {
+    it('has all unique values (no duplicate mappings)', () => {
+      const values = Object.values(KEY_TABLE);
+      expect(new Set(values).size).toBe(values.length);
+    });
+  });
+
   describe('ALPHABET_TABLE', () => {
     it('has 64 entries', () => {
       expect(Object.keys(ALPHABET_TABLE).length).toBe(64);
@@ -26,6 +33,13 @@ describe('tables', () => {
       expect(ALPHABET_TABLE['0']).toBe('x');
     });
   });
+  describe('ALPHABET_TABLE bijectivity', () => {
+    it('has all unique values (no duplicate mappings)', () => {
+      const values = Object.values(ALPHABET_TABLE);
+      expect(new Set(values).size).toBe(values.length);
+    });
+  });
+
   describe('base64CharToValue', () => {
     it('maps A-Z to 0-25', () => {
       expect(base64CharToValue('A')).toBe(0);

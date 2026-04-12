@@ -33,6 +33,26 @@ describe('strat integration', () => {
     });
   });
 
+  describe('decode → encode → decode identity', () => {
+    FIXTURES.forEach((code, i) => {
+      it(`encode(decode(fixture ${i + 1})) produces a decodable string`, () => {
+        const decoded = decode(code);
+        const reEncoded = encode(decoded);
+        const reDecoded = decode(reEncoded);
+        expect(reDecoded.name).toBe(decoded.name);
+        expect(reDecoded.backgroundId).toBe(decoded.backgroundId);
+        expect(reDecoded.objects.length).toBe(decoded.objects.length);
+        for (let j = 0; j < decoded.objects.length; j++) {
+          expect(reDecoded.objects[j].objectId).toBe(decoded.objects[j].objectId);
+          expect(reDecoded.objects[j].position).toEqual(decoded.objects[j].position);
+          expect(reDecoded.objects[j].rotation).toBe(decoded.objects[j].rotation);
+          expect(reDecoded.objects[j].size).toBe(decoded.objects[j].size);
+          expect(reDecoded.objects[j].text).toBe(decoded.objects[j].text);
+        }
+      });
+    });
+  });
+
   describe('encode → decode round-trip', () => {
     it('round-trips a constructed board', () => {
       const board: BoardData = {
@@ -71,6 +91,27 @@ describe('strat integration', () => {
       expect(decoded.objects[0].objectId).toBe(0x2f);
       expect(decoded.objects[0].rotation).toBe(45);
       expect(decoded.objects[1].text).toBe('Stack here');
+    });
+  });
+
+  describe('encode limits', () => {
+    it('encodes a board at MAX_OBJECTS (50) without overflow', () => {
+      const board: BoardData = {
+        name: 'Full',
+        backgroundId: 1,
+        objects: Array.from({ length: 50 }, (_, i) => ({
+          objectId: 0x2f,
+          flags: { visible: true, flipHorizontal: false, flipVertical: false, locked: false },
+          position: { x: i * 100, y: i * 50 },
+          rotation: 0,
+          size: 100,
+          color: { r: 0, g: 0, b: 0, opacity: 0 },
+          params: { a: 0, b: 0, c: 0 },
+        })),
+      };
+      const encoded = encode(board);
+      const decoded = decode(encoded);
+      expect(decoded.objects.length).toBe(50);
     });
   });
 
