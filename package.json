@@ -110,5 +110,8 @@
       "/404"
     ]
   },
-  "packageManager": "yarn@4.10.2"
+  "packageManager": "yarn@4.10.2",
+  "resolutions": {
+    "cheerio": "1.0.0-rc.12"
+  }
 }
