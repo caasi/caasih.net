@@ -1,5 +1,6 @@
-// Error classes
-
+/**
+ * Base error for all FFXIV strategy board codec failures.
+ */
 export class StratError extends Error {
   constructor(message: string) {
     super(message);
@@ -7,6 +8,13 @@ export class StratError extends Error {
   }
 }
 
+/**
+ * Thrown when a `[stgy:...]` string cannot be decoded.
+ *
+ * @remarks
+ * Common causes: malformed wrapper, invalid cipher characters,
+ * CRC32 mismatch, decompression failure, or unsupported binary version.
+ */
 export class StratDecodeError extends StratError {
   constructor(message: string) {
     super(message);
@@ -14,6 +22,9 @@ export class StratDecodeError extends StratError {
   }
 }
 
+/**
+ * Thrown when a {@link BoardData} cannot be encoded.
+ */
 export class StratEncodeError extends StratError {
   constructor(message: string) {
     super(message);
@@ -21,8 +32,7 @@ export class StratEncodeError extends StratError {
   }
 }
 
-// Data types
-
+/** Per-object visibility and transform flags. */
 export interface ObjectFlags {
   visible: boolean;
   flipHorizontal: boolean;
@@ -30,24 +40,44 @@ export interface ObjectFlags {
   locked: boolean;
 }
 
+/**
+ * A single object on the strategy board.
+ *
+ * @remarks
+ * Positions are stored as raw 1/10-pixel units (canvas 512 × 384 px).
+ * Multiply by {@link COORDINATE_SCALE} to convert from pixels.
+ */
 export interface BoardObject {
+  /** Game-defined object type (see `OBJECT_TYPES.md` in wtw0212). */
   objectId: number;
   flags: ObjectFlags;
+  /** Position in 1/10-pixel units. */
   position: { x: number; y: number };
+  /** Rotation in degrees, −180 to 180. */
   rotation: number;
+  /** Display scale, 50–200 (100 = 100%). */
   size: number;
   color: { r: number; g: number; b: number; opacity: number };
   params: { a: number; b: number; c: number };
+  /** Text content. Only present when {@link objectId} is {@link TEXT_OBJECT_ID} (0x64). */
   text?: string;
 }
 
+/**
+ * Decoded strategy board data.
+ *
+ * @remarks
+ * Produced by {@link decode} and consumed by {@link encode}.
+ */
 export interface BoardData {
+  /** Board name (max 20 characters). */
   name: string;
+  /** Background map identifier. */
   backgroundId: number;
+  /** Board objects (max 50). */
   objects: BoardObject[];
 }
 
-// Constants
 
 export const STGY_PREFIX = '[stgy:a';
 export const STGY_SUFFIX = ']';

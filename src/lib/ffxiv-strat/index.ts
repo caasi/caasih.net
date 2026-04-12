@@ -8,6 +8,18 @@ import { parseBoardData, serializeBoardData } from './binary';
 export type { BoardData, BoardObject, ObjectFlags } from './types';
 export { StratError, StratDecodeError, StratEncodeError } from './types';
 
+/**
+ * Decodes a `[stgy:...]` share code into structured board data.
+ *
+ * @remarks
+ * Pipeline: unwrap shell → derive key → decrypt cipher → base64 decode →
+ * verify CRC32 → zlib inflate → parse SoA binary.
+ *
+ * @param input - A complete `[stgy:a...]` string.
+ * @returns The decoded {@link BoardData}.
+ * @throws {@link StratDecodeError} on any decode failure (malformed input,
+ *   CRC mismatch, decompression error, unsupported binary version, etc.).
+ */
 export function decode(input: string): BoardData {
   // 1. Unwrap shell, extract key
   const { keyChar, payload } = unwrapStgy(input);
@@ -46,6 +58,17 @@ export function decode(input: string): BoardData {
   return parseBoardData(decompressed);
 }
 
+/**
+ * Encodes structured board data into a `[stgy:...]` share code.
+ *
+ * @remarks
+ * Pipeline (reverse of {@link decode}): serialize SoA binary → zlib deflate →
+ * build CRC32 header → base64 encode → encrypt cipher → wrap shell.
+ *
+ * @param board - The {@link BoardData} to encode.
+ * @returns A complete `[stgy:a...]` string.
+ * @throws {@link StratEncodeError} if the key derivation fails.
+ */
 export function encode(board: BoardData): string {
   // 1. Serialize to binary
   const binaryData = serializeBoardData(board);
