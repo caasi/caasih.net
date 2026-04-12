@@ -5,8 +5,12 @@
 // hoisted — the polyfill assignment must execute before enzyme's transitive
 // deps trigger side-effects that reference TextDecoder.
 const { TextEncoder, TextDecoder } = require('util');
-global.TextEncoder = TextEncoder;
-global.TextDecoder = TextDecoder;
+if (global.TextEncoder == null) {
+  global.TextEncoder = TextEncoder;
+}
+if (global.TextDecoder == null) {
+  global.TextDecoder = TextDecoder;
+}
 
 require('raf/polyfill')
 
