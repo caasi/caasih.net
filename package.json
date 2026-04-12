@@ -73,7 +73,7 @@
     "regenerator-runtime": "^0.12.0",
     "rimraf": "^2.5.4",
     "style-loader": "^0.23.1",
-    "swc-loader": "^0.1.14",
+    "swc-loader": "0.1.15",
     "terser-webpack-plugin": "^1.2.3",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11",

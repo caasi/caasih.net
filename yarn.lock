@@ -3005,7 +3005,7 @@ __metadata:
     regenerator-runtime: "npm:^0.12.0"
     rimraf: "npm:^2.5.4"
     style-loader: "npm:^0.23.1"
-    swc-loader: "npm:^0.1.14"
+    swc-loader: "npm:0.1.15"
     terser-webpack-plugin: "npm:^1.2.3"
     webpack: "npm:^4.41.6"
     webpack-cli: "npm:^3.3.11"
@@ -8935,7 +8935,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"loader-utils@npm:^2.0.3":
+"loader-utils@npm:^2.0.0, loader-utils@npm:^2.0.3":
   version: 2.0.4
   resolution: "loader-utils@npm:2.0.4"
   dependencies:
@@ -14227,13 +14227,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swc-loader@npm:^0.1.14":
-  version: 0.1.16
-  resolution: "swc-loader@npm:0.1.16"
+"swc-loader@npm:0.1.15":
+  version: 0.1.15
+  resolution: "swc-loader@npm:0.1.15"
+  dependencies:
+    loader-utils: "npm:^2.0.0"
   peerDependencies:
-    "@swc/core": ^1.2.147
+    "@swc/core": ^1.2.52
     webpack: ">=2"
-  checksum: 10c0/5e5c8591f2c41fb1a868d77bab0f46c8d161173bb20fa10b22d68e2c83e8c9ef3051308d2d44800f4b1fefc6be3c32c5d8ccc3d14d6c9fd39fdad7ac402d2750
+  checksum: 10c0/99879dda256bc408dc98a8c94ca36c6c97684e68046b0153a7ed987225b973b4606ff4f27d88908598daa84155659be9790d78f183220a2db864d8ac24ea6343
   languageName: node
   linkType: hard
 
