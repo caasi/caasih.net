@@ -73,6 +73,12 @@ export function encode(board: BoardData): string {
   // 1. Serialize to binary
   const binaryData = serializeBoardData(board);
 
+  if (binaryData.length > 0xffff) {
+    throw new StratEncodeError(
+      `Serialized data too large for u16 length field: ${binaryData.length} bytes (max 65535)`,
+    );
+  }
+
   // 2. Compress
   const compressedData = compress(binaryData);
 
