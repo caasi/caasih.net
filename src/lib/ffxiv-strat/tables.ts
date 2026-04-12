@@ -5,7 +5,7 @@ import { StratDecodeError } from './types';
  *
  * @remarks
  * Used to derive the cipher key from the first payload character.
- * 62 entries (A–Z, a–z, 0–9, `+`, `-`).
+ * 64 entries (A–Z, a–z, 0–9, `+`, `-`).
  */
 export const KEY_TABLE: Record<string, string> = {
   '+': 'N', '-': 'P', '0': 'x', '1': 'g', '2': '0', '3': 'K',
