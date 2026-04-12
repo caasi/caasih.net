@@ -18,7 +18,7 @@ function FFXIVStrat() {
     try {
       return { result: decode(trimmed), error: null }
     } catch (err) {
-      return { result: null, error: err.message || String(err) }
+      return { result: null, error: err instanceof Error ? err.message : String(err) }
     }
   }, [input])
 

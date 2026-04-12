@@ -11,15 +11,6 @@
     resize: vertical;
   }
 
-  button {
-    outline: none;
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--m-blue);
-    background-color: var(--m-blue);
-    color: #fff;
-    cursor: pointer;
-  }
-
   .error {
     color: #c00;
     background: #fff0f0;
