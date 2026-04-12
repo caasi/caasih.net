@@ -518,6 +518,9 @@ export function serializeBoardData(board: BoardData): Uint8Array {
     }
   }
 
+  validateU16(board.backgroundId, 'backgroundId')
+  validateObjectRanges(board.objects)
+
   // 1. Serialize field content into a temporary buffer
   const contentWriter = new BinaryWriter()
   serializeFields(board, contentWriter)
@@ -560,6 +563,45 @@ export function serializeBoardData(board: BoardData): Uint8Array {
 // ---------------------------------------------------------------------------
 // Field serialization
 // ---------------------------------------------------------------------------
+
+function validateU16(value: number, name: string, index?: number): void {
+  const label = index !== undefined ? `Object ${index} ${name}` : name
+  if (!Number.isInteger(value) || value < 0 || value > 0xffff) {
+    throw new StratEncodeError(`${label} out of u16 range: ${value}`)
+  }
+}
+
+function validateU8(value: number, name: string, index?: number): void {
+  const label = index !== undefined ? `Object ${index} ${name}` : name
+  if (!Number.isInteger(value) || value < 0 || value > 0xff) {
+    throw new StratEncodeError(`${label} out of u8 range: ${value}`)
+  }
+}
+
+function validateI16(value: number, name: string, index?: number): void {
+  const label = index !== undefined ? `Object ${index} ${name}` : name
+  if (!Number.isInteger(value) || value < -32768 || value > 32767) {
+    throw new StratEncodeError(`${label} out of i16 range: ${value}`)
+  }
+}
+
+function validateObjectRanges(objects: BoardObject[]): void {
+  for (let i = 0; i < objects.length; i++) {
+    const obj = objects[i]
+    validateU16(obj.objectId, 'objectId', i)
+    validateU16(obj.position.x, 'position.x', i)
+    validateU16(obj.position.y, 'position.y', i)
+    validateI16(obj.rotation, 'rotation', i)
+    validateU8(obj.size, 'size', i)
+    validateU8(obj.color.r, 'color.r', i)
+    validateU8(obj.color.g, 'color.g', i)
+    validateU8(obj.color.b, 'color.b', i)
+    validateU8(obj.color.opacity, 'color.opacity', i)
+    validateU16(obj.params.a, 'params.a', i)
+    validateU16(obj.params.b, 'params.b', i)
+    validateU16(obj.params.c, 'params.c', i)
+  }
+}
 
 /**
  * Serialize all field containers (TypeContainers) inside the content section.
