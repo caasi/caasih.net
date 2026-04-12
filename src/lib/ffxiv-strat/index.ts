@@ -1,12 +1,12 @@
-import { StratDecodeError, StratEncodeError } from './types';
-import type { BoardData } from './types';
-import { KEY_TABLE, REVERSE_KEY_TABLE, base64CharToValue } from './tables';
-import { unwrapStgy, wrapStgy, decryptCipher, encryptCipher, encodeBase64, decodeBase64 } from './codec';
-import { calculateCRC32, packHeader, unpackHeader, compress, decompress } from './compression';
-import { parseBoardData, serializeBoardData } from './binary';
+import { StratDecodeError, StratEncodeError } from './types'
+import type { BoardData } from './types'
+import { KEY_TABLE, REVERSE_KEY_TABLE, base64CharToValue } from './tables'
+import { unwrapStgy, wrapStgy, decryptCipher, encryptCipher, encodeBase64, decodeBase64 } from './codec'
+import { calculateCRC32, packHeader, unpackHeader, compress, decompress } from './compression'
+import { parseBoardData, serializeBoardData } from './binary'
 
-export type { BoardData, BoardObject, ObjectFlags } from './types';
-export { StratError, StratDecodeError, StratEncodeError } from './types';
+export type { BoardData, BoardObject, ObjectFlags } from './types'
+export { StratError, StratDecodeError, StratEncodeError } from './types'
 
 /**
  * Decodes a `[stgy:...]` share code into structured board data.
@@ -22,40 +22,40 @@ export { StratError, StratDecodeError, StratEncodeError } from './types';
  */
 export function decode(input: string): BoardData {
   // 1. Unwrap shell, extract key
-  const { keyChar, payload } = unwrapStgy(input);
-  const keyMapped = KEY_TABLE[keyChar];
+  const { keyChar, payload } = unwrapStgy(input)
+  const keyMapped = KEY_TABLE[keyChar]
   if (keyMapped === undefined) {
-    throw new StratDecodeError(`Invalid key character: ${keyChar}`);
+    throw new StratDecodeError(`Invalid key character: ${keyChar}`)
   }
-  const key = base64CharToValue(keyMapped);
+  const key = base64CharToValue(keyMapped)
 
   // 2. Decrypt substitution cipher
-  const base64String = decryptCipher(payload, key);
+  const base64String = decryptCipher(payload, key)
 
   // 3. Base64 decode
-  const binary = decodeBase64(base64String);
+  const binary = decodeBase64(base64String)
 
   // 4. Unpack header, verify CRC32
   // Header: [CRC32 (4B)] [decompressed length (2B)] [compressed data...]
   // CRC covers bytes 4–end (length field + compressed data)
-  const { storedCRC, decompressedLength, compressedData } = unpackHeader(binary);
-  const calculatedCRC = calculateCRC32(binary.slice(4));
+  const { storedCRC, decompressedLength, compressedData } = unpackHeader(binary)
+  const calculatedCRC = calculateCRC32(binary.slice(4))
   if (storedCRC !== calculatedCRC) {
     throw new StratDecodeError(
       `CRC32 mismatch: stored=0x${storedCRC.toString(16)}, calculated=0x${calculatedCRC.toString(16)}`
-    );
+    )
   }
 
   // 5. Decompress
-  const decompressed = decompress(compressedData);
+  const decompressed = decompress(compressedData)
   if (decompressed.length !== decompressedLength) {
     throw new StratDecodeError(
       `Decompressed length mismatch: expected=${decompressedLength}, actual=${decompressed.length}`
-    );
+    )
   }
 
   // 6. Parse binary
-  return parseBoardData(decompressed);
+  return parseBoardData(decompressed)
 }
 
 /**
@@ -71,42 +71,42 @@ export function decode(input: string): BoardData {
  */
 export function encode(board: BoardData): string {
   // 1. Serialize to binary
-  const binaryData = serializeBoardData(board);
+  const binaryData = serializeBoardData(board)
 
   if (binaryData.length > 0xffff) {
     throw new StratEncodeError(
       `Serialized data too large for u16 length field: ${binaryData.length} bytes (max 65535)`,
-    );
+    )
   }
 
   // 2. Compress
-  const compressedData = compress(binaryData);
+  const compressedData = compress(binaryData)
 
   // 3. Build integrity header
-  const lengthBytes = new Uint8Array(2);
-  lengthBytes[0] = binaryData.length & 0xff;
-  lengthBytes[1] = (binaryData.length >> 8) & 0xff;
+  const lengthBytes = new Uint8Array(2)
+  lengthBytes[0] = binaryData.length & 0xff
+  lengthBytes[1] = (binaryData.length >> 8) & 0xff
 
-  const dataForCRC = new Uint8Array(2 + compressedData.length);
-  dataForCRC.set(lengthBytes, 0);
-  dataForCRC.set(compressedData, 2);
+  const dataForCRC = new Uint8Array(2 + compressedData.length)
+  dataForCRC.set(lengthBytes, 0)
+  dataForCRC.set(compressedData, 2)
 
-  const crc = calculateCRC32(dataForCRC);
-  const packed = packHeader(crc, binaryData.length, compressedData);
+  const crc = calculateCRC32(dataForCRC)
+  const packed = packHeader(crc, binaryData.length, compressedData)
 
   // 4. Base64 encode
-  const base64String = encodeBase64(packed);
+  const base64String = encodeBase64(packed)
 
   // 5. Derive key from CRC32
-  const key = crc & 0x3f;
-  const keyChar = REVERSE_KEY_TABLE[key];
+  const key = crc & 0x3f
+  const keyChar = REVERSE_KEY_TABLE[key]
   if (keyChar === undefined) {
-    throw new StratEncodeError(`Invalid key value: ${key}`);
+    throw new StratEncodeError(`Invalid key value: ${key}`)
   }
 
   // 6. Encrypt with substitution cipher
-  const encryptedPayload = encryptCipher(base64String, key);
+  const encryptedPayload = encryptCipher(base64String, key)
 
   // 7. Wrap in shell
-  return wrapStgy(keyChar, encryptedPayload);
+  return wrapStgy(keyChar, encryptedPayload)
 }
