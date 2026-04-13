@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://caasih.net/posts/2026-04-14-react-is-not-haskell",
+            "content_html": "<small This article was composed with the assistance of Claude.</small Dan Abramov claimed on https://bsky.app/profile/danabra.mov/post/3m2w5xftcfk2g and Reddit that \"React is basically Haskell,\" comparing React Compiler optimizations to pure functional language compilers and the",
+            "url": "https://caasih.net/posts/2026-04-14-react-is-not-haskell",
+            "title": "React is not Haskell",
+            "date_modified": "2026-04-13T16:00:00.000Z"
+        },
+        {
             "id": "https://caasih.net/posts/2023-05-15-coolshell",
             "content_html": "早上看推才知道 CoolShell 站長陈皓走了，中國資訊人發推紀念他。不是中國人，不方便說什麼。 yihong0618 用 https://github.com/JustAnotherArchivist/snscrape 備份了 https://twitter.com/haoel 的推文，有鑑於馬斯克要砍未活動帳號，按著他的思路弄半天，也成功備份了 https://twitter.com/ilya 的。 把消息轉到 godfat 那邊和 cschat ， godfat 不知道他， cschat 那邊也只有 descent 有反應。常看他文章的那段時間跟",
             "url": "https://caasih.net/posts/2023-05-15-coolshell",

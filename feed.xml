@@ -4,10 +4,17 @@
         <title>caasih.net</title>
         <link>https://caasih.net</link>
         <description>Personal site for interactive writing, archives, and sketches</description>
-        <lastBuildDate>Wed, 15 Mar 2023 21:34:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 13 Apr 2026 16:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>feed</generator>
         <language>zh-TW</language>
+        <item>
+            <title><![CDATA[React is not Haskell]]></title>
+            <link>https://caasih.net/posts/2026-04-14-react-is-not-haskell</link>
+            <guid isPermaLink="false">https://caasih.net/posts/2026-04-14-react-is-not-haskell</guid>
+            <pubDate>Mon, 13 Apr 2026 16:00:00 GMT</pubDate>
+            <description><![CDATA[<small This article was composed with the assistance of Claude.</small Dan Abramov claimed on https://bsky.app/profile/danabra.mov/post/3m2w5xftcfk2g and Reddit that "React is basically Haskell," comparing React Compiler optimizations to pure functional language compilers and the]]></description>
+        </item>
         <item>
             <title><![CDATA[CoolShell]]></title>
             <link>https://caasih.net/posts/2023-05-15-coolshell</link>
