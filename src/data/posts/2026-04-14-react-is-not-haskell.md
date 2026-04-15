@@ -1,5 +1,7 @@
 <small>This article was composed with the assistance of Claude.</small>
 
+<small>This is a response to roriri's [React 带来的生死疲劳](https://roriri.one/2026/04/12/what-a-react), which critiques React's evolution from a broader architectural and ecosystem perspective. This article focuses on a specific technical claim.</small>
+
 Dan Abramov claimed on [Bluesky](https://bsky.app/profile/danabra.mov/post/3m2w5xftcfk2g) and Reddit that "React is basically Haskell," comparing React Compiler optimizations to pure functional language compilers and the `use-` prefix to Haskell's `do` notation.
 
 ## Why the analogy is wrong
@@ -45,6 +47,8 @@ TC39 rejected it, mainly on philosophical grounds:
 After React Hooks shipped in 2018, someone returned to the thread pointing out Hooks are a hacky implementation of algebraic effects — citing Dan Abramov's own admission that algebraic effects would let Hooks be implemented "the pure way."
 
 ## The asymmetric harm of leaky abstractions
+
+Beyond the technical inaccuracy, the analogy causes real pedagogical harm — but only where it's invisible to the people making the analogy. I asked a former Amazon engineer about this; he didn't see the problem, almost found the question silly. That's exactly the asymmetry.
 
 At tier-1 companies (Meta, Vercel), broken abstractions are rough edges — they have internal education, code review culture, and senior engineer density. In local Asian companies:
 
