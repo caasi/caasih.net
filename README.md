@@ -1,8 +1,5 @@
 # caasih.net
 
-[![Build Status][travis-image]][travis-url]
-[![Coverage Status][codecov-image]][codecov-url]
-
 This is my site. There are many like it, but this one is mine.
 
 Personal site for experimenting with interactive writing, Ludum Dare archives, and web sketches. The repository currently runs on a React 17 + ReasonML stack bundled by Webpack 4, with static builds produced through `react-snapshot`.
@@ -11,10 +8,11 @@ Personal site for experimenting with interactive writing, Ludum Dare archives, a
 - React 17, React Router 5, class-heavy components, and legacy lifecycle usage.
 - ReasonML (`bs-platform@8`) generating `.bs.js` alongside source; JavaScript lives in `src/` with CSS modules.
 - Webpack 4 configuration in `config/`, `webpack.config.js`, and `build.webpack.config.js`, plus custom static snapshot step.
-- Jest 24/Enzyme tests and Travis CI badges that no longer reflect the actual deployment flow.
+- Jest 24/Enzyme tests; no CI currently configured (Travis removed, GitHub Actions pending).
+- Node 20 LTS pinned via `.nvmrc` and `engines`; Yarn 4 via `packageManager` and `.yarnrc.yml`.
 
 ## Modernization Roadmap
-1. **Baseline cleanup** - Drop unused vendor files in `lib/`, prune generated artefacts from git, and document required Node/Yarn versions. Replace Travis badges with GitHub Actions.
+1. **Baseline cleanup** - Drop unused vendor files in `lib/` and prune generated artefacts from git. Node/Yarn versions are now pinned; next up is wiring GitHub Actions to replace the removed Travis config.
 2. **Toolchain upgrade** - Move to Node 20 LTS and Yarn Berry or pnpm; replace Webpack 4 + react-snapshot with Vite (SSR + static export) or Astro for a faster iteration loop.
 3. **React & routing refresh** - Upgrade to React 18, adopt React Router 6 (or a file-based router if migrating to Astro/Next), and migrate class components to functional components with hooks where practical.
 4. **Polyglot workflow** - Treat the project as a multi-language playground: ensure the build stays friendly to code authored in JavaScript, TypeScript, PureScript, ReScript, Elm, Svelte, MDX, or any language that compiles to HTML, CSS, and JS. Document integration patterns, shared build targets, and module boundaries so contributors can mix paradigms safely.
@@ -38,8 +36,3 @@ These commands remain for reference until the modernization work replaces the to
 - [ ] add a links page
 
 Contributions aimed at the modernization roadmap should open an issue or discussion first to coordinate the migration path and avoid duplicated work.
-
-[travis-image]: https://img.shields.io/travis/caasi/caasih.net.svg
-[travis-url]: https://travis-ci.org/caasi/caasih.net
-[codecov-image]: https://img.shields.io/codecov/c/github/caasi/caasih.net.svg
-[codecov-url]: https://codecov.io/gh/caasi/caasih.net

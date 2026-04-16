@@ -6,10 +6,18 @@ Source lives in `src/` with entrypoints such as `index.jsx` and `Root/`. Feature
 ## Build, Test, and Development Commands
 - `yarn start` – launch webpack dev server plus the ReScript watcher.
 - `yarn dev` – clean stale bundles, then run the development webpack build once.
-- `yarn build` – run the production pipeline (`build:webpack`, `react-snapshot`, manifest cleanup).
+- `yarn build` – production pipeline: `build:webpack` → `build:snapshot` (`react-snapshot`) → `clean:manifest` → `build:feed` (RSS via `scripts/generate-feed.js`).
 - `yarn build:will` – compile `src/continuity.jade` into `dist/` when continuity content changes.
+- `yarn test` – Jest single run; `yarn test -- --watch` for iteration; `yarn test -- --coverage` before major submissions.
+- `yarn deploy` – publish `dist/` to GitHub Pages via `gh-pages` (runs `yarn build` first through `predeploy`).
 - `yarn lint` / `yarn prettier` – enforce ESLint and Prettier defaults before pushing.
 - `yarn re:build` – regenerate Reason/ReScript output when the watcher is stopped.
+
+## Toolchain Pinning
+- Node 20 LTS required (`.nvmrc`, `engines: ">=20 <25"` in `package.json`).
+- Yarn 4 via `packageManager: yarn@4.10.2` and `.yarnrc.yml`.
+- TypeScript supported alongside JS/ReScript (`tsconfig.json`, `jest-ts-transform.js`; `.ts`/`.tsx` covered by `yarn prettier`).
+- `AGENTS.md` is a symlink to `CLAUDE.md` — edit `CLAUDE.md` only.
 
 ## Coding Style & Naming Conventions
 The repository Prettier profile enforces two-space indent, single quotes, no semicolons, and ES5 trailing commas. Keep React components PascalCase with colocated `index.css` styles. Reason/ReScript modules expose camelCase bindings; never edit the compiled neighbours. Prefer surgical fixes over large refactors in legacy areas; avoid class-to-hooks rewrites or framework churn unless explicitly requested for the touched page. Run `yarn lint` to catch React/JS concerns.
