@@ -48,13 +48,28 @@ const writeManifest = ({
   return { manifest, totals }
 }
 
+const copyTwins = ({
+  manifestPath = DEFAULT_MANIFEST_PATH,
+  postsMdDir = DEFAULT_POSTS_MD_DIR,
+  distPostsDir = DEFAULT_DIST_POSTS_DIR,
+} = {}) => {
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
+  fs.mkdirSync(distPostsDir, { recursive: true })
+  let copied = 0
+  for (const slug of manifest.slugs) {
+    const src = path.join(postsMdDir, `${slug}.md`)
+    const dst = path.join(distPostsDir, `${slug}.md`)
+    fs.copyFileSync(src, dst)
+    copied += 1
+  }
+  console.log(`copied ${copied} markdown twins → ${distPostsDir}`)
+  return { copied }
+}
+
 const main = () => {
   const flag = process.argv[2]
   if (flag === '--manifest') return writeManifest()
-  if (flag === '--copy') {
-    console.error('--copy not implemented yet (added in Task 5)')
-    process.exit(1)
-  }
+  if (flag === '--copy') return copyTwins()
   console.error('usage: generate-md-twins.js [--manifest|--copy]')
   process.exit(1)
 }
@@ -66,6 +81,7 @@ if (require.main === module) {
 module.exports = {
   buildManifest,
   writeManifest,
+  copyTwins,
   DEFAULT_POSTS_JSON,
   DEFAULT_POSTS_MD_DIR,
   DEFAULT_MANIFEST_PATH,
