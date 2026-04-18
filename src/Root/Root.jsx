@@ -23,6 +23,9 @@ const Root = ({ id, className }) => {
       <ScrollToTop as="div" id={id} className={classes}>
         <Helmet>
           <title>caasih.net</title>
+          <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="caasih.net Atom feed" />
+          <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="caasih.net RSS feed" />
+          <link rel="alternate" type="application/feed+json" href="/feed.json" title="caasih.net JSON feed" />
         </Helmet>
         <h1>caasih.net</h1>
         <main id={styles.container}>
