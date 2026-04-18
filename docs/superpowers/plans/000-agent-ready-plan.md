@@ -65,13 +65,18 @@ mkdir -p src/generated
 touch src/generated/.gitkeep
 ```
 
-- [ ] **Step 1.2: Add manifest to gitignore**
+- [ ] **Step 1.2: Add manifest + new build outputs to gitignore**
 
-Append to `.gitignore` after the `# ReScript` block:
+The existing `.gitignore` ignores `dist/**/*.html`, `dist/*.js`, `dist/feed.xml`, `dist/atom.xml`, `dist/feed.json` but does NOT cover the new artifacts. Append to `.gitignore` after the `# ReScript` block:
 
 ```
 # generated build intermediates
 src/generated/md-twins.json
+
+# agent-ready build outputs
+dist/robots.txt
+dist/sitemap.xml
+dist/posts/*.md
 ```
 
 - [ ] **Step 1.3: Verify**
@@ -593,9 +598,9 @@ yarn test scripts/generate-md-twins.test.js
 
 Expected: module-not-found.
 
-- [ ] **Step 4.3: Implement phase 1**
+- [ ] **Step 4.3: Implement phase 1 only**
 
-Create `scripts/generate-md-twins.js`:
+Create `scripts/generate-md-twins.js` with `buildManifest` + `writeManifest` only. `copyTwins` is deliberately omitted here; it will be added in Task 5 after its own failing test.
 
 ```js
 const fs = require('fs')
@@ -648,28 +653,13 @@ const writeManifest = ({
   return { manifest, totals }
 }
 
-const copyTwins = ({
-  manifestPath = DEFAULT_MANIFEST_PATH,
-  postsMdDir = DEFAULT_POSTS_MD_DIR,
-  distPostsDir = DEFAULT_DIST_POSTS_DIR,
-} = {}) => {
-  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
-  fs.mkdirSync(distPostsDir, { recursive: true })
-  let copied = 0
-  for (const slug of manifest.slugs) {
-    const src = path.join(postsMdDir, `${slug}.md`)
-    const dst = path.join(distPostsDir, `${slug}.md`)
-    fs.copyFileSync(src, dst)
-    copied += 1
-  }
-  console.log(`copied ${copied} markdown twins → ${distPostsDir}`)
-  return { copied }
-}
-
 const main = () => {
   const flag = process.argv[2]
   if (flag === '--manifest') return writeManifest()
-  if (flag === '--copy') return copyTwins()
+  if (flag === '--copy') {
+    console.error('--copy not implemented yet (added in Task 5)')
+    process.exit(1)
+  }
   console.error('usage: generate-md-twins.js [--manifest|--copy]')
   process.exit(1)
 }
@@ -681,7 +671,6 @@ if (require.main === module) {
 module.exports = {
   buildManifest,
   writeManifest,
-  copyTwins,
   DEFAULT_POSTS_JSON,
   DEFAULT_POSTS_MD_DIR,
   DEFAULT_MANIFEST_PATH,
@@ -717,7 +706,7 @@ git commit -m "feat(agent-ready): add generate-md-twins.js phase 1 (manifest)"
 
 ## Task 5: `generate-md-twins.js` — phase 2 (copy)
 
-- [ ] **Step 5.1: Add phase-2 test to `scripts/generate-md-twins.test.js`**
+- [ ] **Step 5.1: Add failing phase-2 test to `scripts/generate-md-twins.test.js`**
 
 Append to the file:
 
@@ -760,19 +749,77 @@ describe('copyTwins', () => {
 })
 ```
 
-- [ ] **Step 5.2: Run tests — phase 2 already implemented in step 4.3, expect PASS**
+- [ ] **Step 5.2: Run tests — expect FAIL**
 
 ```bash
 yarn test scripts/generate-md-twins.test.js
 ```
 
-Expected: all phase-2 tests green without edits.
+Expected: new `copyTwins` tests fail because the function is not yet exported.
 
-- [ ] **Step 5.3: Commit**
+- [ ] **Step 5.3: Implement `copyTwins` in `scripts/generate-md-twins.js`**
+
+Inside `scripts/generate-md-twins.js`, add `copyTwins` next to `writeManifest`:
+
+```js
+const copyTwins = ({
+  manifestPath = DEFAULT_MANIFEST_PATH,
+  postsMdDir = DEFAULT_POSTS_MD_DIR,
+  distPostsDir = DEFAULT_DIST_POSTS_DIR,
+} = {}) => {
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
+  fs.mkdirSync(distPostsDir, { recursive: true })
+  let copied = 0
+  for (const slug of manifest.slugs) {
+    const src = path.join(postsMdDir, `${slug}.md`)
+    const dst = path.join(distPostsDir, `${slug}.md`)
+    fs.copyFileSync(src, dst)
+    copied += 1
+  }
+  console.log(`copied ${copied} markdown twins → ${distPostsDir}`)
+  return { copied }
+}
+```
+
+Update `main()` to route `--copy` to `copyTwins()`:
+
+```js
+const main = () => {
+  const flag = process.argv[2]
+  if (flag === '--manifest') return writeManifest()
+  if (flag === '--copy') return copyTwins()
+  console.error('usage: generate-md-twins.js [--manifest|--copy]')
+  process.exit(1)
+}
+```
+
+Update `module.exports` to include `copyTwins`:
+
+```js
+module.exports = {
+  buildManifest,
+  writeManifest,
+  copyTwins,
+  DEFAULT_POSTS_JSON,
+  DEFAULT_POSTS_MD_DIR,
+  DEFAULT_MANIFEST_PATH,
+  DEFAULT_DIST_POSTS_DIR,
+}
+```
+
+- [ ] **Step 5.4: Run tests — expect PASS**
 
 ```bash
-git add scripts/generate-md-twins.test.js
-git commit -m "test(agent-ready): cover generate-md-twins phase 2 (copy)"
+yarn test scripts/generate-md-twins.test.js
+```
+
+Expected: all phase-1 + phase-2 tests green.
+
+- [ ] **Step 5.5: Commit**
+
+```bash
+git add scripts/generate-md-twins.js scripts/generate-md-twins.test.js
+git commit -m "feat(agent-ready): add generate-md-twins phase 2 (copy)"
 ```
 
 ---
@@ -941,10 +988,10 @@ with:
 - [ ] **Step 8.2: Sanity-check JSON**
 
 ```bash
-node --input-type=module -e 'import(`./package.json`, { with: { type: "json" } }).then((m) => console.log(Object.keys(m.default.scripts).filter((k) => k.startsWith("build"))))'
+node -e "console.log(Object.keys(require('./package.json').scripts).filter(k => k.startsWith('build')).sort())"
 ```
 
-Expected: lists `build`, `build:md-twins-manifest`, `build:webpack`, `build:snapshot`, `build:feed`, `build:robots`, `build:sitemap`, `build:md-twins`, `build:will`.
+Expected: list includes `build`, `build:feed`, `build:md-twins`, `build:md-twins-manifest`, `build:robots`, `build:sitemap`, `build:snapshot`, `build:webpack`, `build:will`.
 
 - [ ] **Step 8.3: Commit**
 
