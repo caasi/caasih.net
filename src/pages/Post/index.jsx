@@ -12,6 +12,9 @@ import { equals, find, propEq } from 'ramda'
 import moment from 'moment'
 import profile from 'data/profile.json'
 import { index, contents } from 'data/public-post'
+import mdTwinsManifest from '../../generated/md-twins.json'
+
+const mdTwinSlugs = new Set(mdTwinsManifest.slugs)
 
 const DATETIME_FORMAT = 'YYYY-MM-DD HH:mm'
 
@@ -49,6 +52,10 @@ class Post extends PureComponent {
           meta &&
           <Helmet>
             <title>{ meta.headline } - caasih.net</title>
+            {
+              mdTwinSlugs.has(pid) &&
+              <link rel="alternate" type="text/markdown" href={`/posts/${pid}.md`} />
+            }
           </Helmet>
         }
         {
