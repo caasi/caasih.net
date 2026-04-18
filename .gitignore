@@ -32,3 +32,6 @@ package-lock.json
 coverage/
 .DS_Store
 *.swp
+
+# worktrees
+.worktrees/
