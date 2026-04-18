@@ -19,6 +19,12 @@ lib/bs/
 *.bs.js
 .bsb.lock
 
+# Generated
+src/generated/md-twins.json
+dist/robots.txt
+dist/sitemap.xml
+dist/posts/*.md
+
 # Playwright MCP
 .playwright-mcp/
 
