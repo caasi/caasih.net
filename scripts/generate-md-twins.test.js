@@ -62,3 +62,40 @@ describe('buildManifest', () => {
     expect(totals).toEqual({ twins: 1, publicPosts: 2 })
   })
 })
+
+const { copyTwins } = require('./generate-md-twins')
+
+describe('copyTwins', () => {
+  let fx
+  beforeEach(() => {
+    fx = makeFixture()
+    fs.writeFileSync(
+      path.join(fx.generated, 'md-twins.json'),
+      JSON.stringify({ slugs: ['alpha'] })
+    )
+  })
+  afterEach(() => fs.rmSync(fx.tmp, { recursive: true, force: true }))
+
+  test('copies manifest-listed md files to distPostsDir', () => {
+    const distPosts = path.join(fx.tmp, 'dist', 'posts')
+    const { copied } = copyTwins({
+      manifestPath: path.join(fx.generated, 'md-twins.json'),
+      postsMdDir: fx.srcDataPosts,
+      distPostsDir: distPosts,
+    })
+    expect(copied).toBe(1)
+    expect(fs.readFileSync(path.join(distPosts, 'alpha.md'), 'utf8')).toBe(
+      '# alpha\n'
+    )
+  })
+
+  test('does not copy slugs not in manifest', () => {
+    const distPosts = path.join(fx.tmp, 'dist', 'posts')
+    copyTwins({
+      manifestPath: path.join(fx.generated, 'md-twins.json'),
+      postsMdDir: fx.srcDataPosts,
+      distPostsDir: distPosts,
+    })
+    expect(fs.existsSync(path.join(distPosts, 'beta.md'))).toBe(false)
+  })
+})
