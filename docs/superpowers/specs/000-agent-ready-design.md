@@ -131,7 +131,7 @@ All three formats are already emitted, so advertising all three is correct.
 2. `build:md-twins-manifest` — probe `src/data/posts/<slug>.md` for each public post; write `src/generated/md-twins.json`.
 3. `build:webpack` — ReScript + webpack compile. Webpack statically imports the manifest from `src/generated/md-twins.json`, inlining the slug list into the bundle.
 4. `build:snapshot` — `react-snapshot` walks routes, writes rendered HTML including the conditional `<link rel="alternate" type="text/markdown">` where the slug is in the manifest.
-5. `clean:manifest` — drop webpack runtime manifest.
+5. `clean:manifest` — drop the webpack runtime manifest (unrelated to the markdown-twins manifest despite the name).
 6. `build:feed` — existing: writes `feed.xml`, `feed.json`, `atom.xml`.
 7. `build:robots` — writes `robots.txt`.
 8. `build:sitemap` — globs `dist/**/*.html`, writes `sitemap.xml`.
