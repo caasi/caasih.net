@@ -41,3 +41,6 @@ coverage/
 
 # worktrees
 .worktrees/
+
+# Claude Code session scratch
+.claude/
