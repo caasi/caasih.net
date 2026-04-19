@@ -5,6 +5,7 @@ const {
   toCanonicalUrl,
   walkHtml,
   buildSitemapXml,
+  escapeXml,
   SKIP_FILES,
 } = require('./generate-sitemap')
 
@@ -85,6 +86,20 @@ describe('buildSitemapXml', () => {
   test('does not emit priority or changefreq', () => {
     expect(xml).not.toMatch(/<priority>/)
     expect(xml).not.toMatch(/<changefreq>/)
+  })
+})
+
+describe('escapeXml', () => {
+  test('escapes ampersand, angles, quote, apostrophe', () => {
+    expect(escapeXml(`a&b<c>d"e'f`)).toBe('a&amp;b&lt;c&gt;d&quot;e&apos;f')
+  })
+
+  test('buildSitemapXml escapes ampersand in URL', () => {
+    const xml = buildSitemapXml([
+      { url: 'https://caasih.net/x?a=1&b=2', lastmod: '2024-01-02' },
+    ])
+    expect(xml).toMatch(/<loc>https:\/\/caasih\.net\/x\?a=1&amp;b=2<\/loc>/)
+    expect(xml).not.toMatch(/a=1&b=2/)
   })
 })
 

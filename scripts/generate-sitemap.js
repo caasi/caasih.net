@@ -8,7 +8,6 @@ const walkHtml = (dir) => {
   const out = []
   const entries = fs.readdirSync(dir, { withFileTypes: true })
   for (const entry of entries) {
-    if (entry.name === 'node_modules') continue
     const full = path.join(dir, entry.name)
     if (entry.isDirectory()) {
       out.push(...walkHtml(full))
@@ -20,6 +19,14 @@ const walkHtml = (dir) => {
   }
   return out
 }
+
+const escapeXml = (s) =>
+  s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;')
 
 const toCanonicalUrl = (filePath, distDir, siteUrl) => {
   const rel = path.relative(distDir, filePath).split(path.sep).join('/')
@@ -51,8 +58,8 @@ const buildSitemapXml = (entries) => {
   ]
   for (const { url, lastmod } of entries) {
     lines.push('  <url>')
-    lines.push(`    <loc>${url}</loc>`)
-    lines.push(`    <lastmod>${lastmod}</lastmod>`)
+    lines.push(`    <loc>${escapeXml(url)}</loc>`)
+    lines.push(`    <lastmod>${escapeXml(lastmod)}</lastmod>`)
     lines.push('  </url>')
   }
   lines.push('</urlset>')
@@ -91,6 +98,7 @@ module.exports = {
   SITE_URL,
   SKIP_FILES,
   walkHtml,
+  escapeXml,
   toCanonicalUrl,
   toIsoDate,
   pickPostLastmod,
