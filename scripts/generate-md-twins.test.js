@@ -63,7 +63,36 @@ describe('buildManifest', () => {
   })
 })
 
-const { copyTwins } = require('./generate-md-twins')
+const { writeManifest, copyTwins } = require('./generate-md-twins')
+
+describe('writeManifest idempotence', () => {
+  let fx
+  beforeEach(() => {
+    fx = makeFixture()
+  })
+  afterEach(() => fs.rmSync(fx.tmp, { recursive: true, force: true }))
+
+  const args = () => ({
+    postsJsonPath: path.join(fx.srcData, 'posts.json'),
+    postsMdDir: fx.srcDataPosts,
+    manifestPath: path.join(fx.generated, 'md-twins.json'),
+  })
+
+  test('writes manifest on first run', () => {
+    const { wrote } = writeManifest(args())
+    expect(wrote).toBe(true)
+    expect(fs.existsSync(args().manifestPath)).toBe(true)
+  })
+
+  test('skips write when content is unchanged', () => {
+    writeManifest(args())
+    const before = fs.statSync(args().manifestPath).mtimeMs
+    const { wrote } = writeManifest(args())
+    const after = fs.statSync(args().manifestPath).mtimeMs
+    expect(wrote).toBe(false)
+    expect(after).toBe(before)
+  })
+})
 
 describe('copyTwins', () => {
   let fx
