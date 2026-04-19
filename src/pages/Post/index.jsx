@@ -12,9 +12,20 @@ import { equals, find, propEq } from 'ramda'
 import moment from 'moment'
 import profile from 'data/profile.json'
 import { index, contents } from 'data/public-post'
-import mdTwinsManifest from '../../generated/md-twins.json'
 
-const mdTwinSlugs = new Set(mdTwinsManifest.slugs)
+// Manifest is gitignored and regenerated at build/dev time. Fall back to an
+// empty slug list so a fresh checkout can run tests and lint before the first
+// manifest write.
+let mdTwinsManifest = { slugs: [] }
+try {
+  // eslint-disable-next-line global-require
+  mdTwinsManifest = require('../../generated/md-twins.json')
+} catch (err) {
+  // manifest missing on fresh clone; degrade silently
+}
+const mdTwinSlugs = new Set(
+  Array.isArray(mdTwinsManifest.slugs) ? mdTwinsManifest.slugs : []
+)
 
 const DATETIME_FORMAT = 'YYYY-MM-DD HH:mm'
 
