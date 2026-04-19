@@ -30,6 +30,12 @@ This repository intentionally keeps older technology to preserve existing static
 - When touching legacy pages, prefer minimal, local edits and document any behavior change in the PR description.
 - Treat `NODE_OPTIONS=--openssl-legacy-provider` usage as deliberate compatibility glue in current scripts.
 
+## Agent-Readiness Scope
+This site is a static build hosted on GitHub Pages behind Cloudflare; it has no API, no auth, and no MCP server. The `isitagentready.com` scanner targets API/agent-serving sites, so a low score is expected and acceptable here.
+- In scope: `robots.txt` (with User-agent rules, AI-bot rules, `Content-Signal`, and `Sitemap:`), `sitemap.xml`, RSS/Atom feeds, and per-post markdown twins at `/posts/{slug}.md`.
+- Out of scope: `Link` response headers, `Accept: text/markdown` negotiation, `/.well-known/api-catalog`, OAuth discovery, OAuth protected-resource metadata, MCP server card, agent-skills index, and WebMCP. These require either edge logic (Worker/Transform Rule) or real backing services; do not fabricate them to chase scanner points.
+- If a future change introduces a real API, MCP server, or edge layer, revisit this list then — not before.
+
 ## Polyglot Contributions
 Treat the site as a multi-language playground: JavaScript, TypeScript, PureScript, ReScript, or any toolchain that compiles to HTML/CSS/JS is welcome. When adding a language, document the build steps and shared targets so other contributors can reproduce the pipeline.
 

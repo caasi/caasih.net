@@ -29,6 +29,9 @@ Personal site for experimenting with interactive writing, Ludum Dare archives, a
 
 These commands remain for reference until the modernization work replaces the toolchain.
 
+## Agent-Readiness
+Static site, GitHub Pages + Cloudflare. Ships `robots.txt` (User-agent rules, AI-bot rules, `Content-Signal`, sitemap), `sitemap.xml`, RSS/Atom feeds, and per-post markdown twins at `/posts/{slug}.md`. Checks that require response-header control (RFC 8288 `Link`, `Accept: text/markdown` negotiation) or backing services (API catalog, OAuth, MCP, agent-skills, WebMCP) are out of scope — a low score from `isitagentready.com` is expected. See `CLAUDE.md` → *Agent-Readiness Scope*.
+
 ## Content Backlog
 - [ ] port Ludum Dare games
 - [ ] port the continuity page
