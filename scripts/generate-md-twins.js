@@ -36,16 +36,21 @@ const writeManifest = ({
   manifestPath = DEFAULT_MANIFEST_PATH,
 } = {}) => {
   const { manifest, totals } = buildManifest({ postsJsonPath, postsMdDir })
+  const next = JSON.stringify(manifest, null, 2) + '\n'
   fs.mkdirSync(path.dirname(manifestPath), { recursive: true })
-  fs.writeFileSync(
-    manifestPath,
-    JSON.stringify(manifest, null, 2) + '\n',
-    'utf8'
-  )
+  // Idempotent write: leave mtime alone when content is unchanged so webpack's
+  // file watcher does not invalidate bundles on every dev boot.
+  let wrote = true
+  try {
+    if (fs.readFileSync(manifestPath, 'utf8') === next) wrote = false
+  } catch (_err) {
+    // missing file: fall through to write
+  }
+  if (wrote) fs.writeFileSync(manifestPath, next, 'utf8')
   console.log(
-    `manifest: ${totals.twins} twins for ${totals.publicPosts} public posts → ${manifestPath}`
+    `manifest: ${totals.twins} twins for ${totals.publicPosts} public posts → ${manifestPath}${wrote ? '' : ' (unchanged)'}`
   )
-  return { manifest, totals }
+  return { manifest, totals, wrote }
 }
 
 const copyTwins = ({
