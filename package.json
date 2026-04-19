@@ -22,7 +22,7 @@
     "build": "npm run clean && npm run build:md-twins-manifest && cross-env NODE_ENV=production NODE_OPTIONS=--openssl-legacy-provider npm run build:webpack && npm run build:snapshot && npm run clean:manifest && npm run build:feed && npm run build:robots && npm run build:sitemap && npm run build:md-twins",
     "predeploy": "yarn build",
     "deploy": "gh-pages -t -d dist",
-    "test": "jest",
+    "test": "npm run build:md-twins-manifest && jest",
     "prettier": "npx prettier --single-quote --no-semi --trailing-comma es5 --arrow-parens always --write '*.js' 'config/**/*.js' 'src/**/*.ts' 'src/**/*.tsx'",
     "update:browserslist": "npx browserslist@latest --update-db"
   },
