@@ -42,18 +42,28 @@ describe('walkHtml', () => {
   beforeAll(() => {
     tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'sitemap-'))
     fs.mkdirSync(path.join(tmp, 'posts'), { recursive: true })
+    fs.mkdirSync(path.join(tmp, 'node_modules', 'pkg'), { recursive: true })
     fs.writeFileSync(path.join(tmp, 'index.html'), '<html></html>')
     fs.writeFileSync(path.join(tmp, '404.html'), '<html></html>')
     fs.writeFileSync(path.join(tmp, '200.html'), '<html></html>')
     fs.writeFileSync(path.join(tmp, 'reusable.html'), '<html></html>')
     fs.writeFileSync(path.join(tmp, 'posts', 'a.html'), '<html></html>')
     fs.writeFileSync(path.join(tmp, 'posts.html'), '<html></html>')
+    fs.writeFileSync(
+      path.join(tmp, 'node_modules', 'pkg', 'README.html'),
+      '<html></html>'
+    )
   })
   afterAll(() => fs.rmSync(tmp, { recursive: true, force: true }))
 
   test('finds HTML files and skips SKIP_FILES', () => {
     const found = walkHtml(tmp).map((p) => path.relative(tmp, p)).sort()
     expect(found).toEqual(['index.html', 'posts.html', 'posts/a.html'])
+  })
+
+  test('skips node_modules subdirectories', () => {
+    const found = walkHtml(tmp).map((p) => path.relative(tmp, p))
+    expect(found.some((p) => p.includes('node_modules'))).toBe(false)
   })
 })
 
