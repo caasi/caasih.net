@@ -14,14 +14,14 @@ import profile from 'data/profile.json'
 import { index, contents } from 'data/public-post'
 
 // Manifest is gitignored and regenerated at build/dev time. Fall back to an
-// empty slug list so a fresh checkout can run tests and lint before the first
-// manifest write.
+// empty slug list only when the file is missing (fresh checkout); rethrow
+// anything else so malformed JSON or permission errors surface loudly.
 let mdTwinsManifest = { slugs: [] }
 try {
   // eslint-disable-next-line global-require
   mdTwinsManifest = require('../../generated/md-twins.json')
 } catch (err) {
-  // manifest missing on fresh clone; degrade silently
+  if (err.code !== 'MODULE_NOT_FOUND') throw err
 }
 const mdTwinSlugs = new Set(
   Array.isArray(mdTwinsManifest.slugs) ? mdTwinsManifest.slugs : []
