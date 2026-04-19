@@ -60,6 +60,17 @@ const copyTwins = ({
 } = {}) => {
   const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
   fs.mkdirSync(distPostsDir, { recursive: true })
+
+  // Prune stale *.md before copying: if a post was flipped private or a
+  // source .md was deleted, the old twin must not survive into the deploy.
+  // Keep non-.md siblings (post HTML lives in the same directory).
+  let pruned = 0
+  for (const entry of fs.readdirSync(distPostsDir)) {
+    if (!entry.endsWith('.md')) continue
+    fs.rmSync(path.join(distPostsDir, entry))
+    pruned += 1
+  }
+
   let copied = 0
   for (const slug of manifest.slugs) {
     const src = path.join(postsMdDir, `${slug}.md`)
@@ -67,8 +78,10 @@ const copyTwins = ({
     fs.copyFileSync(src, dst)
     copied += 1
   }
-  console.log(`copied ${copied} markdown twins → ${distPostsDir}`)
-  return { copied }
+  console.log(
+    `copied ${copied} markdown twins → ${distPostsDir} (pruned ${pruned} stale)`
+  )
+  return { copied, pruned }
 }
 
 const main = () => {

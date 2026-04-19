@@ -127,4 +127,36 @@ describe('copyTwins', () => {
     })
     expect(fs.existsSync(path.join(distPosts, 'beta.md'))).toBe(false)
   })
+
+  test('prunes stale *.md already present in distPostsDir', () => {
+    const distPosts = path.join(fx.tmp, 'dist', 'posts')
+    fs.mkdirSync(distPosts, { recursive: true })
+    fs.writeFileSync(path.join(distPosts, 'stale.md'), '# stale\n')
+    fs.writeFileSync(
+      path.join(distPosts, 'private-leak.md'),
+      '# was private\n'
+    )
+    const { copied, pruned } = copyTwins({
+      manifestPath: path.join(fx.generated, 'md-twins.json'),
+      postsMdDir: fx.srcDataPosts,
+      distPostsDir: distPosts,
+    })
+    expect(pruned).toBe(2)
+    expect(copied).toBe(1)
+    expect(fs.existsSync(path.join(distPosts, 'stale.md'))).toBe(false)
+    expect(fs.existsSync(path.join(distPosts, 'private-leak.md'))).toBe(false)
+    expect(fs.existsSync(path.join(distPosts, 'alpha.md'))).toBe(true)
+  })
+
+  test('preserves non-markdown siblings (post HTML) in distPostsDir', () => {
+    const distPosts = path.join(fx.tmp, 'dist', 'posts')
+    fs.mkdirSync(distPosts, { recursive: true })
+    fs.writeFileSync(path.join(distPosts, 'alpha.html'), '<html></html>')
+    copyTwins({
+      manifestPath: path.join(fx.generated, 'md-twins.json'),
+      postsMdDir: fx.srcDataPosts,
+      distPostsDir: distPosts,
+    })
+    expect(fs.existsSync(path.join(distPosts, 'alpha.html'))).toBe(true)
+  })
 })
