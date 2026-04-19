@@ -6,7 +6,7 @@
   "scripts": {
     "start": "concurrently --kill-others npm:dev npm:re:watch",
     "dev": "npm run build:md-twins-manifest && npm run clean && cross-env NODE_ENV=development NODE_OPTIONS=--openssl-legacy-provider webpack-dev-server",
-    "clean": "rimraf ./dist/*bundle.js ./dist/index.html ./dist/404.html",
+    "clean": "rimraf ./dist/*bundle.js ./dist/index.html ./dist/404.html ./dist/posts/*.md ./dist/robots.txt ./dist/sitemap.xml",
     "clean:manifest": "rimraf ./dist/*.manifest.js",
     "lint": "eslint src",
     "re:build": "bsb -make-world -clean-world",
