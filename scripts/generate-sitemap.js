@@ -10,6 +10,9 @@ const walkHtml = (dir) => {
   for (const entry of entries) {
     const full = path.join(dir, entry.name)
     if (entry.isDirectory()) {
+      // Defensive: dist/ should never contain node_modules, but if someone
+      // accidentally runs an install inside it we do not want to walk there.
+      if (entry.name === 'node_modules') continue
       out.push(...walkHtml(full))
       continue
     }
