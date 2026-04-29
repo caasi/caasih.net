@@ -191,6 +191,7 @@
   top: -.5em;
 }
 </style><style type="text/css">.src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ {
+    color-scheme: light;
     background: #fcfcfc;
     padding: 0.5em;
     margin: 1em 0;
@@ -205,61 +206,51 @@
       margin-bottom: 0 !important;
     }
 
-    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ section fieldset {
-        border: 0;
-        margin: 0;
-        margin-bottom: 1em;
-        padding: 0;
-      }
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ fieldset {
+      display: flex;
+      grid-gap: 0.25rem;
+      gap: 0.25rem;
+      border: 0;
+      padding: 0;
+      margin: 0 0 0.75em;
+    }
 
-    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ section fieldset input, .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ section fieldset button {
-          box-sizing: content-box;
-          outline: none;
-          padding: 0.5rem 1rem;
-          border: 1px solid #ccc;
-        }
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ fieldset input,
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ fieldset button {
+      font: inherit;
+      padding: 0.4rem 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 0.25rem;
+      background: #fff;
+      color: inherit;
+    }
 
-    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ section fieldset input {
-          border-right-width: 0;
-        }
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ fieldset input {
+      flex: 1;
+    }
 
-    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ section fieldset button {
-          border-color: #09f;
-          background-color: #09f;
-          color: #fff;
-        }
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ fieldset button {
+      cursor: pointer;
+      background: #09f;
+      border-color: #09f;
+      color: #fff;
+    }
 
-    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ section ol {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-        list-style: none;
-        padding-left: 0;
-        margin: 0;
-      }
-
-    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ section ol li {
-          padding: 0.5rem 1rem;
-          line-height: 1rem;
-          background-color: #09f;
-          color: #fff;
-          border-top-right-radius: 1rem;
-          border-top-left-radius: 0.2rem;
-          border-bottom-right-radius: 1rem;
-          border-bottom-left-radius: 0.2rem;
-          margin-bottom: 0.2rem
-        }
-
-    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ section ol li:first-child {
-            border-top-left-radius: 1rem;
-
-          }
-
-    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ section ol li:last-child {
-            border-bottom-left-radius: 1rem;
-            margin-bottom: 0;
-          }
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ ol li {
+      width: -moz-fit-content;
+      width: fit-content;
+      padding: 0.35rem 0.75rem;
+      margin-bottom: 0.25rem;
+      background: #09f;
+      color: #fff;
+      border-radius: 0.75rem;
+    }
 
     .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ div {
       line-height: 0;
@@ -390,6 +381,8 @@
   }
 
 </style><style type="text/css">:root {
+  color-scheme: light dark;
+
   --m-white: #e6e6e7;
   --m-blue: #33a0d1;
   --m-purple: #373485;
@@ -559,4 +552,4 @@ open HtmlImageElement;
     });
 }
 }
-</code></pre><p>要注意的是這裡用上 <code>|&gt;</code> 和 <code>-&gt;</code> 兩種語法。 <code>|&gt;</code> 是 pipe ，會把 <code>|&gt;</code> 左邊的值，當成右邊的最後一個參數。而 <code>-&gt;</code> 是 pipe first ，會把 <code>-&gt;</code> 左邊的值，當成右邊的第一個參數。</p><p><code>HtmlImageElement</code> 的 <code>width</code>, <code>height</code> 是 getter ，靠 <code>[@bs.get]</code> 橋接，可以想像成它生出了「把 <code>HtmlImageElement</code> 當第一個參數的 function 」，所以可以用 <code>-&gt;</code> 。前面提到的 <code>[@bs.send]</code> 也一樣。</p><p><code>addLoadEventListener</code>, <code>removeLoadEventListener</code> 用的是 <code>[@bs.send.pipe]</code> ，可以想成生出了「把 context 當成最後一個參數」函數，於是用 <code>|&gt;</code> 。</p><p>有個 <a href="https://github.com/BuckleScript/bucklescript/issues/2625">issue</a> 討論到 <code>-&gt;</code> 和 <code>|&gt;</code> 的效率。在 <code>bs-webapi</code> 改寫之前，哪時候該用 <code>-&gt;</code> 、哪時候該用 <code>|&gt;</code> 還是得乖乖看程式碼。</p><hr><p>附上 <code>ImageData</code> 完整程式：</p><div class="src-components-SourceCode-index__className--1t-Nw caasih-source-code"><label>+<!-- --> <!-- -->source</label></div><p><code>ImageDataCanvas</code> 完整程式：</p><div class="src-components-SourceCode-index__className--1t-Nw caasih-source-code"><label>+<!-- --> <!-- -->source</label></div><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://licensebuttons.net/l/by/4.0/80x15.png"></a></article><div class="src-components-List-index__className--1z8R9 caasih-program-style-list src-pages-Playground-index__list--30Sh3"><label>playground</label><ul><li><a href="/playground/then">&lt;Then /&gt;</a></li><li><a href="/playground/react-konva">React Konva</a></li><li><a href="/playground/map">Map</a></li><li><a href="/playground/purescript">PureScript</a></li><li><a href="/playground/image-data">ImageData</a></li><li><a href="/playground/useless">無測無用</a></li><li><a href="/playground/reasonml">ReScript</a></li><li><a href="/playground/ffxiv-strat">FFXIV Strat</a></li></ul></div></div></main><nav id="src-Root-Root__menu--2HZFx"><ul><li><a href="/posts">posts</a></li><li><a href="/playground">playground</a></li><li><a rel="me" href="https://g0v.social/@caasih">mastodon</a></li></ul></nav></div></div><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NB9HSNV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><script type="text/javascript">!function(e){function r(r){for(var n,l,f=r[0],i=r[1],a=r[2],c=0,s=[];c<f.length;c++)l=f[c],Object.prototype.hasOwnProperty.call(o,l)&&o[l]&&s.push(o[l][0]),o[l]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,f=1;f<t.length;f++){var i=t[f];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=l(l.s=t[0]))}return e}var n={},o={1:0},u=[];function l(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,l),t.l=!0,t.exports}l.m=e,l.c=n,l.d=function(e,r,t){l.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},l.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},l.t=function(e,r){if(1&r&&(e=l(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(l.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)l.d(t,n,function(r){return e[r]}.bind(null,n));return t},l.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return l.d(r,"a",r),r},l.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},l.p="/";var f=window.webpackJsonp=window.webpackJsonp||[],i=f.push.bind(f);f.push=r,f=f.slice();for(var a=0;a<f.length;a++)r(f[a]);var p=i;t()}([]);</script><script type="text/javascript" src="/9e35a2873e5cd7337012.vendor~bundle.js"></script><script type="text/javascript" src="/3ef73265f8bd5ddb0131.bundle.js"></script></body></html>
+</code></pre><p>要注意的是這裡用上 <code>|&gt;</code> 和 <code>-&gt;</code> 兩種語法。 <code>|&gt;</code> 是 pipe ，會把 <code>|&gt;</code> 左邊的值，當成右邊的最後一個參數。而 <code>-&gt;</code> 是 pipe first ，會把 <code>-&gt;</code> 左邊的值，當成右邊的第一個參數。</p><p><code>HtmlImageElement</code> 的 <code>width</code>, <code>height</code> 是 getter ，靠 <code>[@bs.get]</code> 橋接，可以想像成它生出了「把 <code>HtmlImageElement</code> 當第一個參數的 function 」，所以可以用 <code>-&gt;</code> 。前面提到的 <code>[@bs.send]</code> 也一樣。</p><p><code>addLoadEventListener</code>, <code>removeLoadEventListener</code> 用的是 <code>[@bs.send.pipe]</code> ，可以想成生出了「把 context 當成最後一個參數」函數，於是用 <code>|&gt;</code> 。</p><p>有個 <a href="https://github.com/BuckleScript/bucklescript/issues/2625">issue</a> 討論到 <code>-&gt;</code> 和 <code>|&gt;</code> 的效率。在 <code>bs-webapi</code> 改寫之前，哪時候該用 <code>-&gt;</code> 、哪時候該用 <code>|&gt;</code> 還是得乖乖看程式碼。</p><hr><p>附上 <code>ImageData</code> 完整程式：</p><div class="src-components-SourceCode-index__className--1t-Nw caasih-source-code"><label>+<!-- --> <!-- -->source</label></div><p><code>ImageDataCanvas</code> 完整程式：</p><div class="src-components-SourceCode-index__className--1t-Nw caasih-source-code"><label>+<!-- --> <!-- -->source</label></div><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://licensebuttons.net/l/by/4.0/80x15.png"></a></article><div class="src-components-List-index__className--1z8R9 caasih-program-style-list src-pages-Playground-index__list--30Sh3"><label>playground</label><ul><li><a href="/playground/then">&lt;Then /&gt;</a></li><li><a href="/playground/react-konva">React Konva</a></li><li><a href="/playground/map">Map</a></li><li><a href="/playground/purescript">PureScript</a></li><li><a href="/playground/image-data">ImageData</a></li><li><a href="/playground/useless">無測無用</a></li><li><a href="/playground/reasonml">ReScript</a></li><li><a href="/playground/ffxiv-strat">FFXIV Strat</a></li></ul></div></div></main><nav id="src-Root-Root__menu--2HZFx"><ul><li><a href="/posts">posts</a></li><li><a href="/playground">playground</a></li><li><a rel="me" href="https://g0v.social/@caasih">mastodon</a></li></ul></nav></div></div><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NB9HSNV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><script type="text/javascript">!function(e){function r(r){for(var n,l,f=r[0],i=r[1],a=r[2],c=0,s=[];c<f.length;c++)l=f[c],Object.prototype.hasOwnProperty.call(o,l)&&o[l]&&s.push(o[l][0]),o[l]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,f=1;f<t.length;f++){var i=t[f];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=l(l.s=t[0]))}return e}var n={},o={1:0},u=[];function l(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,l),t.l=!0,t.exports}l.m=e,l.c=n,l.d=function(e,r,t){l.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},l.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},l.t=function(e,r){if(1&r&&(e=l(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(l.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)l.d(t,n,function(r){return e[r]}.bind(null,n));return t},l.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return l.d(r,"a",r),r},l.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},l.p="/";var f=window.webpackJsonp=window.webpackJsonp||[],i=f.push.bind(f);f.push=r,f=f.slice();for(var a=0;a<f.length;a++)r(f[a]);var p=i;t()}([]);</script><script type="text/javascript" src="/9e35a2873e5cd7337012.vendor~bundle.js"></script><script type="text/javascript" src="/846aa2dd3649ca2c1b06.bundle.js"></script></body></html>
