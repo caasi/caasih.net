@@ -45,6 +45,8 @@ const Root = ({ id, className }) => {
           } />
           <Route strict path="/playground" component={Playground} />
           <Route exact path="/continuity" component={Continuity} />
+          <Route exact path="/continuity.html" render={() => <Redirect to="/continuity" />} />
+          <Route exact path="/continuity/" render={() => <Redirect to="/continuity" />} />
         </main>
         <nav id={styles.menu}>
           <ul>
