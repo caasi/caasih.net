@@ -77,7 +77,7 @@ function FFXIVStrat() {
       )}
 
       {result && (
-        <SourceCode open language="json" label="decoded">
+        <SourceCode defaultOpen language="json" label="decoded">
           {JSON.stringify(result, null, 2)}
         </SourceCode>
       )}

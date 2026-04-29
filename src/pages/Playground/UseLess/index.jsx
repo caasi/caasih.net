@@ -81,7 +81,7 @@ function AboutUseLess({ id, className }) {
 
       <p>當應用程式狀態更新時， <code>useState</code> hook 讓我們無視時間，拿到最新的值，好像我們一開始看到的就是最後的值一樣。</p>
       <p>換個角度看，也可以說 <code>useState</code> 幫我們把值攤到時間上了。例如可以寫一個 <code>useArray</code> ，把陣列中的值變成一系列更新：</p>
-      <SourceCode open language="js">
+      <SourceCode defaultOpen language="js">
         {useArraySource}
       </SourceCode>
       <p>
@@ -99,7 +99,7 @@ function AboutUseLess({ id, className }) {
       <h3><code>useSpace</code></h3>
       <p>但既然能把值攤到時間上，能不能反過來把時間上的變化，蒐集起來呢？</p>
       <p>可以設計一個 <code>useSpace</code> hook ：</p>
-      <SourceCode open language="js">
+      <SourceCode defaultOpen language="js">
         {useSpaceSource}
       </SourceCode>
       <p>於是我們又把 <code>{x}</code> 變回了 <code>[{takeFromUndefined(xss).join(', ')}]</code> 。</p>
@@ -110,7 +110,7 @@ function AboutUseLess({ id, className }) {
       <p>
         有了 <code>useSpace</code> ，我們可以：
       </p>
-      <SourceCode open language="js">
+      <SourceCode defaultOpen language="js">
         {useWebSocketPart}
       </SourceCode>
       <p>於是 <code>handleMessage</code> 不用看到整個 <code>messages</code> 。</p>
@@ -148,14 +148,14 @@ function AboutUseLess({ id, className }) {
 
       <h3><code>&lt;SpaceTime /&gt;</code></h3>
       <p>我們還可以做出這樣的 component ：</p>
-      <SourceCode open language="jsx">
+      <SourceCode defaultOpen language="jsx">
         {SpaceTimeSource}
       </SourceCode>
       <p><code>&lt;SpaceTime /&gt;</code> 展開過去繪製過的 children ，於是這樣寫：</p>
-      <SourceCode open language="jsx">
+      <SourceCode defaultOpen language="jsx">
         {ColorRectSource}
       </SourceCode>
-      <SourceCode open language="jsx">
+      <SourceCode defaultOpen language="jsx">
         {SpaceTimeExample}
       </SourceCode>
       <p>就能達成下面的效果：</p>
@@ -179,11 +179,11 @@ function AboutUseLess({ id, className }) {
 
       <h3><code>map</code></h3>
       <p>既然我們可以把值攤到時間上再組合回來，就可以把 <code>Array::map</code> 藏起來：</p>
-      <SourceCode open language="jsx">
+      <SourceCode defaultOpen language="jsx">
         {ListSource}
       </SourceCode>
       <p>再一口氣畫完一張圖：</p>
-      <SourceCode open language="jsx">
+      <SourceCode defaultOpen language="jsx">
         {ListExample}
       </SourceCode>
       <div className={styles.demo}>
