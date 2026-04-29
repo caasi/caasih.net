@@ -14,6 +14,50 @@
       margin-bottom: 0 !important;
     }
 
+    fieldset {
+      display: flex;
+      gap: 0.25rem;
+      border: 0;
+      padding: 0;
+      margin: 0 0 0.75em;
+    }
+
+    fieldset input,
+    fieldset button {
+      font: inherit;
+      padding: 0.4rem 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 0.25rem;
+      background: #fff;
+      color: inherit;
+    }
+
+    fieldset input {
+      flex: 1;
+    }
+
+    fieldset button {
+      cursor: pointer;
+      background: #09f;
+      border-color: #09f;
+      color: #fff;
+    }
+
+    ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    ol li {
+      width: fit-content;
+      padding: 0.35rem 0.75rem;
+      margin-bottom: 0.25rem;
+      background: #09f;
+      color: #fff;
+      border-radius: 0.75rem;
+    }
+
     div {
       line-height: 0;
     }
