@@ -13,7 +13,7 @@
 
 ## 書
 
-請把《哥德尔、艾舍尔、巴赫:集异璧之大成》、《the Art of Computer Programming》等有趣的書送給 petercommand ，或讓他決定該給哪些需要的人。把《Types and Programming Languages》送給 b4283 。
+請把《哥德尔、艾舍尔、巴赫:集异璧之大成》、《the Art of Computer Programming》等有趣的書，送給想要的人。把《Types and Programming Languages》送給 b4283 。
 
 ## 源碼
 
@@ -44,6 +44,8 @@
 燒成灰後讓想要的人留著一些，大塊燒不掉的如果要拋棄，在一個適合的地方拋就好，不要弄到還得跑好幾處。
 
 * * *
+
+要是 ptrcmd 未來有空，記得回我們那些奇奇怪怪的 IRC 頻道、 Telegram 頻道聊聊。
 
 要是有其他事務，就寫封信給 lunadance 與 polydoris 吧。我想他們一定會做合理處置的。
 
