@@ -7,7 +7,6 @@ Source lives in `src/` with entrypoints such as `index.jsx` and `Root/`. Feature
 - `yarn start` – launch webpack dev server plus the ReScript watcher.
 - `yarn dev` – regenerate the md-twins manifest, clean stale bundles, then run the development webpack build once. The manifest step is idempotent (no rewrite when content is unchanged) so webpack's file watcher is not invalidated on repeated boots.
 - `yarn build` – production pipeline: `build:md-twins-manifest` → `build:webpack` → `build:snapshot` (`react-snapshot`) → `clean:manifest` → `build:feed` (RSS via `scripts/generate-feed.js`) → `build:robots` → `build:sitemap` → `build:md-twins`. The md-twins manifest lands at `src/generated/md-twins.json` (gitignored) so the Post component can advertise its markdown twin at bundle time. Both `yarn start` and `yarn dev` regenerate the manifest automatically, so fresh clones need no extra prep.
-- `yarn build:will` – compile `src/continuity.jade` into `dist/` when continuity content changes.
 - `yarn test` – Jest single run; `yarn test -- --watch` for iteration; `yarn test -- --coverage` before major submissions.
 - `yarn deploy` – publish `dist/` to GitHub Pages via `gh-pages` (runs `yarn build` first through `predeploy`).
 - `yarn lint` / `yarn prettier` – enforce ESLint and Prettier defaults before pushing.
