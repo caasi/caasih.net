@@ -5,6 +5,14 @@ import { Helmet } from 'react-helmet'
 import Article from 'components/Article'
 import content from '!raw-loader!./continuity.md'
 
+const renderers = {
+  link: ({ href, children }) => (
+    <a href={href} target="_blank" rel="noopener noreferrer">
+      {children}
+    </a>
+  ),
+}
+
 function Continuity({ id, className }) {
   const classes = cx('caasih-continuity', 'markdown', className)
 
@@ -13,7 +21,7 @@ function Continuity({ id, className }) {
       <Helmet>
         <title>若我撞卡車 - caasih.net</title>
       </Helmet>
-      <ReactMarkdown id={id} escapeHtml={false} linkTarget="_blank">
+      <ReactMarkdown id={id} escapeHtml={false} renderers={renderers}>
         {content}
       </ReactMarkdown>
     </Article>
