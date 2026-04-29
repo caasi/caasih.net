@@ -10,20 +10,20 @@ class SourceCode extends PureComponent {
     className: PropTypes.string,
     lanugage: PropTypes.string,
     label: PropTypes.string,
-    open: PropTypes.bool,
+    defaultOpen: PropTypes.bool,
   }
 
   static defaultProps = {
     className: '',
     label: 'source',
-    open: false,
+    defaultOpen: false,
   }
 
   constructor(props) {
     super(props)
 
     this.state = {
-      open: props.open
+      open: props.defaultOpen,
     }
   }
 
