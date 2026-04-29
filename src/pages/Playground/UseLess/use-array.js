@@ -8,7 +8,9 @@ export default function useArray(xs) {
   }, [xs]);
 
   useEffect(() => {
-    if (index < xs.length - 1) setIndex(index + 1);
+    if (index >= xs.length - 1) return;
+    const id = requestAnimationFrame(() => setIndex(i => i + 1));
+    return () => cancelAnimationFrame(id);
   }, [xs, index]);
 
   return xs[index];
