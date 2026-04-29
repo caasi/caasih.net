@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import cx from 'classnames'
 import { Helmet } from 'react-helmet'
 import Article from 'components/Article'
@@ -146,7 +146,8 @@ function FrameData({
 
 function AboutWebVR({ id, className }) {
   const classes = cx(styles.className, 'playground-web-vr', className)
-  const [ds = [], error, pending] = usePromise(useMemo(getVRDisplays, []))
+  const [displaysPromise] = useState(getVRDisplays)
+  const [ds = [], error, pending] = usePromise(displaysPromise)
   const foo = { foo: 'bar', baz: { bar: 'foo' } }
 
   return (
