@@ -8,7 +8,7 @@ import styles from './index.css'
 class SourceCode extends PureComponent {
   static propTypes = {
     className: PropTypes.string,
-    lanugage: PropTypes.string,
+    language: PropTypes.string,
     label: PropTypes.string,
     defaultOpen: PropTypes.bool,
   }
