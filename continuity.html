@@ -1,28 +1,497 @@
-<!DOCTYPE html><html class="han-la" lang="zh-tw"><head><title>若我撞卡車 | caasih.net</title><meta content="text/html;charset=utf-8" http-equiv="Content-Type"><link rel="stylesheet" media="all" href="./lib/han/han.css"><link rel="stylesheet" media="all" href="./css/markdown.css"><script src="./lib/jquery-2.1.1.min.js"></script><script src="./lib/han/han.js"></script></head><body><div id="wrap"><article id="zh-tw"><h1>若我撞卡車...請你讀此頁</h1>
-<p>2014 年農歷年前， au 和 ETBlue 合力翻譯了 <a href="http://www.aaronsw.com/2002/continuity">If I get hit by a truck...</a> 成為<a href="https://g0v.hackpad.com/DWUZrGmIc4D">模板</a>，幫助大家簡單敘述如何處理自己的數位後事。</p>
-<hr>
-<p>程式設計師之間有個老笑話，說如果作者被卡車撞了那誰要來維護程式碼，而這頁就是為了如果哪天我沒法維護網路服務了，其他人——包括卡車司機在內——可以知道該怎麼做。</p>
-<p>我指派 lunadance 為處理虛擬事務的執行者。（如果他刪檔，那我也不能怎樣，反正交給他了！）<br>
-我希望硬碟裡的對話紀錄、照片可以讓親友瀏覽，以便瞭解我到底是個什麼人。</p>
-<p>實體事務請洽 polydoris 和我媽。</p>
-<h2>書</h2>
-<p>請把《哥德尔、艾舍尔、巴赫:集异璧之大成》、《the Art of Computer Programming》等有趣的書送給 petercommand ，或讓他決定該給哪些需要的人。把《Types and Programming Languages》送給 b4283 。</p>
-<h2>源碼</h2>
-<p>好在我在 GitHub 上的源碼沒啥價值，請放在哪邊長草。</p>
-<h2>BYOHC</h2>
-<p>我很喜歡 <a href="https://github.com/CindyLinz/BYOHC-Workshop">BYOHC</a> 坑主對知識的熱情與活力。但是沒有什麼能給她的。</p>
-<p>對 functional language 有興趣的人可以看看 SPJ <a href="https://www.youtube.com/watch?v=uR_VzYxvbxg">對 Core 的介紹</a>很有意思。</p>
-<p><a href="http://research.microsoft.com/en-us/um/people/simonpj/Papers/pj-lester-book/">Implementing functional languages: a tutorial</a> 和 <a href="http://research.microsoft.com/en-us/um/people/simonpj/papers/slpj-book-1987/">the Implementation of Functional Programming Languages</a> 比較舊，是有趣的參考資料，但和現在的 compiler 不一樣，也許不用細讀。</p>
-<p>記得到 <a href="https://www.meetup.com/Functional-Thursday/">Functional Thursday</a> 看看！ FP 很有趣，只可惜我的腦袋老是慢半拍 XD</p>
-<h2>網站</h2>
-<p>敬請盡量維持網站們的運行，也不要對我自己寫的網頁增刪內容。在適合的頁面上（例如個人網站）可以加上發生了什麼事的訊息，並且放個連結讓人知道詳細資訊。網站首頁不妨重做，再連到原本的首頁就好。</p>
-<h2>墳墓</h2>
-<p>燒成灰後讓想要的人留著一些，大塊燒不掉的如果要拋棄，在一個適合的地方拋就好，不要弄到還得跑好幾處。</p>
-<hr>
-<p>要是有其他事務，就寫封信給 lunadance 與 polydoris 吧。我想他們一定會做合理處置的。</p>
-<p>如果我出事了，請把頁尾的字樣換成連結。也歡迎在這個網站上發佈其他人想對我說的話。這些事都不複雜，相信你們都搞得定。</p>
-<p>若之後還能有意識，願能靜靜地陪在你們身邊。</p>
-<p><strong>~caasih</strong></p>
-<hr>
-<p>對了，我還沒掛喔！</p>
-</article></div></body></html>
+<!DOCTYPE html><html lang="zh-Hant-TW"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1"><title>若我撞卡車 - caasih.net</title><link rel="stylesheet" media="all" href="//cdnjs.cloudflare.com/ajax/libs/Han/3.2.7/han.min.css"><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JWEYL7WZ24"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config','G-JWEYL7WZ24');</script><style type="text/css">.src-components-List-index__className--1z8R9 {
+  font-family: monospace;
+  white-space: pre;
+}
+
+  .src-components-List-index__className--1z8R9 > label {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+  }
+
+  .src-components-List-index__className--1z8R9 > label:after {
+    content: ' =';
+  }
+
+.src-components-List-index__className--1z8R9.empty > label:after {
+    content: ' = []'
+  }
+
+.src-components-List-index__className--1z8R9 > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0 2ch;
+  }
+
+.src-components-List-index__className--1z8R9 > ul > li:before {
+      content: ', "';
+      white-space: pre;
+    }
+
+.src-components-List-index__className--1z8R9 > ul > li:first-child:before {
+      content: '[ "';
+    }
+
+.src-components-List-index__className--1z8R9 > ul > li:after {
+      content: '"';
+      white-space: pre;
+    }
+
+.src-components-List-index__className--1z8R9 > ul > li:last-child:after {
+      content: '"\A]';
+      white-space: pre;
+    }
+
+</style><style type="text/css">.src-pages-PostIndex-index__className--2bxag .src-pages-PostIndex-index__list--2dUux {
+    line-height: 1.5rem;
+  }
+
+</style><style type="text/css">.src-components-Article-index__className--1GoCq {
+  padding: 1.25em 2.5em 3.75em 2.5em;
+  max-width: 38rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+  .src-components-Article-index__className--1GoCq .info {
+  }
+
+  .src-components-Article-index__className--1GoCq h1 {
+    color: var(--m-blue);
+  }
+
+.src-components-Article-index__className--1GoCq > pre {
+    padding: 0 2ch;
+    white-space: pre-wrap;
+  }
+
+.src-components-Article-index__className--1GoCq code {
+    color: var(--code-color);
+  }
+
+@media (color-index: 48) {
+    .src-components-Article-index__className--1GoCq code {
+      color: var(--code-color-dark);
+    }
+  }
+
+@media (prefers-color-scheme: dark) {
+    .src-components-Article-index__className--1GoCq code {
+      color: var(--code-color-dark);
+    }
+  }
+
+.src-components-Article-index__className--1GoCq > blockquote {
+    border-left: .15em solid var(--m-red);
+    padding-left: 1em;
+    margin-left: 1.2em;
+    color: var(--blockquote-color);
+  }
+
+.src-components-Article-index__className--1GoCq figure {
+    width: -moz-min-content;
+    width: min-content;
+    margin: auto;
+  }
+
+.src-components-Article-index__className--1GoCq figure > figcaption {
+    margin-top: 0.5em;
+    font-size: 0.875rem;
+  }
+
+@media only screen and (max-device-width: 767px) {
+
+  .src-components-Article-index__className--1GoCq {
+    padding-left: 0.25em;
+    padding-right: 0.25em
+}
+  }
+</style><style type="text/css">.src-pages-Playground-Then-index__className--2_068 .src-pages-Playground-Then-index__demo--2eD3u {
+    padding-left: 1em;
+    margin-bottom: 1em;
+  }
+</style><style type="text/css">.src-components-SourceCode-index__className--1t-Nw {
+  margin: 1em 0;
+}
+
+  .src-components-SourceCode-index__className--1t-Nw label {
+    cursor: pointer;
+    display: inline-block;
+    font-family: monospace;
+    text-decoration: underline;
+  }
+
+  .src-components-SourceCode-index__className--1t-Nw code {
+    color: inherit;
+  }
+</style><style type="text/css">.src-pages-Playground-ReactKonva-index__className--1ietP .src-pages-Playground-ReactKonva-index__stage--3rkax > .konvajs-content {
+    background-color: #efefef;
+  }
+</style><style type="text/css">.src-pages-Playground-Map-MinimumMap-MapObject-index__className--1C_DK {
+  box-sizing: border-box;
+  background-color: #2ecc71;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 0.2em 0.4em;
+  position: absolute;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none
+}
+.src-pages-Playground-Map-MinimumMap-MapObject-index__className--1C_DK.selected {
+    background-color: #e74c3c;
+  }
+</style><style type="text/css">.src-pages-Playground-Map-MinimumMap-BoundingBox-index__className--3BeZ4 {
+  box-shadow: inset 0 0 0 1px #e67e22;
+  box-sizing: border-box;
+  position: absolute;
+  pointer-events: none;
+}
+</style><style type="text/css">.src-pages-Playground-Map-MinimumMap-index__className--2h_iL .src-pages-Playground-Map-MinimumMap-index__content--3gAc1 {
+    background-color: #efefef;
+    height: 480px;
+    overflow: hidden;
+    position: relative;
+    width: 640px;
+  }
+</style><style type="text/css">.src-pages-Playground-ImageData-Picture-index__image--3pJAB {
+  position: relative;
+}
+
+.src-pages-Playground-ImageData-Picture-index__control--3mq_m {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  color: #fff;
+}
+
+.src-pages-Playground-ImageData-Picture-index__source--3DJ6P {
+  text-align: center;
+  color: #666;
+}
+</style><style type="text/css">.src-pages-Playground-ImageData-System-index__system--2AWeg {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  border-radius: 200px;
+  background: #16161d;
+  color: #fff;
+  margin: 1em auto;
+}
+
+.src-pages-Playground-ImageData-System-index__star--WOipS {
+  position: absolute;
+}
+
+.src-pages-Playground-ImageData-System-index__star--WOipS > div {
+  position: absolute;
+  left: -.5em;
+  top: -.5em;
+}
+</style><style type="text/css">.src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ {
+    color-scheme: light;
+    background: #fcfcfc;
+    padding: 0.5em;
+    margin: 1em 0;
+    color: #333;
+  }
+
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ *:first-child {
+      margin-top: 0 !important;
+    }
+
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ *:last-child {
+      margin-bottom: 0 !important;
+    }
+
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ fieldset {
+      display: flex;
+      grid-gap: 0.25rem;
+      gap: 0.25rem;
+      border: 0;
+      padding: 0;
+      margin: 0 0 0.75em;
+    }
+
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ fieldset input,
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ fieldset button {
+      font: inherit;
+      padding: 0.4rem 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 0.25rem;
+      background: #fff;
+      color: inherit;
+    }
+
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ fieldset input {
+      flex: 1;
+    }
+
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ fieldset button {
+      cursor: pointer;
+      background: #09f;
+      border-color: #09f;
+      color: #fff;
+    }
+
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ ol li {
+      width: -moz-fit-content;
+      width: fit-content;
+      padding: 0.35rem 0.75rem;
+      margin-bottom: 0.25rem;
+      background: #09f;
+      color: #fff;
+      border-radius: 0.75rem;
+    }
+
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ div {
+      line-height: 0;
+    }
+
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ .src-pages-Playground-UseLess-index__colorRect--2aBXc {
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+    }
+
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ .src-pages-Playground-UseLess-index__currentRect--1NZot {
+      margin-bottom: 1em;
+      cursor: pointer;
+    }
+
+    .src-pages-Playground-UseLess-index__className--19TBt .src-pages-Playground-UseLess-index__demo--3n3KJ .src-pages-Playground-UseLess-index__previousRects--BY2MR {
+      margin-bottom: 1em;
+    }
+</style><style type="text/css">.src-pages-Playground-WebVR-index__className--QJqW- {}
+</style><style type="text/css">.src-pages-Playground-FFXIVStrat-index__className--3y5Bq textarea {
+    width: 100%;
+    font-family: monospace;
+    font-size: 0.85em;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    background: inherit;
+    color: inherit;
+    box-sizing: border-box;
+    resize: vertical;
+  }
+  .src-pages-Playground-FFXIVStrat-index__className--3y5Bq .src-pages-Playground-FFXIVStrat-index__error--3gfdK {
+    color: #c00;
+    background: #fff0f0;
+    border: 1px solid #fcc;
+    padding: 8px 12px;
+    border-radius: 4px;
+  }
+@media (color-index: 48) {
+    .src-pages-Playground-FFXIVStrat-index__className--3y5Bq textarea {
+      border-color: #555;
+    }
+
+    .src-pages-Playground-FFXIVStrat-index__className--3y5Bq .src-pages-Playground-FFXIVStrat-index__error--3gfdK {
+      color: #f88;
+      background: #2a0000;
+      border-color: #600;
+    }
+  }
+@media (prefers-color-scheme: dark) {
+    .src-pages-Playground-FFXIVStrat-index__className--3y5Bq textarea {
+      border-color: #555;
+    }
+
+    .src-pages-Playground-FFXIVStrat-index__className--3y5Bq .src-pages-Playground-FFXIVStrat-index__error--3gfdK {
+      color: #f88;
+      background: #2a0000;
+      border-color: #600;
+    }
+  }
+</style><style type="text/css">.src-pages-Playground-index__className--2sDC9 .src-pages-Playground-index__list--30Sh3 {
+    line-height: 1.5rem;
+  }
+</style><style type="text/css">.src-Root-Root__className--23B9r {
+  position: relative;
+}
+
+  .src-Root-Root__className--23B9r > h1 {
+    position: absolute;
+    font-size: 3rem;
+    margin: 0;
+    top: -1.25rem;
+    right: 0;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+    z-index: 0;
+    color: var(--background-color);
+    filter: brightness(0.95);
+  }
+
+@media (color-index: 48) {
+    .src-Root-Root__className--23B9r > h1 {
+      color: var(--background-color-dark);
+      filter: brightness(1.4);
+    }
+  }
+
+@media (prefers-color-scheme: dark) {
+    .src-Root-Root__className--23B9r > h1 {
+      color: var(--background-color-dark);
+      filter: brightness(1.4);
+    }
+  }
+
+.src-Root-Root__className--23B9r #src-Root-Root__menu--2HZFx {
+    position: relative;
+    display: inline-block;
+    margin-top: 1em;
+    font-family: monospace;
+    z-index: 100;
+    white-space: pre
+  }
+
+.src-Root-Root__className--23B9r #src-Root-Root__menu--2HZFx:before {
+      content: 'data Site = Site\A { posts      :: [Markdown]\A , playground :: [ReactElement]\A , mastodon   :: Link\A }\Asite = Site '
+    }
+
+.src-Root-Root__className--23B9r #src-Root-Root__menu--2HZFx > ul {
+      display: inline;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+.src-Root-Root__className--23B9r #src-Root-Root__menu--2HZFx > ul > li {
+        display: inline-block;
+        margin-right: 1ch
+      }
+
+.src-Root-Root__className--23B9r #src-Root-Root__menu--2HZFx > ul > li:last-child {
+          margin-right: 0;
+        }
+
+.src-Root-Root__className--23B9r #src-Root-Root__container--3KyKv {
+    position: relative;
+    z-index: 200;
+  }
+
+</style><style type="text/css">:root {
+  color-scheme: light dark;
+
+  --m-white: #e6e6e7;
+  --m-blue: #33a0d1;
+  --m-purple: #373485;
+  --m-red: #c52b30;
+
+  --background-color: var(--m-white);
+  --background-color-dark: #161618;
+  --text-color: #161618;
+  --text-color-dark: var(--m-white);
+  --link-color: var(--m-purple);
+  --link-color-light: #514e9a;
+  --link-color-lighter: #7a77b7;
+  --link-color-dark: #23206d;
+  --link-color-darker: #0f0c50;
+  --code-color: #666;
+  --code-color-dark: #999;
+  --blockquote-color: #666;
+}
+
+body {
+  font-size: 12pt;
+  font-family: "Helvetica", "Arial", "黑體-繁", "Noto Sans TC", "Noto Sans SC", "微軟正黑體", sans-serif;
+  background-color: #e6e6e7;
+  background-color: var(--background-color);
+  color: #161618;
+  color: var(--text-color);
+}
+
+hr {
+  border-top: .15em solid transparent;
+  -o-border-image: 100% 0 0 linear-gradient(90deg, currentColor 2em, transparent 0);
+     border-image: 100% 0 0 linear-gradient(90deg, currentColor 2em, transparent 0);
+}
+
+a {
+  color: #373485;
+  color: var(--link-color);
+}
+
+a:hover {
+  color: #514e9a;
+  color: var(--link-color-light);
+}
+
+a:visited {
+  color: #7a77b7;
+  color: var(--link-color-lighter);
+}
+
+a:active {
+  color: #7a77b7;
+  color: var(--link-color-lighter);
+}
+
+@media (color-index: 48) {
+  body {
+    background-color: #161618;
+    background-color: var(--background-color-dark);
+    color: #e6e6e7;
+    color: var(--text-color-dark);
+  }
+
+  a {
+    color: #7a77b7;
+    color: var(--link-color-lighter);
+  }
+
+  a:hover {
+    color: #514e9a;
+    color: var(--link-color-light);
+  }
+
+  a:visited {
+    color: #373485;
+    color: var(--link-color);
+  }
+
+  a:active {
+    color: #373485;
+    color: var(--link-color);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #161618;
+    background-color: var(--background-color-dark);
+    color: #e6e6e7;
+    color: var(--text-color-dark);
+  }
+
+  a {
+    color: #7a77b7;
+    color: var(--link-color-lighter);
+  }
+
+  a:hover {
+    color: #514e9a;
+    color: var(--link-color-light);
+  }
+
+  a:visited {
+    color: #373485;
+    color: var(--link-color);
+  }
+
+  a:active {
+    color: #373485;
+    color: var(--link-color);
+  }
+}
+</style><link rel="alternate" type="application/atom+xml" href="/atom.xml" title="caasih.net Atom feed" data-react-helmet="true"><link rel="alternate" type="application/rss+xml" href="/feed.xml" title="caasih.net RSS feed" data-react-helmet="true"><link rel="alternate" type="application/feed+json" href="/feed.json" title="caasih.net JSON feed" data-react-helmet="true"></head><body><div id="app"><div class="src-Root-Root__className--23B9r caasih"><h1>caasih.net</h1><main id="src-Root-Root__container--3KyKv"><article class="src-components-Article-index__className--1GoCq caasih-article caasih-continuity markdown"><h1>若我撞卡車...請你讀此頁</h1><p>2014 年農歷年前， au 和 ETBlue 合力翻譯了 <a href="http://www.aaronsw.com/2002/continuity" target="_blank" rel="noopener noreferrer">If I get hit by a truck...</a> 成為<a href="https://g0v.hackpad.tw/DWUZrGmIc4D" target="_blank" rel="noopener noreferrer">模板</a>，幫助大家簡單敘述如何處理自己的數位後事。</p><hr><p>程式設計師之間有個老笑話，說如果作者被卡車撞了那誰要來維護程式碼，而這頁就是為了如果哪天我沒法維護網路服務了，其他人——包括卡車司機在內——可以知道該怎麼做。</p><p>我指派 lunadance 為處理虛擬事務的執行者。（如果他刪檔，那我也不能怎樣，反正交給他了！）<br>我希望硬碟裡的對話紀錄、照片可以讓親友瀏覽，以便瞭解我到底是個什麼人。</p><p>實體事務請洽 polydoris 和我媽。</p><h2>書</h2><p>請把《哥德尔、艾舍尔、巴赫:集异璧之大成》、《the Art of Computer Programming》等有趣的書，送給想要的人。把《Types and Programming Languages》送給 b4283 。</p><h2>源碼</h2><p>好在我在 GitHub 上的源碼沒啥價值，請放在哪邊長草。</p><h2>BYOHC</h2><p>我很喜歡 <a href="https://github.com/CindyLinz/BYOHC-Workshop">BYOHC</a> 坑主對知識的熱情與活力。但是沒有什麼能給她的。</p><p>對 functional language 有興趣的人可以看看 SPJ <a href="https://www.youtube.com/watch?v=uR_VzYxvbxg">對 Core 的介紹</a>很有意思。</p><p><a href="http://research.microsoft.com/en-us/um/people/simonpj/Papers/pj-lester-book/">Implementing functional languages: a tutorial</a> 和 <a href="http://research.microsoft.com/en-us/um/people/simonpj/papers/slpj-book-1987/">the Implementation of Functional Programming Languages</a> 比較舊，是有趣的參考資料，但和現在的 compiler 不一樣，也許不用細讀。</p><p>記得到 <a href="https://www.facebook.com/FunctionalThursday">Functional Thursday</a> 看看！ FP 很有趣，只可惜我的腦袋老是慢半拍 XD</p><h2>網站</h2><p>敬請盡量維持網站們的運行，也不要對我自己寫的網頁增刪內容。在適合的頁面上（例如個人網站）可以加上發生了什麼事的訊息，並且放個連結讓人知道詳細資訊。網站首頁不妨重做，再連到原本的首頁就好。</p><h2>墳墓</h2><p>燒成灰後讓想要的人留著一些，大塊燒不掉的如果要拋棄，在一個適合的地方拋就好，不要弄到還得跑好幾處。</p><hr><p>要是 ptrcmd 未來有空，記得回我們那些奇奇怪怪的 IRC 頻道、 Telegram 頻道聊聊。</p><p>要是有其他事務，就寫封信給 lunadance 與 polydoris 吧。我想他們一定會做合理處置的。</p><p>如果我出事了，請把頁尾的字樣換成連結。也歡迎在這個網站上發佈其他人想對我說的話。這些事都不複雜，相信你們都搞得定。</p><p>若之後還能有意識，願能靜靜地陪在你們身邊。</p><p><strong>~caasih</strong></p><hr><p>對了，我還沒掛喔！</p></article></main><nav id="src-Root-Root__menu--2HZFx"><ul><li><a href="/posts">posts</a></li><li><a href="/playground">playground</a></li><li><a href="/continuity">continuity</a></li><li><a rel="me" href="https://g0v.social/@caasih">mastodon</a></li></ul></nav></div></div><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NB9HSNV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><script type="text/javascript">!function(e){function r(r){for(var n,l,f=r[0],i=r[1],a=r[2],c=0,s=[];c<f.length;c++)l=f[c],Object.prototype.hasOwnProperty.call(o,l)&&o[l]&&s.push(o[l][0]),o[l]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,f=1;f<t.length;f++){var i=t[f];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=l(l.s=t[0]))}return e}var n={},o={1:0},u=[];function l(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,l),t.l=!0,t.exports}l.m=e,l.c=n,l.d=function(e,r,t){l.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},l.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},l.t=function(e,r){if(1&r&&(e=l(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(l.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)l.d(t,n,function(r){return e[r]}.bind(null,n));return t},l.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return l.d(r,"a",r),r},l.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},l.p="/";var f=window.webpackJsonp=window.webpackJsonp||[],i=f.push.bind(f);f.push=r,f=f.slice();for(var a=0;a<f.length;a++)r(f[a]);var p=i;t()}([]);</script><script type="text/javascript" src="/8da84312a8814176fdd5.vendor~bundle.js"></script><script type="text/javascript" src="/772bda8a506d24d4afa4.bundle.js"></script></body></html>
