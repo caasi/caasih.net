@@ -1,6 +1,6 @@
 # 若我撞卡車...請你讀此頁
 
-2014 年農歷年前， au 和 ETBlue 合力翻譯了 [If I get hit by a truck...](http://www.aaronsw.com/2002/continuity) 成為[模板](https://g0v.hackpad.com/DWUZrGmIc4D)，幫助大家簡單敘述如何處理自己的數位後事。
+2014 年農歷年前， au 和 ETBlue 合力翻譯了 [If I get hit by a truck...](http://www.aaronsw.com/2002/continuity) 成為[模板](https://g0v.hackpad.tw/DWUZrGmIc4D)，幫助大家簡單敘述如何處理自己的數位後事。
 
 * * *
 
