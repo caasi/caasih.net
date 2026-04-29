@@ -8,7 +8,6 @@ output/
 dist/*.js
 !dist/sw.js
 dist/**/*.html
-!dist/continuity.html
 dist/feed.xml
 dist/atom.xml
 dist/feed.json
