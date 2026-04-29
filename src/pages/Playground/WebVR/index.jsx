@@ -10,7 +10,7 @@ new WebVRPolyfill()
 
 function getVRDisplays() {
   if (!('getVRDisplays' in navigator)) {
-    return Promise.reject('WebVR not supported')
+    return Promise.reject(new Error('WebVR not supported'))
   }
   return navigator.getVRDisplays()
 }
