@@ -33,7 +33,7 @@
 [IFL]: http://research.microsoft.com/en-us/um/people/simonpj/Papers/pj-lester-book/
 [IoFPL]: http://research.microsoft.com/en-us/um/people/simonpj/papers/slpj-book-1987/
 [IntoTheCore]: https://www.youtube.com/watch?v=uR_VzYxvbxg
-[FT]: https://www.meetup.com/Functional-Thursday/
+[FT]: https://www.facebook.com/FunctionalThursday
 
 ## 網站
 
