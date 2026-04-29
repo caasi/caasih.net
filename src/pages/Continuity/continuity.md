@@ -1,0 +1,58 @@
+# 若我撞卡車...請你讀此頁
+
+2014 年農歷年前， au 和 ETBlue 合力翻譯了 [If I get hit by a truck...](http://www.aaronsw.com/2002/continuity) 成為[模板](https://g0v.hackpad.com/DWUZrGmIc4D)，幫助大家簡單敘述如何處理自己的數位後事。
+
+* * *
+
+程式設計師之間有個老笑話，說如果作者被卡車撞了那誰要來維護程式碼，而這頁就是為了如果哪天我沒法維護網路服務了，其他人——包括卡車司機在內——可以知道該怎麼做。
+
+我指派 lunadance 為處理虛擬事務的執行者。（如果他刪檔，那我也不能怎樣，反正交給他了！）  
+我希望硬碟裡的對話紀錄、照片可以讓親友瀏覽，以便瞭解我到底是個什麼人。
+
+實體事務請洽 polydoris 和我媽。
+
+## 書
+
+請把《哥德尔、艾舍尔、巴赫:集异璧之大成》、《the Art of Computer Programming》等有趣的書送給 petercommand ，或讓他決定該給哪些需要的人。把《Types and Programming Languages》送給 b4283 。
+
+## 源碼
+
+好在我在 GitHub 上的源碼沒啥價值，請放在哪邊長草。
+
+## BYOHC
+
+我很喜歡 [BYOHC][BYOHC] 坑主對知識的熱情與活力。但是沒有什麼能給她的。
+
+對 functional language 有興趣的人可以看看 SPJ [對 Core 的介紹][IntoTheCore]很有意思。
+
+[Implementing functional languages: a tutorial][IFL] 和 [the Implementation of Functional Programming Languages][IoFPL] 比較舊，是有趣的參考資料，但和現在的 compiler 不一樣，也許不用細讀。
+
+記得到 [Functional Thursday][FT] 看看！ FP 很有趣，只可惜我的腦袋老是慢半拍 XD
+
+[BYOHC]: https://github.com/CindyLinz/BYOHC-Workshop
+[IFL]: http://research.microsoft.com/en-us/um/people/simonpj/Papers/pj-lester-book/
+[IoFPL]: http://research.microsoft.com/en-us/um/people/simonpj/papers/slpj-book-1987/
+[IntoTheCore]: https://www.youtube.com/watch?v=uR_VzYxvbxg
+[FT]: https://www.meetup.com/Functional-Thursday/
+
+## 網站
+
+敬請盡量維持網站們的運行，也不要對我自己寫的網頁增刪內容。在適合的頁面上（例如個人網站）可以加上發生了什麼事的訊息，並且放個連結讓人知道詳細資訊。網站首頁不妨重做，再連到原本的首頁就好。
+
+## 墳墓
+
+燒成灰後讓想要的人留著一些，大塊燒不掉的如果要拋棄，在一個適合的地方拋就好，不要弄到還得跑好幾處。
+
+* * *
+
+要是有其他事務，就寫封信給 lunadance 與 polydoris 吧。我想他們一定會做合理處置的。
+
+如果我出事了，請把頁尾的字樣換成連結。也歡迎在這個網站上發佈其他人想對我說的話。這些事都不複雜，相信你們都搞得定。
+
+若之後還能有意識，願能靜靜地陪在你們身邊。
+
+**~caasih**
+
+* * *
+
+對了，我還沒掛喔！
