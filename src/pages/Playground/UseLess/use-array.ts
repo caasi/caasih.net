@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
+import type { Time } from './use-space';
 
-export default function useArray(xs) {
+// The only place a value becomes a Time<T>: each render shows one state of xs.
+export default function useArray<T>(xs: readonly T[]): Time<T> {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -13,5 +15,5 @@ export default function useArray(xs) {
     return () => cancelAnimationFrame(id);
   }, [xs, index]);
 
-  return xs[index];
+  return xs[index] as Time<T>;
 }
