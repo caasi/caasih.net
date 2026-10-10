@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import type { Time } from './use-space';
 
-// The only place a value becomes a Time<T>: each render shows one state of xs.
-export default function useArray<T>(xs: readonly T[]): Time<T> {
+// The only place a value becomes a Time<T>. xs[index] is undefined for an
+// empty xs, or for one render after xs gets shorter, so undefined is in the type.
+export default function useArray<T>(xs: readonly T[]): Time<T | undefined> {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -15,5 +16,5 @@ export default function useArray<T>(xs: readonly T[]): Time<T> {
     return () => cancelAnimationFrame(id);
   }, [xs, index]);
 
-  return xs[index] as Time<T>;
+  return xs[index] as Time<T | undefined>;
 }
