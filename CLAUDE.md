@@ -10,12 +10,13 @@ Source lives in `src/` with entrypoints such as `index.jsx` and `Root/`. Feature
 - `yarn test` – Jest single run; `yarn test -- --watch` for iteration; `yarn test -- --coverage` before major submissions.
 - `yarn deploy` – publish `dist/` to GitHub Pages via `gh-pages` (runs `yarn build` first through `predeploy`).
 - `yarn lint` / `yarn prettier` – enforce ESLint and Prettier defaults before pushing.
+- `yarn typecheck` – run `tsc --noEmit` on `src/**/*.ts(x)`. Run it before you push a change to a `.ts` or `.tsx` file.
 - `yarn re:build` – regenerate Reason/ReScript output when the watcher is stopped.
 
 ## Toolchain Pinning
 - Node 20 LTS required (`.nvmrc`, `engines: ">=20 <25"` in `package.json`).
 - Yarn 4 via `packageManager: yarn@4.10.2`. `.yarnrc.yml` is gitignored and not in the repository; see README → *Setup on Linux*.
-- TypeScript supported alongside JS/ReScript (`tsconfig.json`, `jest-ts-transform.js`; `.ts`/`.tsx` covered by `yarn prettier`).
+- TypeScript supported alongside JS/ReScript (`tsconfig.json`, `jest-ts-transform.js`; `.ts`/`.tsx` covered by `yarn prettier`). webpack and Jest compile `.ts` with swc, which removes types and does not check them. Only `yarn typecheck` finds a type error.
 - `AGENTS.md` is a symlink to `CLAUDE.md` — edit `CLAUDE.md` only.
 
 ## Coding Style & Naming Conventions
