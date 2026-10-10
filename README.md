@@ -29,6 +29,25 @@ Personal site for experimenting with interactive writing, Ludum Dare archives, a
 
 These commands remain for reference until the modernization work replaces the toolchain.
 
+### Setup on Linux
+The repository does not include `.yarnrc.yml`, because `.gitignore` excludes it. On a new host, the plain `yarn` commands fail. Use these settings (tested on Ubuntu):
+
+```sh
+source ~/.nvm/nvm.sh
+nvm use 20
+export YARN_NODE_LINKER=node-modules
+export DISABLE_V8_COMPILE_CACHE=1
+corepack yarn install
+corepack yarn build
+```
+
+- **Node 20.** On Node 24, the postinstall script of `purescript@0.12.5` stops with a `TypeError`. Node 20 installs it correctly.
+- **`corepack yarn`.** A Node version from nvm has no global `yarn`. `corepack yarn` uses Yarn 4.10.2 from `packageManager`, without `corepack enable`.
+- **`YARN_NODE_LINKER=node-modules`.** Without `.yarnrc.yml`, Yarn uses Plug'n'Play and writes `.pnp.cjs`. With this variable, Yarn writes `node_modules/`.
+- **`DISABLE_V8_COMPILE_CACHE=1`.** Node 20.19 and later can `require()` an ES module. `webpack-cli` 3 loads `v8-compile-cache`, which compiles `async-function/require.mjs` as CommonJS. The build then stops with `Cannot use import statement outside a module`. This variable turns off that cache.
+
+To open the dev server from another machine, set `HOST=0.0.0.0` before `corepack yarn dev`. The default host is `localhost`, and the default port is `3000`.
+
 ## Agent-Readiness
 Static site, GitHub Pages + Cloudflare. Ships `robots.txt` (User-agent rules, AI-bot rules, `Content-Signal`, sitemap), `sitemap.xml`, RSS/Atom feeds, and per-post markdown twins at `/posts/{slug}.md`. Checks that require response-header control (RFC 8288 `Link`, `Accept: text/markdown` negotiation) or backing services (API catalog, OAuth, MCP, agent-skills, WebMCP) are out of scope — a low score from `isitagentready.com` is expected. See `CLAUDE.md` → *Agent-Readiness Scope*.
 
