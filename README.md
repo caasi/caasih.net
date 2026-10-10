@@ -23,7 +23,7 @@ Personal site for experimenting with interactive writing, Ludum Dare archives, a
 
 ## Local Development (Legacy)
 - `yarn start` – webpack dev server + ReScript watcher.
-- `yarn dev` – webpack dev server only, without the ReScript watcher.
+- `yarn dev` – webpack dev server only. It does not compile ReScript, so run `yarn re:build` first.
 - `yarn build` – production webpack bundle + `react-snapshot` export.
 - `yarn test` – run Jest 24 suites.
 
