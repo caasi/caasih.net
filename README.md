@@ -9,7 +9,7 @@ Personal site for experimenting with interactive writing, Ludum Dare archives, a
 - ReasonML (`bs-platform@8`) generating `.bs.js` alongside source; JavaScript lives in `src/` with CSS modules.
 - Webpack 4 configuration in `config/`, `webpack.config.js`, and `build.webpack.config.js`, plus custom static snapshot step.
 - Jest 24/Enzyme tests; no CI currently configured (Travis removed, GitHub Actions pending).
-- Node 20 LTS pinned via `.nvmrc` and `engines`; Yarn 4 via `packageManager` and `.yarnrc.yml`.
+- Node 20 LTS pinned via `.nvmrc` and `engines`; Yarn 4 via `packageManager` (`.yarnrc.yml` is gitignored, see *Setup on Linux*).
 
 ## Modernization Roadmap
 1. **Baseline cleanup** - Drop unused vendor files in `lib/` and prune generated artefacts from git. Node/Yarn versions are now pinned; next up is wiring GitHub Actions to replace the removed Travis config.

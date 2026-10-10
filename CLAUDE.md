@@ -14,7 +14,7 @@ Source lives in `src/` with entrypoints such as `index.jsx` and `Root/`. Feature
 
 ## Toolchain Pinning
 - Node 20 LTS required (`.nvmrc`, `engines: ">=20 <25"` in `package.json`).
-- Yarn 4 via `packageManager: yarn@4.10.2` and `.yarnrc.yml`.
+- Yarn 4 via `packageManager: yarn@4.10.2`. `.yarnrc.yml` is gitignored and not in the repository; see README → *Setup on Linux*.
 - TypeScript supported alongside JS/ReScript (`tsconfig.json`, `jest-ts-transform.js`; `.ts`/`.tsx` covered by `yarn prettier`).
 - `AGENTS.md` is a symlink to `CLAUDE.md` — edit `CLAUDE.md` only.
 
