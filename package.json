@@ -38,6 +38,7 @@
     "@swc/jest": "^0.2.2",
     "@types/jest": "^24",
     "@types/pako": "^2.0.4",
+    "@types/react": "^17",
     "autoprefixer": "9",
     "bs-let": "^0.1.16",
     "bs-platform": "^8.2.0",

@@ -1390,6 +1390,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/prop-types@npm:*":
+  version: 15.7.15
+  resolution: "@types/prop-types@npm:15.7.15"
+  checksum: 10c0/b59aad1ad19bf1733cf524fd4e618196c6c7690f48ee70a327eb450a42aab8e8a063fbe59ca0a5701aebe2d92d582292c0fb845ea57474f6a15f6994b0e260b2
+  languageName: node
+  linkType: hard
+
 "@types/react-reconciler@npm:~0.26.2":
   version: 0.26.7
   resolution: "@types/react-reconciler@npm:0.26.7"
@@ -1405,6 +1412,24 @@ __metadata:
   dependencies:
     csstype: "npm:^3.2.2"
   checksum: 10c0/7d25bf41b57719452d86d2ac0570b659210402707313a36ee612666bf11275a1c69824f8c3ee1fdca077ccfe15452f6da8f1224529b917050eb2d861e52b59b7
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^17":
+  version: 17.0.93
+  resolution: "@types/react@npm:17.0.93"
+  dependencies:
+    "@types/prop-types": "npm:*"
+    "@types/scheduler": "npm:^0.16"
+    csstype: "npm:^3.2.2"
+  checksum: 10c0/46c47d8ad8905482a22007c5702b6f02f2498933dabfbde3542d321bf027e30a5a16aea822eebb151962cf7b3f68daa1791ed7b4a31b6b83aa00f013f577fea1
+  languageName: node
+  linkType: hard
+
+"@types/scheduler@npm:^0.16":
+  version: 0.16.8
+  resolution: "@types/scheduler@npm:0.16.8"
+  checksum: 10c0/f86de504945b8fc41b1f391f847444d542e2e4067cf7e5d9bfeb5d2d2393d3203b1161bc0ef3b1e104d828dabfb60baf06e8d2c27e27ff7e8258e6e618d8c4ec
   languageName: node
   linkType: hard
 
@@ -2958,6 +2983,7 @@ __metadata:
     "@swc/jest": "npm:^0.2.2"
     "@types/jest": "npm:^24"
     "@types/pako": "npm:^2.0.4"
+    "@types/react": "npm:^17"
     autoprefixer: "npm:9"
     axios: "npm:^0.21.1"
     bs-let: "npm:^0.1.16"
