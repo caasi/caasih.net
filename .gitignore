@@ -1,12 +1,15 @@
 node_modules/
 bower_components/
+.yarn/
 
 # outputs
 output/
 dist/*.js
 !dist/sw.js
 dist/**/*.html
-!dist/continuity.html
+dist/feed.xml
+dist/atom.xml
+dist/feed.json
 
 # ReScript
 lib/bs/
@@ -14,8 +17,28 @@ lib/bs/
 *.bs.js
 .bsb.lock
 
+# Generated
+src/generated/md-twins.json
+dist/robots.txt
+dist/sitemap.xml
+dist/posts/*.md
+
+# Playwright MCP
+.playwright-mcp/
+
+# Jest
+.jest-node-shims/
+
+# npm (this project uses Yarn)
+package-lock.json
+
 # misc
 coverage/
 .DS_Store
 *.swp
 
+# worktrees
+.worktrees/
+
+# Claude Code session scratch
+.claude/
