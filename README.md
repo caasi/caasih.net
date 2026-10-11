@@ -1,18 +1,54 @@
 # caasih.net
 
-[![Build Status][travis-image]][travis-url]
-[![Coverage Status][codecov-image]][codecov-url]
-
 This is my site. There are many like it, but this one is mine.
 
-## TODO
+Personal site for experimenting with interactive writing, Ludum Dare archives, and web sketches. The repository currently runs on a React 17 + ReasonML stack bundled by Webpack 4, with static builds produced through `react-snapshot`.
 
-* [ ] port Ludum Dare games
-* [ ] port the continuity page
-* [ ] move ^C posts here
-* [ ] add a links page
+## Current Stack Snapshot
+- React 17, React Router 5, class-heavy components, and legacy lifecycle usage.
+- ReasonML (`bs-platform@8`) generating `.bs.js` alongside source; JavaScript lives in `src/` with CSS modules.
+- Webpack 4 configuration in `config/`, `webpack.config.js`, and `build.webpack.config.js`, plus custom static snapshot step.
+- Jest 24/Enzyme tests; no CI currently configured (Travis removed, GitHub Actions pending).
+- Node 24 pinned via `.nvmrc` (`engines` allows 20 to 24); Yarn 4 via `packageManager`; `.yarnrc.yml` sets the `node-modules` linker.
 
-[travis-image]: https://img.shields.io/travis/caasi/caasih.net.svg
-[travis-url]: https://travis-ci.org/caasi/caasih.net
-[codecov-image]: https://img.shields.io/codecov/c/github/caasi/caasih.net.svg
-[codecov-url]: https://codecov.io/gh/caasi/caasih.net
+## Modernization Roadmap
+1. **Baseline cleanup** - Drop unused vendor files in `lib/` and prune generated artefacts from git. Node/Yarn versions are now pinned; next up is wiring GitHub Actions to replace the removed Travis config.
+2. **Toolchain upgrade** - Node 24 and Yarn 4 are in place; next, replace Webpack 4 + react-snapshot with Vite (SSR + static export) or Astro for a faster iteration loop.
+3. **React & routing refresh** - Upgrade to React 18, adopt React Router 6 (or a file-based router if migrating to Astro/Next), and migrate class components to functional components with hooks where practical.
+4. **Polyglot workflow** - Treat the project as a multi-language playground: ensure the build stays friendly to code authored in JavaScript, TypeScript, PureScript, ReScript, Elm, Svelte, MDX, or any language that compiles to HTML, CSS, and JS. Document integration patterns, shared build targets, and module boundaries so contributors can mix paradigms safely.
+5. **Lang & type strategy** - Decide between modern ReScript (latest compiler + `rescript-lang` ecosystem) or a full TypeScript migration while honouring the polyglot goal. If staying with ReScript, update to `rescript@11`, relocate generated files to `lib/` or `node_modules/.cache`, and simplify interoperability.
+6. **Styling and assets** - Consolidate CSS modules or adopt Tailwind/CSS-in-JS, replace manual asset pipelines, and introduce image optimisation in the static build.
+7. **Testing & QA** - Upgrade to Jest 29 with React Testing Library, add Playwright or Cypress for interactive pages, and enforce coverage thresholds via CI.
+8. **Content & deployment** - Reimport Ludum Dare games, rebuild the continuity page, and migrate deployment to GitHub Pages via GitHub Actions or to a modern static host (Netlify/Vercel).
+
+## Local Development (Legacy)
+- `yarn start` – webpack dev server + ReScript watcher.
+- `yarn dev` – webpack dev server only. It does not compile ReScript, so run `yarn re:build` first.
+- `yarn build` – production webpack bundle + `react-snapshot` export.
+- `yarn test` – run Jest 24 suites.
+
+These commands remain for reference until the modernization work replaces the toolchain.
+
+### Setup on Linux
+Node installations from nvm do not include a global `yarn` command. `corepack yarn` uses Yarn 4.10.2 from `packageManager`, without `corepack enable`. Install, test and build pass on Ubuntu with Node 20.20.2, 24.16.0 and 24.18.0, from a clean `node_modules` and with no extra environment variables:
+
+```sh
+source ~/.nvm/nvm.sh
+nvm install
+corepack yarn install
+corepack yarn test
+corepack yarn build
+```
+
+To open the dev server from another machine, set `HOST=0.0.0.0` before `corepack yarn dev`. The default host is `localhost`, and the default port is `3000`.
+
+## Agent-Readiness
+Static site, GitHub Pages + Cloudflare. Ships `robots.txt` (User-agent rules, AI-bot rules, `Content-Signal`, sitemap), `sitemap.xml`, RSS/Atom feeds, and per-post markdown twins at `/posts/{slug}.md`. Checks that require response-header control (RFC 8288 `Link`, `Accept: text/markdown` negotiation) or backing services (API catalog, OAuth, MCP, agent-skills, WebMCP) are out of scope — a low score from `isitagentready.com` is expected. See `CLAUDE.md` → *Agent-Readiness Scope*.
+
+## Content Backlog
+- [ ] port Ludum Dare games
+- [ ] port the continuity page
+- [ ] move ^C posts here
+- [ ] add a links page
+
+Contributions aimed at the modernization roadmap should open an issue or discussion first to coordinate the migration path and avoid duplicated work.

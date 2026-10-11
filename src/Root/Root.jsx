@@ -8,6 +8,7 @@ import ScrollToTop from 'components/ScrollToTop'
 import PostIndex from 'pages/PostIndex'
 import Post from 'pages/Post'
 import Playground from 'pages/Playground'
+import Continuity from 'pages/Continuity'
 import posts from 'data/posts.json'
 import { filterPublicPosts } from 'types'
 
@@ -23,6 +24,9 @@ const Root = ({ id, className }) => {
       <ScrollToTop as="div" id={id} className={classes}>
         <Helmet>
           <title>caasih.net</title>
+          <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="caasih.net Atom feed" />
+          <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="caasih.net RSS feed" />
+          <link rel="alternate" type="application/feed+json" href="/feed.json" title="caasih.net JSON feed" />
         </Helmet>
         <h1>caasih.net</h1>
         <main id={styles.container}>
@@ -40,11 +44,16 @@ const Root = ({ id, className }) => {
             </>
           } />
           <Route strict path="/playground" component={Playground} />
+          <Route exact path="/continuity" component={Continuity} />
+          <Route exact path="/continuity.html" render={() => <Redirect to="/continuity" />} />
+          <Route exact path="/continuity/" render={() => <Redirect to="/continuity" />} />
         </main>
         <nav id={styles.menu}>
           <ul>
             <li><Link to="/posts">posts</Link></li>
             <li><Link to="/playground">playground</Link></li>
+            <li><Link to="/continuity">continuity</Link></li>
+            <li><a rel="me" href="https://g0v.social/@caasih">mastodon</a></li>
           </ul>
         </nav>
       </ScrollToTop>

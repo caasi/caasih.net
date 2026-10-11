@@ -7,14 +7,16 @@
     margin: 0;
     top: -1.25rem;
     right: 0;
-    color: #666;
     user-select: none;
     z-index: 0;
+    color: var(--background-color);
+    filter: brightness(0.95);
   }
 
   @media (prefers-color-scheme: dark) {
     > h1 {
-      color: #999;
+      color: var(--background-color-dark);
+      filter: brightness(1.4);
     }
   }
 
@@ -27,7 +29,7 @@
     white-space: pre;
 
     &:before {
-      content: 'data Site = Site\A { posts      :: [Markdown]\A , playground :: [ReactElement]\A }\Asite = Site '
+      content: 'data Site = Site\A { posts      :: [Markdown]\A , playground :: [ReactElement]\A , mastodon   :: Link\A }\Asite = Site '
     }
 
     > ul {
@@ -50,12 +52,6 @@
   #container {
     position: relative;
     z-index: 200;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    > h1 {
-      color: #999;
-    }
   }
 }
 
