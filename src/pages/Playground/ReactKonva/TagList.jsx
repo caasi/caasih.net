@@ -17,22 +17,26 @@ class TagList extends React.Component {
     }
   }
 
+  resizeHandlers = []
+
   getDimension(index) {
     return this.state.dimensions[index] || { width: 0, height: 0 }
   }
 
   setDimension(index, { width = 0, height = 0 } = {}) {
-    const { dimensions } = this.state
     const dimension = { width, height }
-    dimensions[index] = dimension
-    this.setState({ dimensions })
+    this.setState(({ dimensions }) => ({
+      dimensions: Object.assign([], dimensions, { [index]: dimension }),
+    }))
     return dimension
   }
 
   handleResize(index) {
-    return (width, height) => {
-      return this.setDimension(index, { width, height })
+    if (!this.resizeHandlers[index]) {
+      this.resizeHandlers[index] = (width, height) =>
+        this.setDimension(index, { width, height })
     }
+    return this.resizeHandlers[index]
   }
 
   render() {
