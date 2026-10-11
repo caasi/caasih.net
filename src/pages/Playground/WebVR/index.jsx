@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import cx from 'classnames'
 import { Helmet } from 'react-helmet'
 import Article from 'components/Article'
@@ -10,7 +10,7 @@ new WebVRPolyfill()
 
 function getVRDisplays() {
   if (!('getVRDisplays' in navigator)) {
-    return Promise.reject('WebVR not supported')
+    return Promise.reject(new Error('WebVR not supported'))
   }
   return navigator.getVRDisplays()
 }
@@ -146,7 +146,8 @@ function FrameData({
 
 function AboutWebVR({ id, className }) {
   const classes = cx(styles.className, 'playground-web-vr', className)
-  const [ds = [], error, pending] = usePromise(useMemo(getVRDisplays, []))
+  const [displaysPromise] = useState(getVRDisplays)
+  const [ds = [], error, pending] = usePromise(displaysPromise)
   const foo = { foo: 'bar', baz: { bar: 'foo' } }
 
   return (
