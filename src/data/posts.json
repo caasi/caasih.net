@@ -1,6 +1,19 @@
 [{
   "@context": "http://schema.org",
   "@type": "BlogPosting",
+  "headline": "2026 年 10 月的 CLAUDE.md",
+  "author": 0,
+  "datePublished": "2026-10-12T00:00",
+  "dateCreated": "2026-10-12T00:00",
+  "dateModified": "2026-10-12T00:00",
+  "url": "2026-10-12-claude-md",
+  "license": {
+    "version": "4.0",
+    "type": "by"
+  }
+},
+{  "@context": "http://schema.org",
+  "@type": "BlogPosting",
   "headline": "React is not Haskell",
   "author": 0,
   "datePublished": "2026-04-14T00:00",
