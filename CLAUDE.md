@@ -14,8 +14,8 @@ Source lives in `src/` with entrypoints such as `index.jsx` and `Root/`. Feature
 - `yarn re:build` – regenerate Reason/ReScript output when the watcher is stopped.
 
 ## Toolchain Pinning
-- Node 20 LTS required (`.nvmrc`, `engines: ">=20 <25"` in `package.json`).
-- Yarn 4 via `packageManager: yarn@4.10.2`. `.yarnrc.yml` is gitignored and not in the repository; see README → *Setup on Linux*.
+- Node 24, pinned in `.nvmrc`. `engines` in `package.json` allows `">=20 <25"`.
+- Yarn 4 via `packageManager: yarn@4.10.2`. `.yarnrc.yml` is in the repository and sets `nodeLinker: node-modules`.
 - TypeScript supported alongside JS/ReScript (`tsconfig.json`, `jest-ts-transform.js`; `.ts`/`.tsx` covered by `yarn prettier`). webpack and Jest compile `.ts` with swc, which removes types and does not check them. Only `yarn typecheck` finds a type error.
 - `AGENTS.md` is a symlink to `CLAUDE.md` — edit `CLAUDE.md` only.
 
