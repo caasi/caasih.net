@@ -17,7 +17,8 @@ module.exports = {
   setupFiles: ['./jest.setup.js'],
   testPathIgnorePatterns: ['/node_modules/', '/reusable'],
   transform: {
-    '^.+\\.(t|j)sx?$': ['@swc/jest', swcOptions],
+    '^.+\\.jsx?$': ['@swc/jest', swcOptions],
+    '^.+\\.tsx?$': '<rootDir>/jest-ts-transform.js',
   },
   moduleNameMapper: {
     '^!raw-loader!(.*)': 'identity-obj-proxy',
@@ -30,6 +31,7 @@ module.exports = {
     '^types(.*)$': '<rootDir>/src/types$1',
     '^data(.*)$': '<rootDir>/src/data$1',
   },
+  resolver: '<rootDir>/jest-node-resolver.js',
   coverageDirectory: './coverage/',
   collectCoverage: true,
 }
