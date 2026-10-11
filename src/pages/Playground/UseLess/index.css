@@ -1,5 +1,6 @@
 .className {
   .demo {
+    color-scheme: light;
     background: #fcfcfc;
     padding: 0.5em;
     margin: 1em 0;
@@ -13,62 +14,48 @@
       margin-bottom: 0 !important;
     }
 
-    section {
-      fieldset {
-        border: 0;
-        margin: 0;
-        margin-bottom: 1em;
-        padding: 0;
+    fieldset {
+      display: flex;
+      gap: 0.25rem;
+      border: 0;
+      padding: 0;
+      margin: 0 0 0.75em;
+    }
 
-        input, button {
-          box-sizing: content-box;
-          outline: none;
-          padding: 0.5rem 1rem;
-          border: 1px solid #ccc;
-        }
+    fieldset input,
+    fieldset button {
+      font: inherit;
+      padding: 0.4rem 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 0.25rem;
+      background: #fff;
+      color: inherit;
+    }
 
-        input {
-          border-right-width: 0;
-        }
+    fieldset input {
+      flex: 1;
+    }
 
-        button {
-          border-color: #09f;
-          background-color: #09f;
-          color: #fff;
-        }
-      }
+    fieldset button {
+      cursor: pointer;
+      background: #09f;
+      border-color: #09f;
+      color: #fff;
+    }
 
-      ol {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+    ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-        list-style: none;
-        padding-left: 0;
-        margin: 0;
-
-        li {
-          padding: 0.5rem 1rem;
-          line-height: 1rem;
-          background-color: #09f;
-          color: #fff;
-          border-top-right-radius: 1rem;
-          border-top-left-radius: 0.2rem;
-          border-bottom-right-radius: 1rem;
-          border-bottom-left-radius: 0.2rem;
-          margin-bottom: 0.2rem;
-
-          &:first-child {
-            border-top-left-radius: 1rem;
-
-          }
-
-          &:last-child {
-            border-bottom-left-radius: 1rem;
-            margin-bottom: 0;
-          }
-        }
-      }
+    ol li {
+      width: fit-content;
+      padding: 0.35rem 0.75rem;
+      margin-bottom: 0.25rem;
+      background: #09f;
+      color: #fff;
+      border-radius: 0.75rem;
     }
 
     div {
