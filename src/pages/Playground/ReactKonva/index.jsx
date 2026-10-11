@@ -73,20 +73,20 @@ class ReactKonva extends React.Component {
         <p>
           下面提到的元件都以 <a href="https://flow.org/">Flow</a> 標註型別，有著類似結構：
         </p>
-        <SourceCode open language="jsx">
+        <SourceCode defaultOpen language="jsx">
           {componentStructure}
         </SourceCode>
         <hr />
         <p>
           為了取得文字寬高，得用上 <a href="https://reactjs.org/docs/refs-and-the-dom.html"><code>ref</code></a> 來存取 React 包裝起來的繪製結果。平常取得的 <code>ref</code> 是 DOM node ，在 React Konva 下，我們拿到的是 <a href="https://konvajs.github.io/api/Konva.Text.html"><code>Konva.Text</code></a> 。
         </p>
-        <SourceCode open language="jsx">
+        <SourceCode defaultOpen language="jsx">
           {ref}
         </SourceCode>
         <p>
           接著在 <code>componentDidMount</code> 和 <code>componentDidUpdate</code> 時，就可以將長寬回報給父元件。
         </p>
-        <SourceCode open language="jsx">
+        <SourceCode defaultOpen language="jsx">
           {handleResize}
         </SourceCode>
         <p>
@@ -100,7 +100,7 @@ class ReactKonva extends React.Component {
             <code>Text</code> 畫完後，再根據其長寬畫外框
           </figcaption>
         </figure>
-        <SourceCode open language="jsx">
+        <SourceCode defaultOpen language="jsx">
           {updateDimension}
         </SourceCode>
         <hr />

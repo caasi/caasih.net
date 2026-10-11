@@ -43,9 +43,20 @@ console.log(b0.x); // 15
 console.log(b1.x); // 15
 ```
 
-I think this is much clear than [this one](http://stackoverflow.com/questions/1479319/simplest-cleanest-way-to-implement-singleton-in-javascript), but THE reputation system on stackoverflow prevents me from answering it :D
+I think this is much clear than [this one](https://stackoverflow.com/questions/1479319/simplest-cleanest-way-to-implement-singleton-in-javascript), but THE reputation system on stackoverflow prevents me from answering it :D
 
 The key of this code is that JavaScript&#8217;s construct will return an object instead of a new instance if it return any kind of object! Such a strange language!
 
 With delegate/proxy, we can reuse without class, with closure, we can accomplish encapsulation without keywords, what&#8217;s more?
 
+---
+
+## UPDATE (2026-03-06)
+
+I got the singleton part wrong in this original post.
+
+If the goal is to expose one shared value, I should just return `shared` directly, instead of returning another function and then calling it with `new`.
+
+In other words: `return shared`, not `return function() { return shared }`.
+
+Spec reference: [ECMAScript Function Objects `[[Construct]]`](https://tc39.es/ecma262/#sec-ecmascript-function-objects-construct-argumentslist-newtarget) (constructor returns the object value when an object is explicitly returned).

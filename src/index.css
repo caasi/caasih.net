@@ -1,4 +1,6 @@
 :root {
+  color-scheme: light dark;
+
   --m-white: #e6e6e7;
   --m-blue: #33a0d1;
   --m-purple: #373485;
