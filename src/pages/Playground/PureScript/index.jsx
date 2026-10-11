@@ -23,7 +23,7 @@ class PureScript extends React.PureComponent {
         </Helmet>
         <h1>PureScript</h1>
         <p>自從上次練習 VAT 驗證後，就再也沒碰過 PureScript 。最近好想用支援 ADT 的語言，撿回來學看看 XD</p>
-        <SourceCode open language="haskell">
+        <SourceCode defaultOpen language="haskell">
           {PreludeSource}
         </SourceCode>
         <CreativeCommons size="compact" type="by" />

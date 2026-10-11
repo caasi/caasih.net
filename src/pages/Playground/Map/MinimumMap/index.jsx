@@ -84,9 +84,9 @@ class MinimumMap extends Component {
                       e.stopPropagation()
 
                       const pt = { x: e.clientX, y: e.clientY }
+                      const { startPoint } = this.state
                       actions.dragEnd()
 
-                      const { startPoint } = this.state
                       if (
                         Math.abs(startPoint.x - pt.x) < Number.EPSILON &&
                         Math.abs(startPoint.y - pt.y) < Number.EPSILON

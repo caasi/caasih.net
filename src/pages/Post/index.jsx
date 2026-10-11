@@ -13,6 +13,20 @@ import moment from 'moment'
 import profile from 'data/profile.json'
 import { index, contents } from 'data/public-post'
 
+// Manifest is gitignored and regenerated at build/dev time. Fall back to an
+// empty slug list only when the file is missing (fresh checkout); rethrow
+// anything else so malformed JSON or permission errors surface loudly.
+let mdTwinsManifest = { slugs: [] }
+try {
+  // eslint-disable-next-line global-require
+  mdTwinsManifest = require('../../generated/md-twins.json')
+} catch (err) {
+  if (err.code !== 'MODULE_NOT_FOUND') throw err
+}
+const mdTwinSlugs = new Set(
+  Array.isArray(mdTwinsManifest.slugs) ? mdTwinsManifest.slugs : []
+)
+
 const DATETIME_FORMAT = 'YYYY-MM-DD HH:mm'
 
 /*::
@@ -49,6 +63,10 @@ class Post extends PureComponent {
           meta &&
           <Helmet>
             <title>{ meta.headline } - caasih.net</title>
+            {
+              mdTwinSlugs.has(pid) &&
+              <link rel="alternate" type="text/markdown" href={`/posts/${pid}.md`} />
+            }
           </Helmet>
         }
         {

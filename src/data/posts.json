@@ -1,6 +1,61 @@
 [{
   "@context": "http://schema.org",
   "@type": "BlogPosting",
+  "headline": "2026 年 10 月的 CLAUDE.md",
+  "author": 0,
+  "datePublished": "2026-10-12T00:00",
+  "dateCreated": "2026-10-12T00:00",
+  "dateModified": "2026-10-12T00:00",
+  "url": "2026-10-12-claude-md",
+  "license": {
+    "version": "4.0",
+    "type": "by"
+  }
+},
+{  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "React is not Haskell",
+  "author": 0,
+  "datePublished": "2026-04-14T00:00",
+  "dateCreated": "2026-04-14T00:00",
+  "dateModified": "2026-04-14T00:00",
+  "url": "2026-04-14-react-is-not-haskell",
+  "license": {
+    "version": "4.0",
+    "type": "by"
+  }
+},
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "CoolShell",
+  "author": 0,
+  "datePublished": "2023-03-16T05:34",
+  "dateCreated": "2023-03-16T05:34",
+  "dateModified": "2023-03-16T05:34",
+  "url": "2023-05-15-coolshell",
+  "license": {
+    "version": "4.0",
+    "type": "by"
+  }
+},
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "胡說",
+  "author": 0,
+  "datePublished": "2023-02-27T20:27",
+  "dateCreated": "2023-02-27T20:27",
+  "dateModified": "2023-02-27T20:27",
+  "url": "2023-02-27-jabberwocky",
+  "license": {
+    "version": "4.0",
+    "type": "by"
+  }
+},
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
   "headline": "the Haskell School of Music",
   "author": 0,
   "datePublished": "2018-09-20T05:53",
