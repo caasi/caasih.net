@@ -3000,7 +3000,6 @@ __metadata:
     eventsource-polyfill: "npm:^0.9.6"
     express: "npm:^4.14.0"
     feed: "npm:^5.2.0"
-    gentype: "npm:^3.21.0"
     gh-pages: "npm:^1.2.0"
     html-webpack-plugin: "npm:3"
     identity-obj-proxy: "npm:^3.0.0"
@@ -6044,15 +6043,6 @@ __metadata:
   version: 1.0.0-beta.2
   resolution: "gensync@npm:1.0.0-beta.2"
   checksum: 10c0/782aba6cba65b1bb5af3b095d96249d20edbe8df32dbf4696fd49be2583faf676173bf4809386588828e4dd76a3354fcbeb577bab1c833ccd9fc4577f26103f8
-  languageName: node
-  linkType: hard
-
-"gentype@npm:^3.21.0":
-  version: 3.50.0
-  resolution: "gentype@npm:3.50.0"
-  bin:
-    gentype: gentype.exe
-  checksum: 10c0/faba4a9d3a411fb0c8bce9a91e72f25f3d16a861525c8aa9605fd7db8c939533ca675bd3b4e770026c1ae411dab2d251d7a9261a42589d1b888584c7dda7c45a
   languageName: node
   linkType: hard
 
