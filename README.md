@@ -9,11 +9,11 @@ Personal site for experimenting with interactive writing, Ludum Dare archives, a
 - ReasonML (`bs-platform@8`) generating `.bs.js` alongside source; JavaScript lives in `src/` with CSS modules.
 - Webpack 4 configuration in `config/`, `webpack.config.js`, and `build.webpack.config.js`, plus custom static snapshot step.
 - Jest 24/Enzyme tests; no CI currently configured (Travis removed, GitHub Actions pending).
-- Node 20 LTS pinned via `.nvmrc` and `engines`; Yarn 4 via `packageManager` (`.yarnrc.yml` is gitignored, see *Setup on Linux*).
+- Node 24 pinned via `.nvmrc` (`engines` allows 20 to 24); Yarn 4 via `packageManager`; `.yarnrc.yml` sets the `node-modules` linker.
 
 ## Modernization Roadmap
 1. **Baseline cleanup** - Drop unused vendor files in `lib/` and prune generated artefacts from git. Node/Yarn versions are now pinned; next up is wiring GitHub Actions to replace the removed Travis config.
-2. **Toolchain upgrade** - Move to Node 20 LTS and Yarn Berry or pnpm; replace Webpack 4 + react-snapshot with Vite (SSR + static export) or Astro for a faster iteration loop.
+2. **Toolchain upgrade** - Node 24 and Yarn 4 are in place; next, replace Webpack 4 + react-snapshot with Vite (SSR + static export) or Astro for a faster iteration loop.
 3. **React & routing refresh** - Upgrade to React 18, adopt React Router 6 (or a file-based router if migrating to Astro/Next), and migrate class components to functional components with hooks where practical.
 4. **Polyglot workflow** - Treat the project as a multi-language playground: ensure the build stays friendly to code authored in JavaScript, TypeScript, PureScript, ReScript, Elm, Svelte, MDX, or any language that compiles to HTML, CSS, and JS. Document integration patterns, shared build targets, and module boundaries so contributors can mix paradigms safely.
 5. **Lang & type strategy** - Decide between modern ReScript (latest compiler + `rescript-lang` ecosystem) or a full TypeScript migration while honouring the polyglot goal. If staying with ReScript, update to `rescript@11`, relocate generated files to `lib/` or `node_modules/.cache`, and simplify interoperability.
@@ -30,21 +30,15 @@ Personal site for experimenting with interactive writing, Ludum Dare archives, a
 These commands remain for reference until the modernization work replaces the toolchain.
 
 ### Setup on Linux
-The repository does not include `.yarnrc.yml`, because `.gitignore` excludes it. On a new host, the plain `yarn` commands fail. Use these settings (tested on Ubuntu):
+Node installations from nvm do not include a global `yarn` command. `corepack yarn` uses Yarn 4.10.2 from `packageManager`, without `corepack enable`. Install, test and build pass on Ubuntu with Node 20.20.2, 24.16.0 and 24.18.0, from a clean `node_modules` and with no extra environment variables:
 
 ```sh
 source ~/.nvm/nvm.sh
-nvm use 20
-export YARN_NODE_LINKER=node-modules
-export DISABLE_V8_COMPILE_CACHE=1
+nvm install
 corepack yarn install
+corepack yarn test
 corepack yarn build
 ```
-
-- **Node 20.** On Node 24, the postinstall script of `purescript@0.12.5` stops with a `TypeError`. Node 20 installs it correctly.
-- **`corepack yarn`.** A Node version from nvm has no global `yarn`. `corepack yarn` uses Yarn 4.10.2 from `packageManager`, without `corepack enable`.
-- **`YARN_NODE_LINKER=node-modules`.** Without `.yarnrc.yml`, Yarn uses Plug'n'Play and writes `.pnp.cjs`. With this variable, Yarn writes `node_modules/`.
-- **`DISABLE_V8_COMPILE_CACHE=1`.** Node 20.19 and later can `require()` an ES module. `webpack-cli` 3 loads `v8-compile-cache`, which compiles `async-function/require.mjs` as CommonJS. The build then stops with `Cannot use import statement outside a module`. This variable turns off that cache.
 
 To open the dev server from another machine, set `HOST=0.0.0.0` before `corepack yarn dev`. The default host is `localhost`, and the default port is `3000`.
 
