@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "concurrently --kill-others npm:dev npm:re:watch",
-    "dev": "npm run build:md-twins-manifest && npm run clean && cross-env NODE_ENV=development NODE_OPTIONS=--openssl-legacy-provider webpack-dev-server",
+    "dev": "npm run build:md-twins-manifest && npm run clean && cross-env NODE_ENV=development NODE_OPTIONS=--openssl-legacy-provider DISABLE_V8_COMPILE_CACHE=1 webpack-dev-server",
     "clean": "rimraf ./dist/*bundle.js ./dist/index.html ./dist/404.html ./dist/continuity.html ./dist/posts/*.md ./dist/robots.txt ./dist/sitemap.xml",
     "clean:manifest": "rimraf ./dist/*.manifest.js",
     "lint": "eslint src",
@@ -19,7 +19,7 @@
     "build:robots": "node ./scripts/generate-robots.js",
     "build:sitemap": "node ./scripts/generate-sitemap.js",
     "build:md-twins": "node ./scripts/generate-md-twins.js --copy",
-    "build": "npm run clean && npm run build:md-twins-manifest && cross-env NODE_ENV=production NODE_OPTIONS=--openssl-legacy-provider npm run build:webpack && npm run build:snapshot && npm run clean:manifest && npm run build:feed && npm run build:robots && npm run build:sitemap && npm run build:md-twins",
+    "build": "npm run clean && npm run build:md-twins-manifest && cross-env NODE_ENV=production NODE_OPTIONS=--openssl-legacy-provider DISABLE_V8_COMPILE_CACHE=1 npm run build:webpack && npm run build:snapshot && npm run clean:manifest && npm run build:feed && npm run build:robots && npm run build:sitemap && npm run build:md-twins",
     "predeploy": "yarn build",
     "deploy": "gh-pages -t -d dist",
     "test": "npm run build:md-twins-manifest && jest",
