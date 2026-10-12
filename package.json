@@ -59,7 +59,7 @@
     "jest": "24",
     "json-loader": "^0.5.7",
     "jstransformer-markdown-it": "^2.0.0",
-    "postcss": "7",
+    "postcss": "8",
     "postcss-loader": "3",
     "postcss-scss": "2",
     "precss": "4",
