@@ -48,7 +48,7 @@ a:active {
   color: var(--link-color-lighter);
 }
 
-@media (prefers-color-scheme: dark) {
+@media screen and (prefers-color-scheme: dark) {
   body {
     background-color: var(--background-color-dark);
     color: var(--text-color-dark);
@@ -68,5 +68,12 @@ a:active {
 
   a:active {
     color: var(--link-color);
+  }
+}
+
+/* Paper has no dark mode: browsers drop the dark background, which leaves light text on white. */
+@media print {
+  :root {
+    color-scheme: light;
   }
 }
