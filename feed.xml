@@ -4,17 +4,10 @@
         <title>caasih.net</title>
         <link>https://caasih.net</link>
         <description>Personal site for interactive writing, archives, and sketches</description>
-        <lastBuildDate>Sun, 11 Oct 2026 16:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 13 Apr 2026 16:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>feed</generator>
         <language>zh-TW</language>
-        <item>
-            <title><![CDATA[2026 年 10 月的 CLAUDE.md]]></title>
-            <link>https://caasih.net/posts/2026-10-12-claude-md</link>
-            <guid isPermaLink="false">https://caasih.net/posts/2026-10-12-claude-md</guid>
-            <pubDate>Sun, 11 Oct 2026 16:00:00 GMT</pubDate>
-            <description><![CDATA[<small This article was composed with the assistance of Claude.</small 從 2026 年 03 月開始跟 AI agent 一起工作也大半年了，分享一下現在的 CLAUDE.md 。 Principles 開頭先講一下規則的核心思想。 先信任大模型會不斷進步。 目前仍然把人類納入產出的讀者中，多留一些資訊給未來。 然後描述一下要怎麼提高產出的正確性： Communication 最近看 AI 101 頻道剪了段唐鳳講自己怎麼跟 AI 相處的影片，是https://archive.tw/]]></description>
-        </item>
         <item>
             <title><![CDATA[React is not Haskell]]></title>
             <link>https://caasih.net/posts/2026-04-14-react-is-not-haskell</link>
