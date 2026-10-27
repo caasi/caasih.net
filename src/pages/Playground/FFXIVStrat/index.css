@@ -19,7 +19,7 @@
     border-radius: 4px;
   }
 
-  @media (prefers-color-scheme: dark) {
+  @media screen and (prefers-color-scheme: dark) {
     textarea {
       border-color: #555;
     }
